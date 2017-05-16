@@ -13,7 +13,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     $scope.wallets = profileService.getWallets({
       onlyComplete: true
     });
-    console.log($scope.wallets);
     $scope.hasWallets = lodash.isEmpty($scope.wallets) ? false : true;
   };
 
@@ -162,7 +161,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           return popupService.showAlert(err);
         }
         $log.debug('Got toAddress:' + addr + ' | ' + item.name);
-        console.log(item);
         return $state.transitionTo('tabs.send.amount', {
           recipientType: item.recipientType,
           toAddress: addr,
