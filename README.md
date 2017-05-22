@@ -70,6 +70,16 @@ npm run apply:copay
 npm run start:android
 ```
 
+If you are receiving a processGoogleDebug error, then please follow these instructions:
+1.  Remove the android platform using ```cordova platform rm android```
+1.  Navigate to Plugins > cordova-plugin-fcm > src > android > fcmplugin.grade file
+1.  Change the following line 
+    ```classpath 'com.google.gms:google-services:+'```
+    to ```classpath 'com.google.gms:google-services:3.0.0'```
+    
+1.  Now add the platform ```cordova platform add android```
+
+
 ### iOS
 
 Follow the [Cordova iOS Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/) to set up your development environment.
