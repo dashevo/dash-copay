@@ -57,7 +57,6 @@
     "bhttp": "^1.2.1",
     "bitauth": "^0.2.1",
     "bitcore-wallet-client": "git+ssh://git@github.com/dashevo/bitcore-wallet-client-dash.git",
-    "browserify": "^14.5.0",
     "bower": "^1.7.9",
     "cordova-android": "5.1.1",
     "cordova-custom-config": "^3.0.5",
