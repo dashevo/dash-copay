@@ -155,7 +155,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
   $scope.viewOnBlockchain = function() {
     var btx = $scope.btx;
-    var url = 'https://' + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') + 'insight.bitpay.com/tx/' + btx.txid;
+    var url = 'http://51.15.5.18:3001/insight-api-dash' + btx.txid;  // + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') +
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('View Transaction on Insight');

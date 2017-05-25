@@ -12,7 +12,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
 
     // Bitcore wallet service URL
     bws: {
-      url: 'https://bws.bitpay.com/bws/api',
+      url: 'http://51.15.5.18:3000',
     },
 
     download: {
@@ -69,7 +69,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
     },
 
     rates: {
-      url: 'https://insight.bitpay.com:443/api/rates',
+      url: 'http://51.15.5.18:3001/insight-api-dash/api/rates',
     },
 
     release: {
