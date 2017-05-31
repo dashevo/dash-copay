@@ -50,10 +50,10 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   });
 
   function setFee(customFeeLevel, cb) {
-    feeService.getCurrentFeeValue($scope.network, customFeeLevel, function(err, feePerKb) {
+    feeService.getCurrentFeeValue($scope.network, customFeeLevel, function(err, currentFeePerKb) {
       var config = configService.getSync().wallet;
       var configFeeLevel = (config.settings && config.settings.feeLevel) ? config.settings.feeLevel : 'normal';
-      feePerKb = feePerKb;
+      feePerKb = currentFeePerKb;
       feeLevel = customFeeLevel ? customFeeLevel : configFeeLevel;
       $scope.feeLevel = feeService.feeOpts[feeLevel];
       if (cb) return cb();
@@ -612,6 +612,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     $scope.hideModal = function(customFeeLevel) {
       if (customFeeLevel) {
         cachedTxp = {};
+        cachedSendMax = {};
         ongoingProcess.set('gettingFeeLevels', true);
         setFee(customFeeLevel, function() {
           ongoingProcess.set('gettingFeeLevels', false);
