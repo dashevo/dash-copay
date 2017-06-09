@@ -9,7 +9,8 @@
 .button,
 .onboarding .button {
   &.button-primary {
-    @include button-style($v-button-primary-bg, $v-button-primary-border, $v-button-primary-active-bg, $v-button-primary-active-border, $v-button-primary-color);
+    color: $v-dash-blue;
+    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
     @include button-clear($v-button-primary-bg);
     @include button-outline($v-button-primary-bg);
   }
@@ -27,9 +28,9 @@
 }
 .onboarding .button {
   &.button-secondary {
-    @include button-style($v-onboarding-button-secondary-bg, $v-onboarding-button-secondary-border, $v-onboarding-button-secondary-active-bg, $v-onboarding-button-secondary-active-border, $v-onboarding-button-secondary-color);
-    @include button-clear($v-onboarding-button-secondary-color);
-    @include button-outline($v-onboarding-button-secondary-color);
+    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
+    @include button-clear($v-button-secondary-color);
+    @include button-outline($v-dash-blue);
   }
 }
 

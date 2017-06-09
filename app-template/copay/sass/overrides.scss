@@ -3,18 +3,18 @@
  */
 
 /* Colors */
-$v-primary-color:                                    #192c3a;
-$v-secondary-color:                                  #31465b;
-$v-accent-color:                                     #1abb9b;
+$v-primary-color:                                    #0069b6;
+$v-secondary-color:                                  #00497f;
+$v-accent-color:                                     lighten(#1d71b8,5%);
 
-$v-text-primary-color:                               #192c3a;
+$v-text-primary-color:                               #0069b6;
 $v-text-secondary-color:                             #c2c9d1;
-$v-text-accent-color:                                #1abb9b;
+$v-text-accent-color:                                lighten(#1d71b8,5%);
 
-$v-success-color:                                    #1abb9b;
+$v-success-color:                                    lighten(#1d71b8,5%);
 $v-warning-color:                                    #bb331a;
 
-/* Theme */ 
+/* Theme */
 $v-default-wallet-color-index:                       6;
 $v-top-tabs-color:                                   $v-accent-color;
 $v-wallet-backup-phrase-color:                       $v-text-primary-color;
