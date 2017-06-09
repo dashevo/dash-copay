@@ -1,7 +1,7 @@
 .onboarding {
   background: $v-onboarding-gradient-top-color;
   color: $v-onboarding-color;
-  background-image: linear-gradient(to bottom, $v-onboarding-gradient-top-color 0%, $v-onboarding-gradient-bottom-color 100%);
+  background-image: linear-gradient(to bottom, $v-dash-blue 0%, #20445f 100%);
   height: 100%;
   text-align: center;
   .bar.bar-header {
@@ -9,7 +9,7 @@
     border: 0 none transparent;
     color: $v-onboarding-bar-header-color;
     button {
-      color: $v-onboarding-bar-header-button-color;
+      color: #ffffff;
     }
   }
   .onboarding-topic,
@@ -60,7 +60,7 @@
   }
 
   .back-button .icon:before {
-    color: $v-onboarding-button-back-color;
+    color: #ffffff;
   }
 }
 

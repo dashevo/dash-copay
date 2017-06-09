@@ -16,13 +16,15 @@ $v-subtle-gray:                                      darken(#ffffff, 5%) !defaul
 
 $v-primary-color:                                    #1e3186 !default;
 $v-secondary-color:                                  #111b49 !default;
-$v-accent-color:                                     #647ce8 !default;
+$v-dash-blue:                                        #0069b6 !default;
+$v-dash-secondary:                                   #00497f !default;
+$v-accent-color:                                     lighten(#1d71b8,5%) !default;
 
 $v-text-primary-color:                               #1e3186 !default;
 $v-text-secondary-color:                             #ffffff !default;
 $v-text-accent-color:                                #647ce8 !default;
 
-$v-success-color:                                    #13e5b6 !default;
+$v-success-color:                                    $v-accent-color !default;
 $v-warning-color:                                    #ffa500 !default;
 
 $v-wallet-color-map: (
@@ -42,7 +44,7 @@ $v-wallet-color-map: (
   13: (color: #7a8c9e, name: 'Light Slate Grey')
 ) !default;
 
-/* Theme */ 
+/* Theme */
 $v-default-wallet-color-index:                       6 !default; // See $v-wallet-color-map
 $v-subtle-box-shadow:                                0 1px 2px rgba(0, 0, 0, 0.25) !default;
 $v-hovering-box-shadow:                              0px 6px 12px 0px rgba(0, 0, 0, 0.3) !default;
