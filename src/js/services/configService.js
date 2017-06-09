@@ -44,7 +44,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
       reconnectDelay: 5000,
       idleDurationMin: 4,
       settings: {
-        unitName: 'BTC',
+        unitName: 'DASH',
         unitToSatoshi: 100000000,
         unitDecimals: 8,
         unitCode: 'btc',
