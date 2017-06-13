@@ -299,6 +299,7 @@ angular.module('copayApp.controllers').controller('importController',
 
         lopts.externalSource = walletService.externalSource.trezor.id;
         lopts.bwsurl = $scope.formData.bwsurl;
+        lopts.account = account;
         ongoingProcess.set('importingWallet', true);
         $log.debug('Import opts', lopts);
 
@@ -355,6 +356,7 @@ angular.module('copayApp.controllers').controller('importController',
 
         lopts.externalSource = lopts.externalSource = walletService.externalSource.ledger.id;
         lopts.bwsurl = $scope.formData.bwsurl;
+        lopts.account = account;
         ongoingProcess.set('importingWallet', true);
         $log.debug('Import opts', lopts);
 
