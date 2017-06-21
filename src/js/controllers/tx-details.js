@@ -14,7 +14,9 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
     $scope.isShared = $scope.wallet.credentials.n > 1;
 
     txConfirmNotification.checkIfEnabled(txId, function(res) {
-      $scope.txNotification = { value: res };
+      $scope.txNotification = {
+        value: res
+      };
     });
   });
 
@@ -24,7 +26,9 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
     listeners = [
       $rootScope.$on('bwsEvent', function(e, walletId, type, n) {
         if (type == 'NewBlock' && n && n.data && n.data.network == 'livenet') {
-          updateTxDebounced({hideLoading: true});
+          updateTxDebounced({
+            hideLoading: true
+          });
         }
       })
     ];
@@ -108,7 +112,8 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
       $scope.btx = txFormatService.processTx(tx);
       txFormatService.formatAlternativeStr(tx.fees, function(v) {
-        $scope.feeFiatStr = v;
+        $scope.btx.feeFiatStr = v;
+        $scope.btx.feeRateStr = ($scope.btx.fees / ($scope.btx.amount + $scope.btx.fees) * 100).toFixed(2) + '%';
       });
 
       if ($scope.btx.action != 'invalid') {
@@ -194,7 +199,9 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
   $scope.txConfirmNotificationChange = function() {
     if ($scope.txNotification.value) {
-      txConfirmNotification.subscribe($scope.wallet, { txid: txId });
+      txConfirmNotification.subscribe($scope.wallet, {
+        txid: txId
+      });
     } else {
       txConfirmNotification.unsubscribe($scope.wallet, txId);
     }
