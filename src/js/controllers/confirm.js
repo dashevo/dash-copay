@@ -353,10 +353,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     popupService.showAlert(null, msg, function() {});
   };
 
-  $scope.$on('accepted', function(event) {
-    $scope.approve();
-  });
-
   $scope.onWalletSelect = function(wallet) {
     setWallet(wallet, tx);
   };
@@ -542,10 +538,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   };
 
   $scope.statusChangeHandler = statusChangeHandler;
-
-  $scope.onConfirm = function() {
-    $scope.approve(statusChangeHandler);
-  };
 
   $scope.onSuccessConfirm = function() {
     $scope.sendStatus = '';
