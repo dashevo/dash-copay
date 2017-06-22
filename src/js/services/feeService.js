@@ -81,6 +81,6 @@ angular.module('copayApp.services').factory('feeService', function($log, $timeou
     });
   };
 
-  
+
   return root;
 });
