@@ -169,10 +169,10 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
       });
     };
 
-    feeService.getLowAmount($scope.wallet, function(err, lowAmount){
+    feeService.getFeeLevels(function(err, levels){
       walletService.getTxHistory($scope.wallet, {
         progressFn: progressFn,
-        lowAmount: lowAmount,
+        feeLevels: levels,
       }, function(err, txHistory) {
         $scope.updatingTxHistory = false;
         if (err) {
