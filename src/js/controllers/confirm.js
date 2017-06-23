@@ -277,11 +277,12 @@ angular.module('copayApp.controllers').controller('confirmController', function(
           updateAmount();
           showSendMaxWarning(sendMaxInfo);
         }
-        refresh();
 
         // txp already generated for this wallet?
-        if (tx.txp[wallet.id])
+        if (tx.txp[wallet.id]) {
+          refresh();
           return cb();
+        }
 
         getTxp(lodash.clone(tx), wallet, opts.dryRun, function(err, txp) {
           if (err) return cb(err);
@@ -298,6 +299,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
           tx.txp[wallet.id] = txp;
           $log.debug('Confirm. TX Fully Updated for wallet:' + wallet.id, tx);
+          refresh();
 
           return cb();
         });
