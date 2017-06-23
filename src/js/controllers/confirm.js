@@ -244,13 +244,15 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     updateAmount();
     refresh();
 
+    // End of quick refresh, before wallet is selected.
+    if (!wallet)return cb();
+
     feeService.getFeeRate(tx.network, tx.feeLevel, function(err, feeRate) {
       if (err) return cb(err);
 
       tx.feeRate = feeRate;
       tx.feeLevelName = feeService.feeOpts[tx.feeLevel];
 
-      // End of quick refresh, before wallet is selected.
       if (!wallet)
         return cb();
 
