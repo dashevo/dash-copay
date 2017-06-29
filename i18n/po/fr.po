@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: cmgustavo83\n"
 "Language-Team: French\n"
 "Language: fr\n"
-"PO-Revision-Date: 2017-06-23 15:23-0400\n"
+"PO-Revision-Date: 2017-06-29 08:10-0400\n"
 
 #: www/views/bitpayCard.html:63
 msgid "(Pre-Auth Holds transactions) The merchant has initiated a hold to make those funds unavailable until your transaction to them has fully settled. Funds are released within 30 days at the latest in the event the merchant decides not to complete the transaction."
@@ -218,15 +218,11 @@ msgstr "Une mise à jour de cette appli est disponible. Pour votre sécurité, v
 msgid "Anyone with your backup phrase can access or spend your bitcoin."
 msgstr "Quelqu'un disposant de votre phrase de sauvegarde peut accéder ou dépenser vos bitcoins."
 
-<<<<<<< 45968b6e595d23d356feb56ac25c8051e7a5c6ed
-#: www/views/backupWarning.html:10
-=======
 #: www/views/addresses.html:94
 msgid "Approximate Bitcoin network fee to transfer wallet's balance (with normal priority)"
 msgstr "Frais de réseau Bitcoin approximatifs pour transférer le solde du portefeuille (avec des frais normaux)"
 
 #: www/views/backupWarning.html:10
->>>>>>> Updates fr
 msgid "Are you being watched?"
 msgstr "Êtes-vous surveillé(e) ?"
 
@@ -1371,6 +1367,10 @@ msgstr "Chemin de dérivation invalide"
 #: src/js/controllers/copayers.js:90
 msgid "Invitation to share a {{appName}} Wallet"
 msgstr "Invitation pour partager un portefeuille {{appName}}"
+
+#: www/views/topup.html:56
+msgid "Invoice Fee"
+msgstr "Frais de facturation"
 
 #: src/js/controllers/feedback/send.js:79
 msgid "Is there anything we could do better?"
