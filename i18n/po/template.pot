@@ -1662,7 +1662,7 @@ msgstr ""
 msgid "No wallet selected"
 msgstr ""
 
-#: www/views/confirm.html:96
+#: src/js/controllers/topup.js:255
 msgid "No wallets available"
 msgstr ""
 
