@@ -517,7 +517,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
         walletService.publishAndSign(wallet, txp, function(err, txp) {
           if (err) return setSendError(err);
-          if (config.notifyIfTxConfirmed && config.notifyIfTxConfirmed.enabled) {
+          if (config.confirmedTxsNotifications && config.confirmedTxsNotifications.enabled) {
             txConfirmNotification.subscribe(wallet, {
               txid: txp.txid
             });
