@@ -263,7 +263,7 @@ msgstr ""
 msgid "Available Balance"
 msgstr ""
 
-#: www/views/modals/chooseFeeLevel.html:14
+#: www/views/modals/chooseFeeLevel.html:24
 #: www/views/preferencesFee.html:15
 msgid "Average confirmation time"
 msgstr ""
@@ -592,7 +592,7 @@ msgstr ""
 msgid "Could not add message to imported wallet without shared encrypting key"
 msgstr ""
 
-#: src/js/controllers/modals/txpDetails.js:189
+#: src/js/controllers/modals/txpDetails.js:193
 msgid "Could not broadcast payment"
 msgstr ""
 
@@ -640,7 +640,12 @@ msgstr ""
 msgid "Could not get dynamic fee for level: {{feeLevel}}"
 msgstr ""
 
-#: src/js/controllers/topup.js:66
+#: src/js/controllers/modals/feeLevels.js:113
+msgid "Could not get fee levels"
+msgstr ""
+
+#: src/js/controllers/buyAmazon.js:121
+#: src/js/controllers/topup.js:99
 msgid "Could not get the invoice"
 msgstr ""
 
@@ -745,7 +750,7 @@ msgstr ""
 msgid "Creating transaction"
 msgstr ""
 
-#: www/views/modals/chooseFeeLevel.html:19
+#: www/views/modals/chooseFeeLevel.html:34
 #: www/views/preferencesFee.html:20
 msgid "Current fee rate for this policy"
 msgstr ""
@@ -876,7 +881,11 @@ msgstr ""
 msgid "Enter Two Factor for your BitPay account"
 msgstr ""
 
-#: src/js/services/walletService.js:936
+#: www/views/modals/chooseFeeLevel.html:41
+msgid "Enter custom fee"
+msgstr ""
+
+#: src/js/services/walletService.js:1030
 msgid "Enter new spending password"
 msgstr ""
 
@@ -939,13 +948,14 @@ msgstr ""
 #: src/js/controllers/import.js:364
 #: src/js/controllers/import.js:70
 #: src/js/controllers/import.js:83
-#: src/js/controllers/join.js:120
-#: src/js/controllers/join.js:134
-#: src/js/controllers/join.js:141
-#: src/js/controllers/join.js:164
-#: src/js/controllers/join.js:172
-#: src/js/controllers/join.js:190
-#: src/js/controllers/modals/txpDetails.js:130
+#: src/js/controllers/join.js:121
+#: src/js/controllers/join.js:135
+#: src/js/controllers/join.js:142
+#: src/js/controllers/join.js:165
+#: src/js/controllers/join.js:173
+#: src/js/controllers/join.js:191
+#: src/js/controllers/modals/feeLevels.js:10
+#: src/js/controllers/modals/txpDetails.js:134
 #: src/js/controllers/paperWallet.js:47
 #: src/js/controllers/preferencesBitpayCard.js:20
 #: src/js/controllers/preferencesBitpayServices.js:33
@@ -1055,6 +1065,14 @@ msgstr ""
 #: www/views/topup.html:69
 #: www/views/tx-details.html:81
 msgid "Fee"
+msgstr ""
+
+#: www/views/modals/chooseFeeLevel.html:73
+msgid "Fee level"
+msgstr ""
+
+#: src/js/controllers/modals/feeLevels.js:101
+msgid "Fee level is not defined"
 msgstr ""
 
 #: www/views/confirm.html:81
@@ -1724,8 +1742,13 @@ msgstr ""
 msgid "Now is a perfect time to assess your surroundings. Nearby windows? Hidden cameras? Shoulder-spies?"
 msgstr ""
 
-#: src/js/services/popupService.js:15
-#: src/js/services/popupService.js:58
+#: src/js/controllers/buyAmazon.js:310
+#: src/js/controllers/topup.js:284
+#: src/js/services/popupService.js:16
+#: src/js/services/popupService.js:52
+#: src/js/services/popupService.js:61
+#: src/js/services/popupService.js:72
+#: www/views/modals/chooseFeeLevel.html:6
 msgid "OK"
 msgstr ""
 
@@ -2702,6 +2725,10 @@ msgstr ""
 msgid "Transaction not found"
 msgstr ""
 
+#: www/views/modals/chooseFeeLevel.html:54
+msgid "Transactions without fee are not supported."
+msgstr ""
+
 #: src/js/controllers/paperWallet.js:110
 msgid "Transfer to"
 msgstr ""
@@ -3091,8 +3118,8 @@ msgstr ""
 msgid "You control your bitcoin."
 msgstr ""
 
-#: www/views/modals/chooseFeeLevel.html:38
-msgid "You could not set a fee higher than 1000 satoshis/byte."
+#: www/views/modals/chooseFeeLevel.html:63
+msgid "You should not set a fee higher than {{maxFeeRecommended}} satoshis/byte."
 msgstr ""
 
 #: www/views/modals/bitpay-card-confirmation.html:5
@@ -3115,8 +3142,8 @@ msgstr ""
 msgid "Your Dash wallet is ready!"
 msgstr ""
 
-#: www/views/modals/chooseFeeLevel.html:34
-msgid "Your fee is lower than recommended super economy fee ({{getMinimumRecommeded()}} satoshis/byte). The transaction may never get confirmed."
+#: www/views/modals/chooseFeeLevel.html:60
+msgid "Your fee is lower than recommended."
 msgstr ""
 
 #: www/views/feedback/send.html:42
