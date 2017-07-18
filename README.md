@@ -66,7 +66,7 @@ Follow the [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/l
 When your developement enviroment is ready, run the `start:android` npm package script.
 
 ```sh
-npm run apply:copay
+npm run apply:dash
 npm run start:android
 ```
 
@@ -87,7 +87,7 @@ Follow the [Cordova iOS Platform Guide](https://cordova.apache.org/docs/en/lates
 When your developement enviroment is ready, run the `start:ios` npm package script.
 
 ```sh
-npm run apply:copay
+npm run apply:dash
 npm run start:ios
 ```
 
