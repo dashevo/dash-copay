@@ -44,33 +44,45 @@ RateService.prototype._fetchCurrencies = function() {
 
   var backoffSeconds = 5;
   var updateFrequencySeconds = 5 * 60;
-  var rateServiceUrl = 'https://bitpay.com/api/rates';
+  var rateServiceUrl = 'https://rates.blackcarrot.be/rate/DASH_USD.json';
 
   var retrieve = function() {
     //log.info('Fetching exchange rates');
-    self.httprequest.get(rateServiceUrl).success(function(res) {
-      self.lodash.each(res, function(currency) {
-        self._rates[currency.code] = currency.rate;
-        self._alternatives.push({
-          name: currency.name,
-          isoCode: currency.code,
-          rate: currency.rate
-        });
-      });
-      self._isAvailable = true;
-      self.lodash.each(self._queued, function(callback) {
-        setTimeout(callback, 1);
-      });
-      setTimeout(retrieve, updateFrequencySeconds * 1000);
-    }).error(function(err) {
-      //log.debug('Error fetching exchange rates', err);
-      setTimeout(function() {
-        backoffSeconds *= 1.5;
-        retrieve();
-      }, backoffSeconds * 1000);
-      return;
-    });
+    // self.httprequest.get(rateServiceUrl).success(function(res) {
+    //   self.lodash.each(res, function(currency) {
+    //     self._rates[currency.code] = currency.rate;
+    //     self._alternatives.push({
+    //       name: currency.name,
+    //       isoCode: currency.code,
+    //       rate: currency.rate
+    //     });
+    //   });
+    //   self._isAvailable = true;
+    //   self.lodash.each(self._queued, function(callback) {
+    //     setTimeout(callback, 1);
+    //   });
+    //   setTimeout(retrieve, updateFrequencySeconds * 1000);
+    // }).error(function(err) {
+    //   //log.debug('Error fetching exchange rates', err);
+    //   setTimeout(function() {
+    //     backoffSeconds *= 1.5;
+    //     retrieve();
+    //   }, backoffSeconds * 1000);
+    //   return;
+    // });
 
+
+    self.httprequest.get(rateServiceUrl).success(function(res) {
+      self._rates.USD = res.rate;
+      self._isAvailable = true;
+    }).error(function(err) {
+        //log.debug('Error fetching exchange rates', err);
+        setTimeout(function() {
+          backoffSeconds *= 1.5;
+          retrieve();
+        }, backoffSeconds * 1000);
+        return;
+      });
   };
 
   retrieve();
