@@ -679,7 +679,7 @@ angular.module('copayApp.services')
       var opts = {};
       opts.m = 1;
       opts.n = 1;
-      opts.networkName = 'livenet';
+      opts.networkName = 'testnet';
       root.createWallet(opts, cb);
     };
 

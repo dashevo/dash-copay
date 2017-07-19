@@ -1,7 +1,6 @@
 $relish-success: 1.3s;
 
 #onboarding-collect-email {
-  background: rgb(17, 209, 166);
 
   #success-container {
     top: 41vh;
@@ -80,6 +79,8 @@ $relish-success: 1.3s;
   }
 
   #collect-email-confirm {
+    max-width: 400px;
+    margin: auto;
     p.confirm {
       margin: 2rem 0;
       color: $v-mid-gray;
@@ -92,8 +93,9 @@ $relish-success: 1.3s;
       padding: 0;
     }
     .button {
-      padding: 0.5rem;
-      margin-bottom: 0;
+      margin-bottom: 15px;
+      width: 75%;
+      margin: auto;
     }
   }
 

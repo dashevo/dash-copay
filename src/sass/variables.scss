@@ -28,9 +28,9 @@ $v-success-color:                                    $v-accent-color !default;
 $v-warning-color:                                    #ffa500 !default;
 
 $v-wallet-color-map: (
-   0: (color: #dd4b39, name: 'Cinnabar'),
-   1: (color: #f38f12, name: 'Carrot Orange'),
-   2: (color: #faa77f, name: 'Light Salmon'),
+   0: (color: #0069B6, name: 'Dash Blue'),
+   1: (color: #007EDA, name: 'Dash Light Blue'),
+   2: (color: #dd4b39, name: 'Cinnabar'),
    3: (color: #d0b136, name: 'Metallic Gold'),
    4: (color: #9edd72, name: 'Feijoa'),
    5: (color: #29bb9c, name: 'Shamrock'),
@@ -41,11 +41,13 @@ $v-wallet-color-map: (
   10: (color: #9b59b6, name: 'Deep Lilac'),
   11: (color: #e856ef, name: 'Free Speech Magenta'),
   12: (color: #ff599e, name: 'Brilliant Rose'),
-  13: (color: #7a8c9e, name: 'Light Slate Grey')
+  13: (color: #7a8c9e, name: 'Light Slate Grey'),
+  14: (color: #f38f12, name: 'Carrot Orange'),
+  15: (color: #faa77f, name: 'Light Salmon')
 ) !default;
 
 /* Theme */
-$v-default-wallet-color-index:                       6 !default; // See $v-wallet-color-map
+$v-default-wallet-color-index:                       0 !default; // See $v-wallet-color-map
 $v-subtle-box-shadow:                                0 1px 2px rgba(0, 0, 0, 0.25) !default;
 $v-hovering-box-shadow:                              0px 6px 12px 0px rgba(0, 0, 0, 0.3) !default;
 $v-subtle-radius:                                    3px !default;
@@ -100,7 +102,7 @@ $v-button-secondary-outline-active-color:            #ffffff !default;
 $v-slide-bg-color:                                   $v-accent-color !default;
 $v-slider-bg-color:                                  #5063B9 !default;
 $v-slide-text-color:                                 #FFFFFF !default;
-$v-success-bg-color:                                 #11D1A6 !default;
+$v-success-bg-color:                                 #007EDA !default;
 
 /* Onboarding */
 $v-onboarding-pane-bg:                               $v-primary-color !default;

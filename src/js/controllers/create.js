@@ -64,7 +64,7 @@ angular.module('copayApp.controllers').controller('createController',
         id: 'new',
         label: gettextCatalog.getString('Random'),
         supportsTestnet: true
-      }, {        
+      }, {
         id: 'set',
         label: gettextCatalog.getString('Specify Recovery Phrase...'),
         supportsTestnet: false
@@ -123,7 +123,9 @@ angular.module('copayApp.controllers').controller('createController',
         m: $scope.formData.requiredCopayers,
         n: $scope.formData.totalCopayers,
         myName: $scope.formData.totalCopayers > 1 ? $scope.formData.myName : null,
-        networkName: $scope.formData.testnetEnabled ? 'testnet' : 'livenet',
+        // Removed for tesnet only
+        //networkName: $scope.formData.testnetEnabled ? 'testnet' : 'livenet',
+        networkName: 'testnet',
         bwsurl: $scope.formData.bwsurl,
         singleAddress: $scope.formData.singleAddressEnabled,
         walletPrivKey: $scope.formData._walletPrivKey, // Only for testing
