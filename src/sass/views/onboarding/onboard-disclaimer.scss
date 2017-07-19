@@ -77,11 +77,11 @@
     }
     .checkbox input:after,
     .checkbox .checkbox-icon:after{
-      border-color: $v-onboarding-checkbox-on-border;
+      border-color: #FFFFFF;
     }
     .checkbox input:checked:before,
     .checkbox input:checked + .checkbox-icon:before {
-      border-color: $v-onboarding-checkbox-on-border;
+      border-color: white;
     }
     .item-content {
       width: 90%;
@@ -168,11 +168,11 @@
   }
   .checkbox input:after,
   .checkbox .checkbox-icon:after{
-    border-color: $v-onboarding-checkbox-on-border;
+    border-color: #FFFFFF;
   }
   .checkbox input:checked:before,
   .checkbox input:checked + .checkbox-icon:before {
-    border-color: $v-onboarding-checkbox-on-border;
+    border-color: white;
   }
   button {
     margin-top: 1.5rem;
