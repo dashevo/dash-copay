@@ -61,6 +61,10 @@
       <variable name="URL_SCHEME" value="bitcoin" />
       <variable name="SECOND_URL_SCHEME" value="*APPURI*" />
     </plugin>
+    <plugin name="cordova-fabric-plugin" spec="https://github.com/sarriaroman/FabricPlugin.git">
+      <variable name="FABRIC_API_KEY" value="1f5cb62b417a7ad5ccb7d6a5d319bef3d9056eed" />
+      <variable name="FABRIC_API_SECRET" value="9ba6e8856e936ea1275acdf6df7edfcc84c8d52993d7db6df3e83afbde8d9376" />
+    </plugin>
     <plugin name="cordova-custom-config" spec="~3.0.5" />
     <plugin name="cordova-plugin-queries-schemes" spec="~0.1.5" />
     <plugin name="cordova-plugin-fcm" spec="2.1.1" />
