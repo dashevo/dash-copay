@@ -8,7 +8,7 @@
       <div class="item item-heading send-heading" translate>Recipient</div>
       <div class="item item-icon-left item-icon-right input">
         <i class="icon icon-svg left"><img src="img/icon-bitcoin-symbol.svg"></i>
-        <input type="text" placeholder="{{'Search or enter Dash address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur>
+        <input type="text" placeholder="{{'Search or enter DASH address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur>
         <i class="icon icon-svg qr" on-tap="openScanner()"><img src="img/scan-ico.svg"/></i>
       </div>
     </div>
@@ -22,15 +22,15 @@
           </i>
         </div>
         <div class="title" translate>
-          Start sending dash
+          Start sending DASH
         </div>
         <div class="subtitle">
-          <span ng-show="hasWallets" translate>To get started, buy dash or share your address. You can receive dash from any wallet or service.</span>
-          <span ng-show="!hasWallets" translate>To get started, you'll need to create a dash wallet and get some dash.</span>
+          <span ng-show="hasWallets" translate>To get started, buy DASH or share your address. You can receive DASH from any wallet or service.</span>
+          <span ng-show="!hasWallets" translate>To get started, you'll need to create a DASH wallet and get some DASH.</span>
           <div class="padding">
-            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate>Buy Dash</button>
-            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create dash wallet</button>
-            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show dash address</button>
+            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate>Buy DASH</button>
+            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create DASH wallet</button>
+            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show DASH address</button>
           </div>
         </div>
       </div>

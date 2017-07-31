@@ -23,11 +23,11 @@ angular.module('copayApp.controllers').controller('customAmountController', func
         showErrorAndBack('Error', 'Could not get the address');
         return;
       }
-      
+
       $scope.address = addr;
-    
+
       var parsedAmount = txFormatService.parseAmount(
-        data.stateParams.amount, 
+        data.stateParams.amount,
         data.stateParams.currency);
 
       // Amount in USD or BTC
@@ -40,7 +40,7 @@ angular.module('copayApp.controllers').controller('customAmountController', func
         var config = configService.getSync().wallet.settings;
         var amountUnit = txFormatService.satToUnit(parsedAmount.amountSat);
         var btcParsedAmount = txFormatService.parseAmount(amountUnit, config.unitName);
-        
+
         $scope.amountBtc = btcParsedAmount.amount;
         $scope.altAmountStr = btcParsedAmount.amountUnitStr;
       } else {
@@ -58,7 +58,7 @@ angular.module('copayApp.controllers').controller('customAmountController', func
   };
 
   $scope.copyToClipboard = function() {
-    return 'bitcoin:' + $scope.address + '?amount=' + $scope.amountBtc;
+    return $scope.address + '?amount=' + $scope.amountBtc;
   };
 
 });
