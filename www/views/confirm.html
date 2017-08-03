@@ -20,6 +20,11 @@
           <div class="alternative">{{alternativeAmountStr || '...'}}</div>
         </div>
       </div>
+      <div class="use-instapay">
+        <ion-checkbox ng-model="instapay.accepted">
+            <span translate>Use Instapay</span>
+        </ion-checkbox>
+      </div>  
       <div class="info">
         <div class="item single-line" ng-if="paypro">
           <span class="label" translate>Payment Expires:</span>
