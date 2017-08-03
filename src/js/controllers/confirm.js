@@ -20,6 +20,8 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
     toAmount = data.stateParams.toAmount;
     cachedSendMax = {};
+    $scope.instapay = {};
+    $scope.accepted = {};
     $scope.showFeeFiat = false;
     $scope.showAddress = false;
     $scope.useSendMax = data.stateParams.useSendMax == 'true' ? true : false;
