@@ -15,7 +15,7 @@
     "bitcore"
   ],
   "main": "www/index.html",
-  "title": "Dash",
+  "title": "DashPay",
   "window": {
     "title": "DashPay - DashPay Wallet",
     "icon": "www/img/app/icon.png",
