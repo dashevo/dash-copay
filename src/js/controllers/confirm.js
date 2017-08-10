@@ -168,6 +168,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     $scope.displayAmount = $scope.displayUnit = $scope.fee = $scope.alternativeAmountStr = $scope.insufficientFunds = $scope.noMatchingWallet = null;
     $scope.showFeeFiat = $scope.showAddress = false;
     $scope.showWarn = false;
+    $scope.instantSend = false;
   };
 
   $scope.getSendMaxInfo = function() {
@@ -462,7 +463,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
    $scope.showWarning = function() {
     $timeout(function() {
-      console.log("Check one two")
       $scope.showWarn = !$scope.showWarn;
       $ionicScrollDelegate.resize();
     }, 10);
@@ -471,6 +471,11 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   $scope.cancel = function() {
     $scope.payproModal.hide();
   };
+
+  $scope.enableInstantSend = function() {
+    console.log('HOOK UP SENDIX ENDPOINT')
+    $scope.instantSend = true;
+  }
 
   $scope.approve = function(onSendStatusChange) {
 

@@ -20,11 +20,11 @@
           <div class="alternative">{{alternativeAmountStr || '...'}}</div>
         </div>
       </div>
-      <div class="use-instapay">
-        <ion-checkbox ng-model="instapay.accepted">
+      <div class="dib">
+        <ion-checkbox class="dib" ng-model="instapay.accepted" ng-change="enableInstantSend()">
             <span translate>Use InstantSend</span>&nbsp
         </ion-checkbox>
-         <a ng-click="showWarning()" ng-if="!showWarn" translate>Fee Warning</a> 
+         <a class="dib" ng-click="showWarning()" ng-if="!showWarn" translate><img src="img/icon-help-support.svg"/></a> 
       </div>
       <div class="addr-explanation" ng-if="showWarn">
         <div class="addr-description">
