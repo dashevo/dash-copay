@@ -20,10 +20,16 @@
           <div class="alternative">{{alternativeAmountStr || '...'}}</div>
         </div>
       </div>
-      <div class="use-instapay">
-        <ion-checkbox ng-model="instapay.accepted">
-            <span translate>Use InstantSend</span>
+      <div class="dib">
+        <ion-checkbox class="dib" ng-model="instapay.accepted" ng-change="enableInstantSend()">
+            <span translate>Use InstantSend</span>&nbsp
         </ion-checkbox>
+         <a class="dib" ng-click="showWarning()" ng-if="!showWarn" translate><img src="img/icon-help-support.svg"/></a> 
+      </div>
+      <div class="addr-explanation" ng-if="showWarn">
+        <div class="addr-description">
+          <span translate>InstantSend instructs the network to immediately process your transaction for a small fee. With InstantSend, your transaction is faster, and highly secured by the Dash MasterNode Network.</span>&nbsp<a ng-click="showWarning()" translate>Hide</a>
+        </div>
       </div>  
       <div class="info">
         <div class="item single-line" ng-if="paypro">

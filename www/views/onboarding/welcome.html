@@ -6,7 +6,7 @@
         <p id="lead" translate>Dash is a revolutionary digital money system. Meet Digital Cash.</p>
     </div>
     <div id="cta-buttons">
-        <button class="button button-standard button-primary" id="get-started" href ui-sref="onboarding.tour" translate>Get started</button>
+        <button class="button button-standard button-primary" id="get-started" href ui-sref="onboarding.tour" ng-click="openPopup()" translate>Get started</button>
         <button class="button button-standard button-secondary button-clear" id="restore" translate href ui-sref="onboarding.import({'fromOnboarding':true})">Restore from backup</button>
     </div>
   </ion-content>
