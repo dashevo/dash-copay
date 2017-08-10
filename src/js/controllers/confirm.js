@@ -480,7 +480,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     }
 
     if ($scope.paypro && $scope.paymentExpired.value) {
-      popupService.showAlert(null, gettextCatalog.getString('This bitcoin payment request has expired.'));
+      popupService.showAlert(null, gettextCatalog.getString('This Dash payment request has expired.'));
       $scope.sendStatus = '';
       $timeout(function() {
         $scope.$apply();
