@@ -167,6 +167,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   function resetValues() {
     $scope.displayAmount = $scope.displayUnit = $scope.fee = $scope.alternativeAmountStr = $scope.insufficientFunds = $scope.noMatchingWallet = null;
     $scope.showFeeFiat = $scope.showAddress = false;
+    $scope.showInfo = false;
   };
 
   $scope.getSendMaxInfo = function() {
@@ -456,6 +457,15 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       $scope.payproModal = modal;
       $scope.payproModal.show();
     });
+  };
+
+
+   $scope.showInformation = function() {
+    $timeout(function() {
+      console.log("Check one two")
+      $scope.showInfo = !$scope.showInfo;
+      $ionicScrollDelegate.resize();
+    }, 10);
   };
 
   $scope.cancel = function() {
