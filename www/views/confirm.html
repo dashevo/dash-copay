@@ -22,12 +22,13 @@
       </div>
       <div class="use-instapay">
         <ion-checkbox ng-model="instapay.accepted">
-            <span translate>Use InstantSend</span>&nbsp<a ng-click="showInformation()" ng-if="!showInfo" translate>Fee Warning</a>
+            <span translate>Use InstantSend</span>&nbsp
         </ion-checkbox>
+         <a ng-click="showWarning()" ng-if="!showWarn" translate>Fee Warning</a> 
       </div>
-      <div class="addr-explanation" ng-if="showInfo">
+      <div class="addr-explanation" ng-if="showWarn">
         <div class="addr-description">
-          <span translate>InstantSend instructs the network to immediately process your transaction for a small fee. With InstantSend, your transaction is faster, and highly secured by the Dash MasterNode Network.</span>&nbsp<a ng-click="showInformation()" translate>Hide</a>
+          <span translate>InstantSend instructs the network to immediately process your transaction for a small fee. With InstantSend, your transaction is faster, and highly secured by the Dash MasterNode Network.</span>&nbsp<a ng-click="showWarning()" translate>Hide</a>
         </div>
       </div>  
       <div class="info">
