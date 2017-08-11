@@ -502,6 +502,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       var spendingPassEnabled = walletService.isEncrypted(wallet);
       var touchIdEnabled = config.touchIdFor && config.touchIdFor[wallet.id];
       var isCordova = $scope.isCordova;
+      var instantSend = $scope.instantSend
       var bigAmount = parseFloat(txFormatService.formatToUSD(txp.amount)) > 20;
       var message = gettextCatalog.getString('Sending {{amountStr}} from your {{name}} wallet', {
         amountStr: $scope.amountStr,
@@ -509,7 +510,20 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       });
       var okText = gettextCatalog.getString('Confirm');
       var cancelText = gettextCatalog.getString('Cancel');
+      if(instantSend) {
+        var request = {
+          url: 'http://51.15.5.18:3001/insight-api-dash/tx/sendix',
+          method: 'POST',
+          json: true
+        };
 
+        $http(request).then(function(response) {
+          $log.debug(response);
+          return cb(null, response);
+        }, function(err) {
+          return cb('Error: ' + err);
+        });
+      }
       if (!spendingPassEnabled && !touchIdEnabled) {
         if (isCordova) {
           if (bigAmount) {
