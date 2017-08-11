@@ -5,9 +5,6 @@
   $item-border-color: #EFEFEF;
   $item-label-color: #6C6C6E;
 
-  .list {
-    background: #f5f5f5;
-  }
   .add-bottom-for-cta {
     bottom: 92px;
   }
@@ -49,6 +46,8 @@
     }
   }
   .item {
+    overflow: hidden;
+    border-width: 0px;
     border-color: $item-border-color;
     &-note {
       word-break: keep-all;
