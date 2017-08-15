@@ -58,7 +58,7 @@ angular.module('copayApp.controllers').controller('customAmountController', func
   };
 
   $scope.copyToClipboard = function() {
-    return $scope.address + '?amount=' + $scope.amountBtc;
+    return 'dash:' + $scope.address + '?amount=' + $scope.amountBtc;
   };
 
 });

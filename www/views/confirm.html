@@ -19,6 +19,9 @@
           <div class="amount">{{displayAmount || '...'}} <span class="unit">{{displayUnit}}</span></div>
           <div class="alternative">{{alternativeAmountStr || '...'}}</div>
         </div>
+        <div ng-style="{'padding': '10px'}" >
+          <input ng-model="isInstant" ng-style="{'-webkit-appearance': 'radio', '-moz-appearance': 'radio'}" ng-type="checkbox" /> <span>Use Instant Send</span>
+        </div>
       </div>
       <div class="info">
         <div class="item single-line" ng-if="paypro">
@@ -26,7 +29,6 @@
           <span class="item-note" ng-if="!paymentExpired.value">{{remainingTimeStr.value}}</span>
           <span class="item-note" ng-if="paymentExpired.value" ng-style="{'color': 'red'}" translate>Expired</span>
         </div>
-
         <div class="item">
           <span class="label" translate>To</span>
           <span class="payment-proposal-to" ng-if="!recipientType">

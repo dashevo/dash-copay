@@ -13,7 +13,13 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     console.log('data', data)
     console.log('scan', $state.includes('tabs.scan'))
 
-    if(bitcore.Address(data).isValid == null){
+    if ($state.includes('tabs.scan')) {
+      root.showMenu({
+        data: data,
+        type: 'text'
+      });
+    }
+    else if(bitcore.Address(data).isValid == null){
       goToAmountPage(data);
     }
     // $log.debug('Processing incoming data: ' + data);

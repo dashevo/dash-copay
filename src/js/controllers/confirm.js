@@ -22,6 +22,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     cachedSendMax = {};
     $scope.showFeeFiat = false;
     $scope.showAddress = false;
+    $scope.isInstant = false;
     $scope.useSendMax = data.stateParams.useSendMax == 'true' ? true : false;
     $scope.recipientType = data.stateParams.recipientType || null;
     $scope.toAddress = data.stateParams.toAddress;

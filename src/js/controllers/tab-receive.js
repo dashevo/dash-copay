@@ -133,7 +133,7 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
   };
 
   $scope.copyToClipboard = function() {
-    if ($scope.isCordova) return $scope.addr;
+    if ($scope.isCordova) return 'dash:' + $scope.addr;
     else return $scope.addr;
   }
 });
