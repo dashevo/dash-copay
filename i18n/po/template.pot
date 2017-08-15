@@ -2938,11 +2938,11 @@ msgid "You'll receive email notifications about payments sent and received from 
 msgstr ""
 
 #: www/views/includes/confirmBackupPopup.html:6
-msgid "Your bitcoin wallet is backed up!"
+msgid "Your DASH wallet is backed up!"
 msgstr ""
 
 #: www/views/tab-home.html:35
-msgid "Your bitcoin wallet is ready!"
+msgid "Your DASH wallet is ready!"
 msgstr ""
 
 #: www/views/feedback/send.html:42

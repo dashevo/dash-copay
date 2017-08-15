@@ -34,7 +34,7 @@ bwcModule.provider("bwcService", function() {
 
       //note opts use `bwsurl` all lowercase;
       var bwc = new Client({
-        baseUrl: 'http://138.197.42.185:3232/bws/api',
+        baseUrl: 'https://bws.dashevo.org/bws/api/',
         verbose: opts.verbose,
         timeout: 100000,
         transports: ['polling'],

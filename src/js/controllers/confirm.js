@@ -20,6 +20,8 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
     toAmount = data.stateParams.toAmount;
     cachedSendMax = {};
+    $scope.instapay = {};
+    $scope.accepted = {};
     $scope.showFeeFiat = false;
     $scope.showAddress = false;
     $scope.isInstant = false;
@@ -166,6 +168,8 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   function resetValues() {
     $scope.displayAmount = $scope.displayUnit = $scope.fee = $scope.alternativeAmountStr = $scope.insufficientFunds = $scope.noMatchingWallet = null;
     $scope.showFeeFiat = $scope.showAddress = false;
+    $scope.showWarn = false;
+    $scope.instantSend = false;
   };
 
   $scope.getSendMaxInfo = function() {
@@ -208,7 +212,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
         cachedSendMax[$scope.wallet.id] = $scope.sendMaxInfo;
 
-        var msg = gettextCatalog.getString("{{fee}} will be deducted for dash networking fees.", {
+        var msg = gettextCatalog.getString("{{fee}} will be deducted for DashPay networking fees.", {
           fee: txFormatService.formatAmountStr(resp.fee)
         });
         var warningMsg = verifyExcludedUtxos();
@@ -457,9 +461,22 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     });
   };
 
+
+   $scope.showWarning = function() {
+    $timeout(function() {
+      $scope.showWarn = !$scope.showWarn;
+      $ionicScrollDelegate.resize();
+    }, 10);
+  };
+
   $scope.cancel = function() {
     $scope.payproModal.hide();
   };
+
+  $scope.enableInstantSend = function() {
+    console.log('HOOK UP SENDIX ENDPOINT')
+    $scope.instantSend = true;
+  }
 
   $scope.approve = function(onSendStatusChange) {
 
@@ -469,7 +486,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     }
 
     if ($scope.paypro && $scope.paymentExpired.value) {
-      popupService.showAlert(null, gettextCatalog.getString('This bitcoin payment request has expired.'));
+      popupService.showAlert(null, gettextCatalog.getString('This Dash payment request has expired.'));
       $scope.sendStatus = '';
       $timeout(function() {
         $scope.$apply();

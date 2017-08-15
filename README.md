@@ -98,7 +98,7 @@ The desktop version of Copay currently uses NW.js, an app runtime based on Chrom
 When NW.js is installed, run the `start:desktop` npm package script.
 
 ```sh
-npm run apply:copay
+npm run apply:dash
 npm run start:desktop
 ```
 
@@ -112,7 +112,7 @@ The `final` commands build the production version of the app, and bundle it with
 
 ```sh
 npm run clean-all
-npm run apply:copay
+npm run apply:dash
 npm run final:android
 ```
 
@@ -120,7 +120,7 @@ npm run final:android
 
 ```sh
 npm run clean-all
-npm run apply:copay
+npm run apply:dash
 npm run final:ios
 ```
 
@@ -133,7 +133,7 @@ npm run final:ios
 
 ```sh
 npm run clean-all
-npm run apply:copay
+npm run apply:dash
 npm run final:desktop
 ```
 

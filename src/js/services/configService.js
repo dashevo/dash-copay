@@ -65,7 +65,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
     },
 
     hideNextSteps: {
-      enabled: false,
+      enabled: true,
     },
 
     rates: {
