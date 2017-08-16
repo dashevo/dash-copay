@@ -703,16 +703,27 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
 
     if (txp.status != 'accepted')
       return cb('TX_NOT_ACCEPTED');
-
-    wallet.broadcastTxProposal(txp, function(err, broadcastedTxp, memo) {
-      if (err)
-        return cb(err);
-
-      $log.debug('Transaction broadcasted');
-      if (memo) $log.info(memo);
-
-      return cb(null, broadcastedTxp);
-    });
+    if (window.instantSend) {
+      wallet.broadcastIXRawTx(txp, function(err, broadcastedTxp, memo) {
+        if (err)
+          return cb(err);
+  
+        $log.debug('Transaction broadcasted');
+        if (memo) $log.info(memo);
+  
+        return cb(null, broadcastedTxp);
+      });
+    } else {
+      wallet.broadcastTxProposal(txp, function(err, broadcastedTxp, memo) {
+        if (err)
+          return cb(err);
+  
+        $log.debug('Transaction broadcasted');
+        if (memo) $log.info(memo);
+  
+        return cb(null, broadcastedTxp);
+      });
+    }
   };
 
   root.rejectTx = function(wallet, txp, cb) {

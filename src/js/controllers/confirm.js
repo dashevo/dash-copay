@@ -169,7 +169,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     $scope.displayAmount = $scope.displayUnit = $scope.fee = $scope.alternativeAmountStr = $scope.insufficientFunds = $scope.noMatchingWallet = null;
     $scope.showFeeFiat = $scope.showAddress = false;
     $scope.showWarn = false;
-    $scope.instantSend = false;
+    window.instantSend = false;
   };
 
   $scope.getSendMaxInfo = function() {
@@ -474,7 +474,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   };
 
   $scope.enableInstantSend = function() {
-    $scope.instantSend = true;
+    window.instantSend = true;
   }
 
   $scope.approve = function(onSendStatusChange) {
@@ -496,9 +496,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     ongoingProcess.set('creatingTx', true, onSendStatusChange);
     createTx(wallet, false, function(err, txp) {
       ongoingProcess.set('creatingTx', false, onSendStatusChange);
-      if (err) return;
-      var instantSend = $scope.instantSend
-      
+      if (err) return;     
       var config = configService.getSync();
       var spendingPassEnabled = walletService.isEncrypted(wallet);
       var touchIdEnabled = config.touchIdFor && config.touchIdFor[wallet.id];
@@ -510,28 +508,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       });
       var okText = gettextCatalog.getString('Confirm');
       var cancelText = gettextCatalog.getString('Cancel');
-      if(instantSend) {
-        console.log(txp, "check for scriptsig")
-        var rawTx = bwcService.Client.getRawTx(txp);
-        var request = {
-          url: 'http://51.15.5.18:3001/insight-api-dash/tx/sendix',
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          data: {
-            rawtx: rawTx
-          } 
-        };
-        console.log(request, "request")
-        $http(request).then(function(response) {
-          $log.debug(response);
-          return cb(null, response);
-        }, function(err) {
-          return cb('Error: ' + err);
-        });
-        return;
-      }
       if (!spendingPassEnabled && !touchIdEnabled) {
         if (isCordova) {
           if (bigAmount) {
