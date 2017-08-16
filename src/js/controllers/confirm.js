@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('confirmController', function($rootScope, $scope, $interval, $filter, $timeout, $ionicScrollDelegate, gettextCatalog, walletService, platformInfo, lodash, configService, rateService, $stateParams, $window, $state, $log, profileService, bitcore, txFormatService, ongoingProcess, $ionicModal, popupService, $ionicHistory, $ionicConfig, payproService, feeService, bwcError) {
+angular.module('copayApp.controllers').controller('confirmController', function($rootScope, $scope, $interval, $filter, $timeout, $ionicScrollDelegate, gettextCatalog, walletService, bwcService, platformInfo, lodash, configService, rateService, $stateParams, $window, $state, $log, $http, profileService, bitcore, txFormatService, ongoingProcess, $ionicModal, popupService, $ionicHistory, $ionicConfig, payproService, feeService, bwcError) {
   var cachedTxp = {};
   var toAmount;
   var isChromeApp = platformInfo.isChromeApp;
@@ -474,7 +474,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   };
 
   $scope.enableInstantSend = function() {
-    console.log('HOOK UP SENDIX ENDPOINT')
     $scope.instantSend = true;
   }
 
@@ -498,7 +497,8 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     createTx(wallet, false, function(err, txp) {
       ongoingProcess.set('creatingTx', false, onSendStatusChange);
       if (err) return;
-
+      var instantSend = $scope.instantSend
+      
       var config = configService.getSync();
       var spendingPassEnabled = walletService.isEncrypted(wallet);
       var touchIdEnabled = config.touchIdFor && config.touchIdFor[wallet.id];
@@ -510,7 +510,28 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       });
       var okText = gettextCatalog.getString('Confirm');
       var cancelText = gettextCatalog.getString('Cancel');
-
+      if(instantSend) {
+        console.log(txp, "check for scriptsig")
+        var rawTx = bwcService.Client.getRawTx(txp);
+        var request = {
+          url: 'http://51.15.5.18:3001/insight-api-dash/tx/sendix',
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          data: {
+            rawtx: rawTx
+          } 
+        };
+        console.log(request, "request")
+        $http(request).then(function(response) {
+          $log.debug(response);
+          return cb(null, response);
+        }, function(err) {
+          return cb('Error: ' + err);
+        });
+        return;
+      }
       if (!spendingPassEnabled && !touchIdEnabled) {
         if (isCordova) {
           if (bigAmount) {
@@ -581,7 +602,6 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   };
 
   function publishAndSign(wallet, txp, onSendStatusChange) {
-
     if (!wallet.canSign() && !wallet.isPrivKeyExternal()) {
       $log.info('No signing proposal: No private key');
 
@@ -591,6 +611,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     }
 
     walletService.publishAndSign(wallet, txp, function(err, txp) {
+
       if (err) return setSendError(err);
     }, onSendStatusChange);
   };
