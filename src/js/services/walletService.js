@@ -602,7 +602,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
     });
   };
 
- 
+
 
   root.getTxHistory = function(wallet, opts, cb) {
     opts = opts || {};
@@ -704,23 +704,22 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
     if (txp.status != 'accepted')
       return cb('TX_NOT_ACCEPTED');
     if (window.instantSend) {
-      wallet.broadcastIXRawTx(txp, function(err, broadcastedTxp, memo) {
-        if (err)
-          return cb(err);
-  
-        $log.debug('Transaction broadcasted');
-        if (memo) $log.info(memo);
-  
-        return cb(null, broadcastedTxp);
+      $log.debug('txp', txp);
+      wallet.broadcastIXRawTx({
+        rawTx: txp.id,
+        network: txp.network
+      }, function(err, txid) {
+        if (err) return cb(err);
+        return cb(null, txp);
       });
     } else {
       wallet.broadcastTxProposal(txp, function(err, broadcastedTxp, memo) {
         if (err)
           return cb(err);
-  
+
         $log.debug('Transaction broadcasted');
         if (memo) $log.info(memo);
-  
+
         return cb(null, broadcastedTxp);
       });
     }

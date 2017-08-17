@@ -2082,6 +2082,32 @@ API.prototype.rejectTxProposal = function(txp, reason, cb) {
  * @param {Callback} cb
  * @return {Callback} cb - Return error or txid
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 API.prototype.broadcastRawTx = function(opts, cb) {
   $.checkState(this.credentials);
   $.checkArgument(cb);
