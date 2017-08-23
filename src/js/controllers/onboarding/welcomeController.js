@@ -15,7 +15,7 @@ angular.module('copayApp.controllers').controller('welcomeController', function(
   });
 
   $scope.openPopup = function() {
-          popupService.showAlert('Important Notice: For testing purposes DashPay is currently on the Dash testnet. No real money (Dash funds) is in use right now.', function() {
+          popupService.showAlert('Important Notice: For testing purposes Dash Copay is currently on the Dash testnet. No real money (Dash funds) is in use right now.', function() {
               $state.go('onboarding.tour')
           });
     }
