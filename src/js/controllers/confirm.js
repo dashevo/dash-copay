@@ -212,7 +212,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
         cachedSendMax[$scope.wallet.id] = $scope.sendMaxInfo;
 
-        var msg = gettextCatalog.getString("{{fee}} will be deducted for DashPay networking fees.", {
+        var msg = gettextCatalog.getString("{{fee}} will be deducted for Dash Copay networking fees.", {
           fee: txFormatService.formatAmountStr(resp.fee)
         });
         var warningMsg = verifyExcludedUtxos();
