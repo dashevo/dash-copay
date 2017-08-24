@@ -15,7 +15,7 @@ angular.module('copayApp.controllers').controller('customAmountController', func
       showErrorAndBack('Error', 'No wallet selected');
       return;
     }
-      
+
     $scope.showShareButton = platformInfo.isCordova ? (platformInfo.isIOS ? 'iOS' : 'Android') : null;
 
     $scope.wallet = profileService.getWallet(walletId);
@@ -28,7 +28,9 @@ angular.module('copayApp.controllers').controller('customAmountController', func
 
       $scope.address = addr;
 
+      $scope.chain = (data.stateParams.chain).toLowerCase();
       var parsedAmount = txFormatService.parseAmount(
+        $scope.wallet,
         data.stateParams.amount,
         data.stateParams.currency);
 
@@ -37,16 +39,16 @@ angular.module('copayApp.controllers').controller('customAmountController', func
       var currency = parsedAmount.currency;
       $scope.amountUnitStr = parsedAmount.amountUnitStr;
 
-      if (currency != 'BTC') {
-        // Convert to BTC
+      if (currency != 'BTC' && currency != 'BCH') {
+        // Convert to BTC or BCH
         var config = configService.getSync().wallet.settings;
         var amountUnit = txFormatService.satToUnit(parsedAmount.amountSat);
-        var btcParsedAmount = txFormatService.parseAmount(amountUnit, config.unitName);
+        var btcParsedAmount = txFormatService.parseAmount($scope.wallet, amountUnit, $scope.wallet.chain);
 
         $scope.amountBtc = btcParsedAmount.amount;
         $scope.altAmountStr = btcParsedAmount.amountUnitStr;
       } else {
-        $scope.amountBtc = amount; // BTC
+        $scope.amountBtc = amount; // BTC or BCH
         $scope.altAmountStr = txFormatService.formatAlternativeStr(parsedAmount.amountSat);
       }
     });
@@ -61,12 +63,12 @@ angular.module('copayApp.controllers').controller('customAmountController', func
 
   $scope.shareAddress = function() {
     if (!platformInfo.isCordova) return;
-    var data = 'bitcoin:' + $scope.address + '?amount=' + $scope.amountBtc;
+    var data = 'dash:' + $scope.address + '?amount=' + $scope.amountBtc;
     window.plugins.socialsharing.share(data, null, null, null);
   }
 
   $scope.copyToClipboard = function() {
-    return 'dash:' + $scope.address + '?amount=' + $scope.amountBtc;
+    return 'dash:' + $scope.address + '?amount=' + $scope.amountBtc + '&chain=' + $scope.chain;
   };
 
 });
