@@ -69,7 +69,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
     },
 
     rates: {
-      url: 'http://51.15.5.18:3001/insight-api-dash/api/rates',
+      url: 'http://rates.dashevo.org',
     },
 
     release: {
