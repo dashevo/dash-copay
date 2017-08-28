@@ -295,7 +295,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       var message = parsed.message;
 
       var amount = parsed.amount ? parsed.amount : '';
-      var coin = parsed.extras && parsed.extras.coin ? (parsed.extras.coin).toUpperCase() : '';
+      var coin = parsed.extras && parsed.extras.coin ? parsed.extras.coin : '';
 
       if (parsed.r) {
         payproService.getPayProDetails(parsed.r, function(err, details) {
