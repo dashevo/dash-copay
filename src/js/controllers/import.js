@@ -206,6 +206,7 @@ angular.module('copayApp.controllers').controller('importController',
         if (evt.target.readyState == FileReader.DONE) { // DONE == 2
           var opts = {};
           opts.bwsurl = $scope.formData.bwsurl;
+          opts.coin = $scope.formData.coin;
           _importBlob(evt.target.result, opts);
         }
       }
@@ -231,6 +232,7 @@ angular.module('copayApp.controllers').controller('importController',
       } else {
         var opts = {};
         opts.bwsurl = $scope.formData.bwsurl;
+        opts.coin = $scope.formData.coin;
         _importBlob(backupText, opts);
       }
     };
