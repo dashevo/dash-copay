@@ -364,7 +364,7 @@ angular.module('copayApp.controllers').controller('amountController', function($
 
       if (unit.isFiat) {
         amount = fromFiat(_amount);
-      } else if ($scope.useSendMax) {
+      } else {
         amount = (amount * unitToSatoshi).toFixed(0);
       }
 
