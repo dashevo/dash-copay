@@ -5,6 +5,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
   var txId;
   var listeners = [];
   var config = configService.getSync();
+  var blockexplorerUrl;
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
     txId = data.stateParams.txid;
@@ -14,6 +15,12 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
     $scope.copayerId = $scope.wallet.credentials.copayerId;
     $scope.isShared = $scope.wallet.credentials.n > 1;
     $scope.txsUnsubscribedForNotifications = config.confirmedTxsNotifications ? !config.confirmedTxsNotifications.enabled : true;
+
+    if ($scope.wallet.coin == 'bch') {
+      blockexplorerUrl = 'cashexplorer.bitcoin.com';
+    } else {
+      blockexplorerUrl = 'insight.bitpay.com';
+    }
 
     txConfirmNotification.checkIfEnabled(txId, function(res) {
       $scope.txNotification = {
@@ -178,7 +185,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
   $scope.viewOnBlockchain = function() {
     var btx = $scope.btx;
-    var url = $scope.wallet.network === "testnet" ? "https://testnet-insight.dashevo.org/insight/tx/" + btx.txid : "https://insight.dashevo.org/insight/tx/" + btx.txid;
+    var url = 'https://' + ($scope.getShortNetworkName() == 'test' ? 'testnet-' : '') + blockexplorerUrl + '/tx/' + btx.txid;
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('View Transaction on Insight');
