@@ -33,6 +33,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     $scope.toColor = data.stateParams.toColor;
     $scope.description = data.stateParams.description;
     $scope.paypro = data.stateParams.paypro;
+    $scope.isInstantSend = data.stateParams.isInstantSend=='true'?true:false;
     $scope.insufficientFunds = false;
     $scope.noMatchingWallet = false;
     $scope.paymentExpired = {
@@ -442,7 +443,9 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     }
     txp.excludeUnconfirmedUtxos = !currentSpendUnconfirmed;
     txp.dryRun = dryRun;
-
+    if(isInstantSend){
+      txp.isInstantSend = true;
+    }
     walletService.createTx(wallet, txp, function(err, ctxp) {
       if (err) {
         setSendError(err);
