@@ -6,6 +6,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   var CONTACTS_SHOW_LIMIT;
   var currentContactsPage;
   $scope.isChromeApp = platformInfo.isChromeApp;
+  $scope.isInstantSend = false;
 
 
   var hasWallets = function() {
@@ -127,10 +128,12 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     currentContactsPage++;
     updateWalletsList();
   };
-
+  $scope.toggleInstantSend = function(){
+    $scope.isInstantSend = !$scope.isInstantSend;
+  }
   $scope.findContact = function(search) {
 
-    if (incomingData.redir(search)) {
+    if (incomingData.redir(search,$scope.isInstantSend)) {
       return;
     }
 

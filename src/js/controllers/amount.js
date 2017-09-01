@@ -31,6 +31,7 @@ angular.module('copayApp.controllers').controller('amountController', function($
     $scope.showAlternativeAmount = !!$scope.nextStep;
     $scope.toColor = data.stateParams.toColor;
     $scope.showSendMax = false;
+    $scope.isInstantSend = data.stateParams.isInstantSend || false;
 
     if (!$scope.nextStep && !data.stateParams.toAddress) {
       $log.error('Bad params at amount')
@@ -239,7 +240,8 @@ angular.module('copayApp.controllers').controller('amountController', function($
         toName: $scope.toName,
         toEmail: $scope.toEmail,
         toColor: $scope.toColor,
-        useSendMax: $scope.useSendMax
+        useSendMax: $scope.useSendMax,
+        isInstantSend: $scope.isInstantSend
       });
     }
     $scope.useSendMax = null;
