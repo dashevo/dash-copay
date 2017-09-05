@@ -186,10 +186,16 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       var config = configService.getSync().wallet;
 
       ongoingProcess.set('retrievingInputs', true);
+      var isInstantSend = false;
+      if($scope.hasOwnProperty('isInstantSend')){
+        isInstantSend=$scope.isInstantSend;
+      }
+      
       walletService.getSendMaxInfo($scope.wallet, {
         feePerKb: feePerKb,
         excludeUnconfirmedUtxos: !config.spendUnconfirmed,
         returnInputs: true,
+        isInstantSend:isInstantSend
       }, function(err, resp) {
         ongoingProcess.set('retrievingInputs', false);
         if (err) {
@@ -404,6 +410,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     var description = $scope.description;
     var unitToSatoshi = config.settings.unitToSatoshi;
     var unitDecimals = config.settings.unitDecimals;
+    var isInstantSend = $scope.isInstantSend;
 
     // ToDo: use a credential's (or fc's) function for this
     if (description && !wallet.credentials.sharedEncryptingKey) {

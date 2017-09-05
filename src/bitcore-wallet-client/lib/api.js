@@ -2476,6 +2476,7 @@ API.prototype.getSendMaxInfo = function(opts, cb) {
   if (opts.feePerKb) args.push('feePerKb=' + opts.feePerKb);
   if (opts.excludeUnconfirmedUtxos) args.push('excludeUnconfirmedUtxos=1');
   if (opts.returnInputs) args.push('returnInputs=1');
+  if (opts.isInstantSend) args.push('instantSend=1');
 
   var qs = '';
 
