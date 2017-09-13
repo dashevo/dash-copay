@@ -4,7 +4,7 @@
 
   "name": "dash",
   "description": "A Secure Bitcoin Wallet",
-  "author": "BitPay",
+  "author": "Dash",
   "version": "4.0.0",
   "keywords": [
     "bitcoin",
@@ -15,9 +15,9 @@
     "bitcore"
   ],
   "main": "www/index.html",
-  "title": "Dash Copay",
+  "title": "Dash_Copay",
   "window": {
-    "title": "Dash Copay - Dash Copay Wallet",
+    "title": "Dash_Copay - Dash Copay Wallet",
     "icon": "www/img/app/icon.png",
     "toolbar": false,
     "show": true,

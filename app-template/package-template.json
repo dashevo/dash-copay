@@ -1,7 +1,7 @@
 {
   "name": "*PACKAGENAME*",
   "description": "*DESCRIPTION*",
-  "author": "BitPay",
+  "author": "Dash",
   "version": "*VERSION*",
   "keywords": [
     "bitcoin",
