@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.services').factory('incomingData', function($log, $state, $timeout, $ionicHistory, bitcore, $rootScope, payproService, scannerService, appConfigService, popupService, gettextCatalog) {
+angular.module('copayApp.services').factory('incomingData', function($log, $state, $timeout, $ionicHistory, bitcore, bitcoreCash, $rootScope, payproService, scannerService, appConfigService, popupService, gettextCatalog) {
 
   var root = {};
 
@@ -343,6 +343,16 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       } else {
         goToAmountPage(data);
       }
+    } else if (bitcoreCash.Address.isValid(data, 'livenet')) {
+      if ($state.includes('tabs.scan')) {
+        root.showMenu({
+          data: data,
+          type: 'bitcoinAddress',
+          coin: 'bch',
+        });
+      } else {
+        goToAmountPage(data, 'bch');
+      }
     } else if (data && data.indexOf(appConfigService.name + '://glidera') === 0) {
       var code = getParameterByName('code', data);
       $ionicHistory.nextViewOptions({
@@ -454,7 +464,11 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     }
   }
 
-  function goToAmountPage(toAddress, isInstantSend) {
+    return false;
+
+  };
+
+  function goToAmountPage(toAddress, coin) {
     $state.go('tabs.send', {}, {
       'reload': true,
       'notify': $state.current.name == 'tabs.send' ? false : true
@@ -462,9 +476,9 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     $timeout(function() {
       var parsedAddress = parseToAddress(toAddress)
       $state.transitionTo('tabs.send.amount', {
-        toAddress: parsedAddress.toAddress,
-        toAmount: parsedAddress.toAmount,
-        isInstantSend: isInstantSend
+        toAddress: toAddress,
+        isInstantSend: isInstantSend,
+        coin: coin,
       });
     }, 100);
   }
