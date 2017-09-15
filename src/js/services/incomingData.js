@@ -287,14 +287,9 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
 
     data = sanitizeUri(data);
 
-    // Bitcoin or Bitcoin Cash URL
-    if ((/^bitcoin(cash)?:/).exec(data)) {
-      var coin = 'btc';
-      if ((/^bitcoincash:/).exec(data)) {
-        coin = 'bch';
-        data = data.replace(/bitcoincash:/, 'bitcoin:');
-      }
-      if (bitcore.URI.isValid(data)) {
+    // Bitcoin  URL
+    if (bitcore.URI.isValid(data)) {
+        var coin = 'btc';
         var parsed = new bitcore.URI(data);
 
         var addr = parsed.address ? parsed.address.toString() : '';
@@ -314,11 +309,30 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
         }
         return true;
 
-      } else {
-        $log.error('Invalid Bitcoin URL');
-        return false;
-      }
+    } else if (bitcoreCash.URI.isValid(data)) {
+        var coin = 'bch';
+        var parsed = new bitcoreCash.URI(data);
 
+        var addr = parsed.address ? parsed.address.toString() : '';
+        var message = parsed.message;
+
+        var amount = parsed.amount ? parsed.amount : '';
+
+        // paypro not yet supported on cash
+        if (parsed.r) {
+          payproService.getPayProDetails(parsed.r, function(err, details) {
+            if (err) {
+              if (addr && amount)
+                goSend(addr, amount, message, coin);
+              else
+                popupService.showAlert(gettextCatalog.getString('Error'), err);
+            }
+            handlePayPro(details, coin);
+          });
+        } else {
+          goSend(addr, amount, message, coin);
+        }
+        return true;
       // Plain URL
     } else if (/^https?:\/\//.test(data)) {
 
@@ -462,10 +476,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
         toAmount: match[3]
       }
     }
-  }
-
     return false;
-
   };
 
   function goToAmountPage(toAddress, coin) {
@@ -483,12 +494,13 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     }, 100);
   }
 
-  function handlePayPro(payProDetails) {
+  function handlePayPro(payProDetails, coin) {
     var stateParams = {
       toAmount: payProDetails.amount,
       toAddress: payProDetails.toAddress,
       description: payProDetails.memo,
-      paypro: payProDetails
+      paypro: payProDetails,
+      coin: coin,
     };
     scannerService.pausePreview();
     $state.go('tabs.send', {}, {
