@@ -8,18 +8,13 @@
     <div class="list">
       <div class="explain">
         <i class="icon buy-and-sell-icon">
-          <img src="img/icon-bitcoin.svg"/>
+          <img src="img/icon.png"/>
         </i>
         <div class="explain-heading">Connect an Exchange</div>
         <div class="explain-description">Buy or sell Dash directly from your wallet by connecting your exchange accounts.</div>
       </div>
       <div class="item item-divider"></div>
-      <div ng-repeat="service in services">
-      <div class="item item-icon-right" ui-sref="{{service.sref}}">
-          <img ng-src="{{service.logo}}" width="90">
-          <span class="item-note">{{service.location}}</span>
-          <i class="icon bp-arrow-right"></i>
-      </div>
+        <div><a ng-click="openExternalLink('http://www.dash.org/exchanges')">Buy Dash on Dash.org</a></div>
     </div>
   </ion-content>
 </ion-view>

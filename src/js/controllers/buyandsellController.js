@@ -1,11 +1,9 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('buyandsellController', function($scope, $ionicHistory, buyAndSellService, lodash) {
+angular.module('copayApp.controllers').controller('buyandsellController', function($scope, $ionicHistory, buyAndSellService, externalLinkService, lodash) {
 
-  $scope.$on("$ionicView.beforeEnter", function(event, data) {
-    $scope.services = buyAndSellService.get();
+  $scope.openExternalLink = function(url) {
+    externalLinkService.open(url);
+  };
 
-    if (lodash.isEmpty($scope.services))
-      $ionicHistory.goBack();
-  });
 });
