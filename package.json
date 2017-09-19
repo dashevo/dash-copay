@@ -42,11 +42,11 @@
   "homepage": "https://copay.io",
   "license": "MIT",
   "repository": {
-    "url": "git@bitbucket.org:devbynature/copay.git",
+    "url": "git@github.com:dashevo/copay.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/copay/issues"
+    "url": "https://github.com/dashevo/copay/issues"
   },
   "engines": {
    "node": "6",
@@ -59,7 +59,7 @@
     "bezier-easing": "^2.0.3",
     "bhttp": "^1.2.1",
     "bitauth": "^0.2.1",
-    "bitcore-wallet-client": "git+https://bitbucket.org/jakecooley/bitcore-wallet-client-dash.git",
+    "bitcore-wallet-client": "git+ssh://git@github.com/dashevo/bitcore-wallet-client-dash.git",
     "bower": "^1.7.9",
     "cordova-android": "5.1.1",
     "cordova-custom-config": "^3.0.5",
