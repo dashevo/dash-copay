@@ -14,10 +14,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     console.log('scan', $state.includes('tabs.scan'))
 
     if ($state.includes('tabs.scan')) {
-      root.showMenu({
-        data: data,
-        type: 'text'
-      });
+      goToAmountPage(data, isInstantSend);
     }
     else if(bitcore.Address(data).isValid == null){
       goToAmountPage(data, isInstantSend);
@@ -261,7 +258,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     });
     $timeout(function() {
       $state.transitionTo('tabs.send.amount', {
-        toAddress: toAddress,
+        toAddress: toAddress.substring(5),
         isInstantSend: isInstantSend
       });
     }, 100);
