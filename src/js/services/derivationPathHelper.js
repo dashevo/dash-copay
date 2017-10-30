@@ -3,7 +3,7 @@
 angular.module('copayApp.services').factory('derivationPathHelper', function(lodash) {
   var root = {};
 
-  root.default = "m/44'/0'/0'";
+  root.default = "m/44'/5'/0'";
   root.defaultTestnet = "m/44'/1'/0'";
 
   root.parse = function(str) {
