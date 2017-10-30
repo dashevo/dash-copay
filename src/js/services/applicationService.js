@@ -50,20 +50,21 @@ angular.module('copayApp.services')
       });
       scope.openModal = function() {
         scope.fingerprintCheckModal.show();
-        checkFingerprint();
+        scope.checkFingerprint();
       };
       scope.hideModal = function() {
         root.isModalOpen = false;
         scope.fingerprintCheckModal.hide();
       };
 
-      function checkFingerprint() {
+      scope.checkFingerprint = function() {
         fingerprintService.check('unlockingApp', function(err) {
           if (err) {
-            checkFingerprint();
             return;
           }
-          scope.hideModal();
+          $timeout(function() {
+            scope.hideModal();
+          }, 200);
         });
       }
     };
