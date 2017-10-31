@@ -258,7 +258,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     });
     $timeout(function() {
       $state.transitionTo('tabs.send.amount', {
-        toAddress: toAddress.substring(5),
+        toAddress: toAddress.substring(toAddress.indexOf(':') + 1),
         isInstantSend: isInstantSend
       });
     }, 100);
