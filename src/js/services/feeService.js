@@ -5,6 +5,7 @@ angular.module('copayApp.services').factory('feeService', function($log, $stateP
 
   // Constant fee options to translate
   root.feeOpts = {
+    instant: gettext('Instant'),
     urgent: gettext('Urgent'),
     priority: gettext('Priority'),
     normal: gettext('Normal'),
@@ -13,6 +14,7 @@ angular.module('copayApp.services').factory('feeService', function($log, $stateP
   };
 
   root.getCurrentFeeLevel = function() {
+    console.log('getfeelevel', configService.getSync().wallet.settings);
     return configService.getSync().wallet.settings.feeLevel || 'normal';
   };
 
