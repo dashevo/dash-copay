@@ -15,7 +15,7 @@ angular.module('copayApp.controllers').controller('preferencesUnitController', f
     value: 100000000,
     decimals: 8,
     code: 'dash',
-    feeLevel: 'instant'
+    feeLevel: 'normal'
   }];
 
   $scope.save = function(newUnit) {

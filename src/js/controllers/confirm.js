@@ -45,6 +45,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     var config = configService.getSync().wallet;
     var feeLevel = feeService.getCurrentFeeLevel();
     $scope.feeLevel = feeService.feeOpts[feeLevel];
+    $scope.feeLevelString = $scope.isInstantSend ? 'Instant' : feeService.feeOpts[feeLevel];
     $scope.network = (new bitcore.Address($scope.toAddress)).network.name;
     resetValues();
     setwallets();

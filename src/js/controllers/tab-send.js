@@ -130,12 +130,12 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   };
   $scope.toggleInstantSend = function(){
     $scope.isInstantSend = !$scope.isInstantSend;
-    var settings = configService.getSync().wallet.settings;
-    console.log('toggle', settings)
-    settings.feeLevel = $scope.isInstantSend ? 'instant' : 'normal';
-    configService.set(settings, function(resp){
-      console.log('resp', resp);
-    });
+    // var settings = configService.getSync().wallet.settings;
+    // console.log('toggle', settings)
+    // settings.feeLevel = 'normal';
+    // configService.set(settings, function(resp){
+    //   console.log('resp', resp)
+    // });
   }
   $scope.findContact = function(search) {
 

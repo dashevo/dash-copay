@@ -47,10 +47,10 @@ angular.module('copayApp.services').factory('configService', function(storageSer
         unitName: 'DASH',
         unitToSatoshi: 100000000,
         unitDecimals: 8,
-        unitCode: 'dash',
+        unitCode: 'btc',
         alternativeName: 'US Dollar',
         alternativeIsoCode: 'USD',
-        feeLevel: 'instant'
+        feeLevel: 'normal'
       }
     },
 
