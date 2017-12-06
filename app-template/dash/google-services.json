@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "149194066736",
-    "firebase_url": "https://bitpay-wallet.firebaseio.com",
-    "project_id": "bitpay-wallet",
-    "storage_bucket": "bitpay-wallet.appspot.com"
+    "firebase_url": "https://dash-wallet.firebaseio.com",
+    "project_id": "dash-wallet",
+    "storage_bucket": "dash-wallet.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:149194066736:android:6de8942b48fea047",
         "android_client_info": {
-          "package_name": "com.bitpay.dash"
+          "package_name": "com.dash.copay"
         }
       },
       "oauth_client": [
