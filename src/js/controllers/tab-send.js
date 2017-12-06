@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog) {
+angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, configService, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog) {
 
   var originalList;
   var CONTACTS_SHOW_LIMIT;
   var currentContactsPage;
   $scope.isChromeApp = platformInfo.isChromeApp;
-  $scope.isInstantSend = false;
+  $scope.isInstantSend = true;
 
 
   var hasWallets = function() {
@@ -130,6 +130,12 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   };
   $scope.toggleInstantSend = function(){
     $scope.isInstantSend = !$scope.isInstantSend;
+    // var settings = configService.getSync().wallet.settings;
+    // console.log('toggle', settings)
+    // settings.feeLevel = 'normal';
+    // configService.set(settings, function(resp){
+    //   console.log('resp', resp)
+    // });
   }
   $scope.findContact = function(search) {
 

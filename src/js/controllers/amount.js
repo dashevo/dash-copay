@@ -31,7 +31,7 @@ angular.module('copayApp.controllers').controller('amountController', function($
     $scope.showAlternativeAmount = !!$scope.nextStep;
     $scope.toColor = data.stateParams.toColor;
     $scope.showSendMax = false;
-    $scope.isInstantSend = data.stateParams.isInstantSend || false;
+    $scope.isInstantSend = data.stateParams.isInstantSend;
 
     if (!$scope.nextStep && !data.stateParams.toAddress) {
       $log.error('Bad params at amount')

@@ -13,6 +13,7 @@ angular.module('copayApp.services').factory('feeService', function($log, $stateP
   };
 
   root.getCurrentFeeLevel = function() {
+    console.log('wgetfeelevel', configService.getSync().wallet.settings);
     return configService.getSync().wallet.settings.feeLevel || 'normal';
   };
 
