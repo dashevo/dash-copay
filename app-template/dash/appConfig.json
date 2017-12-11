@@ -1,7 +1,7 @@
 {
   "packageName": "dash",
   "packageDescription": "Dash Copay Wallet",
-  "packageNameId": "com.bitpay.dash",
+  "packageNameId": "org.dash.copay",
   "userVisibleName": "Dash_Copay",
   "purposeLine": "Dash Copay Wallet",
   "bundleName": "copay",
@@ -21,8 +21,8 @@
   "wpProductId": "{5381aa50-9069-11e4-84cc-293caf9cbdc8}",
   "windowsAppId": "804636ee-b017-4cad-8719-e58ac97ffa5c",
   "pushSenderId": "1036948132229",
-  "description": "A Secure Bitcoin Wallet",
-  "version": "4.0.0",
+  "description": "A Secure Dash Wallet",
+  "version": "1.0.0",
   "androidVersion": "340000",
   "_extraCSS": null,
   "_enabledExtensions": {
