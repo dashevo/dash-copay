@@ -10,11 +10,12 @@ angular.module('copayApp.controllers').controller('preferencesUnitController', f
     decimals: 2,
     code: 'bit',
   }, {
-    name: 'BTC',
-    shortName: 'BTC',
+    name: 'DASH',
+    shortName: 'DASH',
     value: 100000000,
     decimals: 8,
-    code: 'btc',
+    code: 'dash',
+    feeLevel: 'normal'
   }];
 
   $scope.save = function(newUnit) {
@@ -25,6 +26,7 @@ angular.module('copayApp.controllers').controller('preferencesUnitController', f
           unitToSatoshi: newUnit.value,
           unitDecimals: newUnit.decimals,
           unitCode: newUnit.code,
+          feeLevel: newUnit.feeLevel
         }
       }
     };

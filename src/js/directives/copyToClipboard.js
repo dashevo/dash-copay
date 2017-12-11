@@ -20,7 +20,7 @@ angular.module('copayApp.directives')
           var data = scope.copyToClipboard;
           if (!data) return;
 
-          if (isCordova) {
+          if (!isCordova) {
             window.plugins.socialsharing.share(data, null, null, null);
           } else if (isNW) {
             nodeWebkitService.writeToClipboard(data);

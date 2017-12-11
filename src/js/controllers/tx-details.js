@@ -11,7 +11,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
     $scope.wallet = profileService.getWallet(data.stateParams.walletId);
     $scope.color = $scope.wallet.color;
     $scope.copayerId = $scope.wallet.credentials.copayerId;
-    $scope.isShared = $scope.wallet.credentials.n > 1; 
+    $scope.isShared = $scope.wallet.credentials.n > 1;
   });
 
   $scope.$on("$ionicView.afterEnter", function(event) {
@@ -124,7 +124,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
       });
     });
   };
-  
+
   $scope.showCommentPopup = function() {
     var opts = {};
     if ($scope.btx.message) {
@@ -155,7 +155,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
   $scope.viewOnBlockchain = function() {
     var btx = $scope.btx;
-    var url = $scope.wallet.network=== "testnet" ? "http://testnet.insight.dashevo.org/insight/tx/${btx.txid}" : "http://insight.dashevo.org/insight/tx/${btx.txid}"  ;  // + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') +
+    var url = $scope.wallet.network=== "testnet" ? "http://testnet.insight.dashevo.org/insight/tx/" + btx.txid : "http://insight.dashevo.org/insight/tx/" + btx.txid  ;  // + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') +
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('View Transaction on Insight');
