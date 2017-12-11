@@ -6,7 +6,7 @@
 
     <div ng-if="hasFunds">
       <div class="item item-heading send-heading" translate>Transaction type</div>
-      <ion-checkbox class="item item-heading" ng-model="instapay.accepted" ng-click="toggleInstantSend()">
+      <ion-checkbox class="item item-heading" ng-checked="true" ng-model="formData.isInstantSend" ng-click="toggleInstantSend()">
         <span translate>Use InstantSend</span>
       </ion-checkbox>
     </div>

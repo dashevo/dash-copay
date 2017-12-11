@@ -44,8 +44,9 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     };
 
     var config = configService.getSync().wallet;
-    var feeLevel = config.settings && config.settings.feeLevel ? config.settings.feeLevel : 'normal';
+    var feeLevel = feeService.getCurrentFeeLevel();
     $scope.feeLevel = feeService.feeOpts[feeLevel];
+    $scope.feeLevelString = $scope.isInstantSend ? 'Instant' : feeService.feeOpts[feeLevel];
     $scope.network = (new bitcore.Address($scope.toAddress)).network.name;
     resetValues();
     setwallets();
@@ -190,7 +191,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       if($scope.hasOwnProperty('isInstantSend')){
         isInstantSend=$scope.isInstantSend;
       }
-      
+
       walletService.getSendMaxInfo($scope.wallet, {
         feePerKb: feePerKb,
         excludeUnconfirmedUtxos: !config.spendUnconfirmed,
@@ -441,7 +442,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       txp.inputs = $scope.sendMaxInfo.inputs;
       txp.fee = $scope.sendMaxInfo.fee;
     } else
-      txp.feeLevel = config.settings && config.settings.feeLevel ? config.settings.feeLevel : 'normal';
+      txp.feeLevel = feeService.getCurrentFeeLevel();
 
     txp.message = description;
 
@@ -506,7 +507,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     ongoingProcess.set('creatingTx', true, onSendStatusChange);
     createTx(wallet, false, function(err, txp) {
       ongoingProcess.set('creatingTx', false, onSendStatusChange);
-      if (err) return;     
+      if (err) return;
       var config = configService.getSync();
       var spendingPassEnabled = walletService.isEncrypted(wallet);
       var touchIdEnabled = config.touchIdFor && config.touchIdFor[wallet.id];

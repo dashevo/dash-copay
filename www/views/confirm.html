@@ -95,7 +95,7 @@
           <i class="icon bp-arrow-right"></i>
         </a>
         <div class="item single-line toggle" ng-if="!insufficientFunds && !noMatchingWallet">
-          <span class="label">{{'Fee' | translate}}: {{feeLevel | translate}}</span>
+          <span class="label">{{'Fee' | translate}}: {{feeLevelString | translate}}</span>
           <span ng-if="!showFeeFiat" class="item-note" ng-click="toggleFeeValue()">{{fee || '...'}}</span>
           <span ng-if="showFeeFiat" class="item-note" ng-click="toggleFeeValue()">{{feeFiat || '...'}}</span>
         </div>

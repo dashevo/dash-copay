@@ -50,6 +50,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
         unitCode: 'btc',
         alternativeName: 'US Dollar',
         alternativeIsoCode: 'USD',
+        feeLevel: 'normal'
       }
     },
 
@@ -132,7 +133,9 @@ angular.module('copayApp.services').factory('configService', function(storageSer
         if (!configCache.bitpayAccount) {
           configCache.bitpayAccount = defaultConfig.bitpayAccount;
         }
-
+        if (!configCache.wallet.settings.feeLevel) {
+          configCache.wallet.settings.feeLevel = defaultConfig.wallet.settings.feeLevel;
+        }
       } else {
         configCache = lodash.clone(defaultConfig);
       };
