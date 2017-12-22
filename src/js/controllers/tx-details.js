@@ -155,7 +155,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
 
   $scope.viewOnBlockchain = function() {
     var btx = $scope.btx;
-    var url = $scope.wallet.network=== "testnet" ? "http://testnet.insight.dashevo.org/insight/tx/" + btx.txid : "http://insight.dashevo.org/insight/tx/" + btx.txid  ;  // + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') +
+    var url = $scope.wallet.network=== "testnet" ? "http://testnet.insight.dashevo.org/insight-api-dash/tx/" + btx.txid : "http://insight.dashevo.org/insight/tx/" + btx.txid  ;  // + ($scope.getShortNetworkName() == 'test' ? 'test-' : '') +
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('View Transaction on Insight');
