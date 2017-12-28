@@ -26,7 +26,7 @@ slide-to-accept {
       background: $v-slider-bg-color;
       -webkit-transform: translateX(0);
       transform: translateX(0);
-      margin-left: -100%;
+      margin-left: -95%;
       z-index: 2;
 
       &::before {
@@ -60,12 +60,13 @@ slide-to-accept {
     }
     &__bitcoin {
       @include center-vertically;
-      left: 20px;
+      left: 5px;
       z-index: 3;
-
       > img {
         -webkit-transform: rotateZ(-5deg);
         transform: rotateZ(-5deg);
+        width: 70px;
+        height: 70px;
       }
     }
     &__button-text {
