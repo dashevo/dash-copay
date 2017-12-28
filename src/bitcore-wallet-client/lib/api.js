@@ -2127,7 +2127,7 @@ API.prototype._doBroadcast = function(txp, cb) {
   var self = this;
   var url = '/v1/txproposals/' + txp.id + '/broadcast/';
   if(window.instantSend) {
-    url = 'http://51.15.5.18:3001/insight-api-dash/tx/sendix'
+    url = 'http://testnet-insight.dashevo.org/insight-api-dash/tx/sendix'
   }
   self._doPostRequest(url, {}, function(err, txp) {
     if (err) return cb(err);
