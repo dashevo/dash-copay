@@ -32,12 +32,13 @@ angular.module('copayApp.controllers').controller('tabHomeController',
             $log.warn(err);
             return;
           }
-          if (newRelease) {
-            $scope.newRelease = true;
-            $scope.updateText = gettextCatalog.getString('There is a new version of {{appName}} available', {
-              appName: $scope.name
-            });
-          }
+          // Displays new release on home page.  Should re add once Dash is released
+          // if (newRelease) {
+          //   $scope.newRelease = true;
+          //   $scope.updateText = gettextCatalog.getString('There is a new version of {{appName}} available', {
+          //     appName: $scope.name
+          //   });
+          // }
         });
       }
 
