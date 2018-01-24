@@ -2126,9 +2126,6 @@ API.prototype.broadcastRawTx = function(opts, cb) {
 API.prototype._doBroadcast = function(txp, cb) {
   var self = this;
   var url = '/v1/txproposals/' + txp.id + '/broadcast/';
-  if(window.instantSend) {
-    url = 'http://testnet-insight.dashevo.org/insight-api-dash/tx/sendix'
-  }
   self._doPostRequest(url, {}, function(err, txp) {
     if (err) return cb(err);
     self._processTxps(txp);
