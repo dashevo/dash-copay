@@ -128,9 +128,21 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     currentContactsPage++;
     updateWalletsList();
   };
+
   $scope.toggleInstantSend = function(){
     $scope.isInstantSend = !$scope.isInstantSend;
   }
+
+  $scope.searchInFocus = function() {
+    $scope.searchFocus = true;
+  };
+
+  $scope.searchBlurred = function() {
+    if ($scope.formData.search == null) {
+      $scope.searchFocus = false;
+    }
+  };
+
   $scope.findContact = function(search) {
 
     if (incomingData.redir(search,$scope.isInstantSend)) {

@@ -56,15 +56,10 @@ angular.module('copayApp.services')
         root.isModalOpen = false;
         scope.fingerprintCheckModal.hide();
       };
-
       scope.checkFingerprint = function() {
         fingerprintService.check('unlockingApp', function(err) {
-          if (err) {
-            return;
-          }
-          $timeout(function() {
-            scope.hideModal();
-          }, 200);
+          if (err) return;
+          scope.hideModal();
         });
       }
     };
