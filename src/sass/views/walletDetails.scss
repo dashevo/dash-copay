@@ -85,7 +85,7 @@
     font-size: 14px;
     font-weight: 300;
     color: #727272;
-    padding: 2px 1rem;
+    padding: 1rem;
     background: #f8f8f9;
   }
 }
@@ -176,9 +176,6 @@
     display: block;
     align-items: center;
     justify-content: center;
-    @media(max-width: 320px) {
-      padding-top: 60px;
-    }
 
     &.collapsible {
       margin-bottom: 10px;

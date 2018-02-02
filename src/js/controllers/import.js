@@ -196,7 +196,7 @@ angular.module('copayApp.controllers').controller('importController',
     };
 
     $scope.setDerivationPath = function() {
-      $scope.formData.testnetEnabled ? derivationPathHelper.defaultTestnet : derivationPathHelper.default;
+      $scope.formData.derivationPath = $scope.formData.testnetEnabled ? derivationPathHelper.defaultTestnet : derivationPathHelper.default;
     };
 
     $scope.getFile = function() {

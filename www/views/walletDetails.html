@@ -11,7 +11,7 @@
     </ion-nav-buttons>
   </ion-nav-bar>
 
-  <div class="bp-content" ng-class="{'status-bar': isCordova && isIOS}">
+  <div class="bp-content" ng-class="{'status-bar': isCordova}">
 
   <div class="amount-wrapper" ng-show="wallet && wallet.isComplete() && amountIsCollapsible" ng-class="{'wallet-background-color-default': !wallet.color}" ng-style="{'background-color':wallet.color}">
     <div
@@ -158,7 +158,13 @@
       Wallet not backed up
     </a>
 
-    <div class="p60b" ng-if="wallet &&  wallet.isComplete() && !walletNotRegistered" style="padding-top: 1rem;">
+
+    <a class="wallet-not-backed-up-warning" ng-if="lowUtxosWarning" ui-sref="tabs.settings.addresses({walletId:wallet.id,from: 'tabs.wallet'})" translate>
+      Spending this balance will need significant Bitcoin network fees
+    </a>
+
+
+    <div class="p60b" ng-if="wallet &&  wallet.isComplete() && !walletNotRegistered">
       <div class="oh pr m20t" ng-show="wallet.incorrectDerivation">
         <div class="text-center text-warning">
           <i class="fi-alert"></i>
@@ -167,12 +173,8 @@
           </span>
         </div>
       </div>
-      <div class="list" ng-if="txps[0]">
-        <!-- <div class="item item-heading" translate>
-          <span ng-show="requiresMultipleSignatures" translate>Payment Proposals</span>
-          <span ng-show="!requiresMultipleSignatures" translate>Unsent transactions</span>
-        </div> -->
-        <div class="wallet-details__group-label" style="padding-bottom: 8px;">
+      <div ng-if="txps[0]">
+        <div class="wallet-details__group-label">
           <span ng-show="requiresMultipleSignatures" translate>Proposals</span>
           <span ng-show="!requiresMultipleSignatures" translate>Unsent transactions</span>
         </div>
