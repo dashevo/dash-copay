@@ -1,6 +1,6 @@
 'use strict';
 angular.module('copayApp.services')
-  .factory('profileService', function profileServiceFactory($rootScope, $timeout, $filter, $log, sjcl, lodash, storageService, bwcService, configService, gettextCatalog, bwcError, uxLanguage, platformInfo, txFormatService, $state) {
+  .factory('profileService', function profileServiceFactory($rootScope, $timeout, $filter, $log, $state, sjcl, lodash, storageService, bwcService, configService, gettextCatalog, bwcError, uxLanguage, platformInfo, txFormatService, appConfigService) {
 
 
     var isChromeApp = platformInfo.isChromeApp;
@@ -134,7 +134,7 @@ angular.module('copayApp.services')
         wallet.setNotificationsInterval(UPDATE_PERIOD);
         wallet.openWallet(function(err) {
           if (wallet.status !== true)
-            $log.log('Wallet + ' + walletId + ' status:' + wallet.status)
+            $log.debug('Wallet + ' + walletId + ' status:' + wallet.status)
         });
       });
 
@@ -495,7 +495,9 @@ angular.module('copayApp.services')
       var walletId = client.credentials.walletId
 
       if (!root.profile.addWallet(JSON.parse(client.export())))
-        return cb(gettextCatalog.getString('Wallet already in Copay'));
+        return cb(gettextCatalog.getString("Wallet already in {{appName}}", {
+          appName: appConfigService.nameCase
+        }));
 
 
       var skipKeyValidation = shouldSkipValidation(walletId);
@@ -767,12 +769,14 @@ angular.module('copayApp.services')
 
       if (opts.hasFunds) {
         ret = lodash.filter(ret, function(w) {
+          if (!w.status) return;
           return (w.status.availableBalanceSat > 0);
         });
       }
 
       if (opts.minAmount) {
         ret = lodash.filter(ret, function(w) {
+          if (!w.status) return;
           return (w.status.availableBalanceSat > opts.minAmount);
         });
       }

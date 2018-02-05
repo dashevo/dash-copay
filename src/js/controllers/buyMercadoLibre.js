@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('buyAmazonController', function($scope, $log, $state, $timeout, $filter, $ionicHistory, $ionicConfig, lodash, amazonService, popupService, profileService, ongoingProcess, configService, walletService, payproService, bwcError, externalLinkService, platformInfo, gettextCatalog, txFormatService) {
+angular.module('copayApp.controllers').controller('buyMercadoLibreController', function($scope, $log, $state, $timeout, $filter, $ionicHistory, $ionicConfig, lodash, mercadoLibreService, popupService, profileService, ongoingProcess, configService, walletService, payproService, bwcError, externalLinkService, platformInfo, txFormatService, gettextCatalog) {
 
   var amount;
   var currency;
@@ -40,7 +40,7 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
 
   var publishAndSign = function(wallet, txp, onSendStatusChange, cb) {
     if (!wallet.canSign() && !wallet.isPrivKeyExternal()) {
-      var err = gettextCatalog.getString('No signing proposal: No private key');
+      var err = 'No signing proposal: No private key';
       $log.info(err);
       return cb(err);
     }
@@ -88,17 +88,17 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
   };
 
   var createInvoice = function(data, cb) {
-    amazonService.createBitPayInvoice(data, function(err, dataInvoice) {
+    mercadoLibreService.createBitPayInvoice(data, function(err, dataInvoice) {
       if (err) {
         var err_title = gettextCatalog.getString('Error creating the invoice');
         var err_msg;
         if (err && err.message && err.message.match(/suspended/i)) {
           err_title = gettextCatalog.getString('Service not available');
-          err_msg = gettextCatalog.getString('Amazon.com is not available at this moment. Please try back later.');
+          err_msg = gettextCatalog.getString('Mercadolibre Gift Card Service is not available at this moment. Please try back later.');
         } else if (err && err.message) {
           err_msg = err.message;
         } else {
-          err_msg = gettextCatalog.getString('Could not access to Amazon.com');
+          err_msg = gettextCatalog.getString('Could not access Gift Card Service');
         };
 
         return cb({
@@ -115,7 +115,7 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
         });
       }
 
-      amazonService.getBitPayInvoice(dataInvoice.invoiceId, function(err, invoice) {
+      mercadoLibreService.getBitPayInvoice(dataInvoice.invoiceId, function(err, invoice) {
         if (err) {
           return cb({
             message: gettextCatalog.getString('Could not get the invoice')
@@ -169,14 +169,22 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
   };
 
   var checkTransaction = lodash.throttle(function(count, dataSrc) {
-    amazonService.createGiftCard(dataSrc, function(err, giftCard) {
+    mercadoLibreService.createGiftCard(dataSrc, function(err, giftCard) {
       $log.debug("creating gift card " + count);
       if (err) {
+        $scope.sendStatus = '';
         ongoingProcess.set('buyingGiftCard', false, statusChangeHandler);
         giftCard = {};
         giftCard.status = 'FAILURE';
-        showError(gettextCatalog.getString('Error creating gift card'), err);
       }
+
+      if (giftCard && giftCard.cardStatus && (giftCard.cardStatus != 'active' && giftCard.cardStatus != 'inactive' && giftCard.cardStatus != 'expired')) {
+        $scope.sendStatus = '';
+        ongoingProcess.set('buyingGiftCard', false, statusChangeHandler);
+        giftCard = {};
+        giftCard.status = 'FAILURE';
+      }
+
 
       if (giftCard.status == 'PENDING' && count < 3) {
         $log.debug("Waiting for payment confirmation");
@@ -191,24 +199,14 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
       newData['accessKey'] = dataSrc.accessKey;
       newData['invoiceUrl'] = dataSrc.invoiceUrl;
       newData['amount'] = dataSrc.amount;
+      newData['currency'] = dataSrc.currency;
       newData['date'] = dataSrc.invoiceTime || now;
       newData['uuid'] = dataSrc.uuid;
 
-      if (newData.status == 'expired') {
-        amazonService.savePendingGiftCard(newData, {
-          remove: true
-        }, function(err) {
-          $log.error(err);
-          ongoingProcess.set('buyingGiftCard', false, statusChangeHandler);
-          showError(null, gettextCatalog.getString('Gift card expired'));
-        });
-        return;
-      }
-
-      amazonService.savePendingGiftCard(newData, null, function(err) {
+      mercadoLibreService.savePendingGiftCard(newData, null, function(err) {
         ongoingProcess.set('buyingGiftCard', false, statusChangeHandler);
         $log.debug("Saving new gift card with status: " + newData.status);
-        $scope.amazonGiftCard = newData;
+        $scope.mlGiftCard = newData;
       });
     });
   }, 8000, {
@@ -235,7 +233,7 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
       invoice['buyerPaidBtcMinerFee'] = invoice.buyerPaidBtcMinerFee || 0;
       var invoiceFeeSat = (invoice.buyerPaidBtcMinerFee * 100000000).toFixed();
 
-      message = gettextCatalog.getString("{{amountStr}} for Amazon.com Gift Card", {
+      message = gettextCatalog.getString("{{amountStr}} for Mercado Livre Brazil Gift Card", {
         amountStr: $scope.amountUnitStr
       });
 
@@ -278,21 +276,15 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
     amount = data.stateParams.amount;
     currency = data.stateParams.currency;
 
-    $scope.limitPerDayMessage = gettextCatalog.getString('Purchase Amount is limited to {{limitPerDay}} {{currency}} per day', {
-      limitPerDay: amazonService.limitPerDay,
-      currency: currency
-    });
-
-    if (amount > amazonService.limitPerDay) {
-      showErrorAndBack(null, $scope.limitPerDayMessage);
+    if (amount > 2000 || amount < 50) {
+      showErrorAndBack(null, gettextCatalog.getString('Purchase amount must be a value between 50 and 2000'));
       return;
     }
 
-    $scope.network = amazonService.getNetwork();
+    $scope.network = mercadoLibreService.getNetwork();
     $scope.wallets = profileService.getWallets({
       onlyComplete: true,
-      network: $scope.network,
-      hasFunds: true
+      network: $scope.network
     });
     if (lodash.isEmpty($scope.wallets)) {
       showErrorAndBack(null, gettextCatalog.getString('No wallets available'));
@@ -302,12 +294,14 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
   });
 
   $scope.buyConfirm = function() {
+
     if (!createdTx) {
       showError(null, gettextCatalog.getString('Transaction has not been created'));
       return;
     }
+
     var title = gettextCatalog.getString('Confirm');
-    var okText = gettextCatalog.getString('OK');
+    var okText = gettextCatalog.getString('Ok');
     var cancelText = gettextCatalog.getString('Cancel');
     popupService.showConfirm(title, message, okText, cancelText, function(ok) {
       if (!ok) {
@@ -318,7 +312,6 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
       ongoingProcess.set('buyingGiftCard', true, statusChangeHandler);
       publishAndSign($scope.wallet, createdTx, function() {}, function(err, txSent) {
         if (err) {
-          _resetValues();
           ongoingProcess.set('buyingGiftCard', false, statusChangeHandler);
           showError(gettextCatalog.getString('Could not send transaction'), err);
           return;
@@ -329,7 +322,7 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
   };
 
   $scope.showWalletSelector = function() {
-    $scope.walletSelectorTitle = gettextCatalog.getString('Buy from');
+    $scope.walletSelectorTitle = 'Buy from';
     $scope.showWallets = true;
   };
 
@@ -349,8 +342,8 @@ angular.module('copayApp.controllers').controller('buyAmazonController', functio
       $ionicHistory.nextViewOptions({
         disableAnimate: true
       });
-      $state.transitionTo('tabs.giftcards.amazon').then(function() {
-        $state.transitionTo('tabs.giftcards.amazon.cards', {
+      $state.transitionTo('tabs.giftcards.mercadoLibre').then(function() {
+        $state.transitionTo('tabs.giftcards.mercadoLibre.cards', {
           invoiceId: invoiceId
         });
       });

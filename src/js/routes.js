@@ -44,7 +44,8 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
       function($delegate, platformInfo) {
         var historicLog = historicLogProvider.$get();
 
-        ['debug', 'info', 'warn', 'error', 'log'].forEach(function(level) {
+        historicLog.getLevels().forEach(function(levelDesc) {
+          var level = levelDesc.level;
           if (platformInfo.isDevel && level == 'error') return;
 
           var orig = $delegate[level];
@@ -1027,6 +1028,57 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
 
       /*
        *
+       * Mercado Libre Gift Card
+       *
+       */
+
+      .state('tabs.giftcards.mercadoLibre', {
+        url: '/mercadoLibre',
+        views: {
+          'tab-home@tabs': {
+            controller: 'mercadoLibreController',
+            templateUrl: 'views/mercadoLibre.html'
+          }
+        }
+      })
+      .state('tabs.giftcards.mercadoLibre.cards', {
+        url: '/cards',
+        views: {
+          'tab-home@tabs': {
+            controller: 'mercadoLibreCardsController',
+            templateUrl: 'views/mercadoLibreCards.html'
+          }
+        },
+        params: {
+          invoiceId: null
+        }
+      })
+      .state('tabs.giftcards.mercadoLibre.amount', {
+        url: '/amount',
+        views: {
+          'tab-home@tabs': {
+            controller: 'amountController',
+            templateUrl: 'views/amount.html'
+          }
+        },
+        params: {
+          nextStep: 'tabs.giftcards.mercadoLibre.buy',
+          currency: 'BRL',
+          forceCurrency: true
+        }
+      })
+      .state('tabs.giftcards.mercadoLibre.buy', {
+        url: '/buy/:amount/:currency',
+        views: {
+          'tab-home@tabs': {
+            controller: 'buyMercadoLibreController',
+            templateUrl: 'views/buyMercadoLibre.html'
+          }
+        }
+      })
+
+      /*
+       *
        * Amazon.com Gift Card
        *
        */
@@ -1134,7 +1186,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         }
       });
   })
-  .run(function($rootScope, $state, $location, $log, $timeout, startupService, ionicToast, fingerprintService, $ionicHistory, $ionicPlatform, $window, appConfigService, lodash, platformInfo, profileService, uxLanguage, gettextCatalog, openURLService, storageService, scannerService, configService, emailService, /* plugins START HERE => */ coinbaseService, glideraService, amazonService, bitpayCardService, applicationService) {
+  .run(function($rootScope, $state, $location, $log, $timeout, startupService, ionicToast, fingerprintService, $ionicHistory, $ionicPlatform, $window, appConfigService, lodash, platformInfo, profileService, uxLanguage, gettextCatalog, openURLService, storageService, scannerService, configService, emailService, /* plugins START HERE => */ coinbaseService, glideraService, amazonService, bitpayCardService, applicationService, mercadoLibreService) {
 
     uxLanguage.init();
 
