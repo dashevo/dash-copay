@@ -2,6 +2,7 @@
   "packageName": "dash",
   "packageDescription": "Dash Copay Wallet",
   "packageNameId": "org.dash.copay",
+  "statusBarColor": "#1e3186",
   "userVisibleName": "Dash_Copay",
   "purposeLine": "Dash Copay Wallet",
   "bundleName": "copay",
@@ -22,8 +23,8 @@
   "windowsAppId": "804636ee-b017-4cad-8719-e58ac97ffa5c",
   "pushSenderId": "1036948132229",
   "description": "A Secure Dash Wallet",
-  "version": "3.6.3",
-  "androidVersion": "363000",
+  "version": "3.7.0",
+  "androidVersion": "370000",
   "_extraCSS": null,
   "_enabledExtensions": {
     "coinbase": true,
