@@ -19,9 +19,11 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.formData.coin = 'btc';
       $scope.importErr = false;
       $scope.isCopay = appConfigService.name == 'copay';
-      $scope.fromHardwareWallet = { value: false };
+      $scope.fromHardwareWallet = {
+        value: false
+      };
 
-      if (config.cashSupport.enabled) $scope.enableCash = true;
+      if (config.cashSupport) $scope.enableCash = true;
 
       if ($stateParams.code)
         $scope.processWalletInfo($stateParams.code);
@@ -58,6 +60,15 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.formData.seedSourceAll = $scope.seedOptionsAll[0];
 
 
+      $timeout(function() {
+        $scope.$apply();
+      });
+    };
+
+    $scope.switchTestnetOff = function() {
+      $scope.formData.testnetEnabled = false;
+      $scope.setDerivationPath();
+      $scope.resizeView();
       $timeout(function() {
         $scope.$apply();
       });
@@ -288,7 +299,7 @@ angular.module('copayApp.controllers').controller('importController',
         $log.warn('This wont work for Intel TEE wallets');
 
         var id = $scope.formData.seedSourceAll.id;
-        var isMultisig = opts.derivationStrategy =='BIP48';
+        var isMultisig = opts.derivationStrategy == 'BIP48';
         var account = opts.account;
         opts.entropySourcePath = 'm/' + hwWallet.getEntropyPath(id, isMultisig, account);
       }

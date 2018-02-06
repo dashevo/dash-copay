@@ -81,9 +81,7 @@
         <a ng-repeat="wallet in wallets track by $index"
            class="item item-sub item-icon-left item-big-icon-left item-icon-right wallet"
            ng-click="openWallet(wallet)">
-          <i class="icon big-icon-svg">
-            <img ng-src="img/{{wallet.network == 'testnet' ? 'icon-wallet-testnet' : (wallet.coin == 'btc' ? 'icon-btc' : 'icon-bch')}}.svg" ng-class="{'wallet-background-color-default': !wallet.color}" ng-style="{'background-color': wallet.color}" class="bg wallet"/>
-          </i>
+          <i class="icon big-icon-svg" ng-include="'views/includes/walletIcon.html'"></i>
           <span>
             {{wallet.name || wallet.id}}
           </span>
@@ -92,9 +90,10 @@
             Incomplete
           </span>
           <span ng-if="wallet.isComplete()">
-            <span ng-if="!wallet.balanceHidden"> {{wallet.status.totalBalanceStr ? wallet.status.totalBalanceStr : ( wallet.cachedBalance ? wallet.cachedBalance   + (wallet.cachedBalanceUpdatedOn ? ' &middot; ' + ( wallet.cachedBalanceUpdatedOn  * 1000 | amTimeAgo) : '') : ''  ) }} </span>
+            <span ng-if="!wallet.balanceHidden  && !wallet.scanning"> {{wallet.status.totalBalanceStr ? wallet.status.totalBalanceStr : ( wallet.cachedBalance ? wallet.cachedBalance   + (wallet.cachedBalanceUpdatedOn ? ' &middot; ' + ( wallet.cachedBalanceUpdatedOn  * 1000 | amTimeAgo) : '') : ''  ) }} </span>
+            <span ng-if="wallet.scanning" translate> Scanning funds... </span>
 
-            <span ng-if="wallet.balanceHidden" translate>[Balance Hidden]</span>
+            <span ng-if="wallet.balanceHidden && !wallet.scanning" translate>[Balance Hidden]</span>
             <span class="tab-home__wallet__multisig-number" ng-if="wallet.n > 1">
               {{wallet.m}}-of-{{wallet.n}}
             </span>

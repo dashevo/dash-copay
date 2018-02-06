@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog, scannerService) {
+angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog, scannerService, bitcoreCash) {
 
   var originalList;
   var CONTACTS_SHOW_LIMIT;
@@ -78,6 +78,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           name: v.name,
           recipientType: 'wallet',
           coin: v.coin,
+          network: v.network,
           getAddress: function(cb) {
             walletService.getAddress(v, false, cb);
           },
@@ -86,6 +87,14 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
       originalList = originalList.concat(walletList);
     }
   }
+
+  var getCoin = function(address) {
+    var cashAddress = bitcoreCash.Address.isValid(address, 'livenet');
+    if (cashAddress) {
+      return 'bch';
+    }
+    return 'btc';
+  };
 
   var updateContactsList = function(cb) {
     addressbookService.list(function(err, ab) {
@@ -101,6 +110,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           address: k,
           email: lodash.isObject(v) ? v.email : null,
           recipientType: 'contact',
+          coin: getCoin(k),
           getAddress: function(cb) {
             return cb(null, k);
           },

@@ -12,7 +12,7 @@ angular.module('copayApp.controllers').controller('joinController',
       $scope.formData.account = 1;
       $scope.formData.secret = null;
       $scope.formData.coin = 'btc';
-      if (config.cashSupport.enabled) $scope.enableCash = true;
+      if (config.cashSupport) $scope.enableCash = true;
       resetPasswordFields();
       updateSeedSourceSelect();
     });
@@ -141,6 +141,11 @@ angular.module('copayApp.controllers').controller('joinController',
       }
 
       if ($scope.formData.seedSource.id == walletService.externalSource.ledger.id || $scope.formData.seedSource.id == walletService.externalSource.trezor.id || $scope.formData.seedSource.id == walletService.externalSource.intelTEE.id) {
+        if ($scope.formData.coin == 'bch') {
+          popupService.showAlert(gettextCatalog.getString('Error'), gettextCatalog.getString('Hardware wallets are not yet supported with Bitcoin Cash'));
+          return;
+        }
+
         var account = $scope.formData.account;
         if (!account || account < 1) {
           popupService.showAlert(gettextCatalog.getString('Error'), gettextCatalog.getString('Invalid account number'));

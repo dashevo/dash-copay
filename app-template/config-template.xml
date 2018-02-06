@@ -66,6 +66,7 @@
     <plugin name="cordova-plugin-customurlscheme" spec="https://github.com/cmgustavo/Custom-URL-scheme.git">
       <variable name="URL_SCHEME" value="bitcoin" />
       <variable name="SECOND_URL_SCHEME" value="*APPURI*" />
+      <variable name="THIRD_URL_SCHEME" value="bitcoincash" />
     </plugin>
     <plugin name="cordova-fabric-plugin" spec="https://github.com/sarriaroman/FabricPlugin.git">
       <variable name="FABRIC_API_KEY" value="1f5cb62b417a7ad5ccb7d6a5d319bef3d9056eed" />
