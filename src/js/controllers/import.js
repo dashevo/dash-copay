@@ -5,6 +5,7 @@ angular.module('copayApp.controllers').controller('importController',
 
     var reader = new FileReader();
     var defaults = configService.getDefaults();
+    var config = configService.getSync();
     var errors = bwcService.getErrors();
 
     $scope.init = function() {
@@ -15,9 +16,12 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.formData.bwsurl = defaults.bws.url;
       $scope.formData.derivationPath = derivationPathHelper.defaultT;
       $scope.formData.account = 1;
+      $scope.formData.coin = 'btc';
       $scope.importErr = false;
       $scope.isCopay = appConfigService.name == 'copay';
       $scope.fromHardwareWallet = { value: false };
+
+      if (config.cashSupport.enabled) $scope.enableCash = true;
 
       if ($stateParams.code)
         $scope.processWalletInfo($stateParams.code);
@@ -205,6 +209,7 @@ angular.module('copayApp.controllers').controller('importController',
         if (evt.target.readyState == FileReader.DONE) { // DONE == 2
           var opts = {};
           opts.bwsurl = $scope.formData.bwsurl;
+          opts.coin = $scope.formData.coin;
           _importBlob(evt.target.result, opts);
         }
       }
@@ -230,6 +235,7 @@ angular.module('copayApp.controllers').controller('importController',
       } else {
         var opts = {};
         opts.bwsurl = $scope.formData.bwsurl;
+        opts.coin = $scope.formData.coin;
         _importBlob(backupText, opts);
       }
     };
@@ -275,6 +281,7 @@ angular.module('copayApp.controllers').controller('importController',
       }
 
       opts.passphrase = $scope.formData.passphrase || null;
+      opts.coin = $scope.formData.coin;
 
       if ($scope.fromHardwareWallet.value) {
         $log.debug('Importing seed from hardware wallet');

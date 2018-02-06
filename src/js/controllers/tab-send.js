@@ -77,6 +77,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           color: v.color,
           name: v.name,
           recipientType: 'wallet',
+          coin: v.coin,
           getAddress: function(cb) {
             walletService.getAddress(v, false, cb);
           },
@@ -144,7 +145,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
 
   $scope.toggleInstantSend = function(){
     $scope.isInstantSend = !$scope.isInstantSend;
-  }
+  };
 
   $scope.searchInFocus = function() {
     $scope.searchFocus = true;
@@ -186,12 +187,14 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           return popupService.showAlert(err);
         }
         $log.debug('Got toAddress:' + addr + ' | ' + item.name);
+
         return $state.transitionTo('tabs.send.amount', {
           recipientType: item.recipientType,
           toAddress: addr,
           toName: item.name,
           toEmail: item.email,
-          toColor: item.color
+          toColor: item.color,
+          coin: item.coin
         })
       });
     });
