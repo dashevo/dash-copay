@@ -8,10 +8,6 @@ angular.module('copayApp.controllers').controller('customAmountController', func
     });
   };
 
-  var setProtocolHandler = function() {
-    $scope.protocolHandler = walletService.getProtocolHandler($scope.wallet);
-  }
-
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
     var walletId = data.stateParams.id;
 
@@ -24,15 +20,14 @@ angular.module('copayApp.controllers').controller('customAmountController', func
 
     $scope.wallet = profileService.getWallet(walletId);
 
-    setProtocolHandler();
-
     walletService.getAddress($scope.wallet, false, function(err, addr) {
       if (!addr) {
         showErrorAndBack('Error', 'Could not get the address');
         return;
       }
 
-      $scope.address = addr;
+      $scope.address = walletService.getAddressView($scope.wallet, addr);
+      $scope.protoAddr = walletService.getProtoAddress($scope.wallet, $scope.address);
 
       $scope.coin = data.stateParams.coin;
       var parsedAmount = txFormatService.parseAmount(
@@ -69,16 +64,18 @@ angular.module('copayApp.controllers').controller('customAmountController', func
 
   $scope.shareAddress = function() {
     if (!platformInfo.isCordova) return;
-    var protocol = 'dash';
-    if ($scope.wallet.coin == 'bch') protocol = 'bitcoincash';
-    var data = protocol + ':' + $scope.address + '?amount=' + $scope.amountBtc;
+    // var protocol = 'dash';
+    // if ($scope.wallet.coin == 'bch') protocol = 'bitcoincash';
+    // var data = protocol + ':' + $scope.address + '?amount=' + $scope.amountBtc;
+    var data = $scope.protoAddr + '?amount=' + $scope.amountBtc;
     window.plugins.socialsharing.share(data, null, null, null);
-  }
+  };
 
   $scope.copyToClipboard = function() {
-    var protocol = 'dash';
-    if ($scope.wallet.coin == 'bch') protocol = 'bitcoincash';
-    return protocol + ':' + $scope.address + '?amount=' + $scope.amountBtc;
+    // var protocol = 'dash';
+    // if ($scope.wallet.coin == 'bch') protocol = 'bitcoincash';
+    // return protocol + ':' + $scope.address + '?amount=' + $scope.amountBtc;
+    return $scope.protoAddr + '?amount=' + $scope.amountBtc;
   };
 
 });
