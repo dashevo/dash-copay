@@ -6,7 +6,8 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
     $scope.currentLanguageName = uxLanguage.getCurrentLanguageName();
     $scope.feeOpts = feeService.feeOpts;
     $scope.currentFeeLevel = feeService.getCurrentFeeLevel();
-    $scope.wallets = profileService.getWallets();
+    $scope.walletsBtc = profileService.getWallets({ coin: 'btc' });
+    $scope.walletsBch = profileService.getWallets({ coin: 'bch' });
     $scope.buyAndSellServices = buyAndSellService.getLinked();
 
     configService.whenAvailable(function(config) {
@@ -24,10 +25,6 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
           $rootScope.$apply();
         }, 10);
       });
-
-      $scope.cashSupport = {
-        value: config.cashSupport
-      };
 
 
       // TODO move this to a generic service

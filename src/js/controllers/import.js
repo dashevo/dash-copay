@@ -16,14 +16,12 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.formData.bwsurl = defaults.bws.url;
       $scope.formData.derivationPath = derivationPathHelper.defaultT;
       $scope.formData.account = 1;
-      $scope.formData.coin = 'btc';
+      $scope.formData.coin = $stateParams.coin;
       $scope.importErr = false;
       $scope.isCopay = appConfigService.name == 'copay';
       $scope.fromHardwareWallet = {
         value: false
       };
-
-      if (config.cashSupport) $scope.enableCash = true;
 
       if ($stateParams.code)
         $scope.processWalletInfo($stateParams.code);
@@ -272,6 +270,7 @@ angular.module('copayApp.controllers').controller('importController',
       opts.account = pathData.account;
       opts.networkName = pathData.networkName;
       opts.derivationStrategy = pathData.derivationStrategy;
+      opts.coin = $scope.formData.coin;
 
       var words = $scope.formData.words || null;
 
@@ -292,7 +291,6 @@ angular.module('copayApp.controllers').controller('importController',
       }
 
       opts.passphrase = $scope.formData.passphrase || null;
-      opts.coin = $scope.formData.coin;
 
       if ($scope.fromHardwareWallet.value) {
         $log.debug('Importing seed from hardware wallet');

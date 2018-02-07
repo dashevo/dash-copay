@@ -15,6 +15,7 @@ angular.module('copayApp.controllers').controller('tabHomeController',
     $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
     $scope.isNW = platformInfo.isNW;
     $scope.showRateCard = {};
+    $scope.serverMessage = null;
 
     $scope.$on("$ionicView.afterEnter", function() {
       startupService.ready();
@@ -140,7 +141,7 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       return timeService.withinPastDay(time);
     };
 
-    $scope.openExternalLink = function() {
+    $scope.goToDownload = function() {
       var url = 'https://github.com/bitpay/copay/releases/latest';
       var optIn = true;
       var title = gettextCatalog.getString('Update Available');
@@ -148,6 +149,11 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       var okText = gettextCatalog.getString('View Update');
       var cancelText = gettextCatalog.getString('Go Back');
       externalLinkService.open(url, optIn, title, message, okText, cancelText);
+    };
+
+    $scope.openServerMessageLink = function() {
+      var url = $scope.serverMessage.link;
+      externalLinkService.open(url);
     };
 
     $scope.openNotificationModal = function(n) {
@@ -206,14 +212,26 @@ angular.module('copayApp.controllers').controller('tabHomeController',
     };
 
     var updateAllWallets = function() {
-      $scope.wallets = profileService.getWallets();
-      if (lodash.isEmpty($scope.wallets)) return;
+      var wallets = [];
+      $scope.walletsBtc = profileService.getWallets({coin: 'btc'});
+      $scope.walletsBch = profileService.getWallets({coin: 'bch'});
 
-      var i = $scope.wallets.length;
+      lodash.each($scope.walletsBtc, function(wBtc) {
+        wallets.push(wBtc);
+      });
+
+      lodash.each($scope.walletsBch, function(wBch) {
+        wallets.push(wBch);
+      });
+
+      if (lodash.isEmpty(wallets)) return;
+
+      var i = wallets.length;
       var j = 0;
-      var timeSpan = 60 * 60 * 24 * 7;
 
-      lodash.each($scope.wallets, function(wallet) {
+      var foundMessage = false;
+
+      lodash.each(wallets, function(wallet) {
         walletService.getStatus(wallet, {}, function(err, status) {
           if (err) {
 
@@ -223,6 +241,11 @@ angular.module('copayApp.controllers').controller('tabHomeController',
           } else {
             wallet.error = null;
             wallet.status = status;
+
+            if (!foundMessage && !lodash.isEmpty(status.serverMessage)) {
+              $scope.serverMessage = status.serverMessage;
+              foundMessage = true;
+            }
 
             // TODO service refactor? not in profile service
             profileService.setLastKnownBalance(wallet.id, wallet.status.totalBalanceStr, function() {});

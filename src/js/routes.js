@@ -329,6 +329,9 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           'tab-home@tabs': {
             templateUrl: 'views/add.html'
           }
+        },
+        params: {
+          coin: 'btc'
         }
       })
       .state('tabs.add.join', {
@@ -587,16 +590,6 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           'tab-settings@tabs': {
             controller: 'preferencesDeleteWalletController',
             templateUrl: 'views/preferencesDeleteWallet.html'
-          }
-        }
-      })
-
-      .state('tabs.preferencesCash.scan', {
-        url: '/cashScan',
-        views: {
-          'tab-settings@tabs': {
-            controller: 'cashScanController',
-            templateUrl: 'views/cashScan.html'
           }
         }
       })
