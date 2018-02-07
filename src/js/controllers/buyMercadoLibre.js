@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('buyMercadoLibreController', function($scope, $log, $state, $timeout, $filter, $ionicHistory, $ionicConfig, lodash, mercadoLibreService, popupService, profileService, ongoingProcess, configService, walletService, payproService, bwcError, externalLinkService, platformInfo, txFormatService, gettextCatalog, emailService) {
+angular.module('copayApp.controllers').controller('buyMercadoLibreController', function($scope, $log, $state, $timeout, $filter, $ionicHistory, $ionicConfig, $ionicModal, lodash, mercadoLibreService, popupService, profileService, ongoingProcess, configService, walletService, payproService, bwcError, externalLinkService, platformInfo, txFormatService, gettextCatalog, emailService) {
 
   var coin = 'btc';
   var amount;
@@ -9,6 +9,7 @@ angular.module('copayApp.controllers').controller('buyMercadoLibreController', f
   var message;
   var invoiceId;
   var configWallet = configService.getSync().wallet;
+  var FEE_TOO_HIGH_LIMIT_PER = 15;
   $scope.isCordova = platformInfo.isCordova;
 
   $scope.openExternalLink = function(url) {
@@ -175,22 +176,15 @@ angular.module('copayApp.controllers').controller('buyMercadoLibreController', f
       if (err) {
         $scope.sendStatus = '';
         ongoingProcess.set('Comprando Vale-Presente', false, statusChangeHandler);
-        giftCard = {};
-        giftCard.status = 'FAILURE';
+        giftCard = giftCard || {};
+        giftCard['status'] = 'FAILURE';
       }
 
       if (giftCard && giftCard.cardStatus && (giftCard.cardStatus != 'active' && giftCard.cardStatus != 'inactive' && giftCard.cardStatus != 'expired')) {
         $scope.sendStatus = '';
         ongoingProcess.set('Comprando Vale-Presente', false, statusChangeHandler);
-        giftCard = {};
-        giftCard.status = 'FAILURE';
-      }
-
-
-      if (giftCard.status == 'PENDING' && count < 3) {
-        $log.debug("Waiting for payment confirmation");
-        checkTransaction(count + 1, dataSrc);
-        return;
+        giftCard = giftCard || {};
+        giftCard['status'] = 'FAILURE';
       }
 
       var now = moment().unix() * 1000;
@@ -204,9 +198,20 @@ angular.module('copayApp.controllers').controller('buyMercadoLibreController', f
       newData['date'] = dataSrc.invoiceTime || now;
       newData['uuid'] = dataSrc.uuid;
 
+      if (giftCard.status == 'PENDING' && count < 3) {
+        $log.debug("Waiting for payment confirmation");
+
+        mercadoLibreService.savePendingGiftCard(newData, null, function(err) {
+          $log.debug("Saving gift card with status: " + newData.status);
+        });
+
+        checkTransaction(count + 1, dataSrc);
+        return;
+      }
+
       mercadoLibreService.savePendingGiftCard(newData, null, function(err) {
         ongoingProcess.set('Comprando Vale-Presente', false, statusChangeHandler);
-        $log.debug("Saving new gift card with status: " + newData.status);
+        $log.debug("Saved new gift card with status: " + newData.status);
         $scope.mlGiftCard = newData;
       });
     });
@@ -262,10 +267,31 @@ angular.module('copayApp.controllers').controller('buyMercadoLibreController', f
           invoiceTime: invoice.invoiceTime
         };
         $scope.totalAmountStr = txFormatService.formatAmountStr(coin, ctxp.amount);
+
+        // Warn: fee too high
+        checkFeeHigh(Number(parsedAmount.amountSat), Number(invoiceFeeSat) + Number(ctxp.fee));
+
         setTotalAmount(parsedAmount.amountSat, invoiceFeeSat, ctxp.fee);
       });
     });
   };
+
+  var checkFeeHigh = function(amount, fee) {
+    var per = fee / (amount + fee) * 100;
+
+    if (per > FEE_TOO_HIGH_LIMIT_PER) {
+      $ionicModal.fromTemplateUrl('views/modals/fee-warning.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.feeWarningModal = modal;
+        $scope.feeWarningModal.show();
+      });
+
+      $scope.close = function() {
+        $scope.feeWarningModal.hide();
+      };
+    }
+  }
 
   $scope.$on("$ionicView.beforeLeave", function(event, data) {
     $ionicConfig.views.swipeBackEnabled(true);
