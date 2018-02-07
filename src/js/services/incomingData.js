@@ -76,15 +76,17 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     }
     // data extensions for Payment Protocol with non-backwards-compatible request
     if ((/^dash?:\?r=[\w+]/).exec(data)) {
+      var coin = 'btc';
+      if (data.indexOf('bitcoincash') === 0) coin = 'bch';
+
       data = decodeURIComponent(data.replace(/dash?:\?r=/, ''));
-      $state.go('tabs.send', {}, {
-        'reload': true,
-        'notify': $state.current.name == 'tabs.send' ? false : true
-      }).then(function() {
-        $state.transitionTo('tabs.send.confirm', {
-          paypro: data
-        });
+
+      payproService.getPayProDetails(data, function(err, details) {
+        if (err) {
+          popupService.showAlert(gettextCatalog.getString('Error'), err);
+        } else handlePayPro(details, coin);
       });
+
       return true;
     }
 
