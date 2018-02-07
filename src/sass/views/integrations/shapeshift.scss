@@ -1,27 +1,68 @@
-#amazon {
+#shapeshift {
   $item-lateral-padding: 20px;
   $item-vertical-padding: 10px;
   $item-border-color: #EFEFEF;
   $item-label-color: #6C6C6E;
-  .details {
-    float: right;
-    font-size: 25px;
-    color: $v-accent-color;
-    cursor: pointer;
+  .start-background {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    background: url(../img/shapeshift_background.jpg) center center no-repeat #28394d;
+    .start-buttons {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+    }
+    .start-description {
+      margin-top: 0;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      margin-bottom: 130px;
+      opacity: .6;
+      max-width: 300px;
+      font-size: 14px;
+      h4 {
+        color: white;
+      }
+    }
   }
-  .icon-amazon {
-    background-image: url("../img/icon-amazon.svg");
+  .main-header {
+    height: 120px;
+    background: url(../img/shapeshift_background.jpg) center center no-repeat #28394d;
+    text-align: center;
+    img {
+      padding-top: 20px;
+    }
   }
-  .spinner svg {
-    stroke: black;
-    fill: black;
+  .confirm-coin-logo {
+    margin-top: 26px;
   }
+  .confirm-coin-logo-cash {
+    margin-top: 28px;
+  }
+  .wallet-coin-logo {
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .wallet-details__item.item {
+    padding-top: 0;
+    padding-bottom: 0;
 
-  .add-bottom-for-cta {
-    bottom: 92px;
+    .wallet-details__tx-icon {
+      background: #fff;
+      border-radius: 50px;
+    }
+  }
+  .shift-button {
+    margin-top: 20px;
   }
   .head {
-    padding: 30px $item-lateral-padding 4rem;
+    padding: 20px $item-lateral-padding 0;
+    height: 165px;
     border-top: 0;
 
     .sending-label {
@@ -57,9 +98,6 @@
         color: #9B9B9B;
       }
     }
-  }
-  .item {
-    border-color: $item-border-color;
   }
   .info {
     .badge {
@@ -138,5 +176,21 @@
         }
       }
     }
+  }
+  .item-amount {
+    float: right;
+    font-weight: bold;
+  }
+  .has-bottom {
+    bottom: 80px;
+  }
+  .text-confirm {
+    font-size: 12px;
+    padding: 20px;
+  }
+  .shift-sent {
+    color: #fff;
+    font-size: 26px;
+    margin: 20px 10px;
   }
 }
