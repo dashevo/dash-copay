@@ -28,6 +28,7 @@ angular.module('copayApp.services').factory('txFormatService', function($filter,
   };
 
   root.formatAmountStr = function(coin, satoshis) {
+    if (coin == 'btc') coin = 'dash'; // TODO: update all internals & dependencies to use "dash" instead of "btc" as coin parameter
     if (isNaN(satoshis)) return;
     return root.formatAmount(satoshis) + ' ' + (coin).toUpperCase();
   };
