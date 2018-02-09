@@ -81,10 +81,14 @@ msgstr "Adicionar conta"
 msgid "Add BitPay Account?"
 msgstr "Adicionar conta BitPay?"
 
-#: www/views/addressbook.add.html:4
+#: www/views/addressbook.edit.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
 msgstr "Adicionar contacto"
+
+#: www/views/addressbook.edit.html:5
+msgid "Edit Contact"
+msgstr "Editar Contato"
 
 #: www/views/bitpayCard.html:28
 msgid "Add Funds"
@@ -304,7 +308,7 @@ msgstr "Certifique-se de armazenar a sua frase de recuperação num lugar seguro
 msgid "BitPay Visa&reg; Cards"
 msgstr "Cartões BitPay Visa&reg"
 
-#: www/views/addressbook.add.html:38
+#: www/views/addressbook.edit.html:39
 msgid "Bitcoin Address"
 msgstr "Endereço Bitcoin"
 
@@ -373,7 +377,7 @@ msgstr "A calcular taxa"
 #: src/js/controllers/confirm.js:494
 #: src/js/controllers/lockSetup.js:102
 #: src/js/services/popupService.js:59
-#: www/views/addressbook.add.html:10
+#: www/views/addressbook.edit.html:11
 #: www/views/feedback/send.html:5
 #: www/views/includes/confirm-tx.html:30
 #: www/views/includes/note.html:6
@@ -765,7 +769,7 @@ msgstr "Cada carteira de Bitcoin pode gerar biliões de endereços através do s
 msgid "Economy"
 msgstr "Economia"
 
-#: www/views/addressbook.add.html:29
+#: www/views/addressbook.edit.html:30
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr "Email"
@@ -1468,7 +1472,7 @@ msgstr "Vários destinatários"
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr "Nota: Para importar uma carteira de software de terceiros, por favor, vá para: Adicionar carteira, Criar Carteira, e então especifique a frase de recuperação."
 
-#: www/views/addressbook.add.html:21
+#: www/views/addressbook.edit.html:22
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
@@ -2018,7 +2022,7 @@ msgstr "Repetir"
 msgid "Retry Camera"
 msgstr "Tentar Camera novamente"
 
-#: www/views/addressbook.add.html:56
+#: www/views/addressbook.edit.html:57
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
@@ -3011,7 +3015,7 @@ msgstr "bloqueado por pagamentos pendentes"
 msgid "me"
 msgstr "eu"
 
-#: www/views/addressbook.add.html:32
+#: www/views/addressbook.edit.html:33
 msgid "name@example.com"
 msgstr "nome@exemplo.pt"
 
@@ -3057,4 +3061,3 @@ msgstr ""
 #: www/views/includes/walletInfo.html:12
 msgid "{{wallet.m}}-of-{{wallet.n}}"
 msgstr "{{wallet.m}}-de-{{wallet.n}}"
-

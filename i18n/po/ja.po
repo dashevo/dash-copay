@@ -81,10 +81,14 @@ msgstr "アカウントを追加"
 msgid "Add BitPay Account?"
 msgstr "BitPay アカウントを追加しますか？"
 
-#: www/views/addressbook.add.html:4
+#: www/views/addressbook.edit.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
 msgstr "連絡先を追加"
+
+#: www/views/addressbook.edit.html:5
+msgid "Edit Contact"
+msgstr "連絡先を編集"
 
 #: www/views/bitpayCard.html:28
 msgid "Add Funds"
@@ -306,7 +310,7 @@ msgstr "書き留めた復元フレーズは金庫など、安全な場所にて
 msgid "BitPay Visa&reg; Cards"
 msgstr "BitPayのVISA&reg; カード"
 
-#: www/views/addressbook.add.html:38
+#: www/views/addressbook.edit.html:39
 msgid "Bitcoin Address"
 msgstr "ビットコインアドレス"
 
@@ -375,7 +379,7 @@ msgstr "手数料計算中..."
 #: src/js/controllers/confirm.js:494
 #: src/js/controllers/lockSetup.js:102
 #: src/js/services/popupService.js:59
-#: www/views/addressbook.add.html:10
+#: www/views/addressbook.edit.html:11
 #: www/views/feedback/send.html:5
 #: www/views/includes/confirm-tx.html:30
 #: www/views/includes/note.html:6
@@ -767,7 +771,7 @@ msgstr "12個の単語から無限大のアドレスを生成することがで�
 msgid "Economy"
 msgstr "節約"
 
-#: www/views/addressbook.add.html:29
+#: www/views/addressbook.edit.html:30
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr "電子メール"
@@ -1470,7 +1474,7 @@ msgstr "複数送金先"
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr "注意：他アプリのウォレットをインポートする場合、ウォレットを追加 &gt; 新規ウォレット作成にて復元フレーズを指定するオプションを詳細設定にて有効にして下さい。"
 
-#: www/views/addressbook.add.html:21
+#: www/views/addressbook.edit.html:22
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
@@ -2020,7 +2024,7 @@ msgstr "やり直し"
 msgid "Retry Camera"
 msgstr "カメラを再試行"
 
-#: www/views/addressbook.add.html:56
+#: www/views/addressbook.edit.html:57
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
@@ -3017,7 +3021,7 @@ msgstr "未対応送金の提案によりロック中"
 msgid "me"
 msgstr "自分"
 
-#: www/views/addressbook.add.html:32
+#: www/views/addressbook.edit.html:33
 msgid "name@example.com"
 msgstr "name@example.com"
 
@@ -3063,4 +3067,3 @@ msgstr "{{updatingTxHistoryProgress}} 個の取引ダウンロード済み"
 #: www/views/includes/walletInfo.html:12
 msgid "{{wallet.m}}-of-{{wallet.n}}"
 msgstr "{{wallet.m}}-of-{{wallet.n}}"
-

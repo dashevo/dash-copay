@@ -299,8 +299,8 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         url: '/addressbook/add/:fromSendTab/:addressbookEntry',
         views: {
           'tab-send@tabs': {
-            templateUrl: 'views/addressbook.add.html',
-            controller: 'addressbookAddController'
+            templateUrl: 'views/addressbook.edit.html',
+            controller: 'addressbookEditController'
           }
         }
       })
@@ -590,12 +590,12 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           }
         }
       })
-      .state('tabs.addressbook.add', {
-        url: '/add',
+      .state('tabs.addressbook.edit', {
+        url: '/edit/:address',
         views: {
           'tab-settings@tabs': {
-            templateUrl: 'views/addressbook.add.html',
-            controller: 'addressbookAddController'
+            templateUrl: 'views/addressbook.edit.html',
+            controller: 'addressbookEditController'
           }
         }
       })

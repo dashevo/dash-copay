@@ -6,7 +6,7 @@
       <span translate>Address Book</span>
     </ion-nav-title>
     <ion-nav-buttons side="secondary">
-      <button class="button button-back button-clear ng-hide" ng-show="showAddIcon" ui-sref="tabs.addressbook.add">
+      <button class="button button-back button-clear ng-hide" ng-show="showAddIcon" ui-sref="tabs.addressbook.edit">
         <i class="icon ion-ios-plus-empty"></i>
       </button>
     </ion-nav-buttons>
@@ -19,7 +19,7 @@
       <div class="zero-state-heading" translate>No contacts yet</div>
       <div class="zero-state-description" translate>Get started by adding your first one.</div>
       <div class="zero-state-cta">
-        <button class="button button-standard button-primary" ui-sref="tabs.addressbook.add" translate>Add Contact</button>
+        <button class="button button-standard button-primary" ui-sref="tabs.addressbook.edit" translate>Add Contact</button>
       </div>
     </div>
   </ion-content>
@@ -43,7 +43,10 @@
         <p>{{addrEntry.address}}</p>
         <i class="icon bp-arrow-right"></i>
         <ion-option-button class="button-assertive" ng-click="remove(addrEntry.address)">
-          <i class="icon ion-minus-circled"></i>
+          <i class="icon ion-trash-a"></i>
+        </ion-option-button>
+        <ion-option-button class="button-energized" ui-sref="tabs.addressbook.edit({address: addrEntry.address})">
+          <i class="icon ion-edit"></i>
         </ion-option-button>
       </ion-item>
     </ion-list>

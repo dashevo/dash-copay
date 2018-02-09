@@ -1,14 +1,24 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('addressbookAddController', function($scope, $state, $stateParams, $timeout, $ionicHistory, gettextCatalog, addressbookService, popupService) {
+angular.module('copayApp.controllers').controller('addressbookEditController', function($scope, $state, $stateParams, $timeout, $ionicHistory, gettextCatalog, addressbookService, popupService) {
 
   $scope.fromSendTab = $stateParams.fromSendTab;
 
   $scope.addressbookEntry = {
-    'address': $stateParams.addressbookEntry || '',
+    'address': '',
     'name': '',
     'email': ''
   };
+
+  if ($stateParams.address) {
+    addressbookService.get($stateParams.address, function(err, ab) {
+      if (ab) {
+        $scope.addressbookEntry = ab;
+      }
+    });
+  } else {
+    var isNew = true;
+  }
 
   $scope.onQrCodeScannedAddressBook = function(data, addressbookForm) {
     $timeout(function() {
@@ -23,9 +33,9 @@ angular.module('copayApp.controllers').controller('addressbookAddController', fu
     }, 100);
   };
 
-  $scope.add = function(addressbook) {
+  $scope.save = function(addressbook) {
     $timeout(function() {
-      addressbookService.add(addressbook, function(err, ab) {
+      addressbookService.save(addressbook, function(err, ab) {
         if (err) {
           popupService.showAlert(gettextCatalog.getString('Error'), err);
           return;

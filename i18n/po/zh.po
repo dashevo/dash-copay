@@ -81,10 +81,14 @@ msgstr "添加帐户"
 msgid "Add BitPay Account?"
 msgstr "添加 BitPay 帐户吗？"
 
-#: www/views/addressbook.add.html:4
+#: www/views/addressbook.edit.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
 msgstr "添加联系人"
+
+#: www/views/addressbook.edit.html:5
+msgid "Edit Contact"
+msgstr "更改联系资料"
 
 #: www/views/bitpayCard.html:28
 msgid "Add Funds"
@@ -304,7 +308,7 @@ msgstr "请务必将您的恢复短语存储在一个安全的地方。如果这
 msgid "BitPay Visa&reg; Cards"
 msgstr "BitPay Visa&reg; 牌"
 
-#: www/views/addressbook.add.html:38
+#: www/views/addressbook.edit.html:39
 msgid "Bitcoin Address"
 msgstr "比特币地址"
 
@@ -373,7 +377,7 @@ msgstr "正在计算费用"
 #: src/js/controllers/confirm.js:494
 #: src/js/controllers/lockSetup.js:102
 #: src/js/services/popupService.js:59
-#: www/views/addressbook.add.html:10
+#: www/views/addressbook.edit.html:11
 #: www/views/feedback/send.html:5
 #: www/views/includes/confirm-tx.html:30
 #: www/views/includes/note.html:6
@@ -765,7 +769,7 @@ msgstr "每个比特币钱包可以从您的 12 字备份生成亿万个地址�
 msgid "Economy"
 msgstr "经济"
 
-#: www/views/addressbook.add.html:29
+#: www/views/addressbook.edit.html:30
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr "电子邮件"
@@ -1468,7 +1472,7 @@ msgstr "多个接收者"
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr "注意︰欲从第三方软件导入钱包，请到添加钱包 &gt; 创建钱包，并指定恢复短语。"
 
-#: www/views/addressbook.add.html:21
+#: www/views/addressbook.edit.html:22
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
@@ -2018,7 +2022,7 @@ msgstr "重试"
 msgid "Retry Camera"
 msgstr "重试相机"
 
-#: www/views/addressbook.add.html:56
+#: www/views/addressbook.edit.html:57
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
@@ -3011,7 +3015,7 @@ msgstr "被未决支付锁定"
 msgid "me"
 msgstr "我"
 
-#: www/views/addressbook.add.html:32
+#: www/views/addressbook.edit.html:33
 msgid "name@example.com"
 msgstr "name@example.com"
 
@@ -3057,4 +3061,3 @@ msgstr "下载的 {{updatingTxHistoryProgress}} 交易"
 #: www/views/includes/walletInfo.html:12
 msgid "{{wallet.m}}-of-{{wallet.n}}"
 msgstr "{{wallet.m}}{{wallet.n}}"
-

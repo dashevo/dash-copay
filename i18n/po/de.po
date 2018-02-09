@@ -81,10 +81,14 @@ msgstr "Konto hinzufügen"
 msgid "Add BitPay Account?"
 msgstr "BitPay-Konto hinzufügen?"
 
-#: www/views/addressbook.add.html:4
+#: www/views/addressbook.edit.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
 msgstr "Kontakt hinzufügen"
+
+#: www/views/addressbook.edit.html:5
+msgid "Edit Contact"
+msgstr "Kontakt bearbeiten"
 
 #: www/views/bitpayCard.html:28
 msgid "Add Funds"
@@ -304,7 +308,7 @@ msgstr "Achten Sie darauf Ihre Wiederherstellungsphrase an einem sicheren Ort ab
 msgid "BitPay Visa&reg; Cards"
 msgstr "BitPay Visa&reg; Karten"
 
-#: www/views/addressbook.add.html:38
+#: www/views/addressbook.edit.html:39
 msgid "Bitcoin Address"
 msgstr "Bitcoin-Adresse"
 
@@ -373,7 +377,7 @@ msgstr "Mining-Fee Berechnung"
 #: src/js/controllers/confirm.js:494
 #: src/js/controllers/lockSetup.js:102
 #: src/js/services/popupService.js:59
-#: www/views/addressbook.add.html:10
+#: www/views/addressbook.edit.html:11
 #: www/views/feedback/send.html:5
 #: www/views/includes/confirm-tx.html:30
 #: www/views/includes/note.html:6
@@ -765,7 +769,7 @@ msgstr "Jede Bitcoin-Wallet kann Milliarden von Adressen aus Ihrem 12-Wort Backu
 msgid "Economy"
 msgstr "Wirtschaftlich"
 
-#: www/views/addressbook.add.html:29
+#: www/views/addressbook.edit.html:30
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr "E-Mail"
@@ -1468,7 +1472,7 @@ msgstr "Mehrere Empfänger"
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr "Hinweis: Um eine Brieftasche aus einer 3rd-Party-Software zu importieren, gehen Sie bitte auf Wallet Hinzufügen &gt; Wallet Importieren, und geben Sie die Wiederhestellungsphrase ein."
 
-#: www/views/addressbook.add.html:21
+#: www/views/addressbook.edit.html:22
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
@@ -2018,7 +2022,7 @@ msgstr "Nochmals versuchen"
 msgid "Retry Camera"
 msgstr "Kamera nochmals versuchen"
 
-#: www/views/addressbook.add.html:56
+#: www/views/addressbook.edit.html:57
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
@@ -3011,7 +3015,7 @@ msgstr "durch ausstehende Zahlungen gesperrt"
 msgid "me"
 msgstr "Ich"
 
-#: www/views/addressbook.add.html:32
+#: www/views/addressbook.edit.html:33
 msgid "name@example.com"
 msgstr "name@beispiel.com"
 
@@ -3057,4 +3061,3 @@ msgstr "{{updatingTxHistoryProgress}} Transaktionen werden heruntergeladen"
 #: www/views/includes/walletInfo.html:12
 msgid "{{wallet.m}}-of-{{wallet.n}}"
 msgstr "{{wallet.m}}-von-{{wallet.n}}"
-
