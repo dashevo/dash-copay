@@ -598,5 +598,41 @@ angular.module('copayApp.services')
       storage.remove('amazonGiftCards-' + network, cb);
     };
 
+    root.setTxConfirmNotification = function(txid, val, cb) {
+      storage.set('txConfirmNotif-' + txid, val, cb);
+    };
+
+    root.getTxConfirmNotification = function(txid, cb) {
+      storage.get('txConfirmNotif-' + txid, cb);
+    };
+
+    root.removeTxConfirmNotification = function(txid, cb) {
+      storage.remove('txConfirmNotif-' + txid, cb);
+    };
+
+    root.setMercadoLibreGiftCards = function(network, gcs, cb) {
+      storage.set('mercadoLibreGiftCards-' + network, gcs, cb);
+    };
+
+    root.getMercadoLibreGiftCards = function(network, cb) {
+      storage.get('mercadoLibreGiftCards-' + network, cb);
+    };
+
+    root.removeMercadoLibreGiftCards = function(network, cb) {
+      storage.remove('MercadoLibreGiftCards-' + network, cb);
+    };
+
+    root.setShapeshift = function(network, gcs, cb) {
+      storage.set('shapeShift-' + network, gcs, cb);
+    };
+
+    root.getShapeshift = function(network, cb) {
+      storage.get('shapeShift-' + network, cb);
+    };
+
+    root.removeShapeshift = function(network, cb) {
+      storage.remove('shapeShift-' + network, cb);
+    };
+
     return root;
   });

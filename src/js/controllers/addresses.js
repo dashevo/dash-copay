@@ -1,13 +1,8 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('addressesController', function($scope, $log, $stateParams, $state, $timeout, $ionicHistory, $ionicScrollDelegate, configService, popupService, gettextCatalog, ongoingProcess, lodash, profileService, walletService, bwcError, platformInfo, appConfigService) {
+angular.module('copayApp.controllers').controller('addressesController', function($scope, $log, $stateParams, $state, $timeout, $ionicHistory, $ionicScrollDelegate, popupService, gettextCatalog, ongoingProcess, lodash, profileService, walletService, bwcError, platformInfo, appConfigService, txFormatService, feeService) {
   var UNUSED_ADDRESS_LIMIT = 5;
   var BALANCE_ADDRESS_LIMIT = 5;
-  var config = configService.getSync().wallet.settings;
-  var unitName = config.unitName;
-  var unitToSatoshi = config.unitToSatoshi;
-  var satToUnit = 1 / unitToSatoshi;
-  var unitDecimals = config.unitDecimals;
   var withBalance, cachedWallet;
 
   $scope.isCordova = platformInfo.isCordova;
@@ -55,7 +50,7 @@ angular.module('copayApp.controllers').controller('addressesController', functio
         $scope.latestWithBalance = lodash.slice(withBalance, 0, BALANCE_ADDRESS_LIMIT);
 
         lodash.each(withBalance, function(a) {
-          a.balanceStr = (a.amount * satToUnit).toFixed(unitDecimals) + ' ' + unitName;
+          a.balanceStr = txFormatService.formatAmountStr($scope.wallet.coin, a.amount);
         });
 
         $scope.viewAll = {
@@ -71,6 +66,26 @@ angular.module('copayApp.controllers').controller('addressesController', functio
           $scope.$digest();
         });
       });
+    });
+
+
+    walletService.getLowUtxos($scope.wallet, function(err, resp) {
+      if (err) return;
+
+      if (resp && resp.allUtxos && resp.allUtxos.length) {
+
+        var allSum = lodash.sum(resp.allUtxos || 0, 'satoshis');
+        var per = (resp.minFee / allSum) * 100;
+
+        $scope.lowWarning = resp.warning;
+        $scope.lowUtxosNb = resp.lowUtxos.length;
+        $scope.allUtxosNb = resp.allUtxos.length;
+        $scope.lowUtxosSum = txFormatService.formatAmountStr($scope.wallet.coin, lodash.sum(resp.lowUtxos || 0, 'satoshis'));
+        $scope.allUtxosSum = txFormatService.formatAmountStr($scope.wallet.coin, allSum);
+        $scope.minFee = txFormatService.formatAmountStr($scope.wallet.coin, resp.minFee || 0);
+        $scope.minFeePer = per.toFixed(2) + '%';
+
+      }
     });
   };
 
@@ -116,7 +131,14 @@ angular.module('copayApp.controllers').controller('addressesController', functio
   };
 
   $scope.viewAllAddresses = function() {
-    $state.go('tabs.settings.allAddresses', {
+    var fromView = $ionicHistory.currentStateName();
+    var path;
+    if (fromView.indexOf('settings') !== -1) {
+      path = 'tabs.settings.allAddresses';
+    } else {
+      path = 'tabs.wallet.allAddresses';
+    }
+    $state.go(path, {
       walletId: $scope.wallet.id
     });
   };

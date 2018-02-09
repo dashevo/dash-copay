@@ -1,4 +1,4 @@
-<ion-view class="settings">
+<ion-view class="settings" show-tabs>
   <ion-nav-bar class="bar-royal">
     <ion-nav-title>{{'Wallet Information' | translate}}</ion-nav-title>
     <ion-nav-back-button>
@@ -11,6 +11,12 @@
         <span translate>Wallet Name (at creation)</span>
         <span class="item-note">
           {{walletName}}
+        </span>
+      </div>
+      <div class="item" copy-to-clipboard="walletId">
+        <span translate>Coin</span>
+        <span class="item-note">
+          {{wallet.coin}}
         </span>
       </div>
       <div class="item" copy-to-clipboard="walletId">
@@ -88,8 +94,16 @@
         <span translate>Copayer {{$index}}</span>
         <span class="item-note">
           <span>{{pk}}</span>
-          <span ng-if="$index == 0">({{basePath}})</span>
+        <span ng-if="$index == 0">({{basePath}})</span>
         </span>
+      </div>
+
+      <div ng-if="!wallet.needsBackup && canSign">
+        <div class="item item-divider"></div>
+        <a class="item item-icon-right" ui-sref="tabs.preferences.preferencesPrivateKey">
+          <span translate>Extended Private Key</span>
+          <i class="icon bp-arrow-right"></i>
+        </a>
       </div>
 
       <div ng-show="wallet.balanceByAddress[0]">

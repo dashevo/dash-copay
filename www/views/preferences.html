@@ -1,4 +1,4 @@
-<ion-view class="settings">
+<ion-view class="settings" show-tabs>
   <ion-nav-bar class="bar-royal">
     <ion-nav-title>
       {{'Wallet Settings'|translate}}
@@ -13,18 +13,13 @@
 
       <a class="item item-icon-right" ui-sref="tabs.preferences.preferencesAlias">
         <span translate>Name</span>
-        <span class="item-note">
+        <span class="item-note ellipsis">
           {{wallet.name}}
         </span>
         <i class="icon bp-arrow-right"></i>
       </a>
-      <a class="item item-icon-right" ui-sref="tabs.preferences.preferencesColor">
+      <a ng-if="!isWindowsPhoneApp" class="item item-icon-right" ui-sref="tabs.preferences.preferencesColor">
         <span translate>Color</span>
-        <span class="item-note">
-          <span class="settings-color-block"
-          ng-class="{'wallet-background-color-default': !wallet.color, 'wallet-color-default': !wallet.color}"
-          ng-style="{'background-color': wallet.color, 'color': wallet.color}"></span>
-        </span>
         <i class="icon bp-arrow-right"></i>
       </a>
 
@@ -50,9 +45,10 @@
           <span translate>
             If enabled, all sensitive information (private key and recovery phrase) and actions (spending and exporting) associated with this wallet will be protected.
           </span>
-          <span class="text-light assertive" ng-show="wallet.needsBackup" translate>
+          <a ng-click="openWikiSpendingPassword()" translate>Learn more</a>
+          <div class="text-light assertive" ng-show="wallet.needsBackup" translate>
             Complete the backup process to use this option
-          </span>
+          </div>
         </div>
       </div>
       <div ng-show="wallet.canSign() && touchIdAvailable">

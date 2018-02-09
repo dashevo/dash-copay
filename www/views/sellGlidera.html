@@ -17,12 +17,12 @@
         <div class="amount-label">
           <div class="amount">{{amountUnitStr}}</div>
           <div class="alternative">
-            <span ng-show="!isFiat">{{sellInfo.subtotal}} {{sellInfo.currency}}</span> 
+            <span ng-show="!isFiat">{{sellInfo.subtotal}} {{sellInfo.currency}}</span>
             <span ng-show="isFiat">{{sellInfo.qty}} BTC</span>
             @ ${{sellInfo.price}} per BTC
           </div>
         </div>
-      </div> 
+      </div>
 
       <div class="info">
 
@@ -30,7 +30,7 @@
           <div class="label">From</div>
           <div class="wallet">
             <i class="icon big-icon-svg">
-              <img src="img/icon-wallet.svg" ng-style="{'background-color': wallet.color}" class="bg">
+              <img ng-src="img/{{wallet.network == 'testnet' ? 'icon-wallet-testnet' : 'icon-wallet'}}.svg" ng-style="{'background-color': wallet.color}" class="bg">
             </i>
             {{wallet ? wallet.name : '...'}}
           </div>
@@ -64,23 +64,17 @@
   </ion-content>
 
   <click-to-accept
-    ng-disabled="!sellInfo || !wallet"
     ng-click="sellConfirm()"
     ng-if="!isCordova && sellInfo"
     click-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="false"
-    no-matching-wallet="!sellInfo">
+    is-disabled="!sellInfo || !wallet">
     Confirm sale
   </click-to-accept>
   <slide-to-accept
-    ng-disabled="!sellInfo || !wallet"
     ng-if="isCordova && sellInfo"
     slide-on-confirm="sellConfirm()"
     slide-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="false"
-    no-matching-wallet="!sellInfo">
+    is-disabled="!sellInfo || !wallet">
     Slide to sell
   </slide-to-accept>
   <slide-to-accept-success

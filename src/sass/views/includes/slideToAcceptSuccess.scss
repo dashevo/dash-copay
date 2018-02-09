@@ -12,6 +12,12 @@ slide-to-accept-success {
 
   .slide-success {
     $duration: 400ms;
+    &__windows-background {
+      background: $v-success-bg-color;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+    }
     &__background {
       $start-radius: 5;
       $scale-factor: 20;
@@ -35,6 +41,7 @@ slide-to-accept-success {
       position: relative;
       z-index: 1;
       margin-top: -20vh;
+      line-height: 170%;
 
       > img {
         margin-bottom: 1.8rem;

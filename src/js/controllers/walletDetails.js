@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('walletDetailsController', function($scope, $rootScope, $interval, $timeout, $filter, $log, $ionicModal, $ionicPopover, $state, $stateParams, $ionicHistory, profileService, lodash, configService, platformInfo, walletService, txpModalService, externalLinkService, popupService, addressbookService, storageService, $ionicScrollDelegate, $window, bwcError, gettextCatalog) {
+angular.module('copayApp.controllers').controller('walletDetailsController', function($scope, $rootScope, $interval, $timeout, $filter, $log, $ionicModal, $ionicPopover, $state, $stateParams, $ionicHistory, profileService, lodash, configService, platformInfo, walletService, txpModalService, externalLinkService, popupService, addressbookService, storageService, $ionicScrollDelegate, $window, bwcError, gettextCatalog, timeService, feeService, appConfigService) {
 
   var HISTORY_SHOW_LIMIT = 10;
   var currentTxHistoryPage = 0;
@@ -47,6 +47,18 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     $scope.txps = lodash.sortBy(txps, 'createdOn').reverse();
   };
 
+  var analyzeUtxosDone;
+
+  var analyzeUtxos = function() {
+    if (analyzeUtxosDone) return;
+
+    walletService.getLowUtxos($scope.wallet, function(err, resp) {
+      if (err || !resp) return;
+      analyzeUtxosDone = true;
+      $scope.lowUtxosWarning = resp.warning;
+    });
+  };
+
   var updateStatus = function(force) {
     $scope.updatingStatus = true;
     $scope.updateStatusError = null;
@@ -72,11 +84,16 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
         $scope.$apply();
       });
 
+      analyzeUtxos();
+
     });
   };
 
   $scope.openSearchModal = function() {
     $scope.color = $scope.wallet.color;
+    $scope.isSearching = true;
+    $scope.txHistorySearchResults = [];
+    $scope.filteredTxHistory = [];
 
     $ionicModal.fromTemplateUrl('views/modals/search.html', {
       scope: $scope,
@@ -87,6 +104,7 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     });
 
     $scope.close = function() {
+      $scope.isSearching = false;
       $scope.searchModal.hide();
     };
 
@@ -94,7 +112,7 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
       $ionicHistory.nextViewOptions({
         disableAnimate: true
       });
-      $scope.searchModal.hide();
+      $scope.close();
       $scope.openTxModal(tx);
     };
   };
@@ -135,36 +153,39 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
 
   var updateTxHistory = function(cb) {
     if (!cb) cb = function() {};
-    if ($scope.updatingTxHistory) return;
-
     $scope.updatingTxHistory = true;
+
     $scope.updateTxHistoryError = false;
     $scope.updatingTxHistoryProgress = 0;
 
     var progressFn = function(txs, newTxs) {
+      if (newTxs > 5) $scope.txHistory = null;
       $scope.updatingTxHistoryProgress = newTxs;
-      $scope.completeTxHistory = txs;
-      $scope.showHistory();
       $timeout(function() {
         $scope.$apply();
       });
     };
 
-    $timeout(function() {
-      walletService.getTxHistory($scope.wallet, {
-        progressFn: progressFn,
-      }, function(err, txHistory) {
-        $scope.updatingTxHistory = false;
-        if (err) {
-          $scope.txHistory = null;
-          $scope.updateTxHistoryError = true;
-          return;
-        }
-        $scope.completeTxHistory = txHistory;
-        $scope.showHistory();
+    walletService.getTxHistory($scope.wallet, {
+      progressFn: progressFn
+    }, function(err, txHistory) {
+      $scope.updatingTxHistory = false;
+      if (err) {
+        $scope.txHistory = null;
+        $scope.updateTxHistoryError = true;
+        return;
+      }
+
+      var hasTx = txHistory[0];
+      if (hasTx) $scope.showNoTransactionsYetMsg = false;
+      else $scope.showNoTransactionsYetMsg = true;
+
+      $scope.completeTxHistory = txHistory;
+      $scope.showHistory();
+      $timeout(function() {
         $scope.$apply();
-        return cb();
       });
+      return cb();
     });
   };
 
@@ -186,7 +207,7 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     }
     var curTx = $scope.txHistory[index];
     var prevTx = $scope.txHistory[index - 1];
-    return !createdDuringSameMonth(curTx, prevTx);
+    return !$scope.createdDuringSameMonth(curTx, prevTx);
   };
 
   $scope.isLastInGroup = function(index) {
@@ -196,26 +217,17 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     return $scope.isFirstInGroup(index + 1);
   };
 
-  function createdDuringSameMonth(tx1, tx2) {
-    var date1 = new Date(tx1.time * 1000);
-    var date2 = new Date(tx2.time * 1000);
-    return getMonthYear(date1) === getMonthYear(date2);
-  }
+  $scope.createdDuringSameMonth = function(curTx, prevTx) {
+    return timeService.withinSameMonth(curTx.time * 1000, prevTx.time * 1000);
+  };
 
   $scope.createdWithinPastDay = function(time) {
-    var now = new Date();
-    var date = new Date(time * 1000);
-    return (now.getTime() - date.getTime()) < (1000 * 60 * 60 * 24);
+    return timeService.withinPastDay(time);
   };
 
   $scope.isDateInCurrentMonth = function(date) {
-    var now = new Date();
-    return getMonthYear(now) === getMonthYear(date);
+    return timeService.isDateInCurrentMonth(date);
   };
-
-  function getMonthYear(date) {
-    return date.getMonth() + date.getFullYear();
-  }
 
   $scope.isUnconfirmed = function(tx) {
     return !tx.confirmations || tx.confirmations === 0;
@@ -338,9 +350,22 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
   });
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
+    var clearCache = data.stateParams.clearCache;
     $scope.walletId = data.stateParams.walletId;
     $scope.wallet = profileService.getWallet($scope.walletId);
     if (!$scope.wallet) return;
+    // Getting info from cache
+    if (clearCache) {
+      $scope.txHistory = null;
+      $scope.status = null;
+    } else {
+      $scope.status = $scope.wallet.cachedStatus;
+      if ($scope.wallet.completeHistory) {
+        $scope.completeTxHistory = $scope.wallet.completeHistory;
+        $scope.showHistory();
+      }
+    }
+
     $scope.requiresMultipleSignatures = $scope.wallet.credentials.m > 1;
 
     addressbookService.list(function(err, ab) {
@@ -365,9 +390,11 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     refreshAmountSection();
   });
 
-  $scope.$on("$ionicView.beforeLeave", function(event, data) {
+  $scope.$on("$ionicView.afterLeave", function(event, data) {
+
     if ($window.StatusBar) {
-      $window.StatusBar.backgroundColorByHexString('#1e3186');
+      var statusBarColor = appConfigService.name == 'copay' ? '#192c3a' : '#1e3186';
+      $window.StatusBar.backgroundColorByHexString(statusBarColor);
     }
   });
 
@@ -379,7 +406,10 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
 
   function setAndroidStatusBarColor() {
     var SUBTRACT_AMOUNT = 15;
-    var rgb = hexToRgb($scope.wallet.color);
+    var walletColor;
+    if (!$scope.wallet.color) walletColor = appConfigService.name == 'copay' ? '#019477' : '#4a90e2';
+    else walletColor = $scope.wallet.color;
+    var rgb = hexToRgb(walletColor);
     var keys = Object.keys(rgb);
     keys.forEach(function(k) {
       if (rgb[k] - SUBTRACT_AMOUNT < 0) {

@@ -54,13 +54,14 @@
     "angular": "1.4.6",
     "angular-mocks": "1.4.10",
     "bezier-easing": "^2.0.3",
-    "bhttp": "^1.2.1",
+    "bhttp": "1.2.1",
     "bitauth": "^0.2.1",
-    "bitcore-wallet-client": "git+ssh://git@github.com/dashevo/bitcore-wallet-client-dash.git",
+    "bitcore-wallet-client": "snogcel/bitcore-wallet-client-dash#master_upstream",
     "browserify": "^14.5.0",
-    "bower": "^1.7.9",
-    "cordova-android": "5.1.1",
-    "cordova-custom-config": "^3.0.5",
+    "bower": "^1.8.2",
+    "cordova-ios": "4.5.3",
+    "cordova-android": "6.4.0",
+    "cordova-custom-config": "^4.0.2",
     "cordova-plugin-qrscanner": "^2.5.0",
     "coveralls": "^2.11.9",
     "express": "^4.11.2",
@@ -82,8 +83,8 @@
     "uglifyjs": "^2.4.11"
   },
   "scripts": {
-    "postinstall":            "bower install",
-    "start":                  "npm run build:www && ionic serve --nolivereload --nogulp -s",
+    "postinstall": "sed -i  -e \"s/.*require(...\\/...);//g\" node_modules/asn1.js-rfc5280/index.js;   bower install",
+    "start":                  "npm run build:www && ionic serve --no-livereload --nogulp -s --address 0.0.0.0",
     "start:ios":              "npm run build:www && npm run build:ios && npm run open:ios",
     "start:android":          "npm run build:www && npm run build:android && npm run run:android",
     "start:windows":          "npm run build:www && npm run build:windows",
@@ -93,10 +94,10 @@
     "build:www-release":      "grunt prod",
     "build:ios":              "cordova prepare ios && cordova build ios --debug",
     "build:android":          "cordova prepare android && cordova build android --debug",
-    "build:windows":          "cordova prepare windows && cordova build windows -- --arch=\"x86\"",
+    "build:windows":          "cordova prepare windows && cordova build windows -- --arch=\"ARM\"",
     "build:ios-release":      "cordova prepare ios && cordova build ios --release",
     "build:android-release":  "cordova prepare android && cordova build android --release",
-    "build:windows-release":  "cordova prepare windows && cordova build windows --release --arch=\"x86\"",
+    "build:windows-release":  "cordova prepare windows && cordova build windows --release --arch=\"ARM\"",
     "build:desktop":          "grunt desktop",
     "build:osx":            "grunt osx",
     "open:ios":               "open platforms/ios/*.xcodeproj",
@@ -119,11 +120,14 @@
     "clean-all":              "git clean -dfx"
   },
   "devDependencies": {
-    "cordova": "^6.3.1",
+    "cordova": "^7.1.0",
     "grunt": "^1.0.1",
-    "ionic": "^2.1.0",
+    "ionic": "^3.14.0",
     "trash-cli": "^1.4.0",
-    "lodash": "^4.3.0",
-    "pre-commit": "^1.1.3"
-  }
+    "lodash": "^4.17.4",
+    "pre-commit": "^1.1.3",
+    "browserify": "^14.5.0",
+    "uglifyjs": "^2.4.11"
+  },
+  "pre-commit": "unstage-package"
 }
