@@ -169,6 +169,6 @@ angular.module('copayApp.services').factory('amazonService', function($http, $lo
     });
   };
 
-  register();
+  // register();
   return root;
 });

@@ -42,9 +42,9 @@ angular.module('copayApp.services').factory('buyAndSellService', function($log, 
   var updateNextStepsDebunced = lodash.debounce(root.update, 1000);
 
   root.register = function(serviceInfo) {
-    services.push(serviceInfo);
-    $log.info('Adding Buy and Sell service:' + serviceInfo.name + ' linked:' + serviceInfo.linked);
-    updateNextStepsDebunced();
+    // services.push(serviceInfo);
+    // $log.info('Adding Buy and Sell service:' + serviceInfo.name + ' linked:' + serviceInfo.linked);
+    // updateNextStepsDebunced();
   };
 
 
