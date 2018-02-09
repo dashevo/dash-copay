@@ -40,7 +40,7 @@ angular.module('copayApp.controllers').controller('amountController', function (
         availableUnits.push({
           name: 'Bitcoin',
           id: 'btc',
-          shortName: 'BTC',
+          shortName: 'DASH',
         });
       }
 
