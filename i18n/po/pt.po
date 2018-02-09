@@ -178,12 +178,12 @@ msgid "All Addresses"
 msgstr "Todos os endereços"
 
 #: www/views/modals/wallet-balance.html:18
-msgid "All of your bitcoin wallet balance may not be available for immediate spending."
-msgstr "Todos os seus bitcoins na carteira poderão não estar disponíveis de imediato para gastar."
+msgid "All of your Dash wallet balance may not be available for immediate spending."
+msgstr "Todos os seus Dash na carteira poderão não estar disponíveis de imediato para gastar."
 
 #: www/views/tab-receive.html:25
-msgid "All signing devices must be added to this multisig wallet before bitcoin addresses can be created."
-msgstr "Todos os dispositivos de autenticação devem ser adicionados a esta carteira de multi-assinatura antes dos endereços bitcoin poderem ser criados."
+msgid "All signing devices must be added to this multisig wallet before Dash addresses can be created."
+msgstr "Todos os dispositivos de autenticação devem ser adicionados a esta carteira de multi-assinatura antes dos endereços dash poderem ser criados."
 
 #: www/views/tab-scan.html:21
 msgid "Allow Camera Access"
@@ -229,20 +229,20 @@ msgid "An update to this app is available. For your security, please update to t
 msgstr "Está disponível uma actualização para esta aplicação. Para sua segurança, por favor atualize para a versão mais recente."
 
 #: www/views/backupWarning.html:14
-msgid "Anyone with your backup phrase can access or spend your bitcoin."
-msgstr "Qualquer pessoa com sua frase de segurança pode aceder ou gastar os seus bitcoins."
+msgid "Anyone with your backup phrase can access or spend your Dash."
+msgstr "Qualquer pessoa com sua frase de segurança pode aceder ou gastar os seus dash."
 
 #: www/views/addresses.html:94
-msgid "Approximate Bitcoin network fee to transfer wallet's balance (with normal priority)"
-msgstr "Taxa de rede Bitcoin aproximada para transferir o saldo da carteira (com prioridade normal)"
+msgid "Approximate Dash network fee to transfer wallet's balance (with normal priority)"
+msgstr "Taxa de rede Dash aproximada para transferir o saldo da carteira (com prioridade normal)"
 
 #: www/views/backupWarning.html:10
 msgid "Are you being watched?"
 msgstr "Você está sendo vigiado?"
 
 #: src/js/controllers/preferencesExternal.js:15
-msgid "Are you being watched? Anyone with your recovery phrase can access or spend your bitcoin."
-msgstr "Você está sendo observado? Qualquer pessoa com sua frase de recuperação pode acessar ou gastar seu bitcoin."
+msgid "Are you being watched? Anyone with your recovery phrase can access or spend your Dash."
+msgstr "Você está sendo observado? Qualquer pessoa com sua frase de recuperação pode acessar ou gastar seu dash."
 
 #: src/js/controllers/copayers.js:56
 msgid "Are you sure you want to cancel and delete this wallet?"
@@ -354,8 +354,8 @@ msgstr "Cartões BitPay Visa&reg"
 
 #: www/views/addressbook.add.html:38
 #: www/views/includes/incomingDataMenu.html:29
-msgid "Bitcoin Address"
-msgstr "Endereço Bitcoin"
+msgid "Dash Address"
+msgstr "Endereço Dash"
 
 #: www/views/includes/walletSelector.html:42
 #: www/views/tab-home.html:112
@@ -366,34 +366,34 @@ msgstr "Carteiras Bitcoin Cash"
 #: www/views/modals/chooseFeeLevel.html:4
 #: www/views/preferencesFee.html:4
 #: www/views/tab-settings.html:83
-msgid "Bitcoin Network Fee Policy"
-msgstr "Política de taxa de rede Bitcoin"
+msgid "Dash Network Fee Policy"
+msgstr "Política de taxa de rede Dash"
 
 #: www/views/includes/walletSelector.html:11
 #: www/views/tab-home.html:97
 #: www/views/tab-settings.html:100
-msgid "Bitcoin Wallets"
-msgstr "Carteiras Bitcoin"
+msgid "Dash Wallets"
+msgstr "Carteiras Dash"
 
 #: src/js/services/incomingData.js:151
 msgid "Bitcoin cash Payment"
 msgstr "Pagamento Bitcoin Cash"
 
 #: www/views/onboarding/tour.html:31
-msgid "Bitcoin is a currency."
-msgstr "Bitcoin é uma moeda."
+msgid "Dash is a currency."
+msgstr "Dash é uma moeda."
 
 #: www/views/onboarding/disclaimer.html:15
 msgid "Bitcoin is different &ndash; it cannot be safely held with a bank or web service."
 msgstr "Bitcoin é diferente &ndash; ela não pode ser retida com segurança por um serviço web ou banco."
 
 #: www/views/onboarding/tour.html:18
-msgid "Bitcoin is secure,<br>digital money."
-msgstr "Bitcoin é seguro,<br>moeda digital."
+msgid "Send money to anyone, anywhere, without approval or publicity."
+msgstr ""
 
 #: www/views/preferencesFee.html:11
-msgid "Bitcoin transactions include a fee collected by miners on the network."
-msgstr "As transações Bitcoin incluem uma taxa cobrada pelos mineiros na rede."
+msgid "Dash transactions include a fee collected by miners on the network."
+msgstr "As transações Dash incluem uma taxa cobrada pelos mineiros na rede."
 
 #: www/views/buyAmazon.html:108
 msgid "Bought {{amountUnitStr}}"
@@ -422,12 +422,12 @@ msgid "Buy"
 msgstr "Comprar"
 
 #: www/views/includes/buyAndSellCard.html:3
-msgid "Buy &amp; Sell Bitcoin"
-msgstr "Comprar &amp; Vender Bitcoin"
+msgid "Buy &amp; Sell Dash"
+msgstr "Comprar &amp; Vender Dash"
 
 #: www/views/tab-send.html:40
-msgid "Buy Bitcoin"
-msgstr "Comprar Bitcoin"
+msgid "Start sending Dash"
+msgstr ""
 
 #: www/views/mercadoLibre.html:22
 #: www/views/mercadoLibre.html:50
@@ -439,8 +439,8 @@ msgid "Buy from"
 msgstr "Comprar de"
 
 #: src/js/services/onGoingProcess.js:40
-msgid "Buying Bitcoin..."
-msgstr "A comprar Bitcoin..."
+msgid "Buying Dash..."
+msgstr "A comprar Dash..."
 
 #: src/js/services/onGoingProcess.js:12
 msgid "Calculating fee"
@@ -813,8 +813,8 @@ msgstr "Criar carteira partilhada"
 #: www/views/onboarding/tour.html:51
 #: www/views/tab-home.html:89
 #: www/views/tab-send.html:41
-msgid "Create bitcoin wallet"
-msgstr "Criar carteira bitcoin"
+msgid "Create Dash Wallet"
+msgstr "Criar carteira dash"
 
 #: www/views/tab-create-personal.html:131
 msgid "Create new wallet"
@@ -939,8 +939,8 @@ msgid "Duplicating wallet..."
 msgstr "Duplicando carteira..."
 
 #: www/views/addresses.html:19
-msgid "Each bitcoin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
-msgstr "Cada carteira de Bitcoin pode gerar biliões de endereços através do seu backup de 12-palavras. Um novo endereço é gerado automáticamente e mostrado cada vez que receber um pagamento."
+msgid "Each Dash wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
+msgstr "Cada carteira de Dash pode gerar biliões de endereços através do seu backup de 12-palavras. Um novo endereço é gerado automáticamente e mostrado cada vez que receber um pagamento."
 
 #: src/js/services/feeService.js:13
 msgid "Economy"
@@ -1476,8 +1476,8 @@ msgid "I understand"
 msgstr "Eu compreendi"
 
 #: www/views/onboarding/disclaimer.html:21
-msgid "I understand that if this app is moved to another device or deleted, my bitcoin can only be recovered with the backup phrase."
-msgstr "Eu entendi que se esse aplicativo for movido para outro dispositivo ou deletado, meus bitcoins só podem ser recuperados com frase de backup."
+msgid "I understand that if this app is moved to another device or deleted, my Dash can only be recovered with the backup phrase."
+msgstr "Eu entendi que se esse aplicativo for movido para outro dispositivo ou deletado, meus dash só podem ser recuperados com frase de backup."
 
 #: www/views/onboarding/disclaimer.html:18
 msgid "I understand that my funds are held securely on this device, not by a company."
@@ -1634,8 +1634,8 @@ msgid "Is this email address correct?"
 msgstr "Este endereço de e-mail está correto?"
 
 #: www/views/addresses.html:25
-msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your bitcoins secure against hypothetical attacks by quantum computers."
-msgstr "É uma boa ideia evitar a reutilização de endereços - isto também protege a sua privacidade e mantém seus bitcoins seguros, contra prováveis ataques de computadores quânticos."
+msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your Dash secure against hypothetical attacks by quantum computers."
+msgstr "É uma boa ideia evitar a reutilização de endereços - isto também protege a sua privacidade e mantém seus dash seguros, contra prováveis ataques de computadores quânticos."
 
 #: src/js/controllers/backup.js:76
 msgid "It's important that you write your backup phrase down correctly. If something happens to your wallet, you'll need this backup to recover your money. Please review your backup and try again."
@@ -1850,8 +1850,8 @@ msgid "No access key defined"
 msgstr "Nenhuma chave de acesso definida"
 
 #: www/views/onboarding/backupRequest.html:5
-msgid "No backup, no bitcoin."
-msgstr "Sem backup, sem bitcoin."
+msgid "No backup, no Dash."
+msgstr "Sem backup, sem dash."
 
 #: www/views/addressbook.html:19
 msgid "No contacts yet"
@@ -2507,8 +2507,8 @@ msgid "Search Transactions"
 msgstr "Procurar transações"
 
 #: www/views/tab-send.html:18
-msgid "Search or enter bitcoin address"
-msgstr "Procure ou digite o endereço bitcoin"
+msgid "Search or enter Dash address"
+msgstr "Procure ou digite o endereço dash"
 
 #: www/views/modals/search.html:16
 msgid "Search transactions"
@@ -2539,8 +2539,8 @@ msgid "Self-signed Certificate"
 msgstr "Certificado Auto-Assinado"
 
 #: src/js/services/onGoingProcess.js:41
-msgid "Selling Bitcoin..."
-msgstr "Vendendo Bitcoin..."
+msgid "Selling Dash..."
+msgstr "Vendendo Dash..."
 
 #: www/views/feedback/send.html:13
 #: www/views/feedback/send.html:43
@@ -2647,8 +2647,8 @@ msgid "Set up a password"
 msgstr "Configure uma senha"
 
 #: src/js/controllers/preferencesFee.js:85
-msgid "Set your own fee in satoshis/byte"
-msgstr "Defina sua própria taxa em satoshis/byte"
+msgid "Set your own fee in duffs/byte"
+msgstr "Defina sua própria taxa em duffs/byte"
 
 #: www/views/tab-settings.html:3
 #: www/views/tabs.html:19
@@ -2692,8 +2692,8 @@ msgid "Show advanced options"
 msgstr "Mostrar opções avançadas"
 
 #: www/views/tab-send.html:42
-msgid "Show bitcoin address"
-msgstr "Mostrar endereço bitcoin"
+msgid "Show Dash address"
+msgstr "Mostrar endereço dash"
 
 #: www/views/tab-send.html:64
 msgid "Show more"
@@ -2761,12 +2761,12 @@ msgid "Spending Password needed"
 msgstr "Digitar a senha é necessária"
 
 #: www/views/walletDetails.html:173
-msgid "Spending this balance will need significant Bitcoin network fees"
-msgstr "Gastar este balanço necessitará uma taxa de rede Bitcoin significativa"
+msgid "Spending this balance will need significant Dash network fees"
+msgstr "Gastar este balanço necessitará uma taxa de rede Dash significativa"
 
 #: www/views/tab-send.html:33
-msgid "Start sending bitcoin"
-msgstr "Comece a enviar bitcoin"
+msgid "Start sending Dash"
+msgstr "Comece a enviar dash"
 
 #: www/views/lockSetup.html:3
 msgid "Startup Lock"
@@ -2859,16 +2859,16 @@ msgid "The Ledger Chrome application is not installed"
 msgstr "O aplicativo Ledger Chrome não está instalado"
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of bitcoin immediately spendable from this wallet."
-msgstr "A quantidade de bitcoin imediatamente spendable desta carteira."
+msgid "The amount of Dash immediately spendable from this wallet."
+msgstr "A quantidade de dash imediatamente spendable desta carteira."
 
 #: www/views/modals/wallet-balance.html:93
-msgid "The amount of bitcoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
-msgstr "A quantidade de bitcoin armazenada nesta carteira que é alocada como entradas para suas propostas de transação pendentes. O valor é determinado usando saídas de transação não utilizadas associadas a essa carteira e podem ser maiores do que os valores reais associados às suas propostas de transações pendentes."
+msgid "The amount of Dash stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
+msgstr "A quantidade de dash armazenada nesta carteira que é alocada como entradas para suas propostas de transação pendentes. O valor é determinado usando saídas de transação não utilizadas associadas a essa carteira e podem ser maiores do que os valores reais associados às suas propostas de transações pendentes."
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of bitcoin stored in this wallet with less than 1 blockchain confirmation."
-msgstr "A quantidade de bitcoin armazenada nesta carteira com menos de 1 confirmação blockchain."
+msgid "The amount of Dash stored in this wallet with less than 1 blockchain confirmation."
+msgstr "A quantidade de dash armazenada nesta carteira com menos de 1 confirmação blockchain."
 
 #: www/views/tab-import-phrase.html:5
 msgid "The derivation path"
@@ -2922,8 +2922,8 @@ msgid "The spend proposal is not pending"
 msgstr "A proposta de gasto não está pendente"
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of bitcoin stored in this wallet."
-msgstr "A quantidade total de bitcoin armazenado nesta carteira."
+msgid "The total amount of Dash stored in this wallet."
+msgstr "A quantidade total de dash armazenado nesta carteira."
 
 #: www/views/preferencesHistory.html:27
 msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
@@ -2953,12 +2953,12 @@ msgid "This app is fantastic!"
 msgstr "Esta aplicação é fantástica!"
 
 #: www/views/onboarding/tour.html:47
-msgid "This app stores your bitcoin with cutting-edge security."
-msgstr "Este aplicativo armazena seu bitcoin com segurança de ponta."
+msgid "This app stores your Dash with cutting-edge security."
+msgstr "Este aplicativo armazena seu dash com segurança de ponta."
 
 #: src/js/controllers/confirm.js:523
-msgid "This bitcoin payment request has expired."
-msgstr "Este bitcoin pagamento pedido expirou."
+msgid "This dash payment request has expired."
+msgstr "Este dash pagamento pedido expirou."
 
 #: www/views/join.html:133
 #: www/views/tab-create-personal.html:103
@@ -2971,8 +2971,8 @@ msgid "This recovery phrase was created with a password. To recover this wallet 
 msgstr "Esta frase de recuperação foi criada com uma senha. Para recuperar esta carteira, tanto a frase de recuperação como a senha são necessárias."
 
 #: www/views/tx-details.html:91
-msgid "This transaction amount is too small compared to current Bitcoin network fees. Spending these funds will need a Bitcoin network fee cost comparable to the funds itself."
-msgstr "Este valor de transação é muito pequeno em comparação com as taxas de rede Bitcoin atuais. Gastar estes fundos terão uma taxa de rede Bitcoin maior do que o fundo em si."
+msgid "This transaction amount is too small compared to current Dash network fees. Spending these funds will need a Dash network fee cost comparable to the funds itself."
+msgstr "Este valor de transação é muito pequeno em comparação com as taxas de rede Dash atuais. Gastar estes fundos terão uma taxa de rede Dash maior do que o fundo em si."
 
 #: www/views/tx-details.html:87
 msgid "This transaction could take a long time to confirm or could be dropped due to the low fees set by the sender"
@@ -2998,12 +2998,12 @@ msgid "To"
 msgstr "Para"
 
 #: www/views/tab-send.html:37
-msgid "To get started, buy bitcoin or share your address. You can receive bitcoin from any wallet or service."
-msgstr "Para começar, compre bitcoins ou compartilhe seu endereço. Você pode receber bitcoins de qualquer carteira ou serviço."
+msgid "To get started, buy Dash or share your address. You can receive Dash from any wallet or service."
+msgstr "Para começar, compre dash ou compartilhe seu endereço. Você pode receber dash de qualquer carteira ou serviço."
 
 #: www/views/tab-send.html:38
-msgid "To get started, you'll need to create a bitcoin wallet and get some bitcoin."
-msgstr "Para começar, você precisa criar uma carteira de bitcoins e obter alguns bitcoins."
+msgid "To get started, you'll need to create a Dash wallet and get some Dash."
+msgstr "Para começar, você precisa criar uma carteira de dash e obter alguns dash."
 
 #: src/js/services/bitpayAccountService.js:73
 msgid "To {{reason}} you must first add your BitPay account - {{email}}"
@@ -3204,8 +3204,8 @@ msgid "WARNING: UNTRUSTED CERTIFICATE"
 msgstr "AVISO: CERTIFICADO NÃO CONFIÁVEL"
 
 #: www/views/preferencesPrivateKey.html:14
-msgid "WARNING: Your extended private keys are all that is needed to access your bitcoin funds. Be sure to protect your private keys and store them only on secure devices. BitPay does not have access to your private keys, so you alone are responsible for your keys. If you share key access with external services, you take responsibility for the risk of theft or breach. Only advanced users should handle extended private keys directly."
-msgstr "Aviso: Suas chaves privadas estendidas são tudo que é necessário para acessar seus fundos bitcoin. Certifique-se de proteger suas chaves privadas e armazená-las somente em dispositivos seguros. BitPay não tem acesso às suas chaves privadas, então você é responsável pelas suas chaves. Se você compartilhar a chave de acesso com serviços externos, responsabilize-se pelo risco de roubo ou violação. Apenas usuários avançados devem lidar com chaves privadas estendidas diretamente."
+msgid "WARNING: Your extended private keys are all that is needed to access your Dash funds. Be sure to protect your private keys and store them only on secure devices. BitPay does not have access to your private keys, so you alone are responsible for your keys. If you share key access with external services, you take responsibility for the risk of theft or breach. Only advanced users should handle extended private keys directly."
+msgstr "Aviso: Suas chaves privadas estendidas são tudo que é necessário para acessar seus fundos dash. Certifique-se de proteger suas chaves privadas e armazená-las somente em dispositivos seguros. BitPay não tem acesso às suas chaves privadas, então você é responsável pelas suas chaves. Se você compartilhar a chave de acesso com serviços externos, responsabilize-se pelo risco de roubo ou violação. Apenas usuários avançados devem lidar com chaves privadas estendidas diretamente."
 
 #: src/js/services/onGoingProcess.js:15
 msgid "Waiting for Ledger..."
@@ -3457,16 +3457,16 @@ msgid "You can make contributions by signing up on our Crowdin community transla
 msgstr "Você pode fazer contribuições inscrevendo-se no nosso site da comunidade de tradução Crowdin. Estamos ansiosos para ouvir de você!"
 
 #: www/views/tab-scan.html:16
-msgid "You can scan bitcoin addresses, payment requests, paper wallets, and more."
-msgstr "Você pode escanear endereços bitcoins, pedidos de pagamento carteiras de papel e muito mais."
+msgid "You can scan Dash addresses, payment requests, paper wallets, and more."
+msgstr "Você pode escanear endereços dash, pedidos de pagamento carteiras de papel e muito mais."
 
 #: src/js/controllers/preferencesAbout.js:14
 msgid "You can see the latest developments and contribute to this open source app by visiting our project on GitHub."
 msgstr "Você pode ver os mais recentes desenvolvimentos e contribuir para este aplicativo de código aberto, visitando nosso projeto no GitHub."
 
 #: www/views/onboarding/tour.html:19
-msgid "You can spend bitcoin at millions of websites and stores worldwide."
-msgstr "Você pode gastar bitcoins em milhões de sites e lojas em todo o mundo."
+msgid "You can spend Dash at millions of websites and stores worldwide."
+msgstr "Você pode gastar dash em milhões de sites e lojas em todo o mundo."
 
 #: www/views/backup.html:15
 msgid "You can still export it from Advanced &gt; Export."
@@ -3477,12 +3477,12 @@ msgid "You can trade it for other currencies like US Dollars, Euros, or Pounds."
 msgstr "Você pode trocá-lo por outras moedas como dólares americanos, Euros ou libras."
 
 #: www/views/onboarding/tour.html:46
-msgid "You control your bitcoin."
-msgstr "Você controla o seu bitcoin."
+msgid "You control your Dash."
+msgstr "Você controla o seu dash."
 
 #: www/views/modals/chooseFeeLevel.html:64
-msgid "You should not set a fee higher than {{maxFeeRecommended}} satoshis/byte."
-msgstr "Você não deve definir uma taxa maior do que {{maxFeeRecommended}} satoshis/byte."
+msgid "You should not set a fee higher than {{maxFeeRecommended}} duffs/byte."
+msgstr "Você não deve definir uma taxa maior do que {{maxFeeRecommended}} duffs/byte."
 
 #: www/views/modals/bitpay-card-confirmation.html:5
 msgid "You will need to log back for fill in your BitPay Card."
@@ -3502,12 +3502,12 @@ msgid "Your Gift Cards"
 msgstr "Seus Vales-Presente"
 
 #: www/views/includes/confirmBackupPopup.html:6
-msgid "Your bitcoin wallet is backed up!"
-msgstr "O backup de sua carteira de bitcoins está feito!"
+msgid "Your Dash wallet is backed up!"
+msgstr "O backup de sua carteira de dash está feito!"
 
 #: www/views/tab-home.html:50
-msgid "Your bitcoin wallet is ready!"
-msgstr "Sua carteira de bitcoins está pronta!"
+msgid "Your Dash wallet is ready!"
+msgstr "Sua carteira de dash está pronta!"
 
 #: www/views/modals/chooseFeeLevel.html:61
 msgid "Your fee is lower than recommended."
@@ -3598,8 +3598,8 @@ msgid "{{appName}} depends on Bitcore Wallet Service (BWS) for blockchain inform
 msgstr "{{appName}} depende do Bitcore Wallet Service (BWS) para informações sobre cadeias de blocos, rede e sincronização Copayer. A configuração padrão aponta para https://bws.bitpay.com (instância pública BWS do BitPay)."
 
 #: src/js/controllers/confirm.js:408
-msgid "{{fee}} will be deducted for bitcoin networking fees."
-msgstr "{{fee}} será deduzido para taxas de rede bitcoins."
+msgid "{{fee}} will be deducted for Dash networking fees."
+msgstr "{{fee}} será deduzido para taxas de rede dash."
 
 #: www/views/confirm.html:85
 msgid "{{tx.txp[wallet.id].feeRatePerStr}}  of the sending amount"
