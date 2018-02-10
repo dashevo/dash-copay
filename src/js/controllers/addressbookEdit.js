@@ -17,7 +17,7 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
       }
     });
   } else {
-    var isNew = true;
+    $scope.isNew = true;
   }
 
   $scope.onQrCodeScannedAddressBook = function(data, addressbookForm) {
