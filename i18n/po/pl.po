@@ -77,6 +77,11 @@ msgstr "Transakcje"
 msgid "Add Account"
 msgstr "Dodaj konto"
 
+#: www/views/addressbook.view.html:36
+msgid "Delete Contact"
+msgstr "Usuń kontakt"
+
+#: www/views/addressbook.view.html:33
 #: www/views/addressbook.edit.html:5
 msgid "Edit Contact"
 msgstr "Edytuj kontakt"

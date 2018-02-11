@@ -17,6 +17,7 @@
   &.button-primary,
   &.button-secondary,
   &.button-light,
+  &.button-energized,
   &.button-assertive {
     &.button-standard {
       @extend %button-standard;

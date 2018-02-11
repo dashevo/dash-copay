@@ -2,10 +2,26 @@
 
 angular.module('copayApp.controllers').controller('addressbookViewController', function($scope, $state, $timeout, $stateParams, lodash, addressbookService, popupService, $ionicHistory, platformInfo) {
   $scope.isChromeApp = platformInfo.isChromeApp;
-  $scope.addressbookEntry = {};
-  $scope.addressbookEntry.name = $stateParams.name;
-  $scope.addressbookEntry.email = $stateParams.email;
-  $scope.addressbookEntry.address = $stateParams.address;
+
+  $scope.$on("$ionicView.beforeEnter", function(event, data) {
+    addressbookService.get($stateParams.address, function(err, ab) {
+        if (ab) {
+          $scope.addressbookEntry = ab;
+        }
+    });
+  });
+
+  $scope.remove = function() {
+    $timeout(function() {
+      addressbookService.remove($stateParams.address, function(err, ab) {
+        if (err) {
+          popupService.showAlert(gettextCatalog.getString('Error'), err);
+          return;
+        }
+        $ionicHistory.goBack();
+      });
+    }, 100);
+  };
 
   $scope.sendTo = function() {
     $ionicHistory.removeBackView();

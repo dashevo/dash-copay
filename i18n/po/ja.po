@@ -86,6 +86,11 @@ msgstr "BitPay アカウントを追加しますか？"
 msgid "Add Contact"
 msgstr "連絡先を追加"
 
+#: www/views/addressbook.view.html:36
+msgid "Delete Contact"
+msgstr "連絡先を削除"
+
+#: www/views/addressbook.view.html:33
 #: www/views/addressbook.edit.html:5
 msgid "Edit Contact"
 msgstr "連絡先を編集"

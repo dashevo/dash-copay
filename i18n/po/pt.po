@@ -86,6 +86,11 @@ msgstr "Adicionar conta BitPay?"
 msgid "Add Contact"
 msgstr "Adicionar contacto"
 
+#: www/views/addressbook.view.html:36
+msgid "Delete Contact"
+msgstr "Eliminar contato"
+
+#: www/views/addressbook.view.html:33
 #: www/views/addressbook.edit.html:5
 msgid "Edit Contact"
 msgstr "Editar Contato"

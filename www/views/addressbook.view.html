@@ -30,5 +30,11 @@
     <button class="button button-standard button-primary" ng-click="sendTo()" translate>
       Send Money
     </button>
+    <button class="button button-standard button-energized" ui-sref="tabs.addressbook.edit({address: addressbookEntry.address})" translate>
+      Edit Contact
+    </button>
+    <button class="button button-standard button-assertive" ng-click="remove()" translate>
+      Delete Contact
+    </button>
   </ion-content>
 </ion-view>
