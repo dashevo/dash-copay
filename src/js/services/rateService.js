@@ -42,47 +42,46 @@ RateService.singleton = function(opts) {
 RateService.prototype._fetchCurrencies = function() {
   var self = this;
 
-  var backoffSeconds = 5;
-  var updateFrequencySeconds = 5 * 60;
-  var rateServiceUrl = 'https://rates.blackcarrot.be/rate/DASH_USD.json';
-
   var retrieve = function() {
-    //log.info('Fetching exchange rates');
-    // self.httprequest.get(rateServiceUrl).success(function(res) {
-    //   self.lodash.each(res, function(currency) {
-    //     self._rates[currency.code] = currency.rate;
-    //     self._alternatives.push({
-    //       name: currency.name,
-    //       isoCode: currency.code,
-    //       rate: currency.rate
-    //     });
-    //   });
-    //   self._isAvailable = true;
-    //   self.lodash.each(self._queued, function(callback) {
-    //     setTimeout(callback, 1);
-    //   });
-    //   setTimeout(retrieve, updateFrequencySeconds * 1000);
-    // }).error(function(err) {
-    //   //log.debug('Error fetching exchange rates', err);
-    //   setTimeout(function() {
-    //     backoffSeconds *= 1.5;
-    //     retrieve();
-    //   }, backoffSeconds * 1000);
-    //   return;
-    // });
+    var getUsdRates = function(dashUsdPrice) {
+      self
+        .httprequest
+        .get('https://api.fixer.io/latest?base=usd')
+        .success(function (res) {
+          res.rates.USD = dashUsdPrice;
+          for(var currency in res.rates) {
+            var rate = dashUsdPrice / res.rates[currency]
+            self._rates[currency] = rate
+            self._alternatives.push({
+              name: currency,
+              isoCode: currency,
+              rate: rate
+            });
+          }
+          self._isAvailable = true;
+        })
+        .error(function(err) {
+          setTimeout(function() {
+            getUsdRates()
+          }, 1000)
+        })
+    }
 
+    var getDashRate = function() {
+      self
+        .httprequest
+        .get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=USD')
+        .success(function (res) {
+          getUsdRates(res[0].price_usd)
+        })
+        .error(function(err) {
+          setTimeout(function() {
+            getDashToUsdRate()
+          }, 1000)
+        })
+    }
 
-    self.httprequest.get(rateServiceUrl).success(function(res) {
-      self._rates.USD = res.rate;
-      self._isAvailable = true;
-    }).error(function(err) {
-        //log.debug('Error fetching exchange rates', err);
-        setTimeout(function() {
-          backoffSeconds *= 1.5;
-          retrieve();
-        }, backoffSeconds * 1000);
-        return;
-      });
+    getDashRate()
   };
 
   retrieve();
