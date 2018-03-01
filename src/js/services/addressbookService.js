@@ -34,14 +34,13 @@ angular.module('copayApp.services').factory('addressbookService', function(bitco
     });
   };
 
-  root.add = function(entry, cb) {
+  root.save = function(entry, cb) {
     var network = (new bitcore.Address(entry.address)).network.name;
     storageService.getAddressbook(network, function(err, ab) {
       if (err) return cb(err);
       if (ab) ab = JSON.parse(ab);
       ab = ab || {};
       if (lodash.isArray(ab)) ab = {}; // No array
-      if (ab[entry.address]) return cb('Entry already exist');
       ab[entry.address] = entry;
       storageService.setAddressbook(network, JSON.stringify(ab), function(err, ab) {
         if (err) return cb('Error adding new entry');

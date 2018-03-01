@@ -72,9 +72,18 @@ msgstr ""
 msgid "Add BitPay Account?"
 msgstr ""
 
-#: www/views/addressbook.add.html:4
+#: www/views/addressbook.edit.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
+msgstr ""
+
+#: www/views/addressbook.view.html:36
+msgid "Delete Contact"
+msgstr ""
+
+#: www/views/addressbook.view.html:33
+#: www/views/addressbook.edit.html:5
+msgid "Edit Contact"
 msgstr ""
 
 #: www/views/bitpayCard.html:28
@@ -295,7 +304,7 @@ msgstr ""
 msgid "BitPay Visa&reg; Cards"
 msgstr ""
 
-#: www/views/addressbook.add.html:38
+#: www/views/addressbook.edit.html:39
 msgid "Bitcoin Address"
 msgstr ""
 
@@ -364,7 +373,7 @@ msgstr ""
 #: src/js/controllers/confirm.js:494
 #: src/js/controllers/lockSetup.js:102
 #: src/js/services/popupService.js:59
-#: www/views/addressbook.add.html:10
+#: www/views/addressbook.edit.html:11
 #: www/views/feedback/send.html:5
 #: www/views/includes/confirm-tx.html:30
 #: www/views/includes/note.html:6
@@ -756,7 +765,7 @@ msgstr ""
 msgid "Economy"
 msgstr ""
 
-#: www/views/addressbook.add.html:29
+#: www/views/addressbook.edit.html:30
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr ""
@@ -1459,7 +1468,7 @@ msgstr ""
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr ""
 
-#: www/views/addressbook.add.html:21
+#: www/views/addressbook.edit.html:22
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
@@ -2009,7 +2018,7 @@ msgstr ""
 msgid "Retry Camera"
 msgstr ""
 
-#: www/views/addressbook.add.html:56
+#: www/views/addressbook.edit.html:57
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
@@ -3002,7 +3011,7 @@ msgstr ""
 msgid "me"
 msgstr ""
 
-#: www/views/addressbook.add.html:32
+#: www/views/addressbook.edit.html:33
 msgid "name@example.com"
 msgstr ""
 
