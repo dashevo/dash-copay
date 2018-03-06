@@ -1,14 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="org.dash.copay"
   version="*VERSION*"
+  android-packageName="org.dash.dashcopay"
+  ios-CFBundleIdentifier="org.dash.copay"
   android-versionCode="*ANDROIDVERSION*"
   ios-CFBundleVersion="*VERSION*">
     <name>*USERVISIBLENAME*</name>
     <description>
       *PURPOSELINE*
     </description>
-    <author email="support@bitpay.com" href="*URL*">
-        BitPay Inc.
+    <author email="support@dash.com" href="*URL*">
+        Dash
     </author>
     <content src="index.html" />
     <access origin="*" />
