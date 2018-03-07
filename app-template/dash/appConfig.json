@@ -1,7 +1,7 @@
 {
   "packageName": "dash",
   "packageDescription": "Dash Copay Wallet",
-  "packageNameId": "org.dash.copay",
+  "packageNameId": "org.dash.dashcopay",
   "userVisibleName": "Dash_Copay",
   "purposeLine": "Dash Copay Wallet",
   "bundleName": "copay",
