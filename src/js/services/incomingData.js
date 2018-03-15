@@ -251,14 +251,26 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
 
   };
 
+  function parseToAddress(toAddress) {
+    var match = toAddress.match(/dash:(\w+)(\?amount=([\d.]+))?/)
+    if (match) {
+      return {
+        toAddress: match[1],
+        toAmount: match[3]
+      }
+    }
+  }
+
   function goToAmountPage(toAddress, isInstantSend) {
     $state.go('tabs.send', {}, {
       'reload': true,
       'notify': $state.current.name == 'tabs.send' ? false : true
     });
     $timeout(function() {
+      var parsedAddress = parseToAddress(toAddress)
       $state.transitionTo('tabs.send.amount', {
-        toAddress: toAddress.substring(toAddress.indexOf(':') + 1),
+        toAddress: parsedAddress.toAddress,
+        toAmount: parsedAddress.toAmount,
         isInstantSend: isInstantSend
       });
     }, 100);
