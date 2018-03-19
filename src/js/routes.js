@@ -1240,20 +1240,20 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         }, 1000);
       });
     });
-
-    if (platformInfo.isNW) {
-      var gui = require('nw.gui');
-      var win = gui.Window.get();
-      var nativeMenuBar = new gui.Menu({
-        type: "menubar"
-      });
-      try {
-        nativeMenuBar.createMacBuiltin(appConfigService.nameCase);
-      } catch (e) {
-        $log.debug('This is not OSX');
-      }
-      win.menu = nativeMenuBar;
-    }
+    // This was displaying an empty title bar.  Leaving in case we want to implement a title bar in future builds for desktop
+    // if (platformInfo.isNW) {
+    //   var gui = require('nw.gui');
+    //   var win = gui.Window.get();
+    //   var nativeMenuBar = new gui.Menu({
+    //     type: "menubar"
+    //   });
+    //   try {
+    //     nativeMenuBar.createMacBuiltin(appConfigService.nameCase);
+    //   } catch (e) {
+    //     $log.debug('This is not OSX');
+    //   }
+    //   win.menu = nativeMenuBar;
+    // }
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
       $log.debug('Route change from:', fromState.name || '-', ' to:', toState.name);
