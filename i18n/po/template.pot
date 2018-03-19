@@ -2374,7 +2374,7 @@ msgid "The Ledger Chrome application is not installed"
 msgstr ""
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of bitcoin immediately spendable from this wallet."
+msgid "The amount of Dash immediately spendable from this wallet."
 msgstr ""
 
 #: www/views/modals/wallet-balance.html:93
@@ -2382,7 +2382,7 @@ msgid "The amount of bitcoin stored in this wallet that is allocated as inputs t
 msgstr ""
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of bitcoin stored in this wallet with less than 1 blockchain confirmation."
+msgid "The amount of Dash stored in this wallet with less than 1 blockchain confirmation."
 msgstr ""
 
 #: www/views/tab-import-phrase.html:5
@@ -2437,7 +2437,7 @@ msgid "The spend proposal is not pending"
 msgstr ""
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of bitcoin stored in this wallet."
+msgid "The total amount of Dash stored in this wallet."
 msgstr ""
 
 #: www/views/preferencesHistory.html:27

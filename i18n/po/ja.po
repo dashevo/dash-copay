@@ -2387,15 +2387,15 @@ msgid "The Ledger Chrome application is not installed"
 msgstr "Ledgerのクロームアプリがインストールされていません。"
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of bitcoin immediately spendable from this wallet."
-msgstr "このウォレットからすぐに送金できる額"
+msgid "The amount of Dash immediately spendable from this wallet."
+msgstr "ダッシュの額はすぐにこの財布から消費されます。"
 
 #: www/views/modals/wallet-balance.html:93
 msgid "The amount of bitcoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
-msgstr "現在協議中の送金の提案によってロックされてしまっている金額です。この金額は未使用出力の割り当てられた合計額になりますので、必ずしも送金提案の送金額だけがロックされるというものではありません。"
+msgstr "このウォレットに格納されているDashの量は、ブロックチェーンの確認が1つ未満です。"
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of bitcoin stored in this wallet with less than 1 blockchain confirmation."
+msgid "The amount of Dash stored in this wallet with less than 1 blockchain confirmation."
 msgstr "このウォレットの1承認未満の残高。"
 
 #: www/views/tab-import-phrase.html:5
@@ -2452,8 +2452,8 @@ msgid "The spend proposal is not pending"
 msgstr "送金の提案が協議中ではありません。"
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of bitcoin stored in this wallet."
-msgstr "このウォレットのビットコインの総残高"
+msgid "The total amount of Dash stored in this wallet."
+msgstr "このウォレットに格納されているDashの総量。"
 
 #: www/views/preferencesHistory.html:27
 msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
