@@ -2383,16 +2383,16 @@ msgid "The Ledger Chrome application is not installed"
 msgstr "Ledger Chrome 应用程序未安装"
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of bitcoin immediately spendable from this wallet."
-msgstr "比特币立即可从这个钱包的金额。"
+msgid "The amount of Dash immediately spendable from this wallet."
+msgstr "从这个钱包立即消耗的短跑量。"
 
 #: www/views/modals/wallet-balance.html:93
 msgid "The amount of bitcoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
 msgstr "比特币存储在分配作为你挂起的事务建议的输入这个钱包中的金额。量确定使用未用余额交易记录输出与这个钱包关联，可能会与您挂起的事务建议相关联的实际数额超过。"
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of bitcoin stored in this wallet with less than 1 blockchain confirmation."
-msgstr "比特币存储在与小于 1 blockchain 确认这个钱包中的金额。"
+msgid "The amount of Dash stored in this wallet with less than 1 blockchain confirmation."
+msgstr "这个钱包中储存的Dash数量少于1个区块链确认。"
 
 #: www/views/tab-import-phrase.html:5
 msgid "The derivation path"
@@ -2446,8 +2446,8 @@ msgid "The spend proposal is not pending"
 msgstr "花费提议不是未决"
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of bitcoin stored in this wallet."
-msgstr "比特币存储在这个钱包的总量。"
+msgid "The total amount of Dash stored in this wallet."
+msgstr "存储在这个钱包中的Dash总量。"
 
 #: www/views/preferencesHistory.html:27
 msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
