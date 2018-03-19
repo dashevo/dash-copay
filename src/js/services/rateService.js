@@ -48,15 +48,18 @@ RateService.prototype._fetchCurrencies = function() {
         .httprequest
         .get('https://api.fixer.io/latest?base=usd')
         .success(function (res) {
-          res.rates.USD = dashUsdPrice;
-          for(var currency in res.rates) {
-            var rate = dashUsdPrice / res.rates[currency]
+          var addRate = function(rate, currency) {
             self._rates[currency] = rate
             self._alternatives.push({
               name: currency,
               isoCode: currency,
               rate: rate
-            });
+            })
+          }
+          addRate(dashUsdPrice, 'USD')
+          for(var currency in res.rates) {
+            var rate = dashUsdPrice * res.rates[currency]
+            addRate(rate, currency)
           }
           self._isAvailable = true;
         })
