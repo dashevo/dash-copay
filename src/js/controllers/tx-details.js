@@ -23,7 +23,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
         blockexplorerUrl = 'blockdozer.com/insight';
       }
     } else {
-      blockexplorerUrl = 'insight.bitpay.com';
+      blockexplorerUrl = 'insight.dashevo.org/insight-api-dash';
     }
 
     txConfirmNotification.checkIfEnabled(txId, function(res) {
@@ -123,7 +123,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
         return popupService.showAlert(gettextCatalog.getString('Error'), gettextCatalog.getString('Transaction not available at this time'));
       }
 
-      $scope.btx = txFormatService.processTx($scope.wallet.coin, tx, 
+      $scope.btx = txFormatService.processTx($scope.wallet.coin, tx,
         walletService.useLegacyAddress($scope.wallet));
 
       txFormatService.formatAlternativeStr($scope.wallet.coin, tx.fees, function(v) {
