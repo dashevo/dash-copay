@@ -803,8 +803,7 @@ angular.module('copayApp.services')
     root.getNotifications = function(opts, cb) {
       opts = opts || {};
 
-      var TIME_STAMP = 60 * 60 * 6;
-      var MAX = 30;
+      var TIME_STAMP = 60 * 60 * 24 * 7
 
       var typeFilter = {
         'NewOutgoingTx': 1,
@@ -834,7 +833,7 @@ angular.module('copayApp.services')
           if (err) return cb2(err);
 
           wallet.cachedActivity = {
-            n: n.slice(-MAX),
+            n: n,
             isValid: true,
           };
 
@@ -908,10 +907,11 @@ angular.module('copayApp.services')
           } else {
 
             var n;
+            var MAX = 30
 
             n = lodash.filter(wallet.cachedActivity.n, function(x) {
               return typeFilter[x.type];
-            });
+            }).slice(-MAX);
 
             var idToName = {};
             if (wallet.cachedStatus) {
