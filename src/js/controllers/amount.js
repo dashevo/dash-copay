@@ -120,6 +120,7 @@ angular.module('copayApp.controllers').controller('amountController', function (
     $scope.toEmail = data.stateParams.toEmail;
     $scope.toColor = data.stateParams.toColor;
     $scope.showSendMax = false;
+    $scope.isInstantSend = data.stateParams.isInstantSend;
 
 
     // Use only with ShapeShift
@@ -402,7 +403,8 @@ angular.module('copayApp.controllers').controller('amountController', function (
         toEmail: $scope.toEmail,
         toColor: $scope.toColor,
         coin: coin,
-        useSendMax: $scope.useSendMax
+        useSendMax: $scope.useSendMax,
+        isInstantSend: $scope.isInstantSend
       });
     }
     $scope.useSendMax = null;

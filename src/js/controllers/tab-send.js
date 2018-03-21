@@ -161,7 +161,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
 
   $scope.toggleInstantSend = function(){
     $scope.isInstantSend = !$scope.isInstantSend;
-  }
+  };
 
   $scope.searchInFocus = function() {
     $scope.searchFocus = true;

@@ -330,6 +330,17 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       });
       return true;
 
+    } else {
+      if ($state.includes('tabs.scan')) {
+        root.showMenu({
+          data: data,
+          type: 'text'
+        });
+      }
+    }
+    return false;
+  };
+
   function parseToAddress(toAddress) {
     var match = toAddress.match(/dash:(\w+)(\?amount=([\d.]+))?/)
     if (match) {
@@ -350,8 +361,8 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       var parsedAddress = parseToAddress(toAddress)
       $state.transitionTo('tabs.send.amount', {
         toAddress: toAddress,
-        isInstantSend: isInstantSend,
         coin: coin,
+        isInstantSend: isInstantSend
       });
     }, 100);
   }

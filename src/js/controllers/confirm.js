@@ -160,6 +160,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
       feeLevel: configFeeLevel,
       spendUnconfirmed: walletConfig.spendUnconfirmed,
+      isInstantSend: data.stateParams.isInstantSend == 'true' ? true : false,
 
       // Vanity tx info (not in the real tx)
       recipientType: data.stateParams.recipientType || null,
@@ -209,6 +210,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       feePerKb: tx.feeRate,
       excludeUnconfirmedUtxos: !tx.spendUnconfirmed,
       returnInputs: true,
+      isInstantSend: tx.isInstantSend
     }, cb);
   };
 
@@ -230,36 +232,64 @@ angular.module('copayApp.controllers').controller('confirmController', function(
 
     var txp = {};
 
-    txp.outputs = [{
-      'toAddress': tx.toAddress,
-      'amount': tx.toAmount,
-      'message': tx.description
-    }];
-
-    if (tx.sendMaxInfo) {
-      txp.inputs = tx.sendMaxInfo.inputs;
-      txp.fee = tx.sendMaxInfo.fee;
-    } else {
-      if (usingCustomFee) {
-        txp.feePerKb = tx.feeRate;
-      } else txp.feeLevel = tx.feeLevel;
+    var isInstantSend = false;
+    if (tx.hasOwnProperty('isInstantSend')) {
+      isInstantSend = tx.isInstantSend;
+      txp.isInstantSend = tx.isInstantSend;
     }
 
-    txp.message = tx.description;
+    // TODO - add "Instant" option fee level
 
-    if (tx.paypro) {
-      txp.payProUrl = tx.paypro.url;
-    }
-    txp.excludeUnconfirmedUtxos = !tx.spendUnconfirmed;
-    txp.dryRun = dryRun;
-    walletService.createTx(wallet, txp, function(err, ctxp) {
+    walletService.getSendMaxInfo(wallet, {
+      feePerKb: tx.feeRate,
+      excludeUnconfirmedUtxos: !config.spendUnconfirmed,
+      returnInputs: true,
+      isInstantSend:isInstantSend
+    }, function(err, resp) {
+
       if (err) {
-        setSendError(err);
+        popupService.showAlert(gettextCatalog.getString('Error'), err);
         return cb(err);
       }
-      return cb(null, ctxp);
+
+      if (resp !== null && (isInstantSend || tx.sendMax)) {
+        tx.sendMaxInfo = resp;
+      }
+
+      txp.outputs = [{
+        'toAddress': tx.toAddress,
+        'amount': tx.toAmount,
+        'message': tx.description
+      }];
+
+      if (tx.sendMaxInfo) {
+        txp.inputs = tx.sendMaxInfo.inputs;
+        txp.fee = tx.sendMaxInfo.fee;
+      } else {
+        if (usingCustomFee) {
+          txp.feePerKb = tx.feeRate;
+        } else txp.feeLevel = tx.feeLevel;
+      }
+
+      txp.message = tx.description;
+
+      if (tx.paypro) {
+        txp.payProUrl = tx.paypro.url;
+      }
+      txp.excludeUnconfirmedUtxos = !tx.spendUnconfirmed;
+      txp.dryRun = dryRun;
+
+      walletService.createTx(wallet, txp, function (err, ctxp) {
+        if (err) {
+          setSendError(err);
+          return cb(err);
+        }
+        return cb(null, ctxp);
+      });
+
     });
-  };
+
+  }
 
   function updateTx(tx, wallet, opts, cb) {
     ongoingProcess.set('calculatingFee', true);
@@ -551,7 +581,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
     if (!tx || !wallet) return;
 
     if ($scope.paymentExpired) {
-      popupService.showAlert(null, gettextCatalog.getString('This bitcoin payment request has expired.'));
+      popupService.showAlert(null, gettextCatalog.getString('This dash payment request has expired.'));
       $scope.sendStatus = '';
       $timeout(function() {
         $scope.$apply();
