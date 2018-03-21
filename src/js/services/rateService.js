@@ -45,7 +45,7 @@ RateService.prototype.updateRates = function() {
 
   var backoffSeconds = 5;
   var updateFrequencySeconds = 5 * 60;
-  var rateServiceUrl = 'https://bitpay.com/api/rates';
+  var rateServiceUrl = 'https://rates.blackcarrot.be/rate/DASH_USD.json';
   var bchRateServiceUrl = 'https://bitpay.com/api/rates/bch';
 
 
@@ -56,6 +56,8 @@ RateService.prototype.updateRates = function() {
 
     //log.info('Fetching exchange rates');
     self.httprequest.get(rateServiceUrl).success(function(res) {
+      self._rates.USD = res.rate; // from 3.7.3
+      self._isAvailable = true; // from 3.7.3
       self.lodash.each(res, function(currency) {
         self._rates[currency.code] = currency.rate;
         self._alternatives.push({
