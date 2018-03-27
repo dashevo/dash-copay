@@ -111,9 +111,9 @@ angular.module('copayApp.services')
 
         $log.debug('BWC Notification:', n);
 
-        if (n.type == "NewBlock" && n.data.network == "testnet") {
-          throttledBwsEvent(n, wallet);
-        } else newBwsEvent(n, wallet);
+        if (n.type !== "NewBlock") {
+          newBwsEvent(n, wallet);
+        }
       });
 
       wallet.on('walletCompleted', function() {
@@ -147,10 +147,6 @@ angular.module('copayApp.services')
 
       return true;
     };
-
-    var throttledBwsEvent = lodash.throttle(function(n, wallet) {
-      newBwsEvent(n, wallet);
-    }, 10000);
 
     var newBwsEvent = function(n, wallet) {
       if (wallet.cachedStatus)
