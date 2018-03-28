@@ -11,56 +11,68 @@ msgstr ""
 "Last-Translator: cmgustavo83\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh\n"
-"PO-Revision-Date: 2017-05-16 09:39-0400\n"
+"PO-Revision-Date: 2017-11-20 08:33-0500\n"
 
 #: www/views/modals/paypro.html:34
 msgid "(Trusted)"
 msgstr "（可信的）"
 
-#: www/views/includes/txp.html:27
-#: www/views/modals/search.html:27
-#: www/views/walletDetails.html:273
+#: www/views/includes/txp.html:23
+#: www/views/includes/walletHistory.html:64
 msgid "(possible double spend)"
 msgstr "（重复支付）"
 
-#: www/views/modals/txp-details.html:160
+#: www/views/modals/txp-details.html:159
 msgid "* A payment proposal can be deleted if 1) you are the creator, and no other copayer has signed, or 2) 24 hours have passed since the proposal was created."
 msgstr "* 如果 1) 你是创造者，及没有其他 copayer 签名，或 2) 24 小时已经过去，支付提议将被删除。"
+
+#: www/views/tx-details.html:82
+msgid "- {{btx.feeRateStr}} of the transaction"
+msgstr "-{{btx.feeRateStr}} 的交易记录"
+
+#: www/views/modals/txp-details.html:102
+msgid "- {{tx.feeRateStr}} of the transaction"
+msgstr "-{{tx.feeRateStr}} 的交易记录"
 
 #: www/views/feedback/rateApp.html:7
 msgid "5-star ratings help us get {{appName}} into more hands, and more users means more resources can be committed to the app!"
 msgstr "5 星评级帮助我们进入更多的人手, {{appName}} 和更多的用户意味着的的资源可以致力于应用!"
+
+#: www/views/mercadoLibre.html:18
+#: www/views/mercadoLibre.html:40
+msgid "<b>Only</b> redeemable on Mercado Livre (Brazil)"
+msgstr "<b>只</b>可以在 Mercado Livre（巴西）兑换"
 
 #: src/js/controllers/feedback/send.js:27
 #: www/views/feedback/complete.html:21
 msgid "A member of the team will review your feedback as soon as possible."
 msgstr "团队的成员将尽快审查您的反馈意见。"
 
-#: src/js/controllers/confirm.js:237
+#: src/js/controllers/confirm.js:401
 msgid "A total of {{amountAboveMaxSizeStr}} were excluded. The maximum size allowed for a transaction was exceeded."
 msgstr "备注︰共有{{amountAboveMaxSizeStr}} 被排除了。超出了交易允许的最大体积"
 
-#: src/js/controllers/confirm.js:231
+#: src/js/controllers/confirm.js:395
 msgid "A total of {{amountBelowFeeStr}} were excluded. These funds come from UTXOs smaller than the network fee provided."
 msgstr "备注：共有{{amountBelowFeeStr}} 被排除了。这些来自 UTXOs 的资金小于提供的网络费用。"
 
 #: src/js/controllers/preferencesAbout.js:6
-#: www/views/tab-settings.html:156
+#: www/views/tab-settings.html:149
 msgid "About"
 msgstr "关于"
 
-#: src/js/controllers/modals/txpDetails.js:52
-#: src/js/controllers/tx-details.js:62
+#: src/js/controllers/modals/txpDetails.js:62
+#: src/js/controllers/tx-details.js:79
 msgid "Accepted"
 msgstr "同意"
 
-#: www/views/preferencesInformation.html:66
+#: www/views/preferencesInformation.html:72
 msgid "Account"
 msgstr "帐户"
 
-#: www/views/join.html:69
-#: www/views/tab-create-personal.html:42
-#: www/views/tab-create-shared.html:72
+#: www/views/join.html:72
+#: www/views/tab-create-personal.html:45
+#: www/views/tab-create-shared.html:74
 #: www/views/tab-import-hardware.html:19
 msgid "Account Number"
 msgstr "帐号"
@@ -69,43 +81,34 @@ msgstr "帐号"
 msgid "Accounts"
 msgstr "帐户"
 
-#: www/views/bitpayCard.html:57
+#: www/views/bitpayCard.html:56
 msgid "Activity"
 msgstr "活动"
 
-#: src/js/services/bitpayAccountService.js:77
+#: src/js/services/bitpayAccountService.js:83
 msgid "Add Account"
 msgstr "添加帐户"
 
-#: src/js/services/bitpayAccountService.js:68
+#: src/js/services/bitpayAccountService.js:69
 msgid "Add BitPay Account?"
 msgstr "添加 BitPay 帐户吗？"
 
-#: www/views/addressbook.edit.html:4
+#: www/views/addressbook.add.html:4
 #: www/views/addressbook.html:22
 msgid "Add Contact"
 msgstr "添加联系人"
-
-#: www/views/addressbook.view.html:36
-msgid "Delete Contact"
-msgstr "删除联系人"
-
-#: www/views/addressbook.view.html:33
-#: www/views/addressbook.edit.html:5
-msgid "Edit Contact"
-msgstr "更改联系资料"
 
 #: www/views/bitpayCard.html:28
 msgid "Add Funds"
 msgstr "添加金额"
 
-#: www/views/confirm.html:81
+#: www/views/confirm.html:94
 msgid "Add Memo"
 msgstr "添加备注"
 
-#: www/views/join.html:84
-#: www/views/tab-create-personal.html:56
-#: www/views/tab-create-shared.html:86
+#: www/views/join.html:87
+#: www/views/tab-create-personal.html:59
+#: www/views/tab-create-shared.html:88
 msgid "Add a password"
 msgstr "添加密码"
 
@@ -113,24 +116,35 @@ msgstr "添加密码"
 msgid "Add account"
 msgstr "添加帐户"
 
-#: www/views/join.html:87
-#: www/views/tab-create-personal.html:59
-#: www/views/tab-create-shared.html:89
+#: www/views/join.html:90
+#: www/views/tab-create-personal.html:62
+#: www/views/tab-create-shared.html:91
 msgid "Add an optional password to secure the recovery phrase"
 msgstr "添加可选的密码，以保护恢复短语"
 
-#: src/js/controllers/confirm.js:293
+#: www/views/includes/incomingDataMenu.html:41
+msgid "Add as a contact"
+msgstr "添加到联系人"
+
+#: src/js/controllers/confirm.js:424
 msgid "Add description"
 msgstr "添加描述"
+
+#: www/views/topup.html:6
+msgid "Add funds"
+msgstr "添加资金"
+
+#: src/js/services/bitpayAccountService.js:78
+msgid "Add this BitPay account ({{email}})?"
+msgstr "确定添加此BitPay账户:{{email}} 吗？"
 
 #: www/views/add.html:3
 msgid "Add wallet"
 msgstr "添加钱包"
 
 #: www/views/addressbook.view.html:26
-#: www/views/customAmount.html:26
+#: www/views/customAmount.html:28
 #: www/views/modals/paypro.html:24
-#: www/views/paymentUri.html:15
 msgid "Address"
 msgstr "地址"
 
@@ -139,15 +153,15 @@ msgstr "地址"
 msgid "Address Book"
 msgstr "地址簿"
 
-#: www/views/preferencesInformation.html:35
+#: www/views/preferencesInformation.html:41
 msgid "Address Type"
 msgstr "地址类型"
 
-#: www/views/addresses.html:78
+#: www/views/addresses.html:64
 msgid "Addresses With Balance"
 msgstr "地址与余额"
 
-#: www/views/tab-settings.html:149
+#: www/views/tab-settings.html:142
 msgid "Advanced"
 msgstr "進階"
 
@@ -155,7 +169,7 @@ msgstr "進階"
 msgid "Advanced Settings"
 msgstr "进阶设置"
 
-#: www/views/bitpayCard.html:63
+#: www/views/bitpayCard.html:62
 msgid "All"
 msgstr "全选"
 
@@ -164,11 +178,11 @@ msgid "All Addresses"
 msgstr "所有地址"
 
 #: www/views/modals/wallet-balance.html:18
-msgid "All of your bitcoin wallet balance may not be available for immediate spending."
+msgid "All of your Dash wallet balance may not be available for immediate spending."
 msgstr "所有您的比特币的钱包余额可能无法用于直接支出。"
 
-#: www/views/tab-receive.html:33
-msgid "All signing devices must be added to this multisig wallet before bitcoin addresses can be created."
+#: www/views/tab-receive.html:25
+msgid "All signing devices must be added to this multisig wallet before Dash addresses can be created."
 msgstr "比特币地址可以创建之前，签名的所有设备都必须都添加到这个对数钱包。"
 
 #: www/views/tab-scan.html:21
@@ -184,14 +198,17 @@ msgid "Almost done! Let's review."
 msgstr "差不多完成了 ！让我们回顾一下。"
 
 #: www/views/preferencesAltCurrency.html:4
-#: www/views/tab-settings.html:74
+#: www/views/tab-settings.html:72
 msgid "Alternative Currency"
 msgstr "替代货币"
 
+#: src/js/controllers/buyAmazon.js:98
+msgid "Amazon.com is not available at this moment. Please try back later."
+msgstr "亚马逊服务器暂时无法访问，请稍候再试。"
+
 #: www/views/amount.html:44
-#: www/views/customAmount.html:32
+#: www/views/customAmount.html:34
 #: www/views/includes/output.html:7
-#: www/views/paymentUri.html:16
 msgid "Amount"
 msgstr "数额"
 
@@ -199,39 +216,51 @@ msgstr "数额"
 msgid "Amount below minimum allowed"
 msgstr "数额低于最低允许值"
 
-#: src/js/controllers/confirm.js:410
+#: src/js/controllers/confirm.js:216
 msgid "Amount too big"
 msgstr "量太大"
 
-#: src/js/controllers/tab-home.js:143
+#: www/views/includes/walletHistory.html:31
+msgid "Amount too low to spend"
+msgstr "数量太少，无法支付"
+
+#: src/js/controllers/tab-home.js:148
 msgid "An update to this app is available. For your security, please update to the latest version."
 msgstr "本程序有一个可用的更新。为了您的安全，请更新到最新版本。"
 
 #: www/views/backupWarning.html:14
-msgid "Anyone with your backup phrase can access or spend your bitcoin."
+msgid "Anyone with your backup phrase can access or spend your Dash."
 msgstr "任何人只要持有你的备份短语，就可以访问或者花掉你的比特币。"
+
+#: www/views/addresses.html:94
+msgid "Approximate Dash network fee to transfer wallet's balance (with normal priority)"
+msgstr "转移钱包余额大约需要的比特币网络费用（正常优先级）"
 
 #: www/views/backupWarning.html:10
 msgid "Are you being watched?"
 msgstr "你正在被监视吗？"
 
 #: src/js/controllers/preferencesExternal.js:15
-msgid "Are you being watched? Anyone with your recovery phrase can access or spend your bitcoin."
-msgstr ""
+msgid "Are you being watched? Anyone with your recovery phrase can access or spend your Dash."
+msgstr "请确认目前没有人在监视你的屏幕！因为只要有人知道了你的恢复短语，他就拥有你的比特币完全访问权限，甚至可以直接用于消费！"
 
-#: src/js/controllers/copayers.js:42
+#: src/js/controllers/copayers.js:56
 msgid "Are you sure you want to cancel and delete this wallet?"
 msgstr "确定取消和删除这个钱包？"
 
-#: src/js/controllers/preferencesDelete.js:26
+#: src/js/controllers/addressbookView.js:37
+msgid "Are you sure you want to delete this contact?"
+msgstr "你确定你要删除此联系人？"
+
+#: src/js/controllers/preferencesDelete.js:25
 msgid "Are you sure you want to delete this wallet?"
 msgstr "确定要删除这钱包？"
 
-#: src/js/controllers/modals/txpDetails.js:144
+#: src/js/controllers/modals/txpDetails.js:154
 msgid "Are you sure you want to reject this transaction?"
 msgstr "确定拒绝这笔交易？"
 
-#: src/js/controllers/modals/txpDetails.js:161
+#: src/js/controllers/modals/txpDetails.js:171
 msgid "Are you sure you want to remove this transaction?"
 msgstr "确定要删除这项交易吗？"
 
@@ -239,12 +268,16 @@ msgstr "确定要删除这项交易吗？"
 msgid "Are you sure you want to skip it?"
 msgstr "你确定你想跳过它？"
 
+#: www/views/modals/bitpay-card-confirmation.html:4
+msgid "Are you sure you would like to log out of your BitPay Card account?"
+msgstr "你确定你要登出你的BitPay Card账户？"
+
 #: src/js/controllers/preferencesBitpayCard.js:7
 #: src/js/controllers/preferencesBitpayServices.js:20
 msgid "Are you sure you would like to remove your BitPay Card ({{lastFourDigits}}) from this device?"
 msgstr "你确定你想要从这个设备中删除您的 BitPay 卡 ({{lastFourDigits}})吗？"
 
-#: www/views/includes/walletInfo.html:5
+#: www/views/includes/walletInfo.html:10
 msgid "Auditable"
 msgstr "可审核"
 
@@ -256,18 +289,23 @@ msgstr "可用空间"
 msgid "Available Balance"
 msgstr "可用余额"
 
+#: www/views/modals/chooseFeeLevel.html:24
 #: www/views/preferencesFee.html:15
 msgid "Average confirmation time"
 msgstr "平均确认时间"
 
-#: www/views/join.html:118
-#: www/views/tab-create-personal.html:89
-#: www/views/tab-create-shared.html:119
-#: www/views/tab-import-phrase.html:46
+#: www/views/join.html:143
+#: www/views/tab-create-personal.html:113
+#: www/views/tab-create-shared.html:142
+#: www/views/tab-import-phrase.html:51
 msgid "BIP32 path for address derivation"
 msgstr "BIP32 路径的地址衍生"
 
-#: www/views/preferences.html:39
+#: www/views/preferencesCash.html:25
+msgid "BTC wallets"
+msgstr "比特币钱包"
+
+#: www/views/preferences.html:34
 msgid "Backup"
 msgstr "备份"
 
@@ -275,12 +313,13 @@ msgstr "备份"
 msgid "Backup Needed"
 msgstr "需要备份"
 
-#: src/js/controllers/lockSetup.js:50
+#: src/js/controllers/lockSetup.js:87
 msgid "Backup all livenet wallets before using this function"
-msgstr ""
+msgstr "请在使用此功能之前备份你所有的 livenet 钱包"
 
-#: www/views/preferences.html:41
-#: www/views/tab-settings.html:120
+#: src/js/controllers/preferencesCash.js:64
+#: www/views/includes/walletListSettings.html:12
+#: www/views/preferences.html:36
 msgid "Backup needed"
 msgstr "需要备份"
 
@@ -293,15 +332,15 @@ msgstr "现在备份"
 msgid "Backup wallet"
 msgstr "备份钱包"
 
-#: src/js/controllers/lockSetup.js:47
+#: src/js/controllers/lockSetup.js:84
 msgid "Backup your wallet before using this function"
 msgstr "在使用此功能之前，请备份你的钱包。"
 
-#: src/js/services/profileService.js:430
+#: src/js/services/profileService.js:446
 msgid "Bad wallet invitation"
 msgstr "坏钱包邀请"
 
-#: www/views/preferencesInformation.html:96
+#: www/views/preferencesInformation.html:110
 msgid "Balance By Address"
 msgstr "地址余额"
 
@@ -313,45 +352,59 @@ msgstr "请务必将您的恢复短语存储在一个安全的地方。如果这
 msgid "BitPay Visa&reg; Cards"
 msgstr "BitPay Visa&reg; 牌"
 
-#: www/views/addressbook.edit.html:39
-msgid "Bitcoin Address"
+#: www/views/addressbook.add.html:38
+#: www/views/includes/incomingDataMenu.html:29
+msgid "Dash Address"
 msgstr "比特币地址"
 
+#: www/views/includes/walletSelector.html:42
+#: www/views/tab-home.html:112
+#: www/views/tab-settings.html:108
+msgid "Bitcoin Cash Wallets"
+msgstr "比特币现金钱包"
+
+#: www/views/modals/chooseFeeLevel.html:4
 #: www/views/preferencesFee.html:4
-#: www/views/tab-settings.html:85
-msgid "Bitcoin Network Fee Policy"
+#: www/views/tab-settings.html:83
+msgid "Dash Network Fee Policy"
 msgstr "比特币网络手续费策略"
 
-#: www/views/paymentUri.html:10
-msgid "Bitcoin URI is NOT valid!"
-msgstr "比特币 URI 无效！"
+#: www/views/includes/walletSelector.html:11
+#: www/views/tab-home.html:97
+#: www/views/tab-settings.html:100
+msgid "Dash Wallets"
+msgstr "比特币钱包"
 
-#: www/views/tab-settings.html:63
-msgid "Bitcoin Unit"
-msgstr "比特币单位"
+#: src/js/services/incomingData.js:151
+msgid "Bitcoin cash Payment"
+msgstr "比特币现金支付"
 
-#: www/views/onboarding/tour.html:26
-msgid "Bitcoin is a currency."
+#: www/views/onboarding/tour.html:31
+msgid "Dash is a currency."
 msgstr "比特币是一种货币。"
 
 #: www/views/onboarding/disclaimer.html:15
-msgid "Bitcoin is different &ndash; it cannot be safely held with a bank or web service."
-msgstr "比特币是不同 — — 它不能安全地举行以银行或 web 服务。"
+msgid "Dash is a new way to store value. Only YOU can safely hold it with your backed-up private key... not banks, not websites."
+msgstr ""
 
-#: www/views/onboarding/tour.html:13
-msgid "Bitcoin is secure,<br>digital money."
-msgstr "比特币是安全的 <br>数字货币。"
+#: www/views/onboarding/tour.html:18
+msgid "Send money to anyone, anywhere, without approval or publicity."
+msgstr ""
 
 #: www/views/preferencesFee.html:11
-msgid "Bitcoin transactions include a fee collected by miners on the network."
+msgid "Dash transactions include a fee collected by miners on the network."
 msgstr "比特币交易包括在网络上被矿工所收取的费用。"
+
+#: www/views/buyAmazon.html:108
+msgid "Bought {{amountUnitStr}}"
+msgstr "买了{{amountUnitStr}}"
 
 #: www/views/modals/txp-details.html:36
 msgid "Broadcast Payment"
 msgstr "广播支付"
 
-#: src/js/controllers/modals/txpDetails.js:54
-#: src/js/controllers/tx-details.js:64
+#: src/js/controllers/modals/txpDetails.js:64
+#: src/js/controllers/tx-details.js:81
 msgid "Broadcasted"
 msgstr "广播商"
 
@@ -363,42 +416,68 @@ msgstr "正在广播交易"
 msgid "Browser unsupported"
 msgstr "不受支持的浏览器"
 
-#: www/views/includes/buyAndSellCard.html:4
-msgid "Buy &amp; Sell Bitcoin"
+#: www/views/buyAmazon.html:5
+#: www/views/buyMercadoLibre.html:6
+msgid "Buy"
+msgstr "购买"
+
+#: www/views/includes/buyAndSellCard.html:3
+msgid "Buy &amp; Sell Dash"
 msgstr "购买或出售比特币"
 
-#: www/views/tab-send.html:31
-msgid "Buy Bitcoin"
-msgstr "购买比特币"
+#: www/views/tab-send.html:40
+msgid "Start sending Dash"
+msgstr ""
+
+#: www/views/mercadoLibre.html:22
+#: www/views/mercadoLibre.html:50
+msgid "Buy a Gift Card"
+msgstr "买一张礼品卡"
+
+#: src/js/controllers/buyAmazon.js:336
+msgid "Buy from"
+msgstr "从什么地方购买"
 
 #: src/js/services/onGoingProcess.js:40
-msgid "Buying Bitcoin..."
+msgid "Buying Dash..."
 msgstr "正在发送 比特币..."
 
 #: src/js/services/onGoingProcess.js:12
 msgid "Calculating fee"
 msgstr "正在计算费用"
 
-#: src/js/controllers/confirm.js:494
-#: src/js/controllers/lockSetup.js:102
-#: src/js/services/popupService.js:59
-#: www/views/addressbook.edit.html:11
+#: src/js/controllers/buyAmazon.js:315
+#: src/js/controllers/buyMercadoLibre.js:309
+#: src/js/controllers/confirm.js:550
+#: src/js/controllers/topup.js:287
+#: src/js/services/incomingData.js:154
+#: src/js/services/popupService.js:62
+#: src/js/services/popupService.js:73
+#: www/views/addressbook.add.html:10
 #: www/views/feedback/send.html:5
-#: www/views/includes/confirm-tx.html:30
+#: www/views/includes/incomingDataMenu.html:22
+#: www/views/includes/incomingDataMenu.html:54
+#: www/views/includes/incomingDataMenu.html:73
+#: www/views/includes/incomingDataMenu.html:97
 #: www/views/includes/note.html:6
+#: www/views/modals/bitpay-card-confirmation.html:8
 #: www/views/modals/confirmation.html:13
 msgid "Cancel"
 msgstr "取消"
+
+#: www/views/copayers.html:36
+msgid "Cancel invitation"
+msgstr "取消邀请"
 
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "不能创建钱包"
 
-#: src/js/services/profileService.js:426
+#: src/js/services/profileService.js:442
 msgid "Cannot join the same wallet more that once"
 msgstr "无法重复加入同一个钱包"
 
-#: www/views/includes/bitpayCardsCard.html:4
+#: www/views/includes/bitpayCardsCard.html:2
 msgid "Cards"
 msgstr "卡"
 
@@ -408,7 +487,7 @@ msgstr "通过认证："
 
 #: www/views/preferencesExternal.html:19
 msgid "Check installation and retry."
-msgstr ""
+msgstr "检查安装包然后重试"
 
 #: www/views/tab-import-file.html:4
 msgid "Choose a backup file from your computer"
@@ -422,7 +501,7 @@ msgstr "选择你的目的地钱包"
 msgid "Choose your source wallet"
 msgstr "选择源钱包"
 
-#: www/views/backup.html:54
+#: www/views/backup.html:61
 msgid "Clear"
 msgstr "清除"
 
@@ -430,17 +509,34 @@ msgstr "清除"
 msgid "Clear cache"
 msgstr "清空缓存"
 
-#: src/js/controllers/confirm.js:52
-#: src/js/controllers/modals/txpDetails.js:25
-msgid "Click"
-msgstr "点击"
+#: src/js/controllers/confirm.js:373
+#: src/js/controllers/modals/txpDetails.js:49
+msgid "Click to accept"
+msgstr "点击这里接受"
 
+#: src/js/controllers/confirm.js:367
+msgid "Click to pay"
+msgstr "点击这里支付"
+
+#: src/js/controllers/confirm.js:379
+#: src/js/controllers/modals/txpDetails.js:42
+msgid "Click to send"
+msgstr "点击这里发送"
+
+#: www/views/customAmount.html:4
+#: www/views/modals/mercadolibre-card-details.html:3
 #: www/views/modals/paypro.html:4
+#: www/views/modals/pin.html:3
 #: www/views/modals/search.html:3
 #: www/views/modals/wallet-balance.html:3
 #: www/views/modals/wallets.html:5
 msgid "Close"
 msgstr "关闭"
+
+#: www/views/includes/cash.html:2
+#: www/views/preferencesInformation.html:17
+msgid "Coin"
+msgstr "币种"
 
 #: www/views/preferences.html:22
 msgid "Color"
@@ -450,16 +546,23 @@ msgstr "颜色"
 msgid "Commit hash"
 msgstr "提交哈希"
 
-#: www/views/preferences.html:53
+#: www/views/preferences.html:49
 msgid "Complete the backup process to use this option"
-msgstr ""
+msgstr "要使用此选项，请先完成备份。"
 
-#: src/js/controllers/confirm.js:493
-#: src/js/controllers/copayers.js:41
-#: www/views/backup.html:53
-#: www/views/backup.html:72
+#: www/views/bitpayCard.html:93
+msgid "Completed"
+msgstr "完成"
+
+#: src/js/controllers/buyAmazon.js:313
+#: src/js/controllers/buyMercadoLibre.js:307
+#: src/js/controllers/confirm.js:549
+#: src/js/controllers/copayers.js:55
+#: src/js/controllers/topup.js:285
+#: www/views/backup.html:60
+#: www/views/backup.html:79
 #: www/views/confirm.html:4
-#: www/views/includes/confirm-tx.html:35
+#: www/views/onboarding/collectEmail.html:32
 msgid "Confirm"
 msgstr "确定"
 
@@ -468,18 +571,23 @@ msgstr "确定"
 msgid "Confirm &amp; Finish"
 msgstr "确认并完成"
 
-#: www/views/pin.html:9
+#: www/views/buyAmazon.html:90
+msgid "Confirm purchase"
+msgstr "确认购买"
+
+#: www/views/modals/pin.html:10
 msgid "Confirm your PIN"
-msgstr ""
+msgstr "确认你的PIN码"
 
-#: src/js/services/walletService.js:938
+#: src/js/services/walletService.js:1063
 msgid "Confirm your new spending password"
-msgstr ""
+msgstr "确认你的新支付密码"
 
-#: www/views/tx-details.html:92
+#: www/views/tx-details.html:98
 msgid "Confirmations"
 msgstr "确认"
 
+#: www/views/bitpayCard.html:68
 #: www/views/modals/wallet-balance.html:61
 msgid "Confirming"
 msgstr "确认"
@@ -500,11 +608,10 @@ msgstr "正在连接 Glidera..."
 msgid "Connection reset by peer"
 msgstr "连接被对方重置"
 
-#: www/views/tab-send.html:41
+#: www/views/tab-send.html:50
 msgid "Contacts"
 msgstr "联系人"
 
-#: src/js/controllers/lockSetup.js:101
 #: www/views/onboarding/notifications.html:9
 msgid "Continue"
 msgstr "继续"
@@ -512,6 +619,10 @@ msgstr "继续"
 #: www/views/preferencesLanguage.html:26
 msgid "Contribute Translations"
 msgstr "参与翻译"
+
+#: src/js/controllers/confirm.js:130
+msgid "Copay only supports Bitcoin Cash using new version numbers addresses"
+msgstr "Copay只支持新版本的比特币现金地址"
 
 #: src/js/services/bwcError.js:62
 msgid "Copayer already in this wallet"
@@ -529,11 +640,11 @@ msgstr "Copayer 的数据不匹配"
 msgid "Copayer joined"
 msgstr "Copayer 加入"
 
-#: www/views/preferencesInformation.html:88
+#: www/views/preferencesInformation.html:94
 msgid "Copayer {{$index}}"
 msgstr "Copayer {{$index}}"
 
-#: src/js/controllers/copayers.js:63
+#: src/js/controllers/copayers.js:79
 #: src/js/controllers/export.js:193
 #: www/views/includes/copyToClipboard.html:4
 msgid "Copied to clipboard"
@@ -543,24 +654,35 @@ msgstr "已复制到剪贴板"
 msgid "Copy this text as it is to a safe place (notepad or email)"
 msgstr "将此文本复制到一个安全的地方（记事本或电子邮件）"
 
-#: www/views/preferencesLogs.html:10
+#: www/views/includes/incomingDataMenu.html:51
+#: www/views/includes/incomingDataMenu.html:70
+#: www/views/includes/incomingDataMenu.html:94
+#: www/views/includes/logOptions.html:9
 #: www/views/tab-export-file.html:78
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
+
+#: src/js/controllers/buyMercadoLibre.js:102
+msgid "Could not access Gift Card Service"
+msgstr "不能访问礼品卡服务"
 
 #: www/views/tab-import-phrase.html:2
 msgid "Could not access the wallet at the server. Please check:"
 msgstr "无法访问服务器上的钱包。请确认︰"
 
-#: src/js/services/profileService.js:493
+#: src/js/controllers/buyAmazon.js:102
+msgid "Could not access to Amazon.com"
+msgstr "不能访问到亚马逊网站"
+
+#: src/js/services/profileService.js:511
 msgid "Could not access wallet"
 msgstr "无法访问钱包"
 
-#: src/js/controllers/confirm.js:404
+#: src/js/controllers/confirm.js:210
 msgid "Could not add message to imported wallet without shared encrypting key"
 msgstr "无法将消息添加到进口钱包没有共享的加密密钥"
 
-#: src/js/controllers/modals/txpDetails.js:189
+#: src/js/controllers/modals/txpDetails.js:199
 msgid "Could not broadcast payment"
 msgstr "无法广播支付"
 
@@ -568,57 +690,81 @@ msgstr "无法广播支付"
 msgid "Could not build transaction"
 msgstr "无法建立交易"
 
-#: src/js/services/walletService.js:836
+#: src/js/services/walletService.js:884
 msgid "Could not create address"
 msgstr "无法创建地址"
 
-#: src/js/services/profileService.js:342
+#: src/js/controllers/topup.js:92
+msgid "Could not create the invoice"
+msgstr "不能创建发票"
+
+#: src/js/controllers/buyAmazon.js:164
+#: src/js/controllers/buyMercadoLibre.js:164
+#: src/js/controllers/topup.js:142
+msgid "Could not create transaction"
+msgstr "无法创建交易"
+
+#: src/js/services/profileService.js:350
 msgid "Could not create using the specified extended private key"
 msgstr "无法使用指定的扩展私人密钥创建"
 
-#: src/js/services/profileService.js:353
+#: src/js/services/profileService.js:362
 msgid "Could not create using the specified extended public key"
 msgstr "无法使用指定的扩展的公钥创建"
 
-#: src/js/services/profileService.js:335
+#: src/js/services/profileService.js:338
 msgid "Could not create: Invalid wallet recovery phrase"
 msgstr "无法创建 ︰ 无效的钱包恢复短语"
 
-#: src/js/controllers/import.js:83
+#: src/js/controllers/import.js:112
 msgid "Could not decrypt file, check your password"
 msgstr "无法解密文件，请检查你的密码"
 
-#: src/js/controllers/modals/txpDetails.js:171
+#: src/js/controllers/modals/txpDetails.js:181
 msgid "Could not delete payment proposal"
 msgstr "无法删除支付提议"
 
-#: src/js/services/feeService.js:52
+#: src/js/controllers/preferencesCash.js:117
+msgid "Could not duplicate"
+msgstr "无法复制"
+
+#: src/js/services/feeService.js:73
 msgid "Could not get dynamic fee"
 msgstr "不能动态费用"
 
-#: src/js/services/feeService.js:32
+#: src/js/services/feeService.js:43
 msgid "Could not get dynamic fee for level: {{feeLevel}}"
 msgstr "无法获取水平动态费用︰ {{feeLevel}}"
 
-#: src/js/controllers/bitpayCard.js:65
+#: src/js/controllers/modals/feeLevels.js:112
+msgid "Could not get fee levels"
+msgstr "无法获取费率"
+
+#: src/js/controllers/buyAmazon.js:122
+#: src/js/controllers/buyMercadoLibre.js:122
+#: src/js/controllers/topup.js:100
+msgid "Could not get the invoice"
+msgstr "不能拿到发票"
+
+#: src/js/controllers/bitpayCard.js:66
 msgid "Could not get transactions"
 msgstr "不能交易"
 
-#: src/js/services/profileService.js:595
-#: src/js/services/profileService.js:627
+#: src/js/services/profileService.js:615
 #: src/js/services/profileService.js:650
+#: src/js/services/profileService.js:674
 msgid "Could not import"
 msgstr "无法导入"
 
-#: src/js/services/profileService.js:564
+#: src/js/services/profileService.js:584
 msgid "Could not import. Check input file and spending password"
 msgstr "无法导入。请检查输入文件和支付密码"
 
-#: src/js/services/profileService.js:439
+#: src/js/services/profileService.js:457
 msgid "Could not join wallet"
 msgstr "无法加入钱包"
 
-#: src/js/controllers/modals/txpDetails.js:151
+#: src/js/controllers/modals/txpDetails.js:161
 msgid "Could not reject payment"
 msgstr "无法拒绝支付"
 
@@ -631,28 +777,29 @@ msgstr "无法删除帐户"
 msgid "Could not remove card"
 msgstr "无法删除卡"
 
-#: src/js/services/walletService.js:757
+#: src/js/services/walletService.js:806
 msgid "Could not save preferences on the server"
 msgstr "无法在服务器上保存首选项"
 
-#: src/js/controllers/modals/txpDetails.js:137
+#: src/js/controllers/modals/txpDetails.js:147
 msgid "Could not send payment"
 msgstr "无法发送支付"
 
-#: www/views/walletDetails.html:197
+#: src/js/controllers/buyAmazon.js:327
+#: src/js/controllers/buyMercadoLibre.js:320
+#: src/js/controllers/topup.js:299
+msgid "Could not send transaction"
+msgstr "无法发送交易记录"
+
+#: www/views/walletDetails.html:210
 msgid "Could not update transaction history"
 msgstr "无法更新交易历史记录"
 
-#: src/js/controllers/addresses.js:34
-#: src/js/controllers/addresses.js:42
-#: src/js/controllers/copayers.js:23
-#: src/js/controllers/tab-receive.js:137
-#: src/js/controllers/walletDetails.js:63
+#: src/js/controllers/addresses.js:29
+#: src/js/controllers/addresses.js:37
+#: src/js/controllers/copayers.js:30
+#: src/js/controllers/walletDetails.js:78
 msgid "Could not update wallet"
-msgstr "无法更新钱包"
-
-#: src/js/controllers/confirm.js:117
-msgid "Could not update wallets"
 msgstr "无法更新钱包"
 
 #: www/views/tab-create-personal.html:3
@@ -663,13 +810,13 @@ msgstr "创建个人的钱包"
 msgid "Create Shared Wallet"
 msgstr "创建自己的免费钱包"
 
-#: www/views/onboarding/tour.html:46
-#: www/views/tab-home.html:76
-#: www/views/tab-send.html:32
-msgid "Create bitcoin wallet"
+#: www/views/onboarding/tour.html:51
+#: www/views/tab-home.html:89
+#: www/views/tab-send.html:41
+msgid "Create Dash Wallet"
 msgstr "创建比特币的钱包"
 
-#: www/views/tab-create-personal.html:107
+#: www/views/tab-create-personal.html:131
 msgid "Create new wallet"
 msgstr "创建新钱包"
 
@@ -677,12 +824,12 @@ msgstr "创建新钱包"
 msgid "Create shared wallet"
 msgstr "创建共享的钱包"
 
-#: www/views/tab-create-shared.html:137
+#: www/views/tab-create-shared.html:160
 msgid "Create {{formData.requiredCopayers}}-of-{{formData.totalCopayers}} wallet"
 msgstr "创建 {{formData.requiredCopayers}} 的{{formData.totalCopayers}} 钱包"
 
-#: www/views/modals/txp-details.html:83
-#: www/views/tx-details.html:62
+#: www/views/modals/txp-details.html:81
+#: www/views/tx-details.html:60
 msgid "Created by"
 msgstr "创建者:"
 
@@ -694,16 +841,26 @@ msgstr "正在创建钱包..."
 msgid "Creating transaction"
 msgstr "正在创建交易"
 
+#: www/views/modals/chooseFeeLevel.html:34
 #: www/views/preferencesFee.html:20
 msgid "Current fee rate for this policy"
 msgstr "此策略的当前费用率"
 
-#: www/views/customAmount.html:4
+#: src/js/services/feeService.js:15
+msgid "Custom"
+msgstr "自定义"
+
+#: www/views/customAmount.html:9
 msgid "Custom Amount"
 msgstr "自定义金额"
 
-#: www/views/modals/txp-details.html:89
-#: www/views/tx-details.html:68
+#: src/js/controllers/preferencesFee.js:85
+msgid "Custom Fee"
+msgstr "使用自定义费率"
+
+#: www/views/modals/mercadolibre-card-details.html:56
+#: www/views/modals/txp-details.html:87
+#: www/views/tx-details.html:66
 msgid "Date"
 msgstr "日期"
 
@@ -711,11 +868,11 @@ msgstr "日期"
 msgid "Delete"
 msgstr "删除"
 
-#: www/views/modals/txp-details.html:165
+#: www/views/modals/txp-details.html:164
 msgid "Delete Payment Proposal"
 msgstr "删除支付提议"
 
-#: www/views/preferencesAdvanced.html:29
+#: www/views/preferencesAdvanced.html:33
 #: www/views/preferencesDeleteWallet.html:3
 msgid "Delete Wallet"
 msgstr "删除钱包"
@@ -732,21 +889,28 @@ msgstr "正在删除钱包..."
 msgid "Deleting payment proposal"
 msgstr "删除付款方案"
 
-#: www/views/join.html:116
-#: www/views/tab-create-personal.html:87
-#: www/views/tab-create-shared.html:117
-#: www/views/tab-import-phrase.html:44
+#: www/views/join.html:141
+#: www/views/tab-create-personal.html:111
+#: www/views/tab-create-shared.html:140
+#: www/views/tab-import-phrase.html:49
 msgid "Derivation Path"
 msgstr "衍生路径"
 
-#: www/views/preferencesInformation.html:41
+#: www/views/preferencesInformation.html:47
 msgid "Derivation Strategy"
 msgstr "衍生策略"
 
+#: www/views/buyAmazon.html:39
+#: www/views/buyMercadoLibre.html:38
+#: www/views/modals/mercadolibre-card-details.html:6
+#: www/views/topup.html:45
+msgid "Details"
+msgstr "详情"
+
 #: src/js/controllers/lockSetup.js:9
-#: src/js/controllers/tab-settings.js:58
+#: src/js/controllers/tab-settings.js:61
 msgid "Disabled"
-msgstr ""
+msgstr "禁用"
 
 #: www/views/includes/backupNeededPopup.html:10
 #: www/views/onboarding/backupRequest.html:12
@@ -762,30 +926,38 @@ msgid "Don't see your language on Crowdin? Contact the Owner on Crowdin! We'd lo
 msgstr "在 Crowdin 找不到你的语言？请联系 Crowdin 的所有者！我们很乐意支持你的语言。"
 
 #: www/views/tab-export-file.html:59
-#: www/views/tab-home.html:21
+#: www/views/tab-home.html:36
 msgid "Download"
 msgstr "下载"
 
-#: www/views/addresses.html:23
-msgid "Each bitcoin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
+#: www/views/preferencesCash.html:37
+msgid "Duplicate for BCH"
+msgstr "复制 BCH"
+
+#: src/js/services/onGoingProcess.js:49
+msgid "Duplicating wallet..."
+msgstr "正在复制钱包……"
+
+#: www/views/addresses.html:19
+msgid "Each Dash wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
 msgstr "每个比特币钱包可以从您的 12 字备份生成亿万个地址。一个新的地址是自动生成和显示每个时间你收到付款。"
 
-#: src/js/services/feeService.js:11
+#: src/js/services/feeService.js:13
 msgid "Economy"
 msgstr "经济"
 
-#: www/views/addressbook.edit.html:30
+#: www/views/onboarding/collectEmail.html:27
+msgid "Edit"
+msgstr "编辑"
+
+#: www/views/addressbook.add.html:29
 #: www/views/addressbook.view.html:22
 msgid "Email"
 msgstr "电子邮件"
 
-#: www/views/preferencesNotifications.html:36
+#: www/views/preferencesNotifications.html:42
 msgid "Email Address"
 msgstr "电子邮件地址"
-
-#: www/views/onboarding/collectEmail.html:9
-msgid "Email Notifications"
-msgstr "邮箱通知"
 
 #: src/js/services/bwcError.js:122
 msgid "Empty addresses limit reached. New addresses cannot be generated."
@@ -795,7 +967,7 @@ msgstr "已达到空地址限制。无法生成新的地址。"
 msgid "Enable camera access in your device settings to get started."
 msgstr "相机中启用访问您的设备设置入门。"
 
-#: www/views/preferencesNotifications.html:23
+#: www/views/preferencesNotifications.html:29
 msgid "Enable email notifications"
 msgstr "启用电子邮件通知"
 
@@ -807,53 +979,63 @@ msgstr "启用推式通知"
 msgid "Enable the camera to get started."
 msgstr "使该摄像机开始。"
 
-#: www/views/amount.html:4
-msgid "Enter Amount"
-msgstr "输入金额"
-
-#: src/js/services/walletService.js:952
-#: src/js/services/walletService.js:967
+#: src/js/services/walletService.js:1077
+#: src/js/services/walletService.js:1092
 msgid "Enter Spending Password"
 msgstr "输入支出密码"
 
-#: src/js/services/bitpayAccountService.js:104
+#: src/js/services/bitpayAccountService.js:110
 msgid "Enter Two Factor for your BitPay account"
 msgstr "为您的 BitPay 帐户输入两个因素"
 
-#: src/js/services/walletService.js:934
+#: www/views/amount.html:4
+msgid "Enter amount"
+msgstr "输入金额"
+
+#: www/views/modals/chooseFeeLevel.html:41
+msgid "Enter custom fee"
+msgstr "输入自定义费率"
+
+#: src/js/services/walletService.js:1059
 msgid "Enter new spending password"
 msgstr "输入新的消费密码"
 
-#: www/views/join.html:76
-#: www/views/tab-create-personal.html:48
-#: www/views/tab-create-shared.html:78
+#: www/views/join.html:79
+#: www/views/tab-create-personal.html:51
+#: www/views/tab-create-shared.html:80
 msgid "Enter the recovery phrase (BIP39)"
 msgstr "输入恢复短语 (BIP39)"
 
-#: www/views/backup.html:62
+#: www/views/onboarding/collectEmail.html:13
+msgid "Enter your email"
+msgstr "输入您的电子邮件"
+
+#: www/views/backup.html:69
 msgid "Enter your password"
 msgstr "请输入你的密码"
 
 #. Trying to import a malformed wallet export QR code
 #: src/js/controllers/activity.js:45
-#: src/js/controllers/addressbook.js:53
 #: src/js/controllers/addressbookAdd.js:30
-#: src/js/controllers/addresses.js:98
-#: src/js/controllers/addresses.js:99
-#: src/js/controllers/bitpayCard.js:65
+#: src/js/controllers/addressbookView.js:42
+#: src/js/controllers/addresses.js:125
+#: src/js/controllers/addresses.js:126
+#: src/js/controllers/bitpayCard.js:66
 #: src/js/controllers/bitpayCardIntro.js:40
 #: src/js/controllers/bitpayCardIntro.js:81
-#: src/js/controllers/confirm.js:177
-#: src/js/controllers/confirm.js:190
-#: src/js/controllers/confirm.js:196
-#: src/js/controllers/copayers.js:53
-#: src/js/controllers/create.js:117
-#: src/js/controllers/create.js:145
-#: src/js/controllers/create.js:158
-#: src/js/controllers/create.js:165
-#: src/js/controllers/create.js:187
-#: src/js/controllers/create.js:194
-#: src/js/controllers/create.js:212
+#: src/js/controllers/buyAmazon.js:24
+#: src/js/controllers/buyAmazon.js:35
+#: src/js/controllers/buyMercadoLibre.js:24
+#: src/js/controllers/buyMercadoLibre.js:35
+#: src/js/controllers/confirm.js:307
+#: src/js/controllers/copayers.js:67
+#: src/js/controllers/create.js:159
+#: src/js/controllers/create.js:172
+#: src/js/controllers/create.js:178
+#: src/js/controllers/create.js:184
+#: src/js/controllers/create.js:206
+#: src/js/controllers/create.js:213
+#: src/js/controllers/create.js:231
 #: src/js/controllers/export.js:109
 #: src/js/controllers/export.js:115
 #: src/js/controllers/export.js:126
@@ -863,62 +1045,90 @@ msgstr "请输入你的密码"
 #: src/js/controllers/export.js:47
 #: src/js/controllers/export.js:53
 #: src/js/controllers/feedback/send.js:23
-#: src/js/controllers/import.js:100
-#: src/js/controllers/import.js:118
-#: src/js/controllers/import.js:168
-#: src/js/controllers/import.js:196
-#: src/js/controllers/import.js:205
-#: src/js/controllers/import.js:220
-#: src/js/controllers/import.js:232
-#: src/js/controllers/import.js:243
-#: src/js/controllers/import.js:253
-#: src/js/controllers/import.js:266
-#: src/js/controllers/import.js:278
-#: src/js/controllers/import.js:288
-#: src/js/controllers/import.js:298
-#: src/js/controllers/import.js:322
-#: src/js/controllers/import.js:334
-#: src/js/controllers/import.js:54
-#: src/js/controllers/import.js:67
-#: src/js/controllers/import.js:88
-#: src/js/controllers/join.js:119
-#: src/js/controllers/join.js:133
-#: src/js/controllers/join.js:140
-#: src/js/controllers/join.js:163
-#: src/js/controllers/join.js:171
-#: src/js/controllers/join.js:189
-#: src/js/controllers/join.js:97
-#: src/js/controllers/modals/txpDetails.js:130
+#: src/js/controllers/import.js:117
+#: src/js/controllers/import.js:129
+#: src/js/controllers/import.js:147
+#: src/js/controllers/import.js:198
+#: src/js/controllers/import.js:227
+#: src/js/controllers/import.js:236
+#: src/js/controllers/import.js:252
+#: src/js/controllers/import.js:264
+#: src/js/controllers/import.js:276
+#: src/js/controllers/import.js:286
+#: src/js/controllers/import.js:310
+#: src/js/controllers/import.js:323
+#: src/js/controllers/import.js:333
+#: src/js/controllers/import.js:343
+#: src/js/controllers/import.js:367
+#: src/js/controllers/import.js:380
+#: src/js/controllers/import.js:83
+#: src/js/controllers/import.js:96
+#: src/js/controllers/join.js:124
+#: src/js/controllers/join.js:138
+#: src/js/controllers/join.js:144
+#: src/js/controllers/join.js:150
+#: src/js/controllers/join.js:173
+#: src/js/controllers/join.js:181
+#: src/js/controllers/join.js:199
+#: src/js/controllers/modals/feeLevels.js:9
+#: src/js/controllers/modals/txpDetails.js:140
 #: src/js/controllers/paperWallet.js:47
 #: src/js/controllers/preferencesBitpayCard.js:20
 #: src/js/controllers/preferencesBitpayServices.js:33
 #: src/js/controllers/preferencesBitpayServices.js:50
-#: src/js/controllers/preferencesDelete.js:37
+#: src/js/controllers/preferencesDelete.js:36
 #: src/js/controllers/preferencesExternal.js:20
-#: src/js/controllers/tab-home.js:170
+#: src/js/controllers/tab-home.js:180
+#: src/js/controllers/tab-send.js:149
+#: src/js/controllers/tabsController.js:36
 #: src/js/controllers/tabsController.js:7
-#: src/js/controllers/tx-details.js:102
-#: src/js/services/incomingData.js:98
+#: src/js/controllers/topup.js:21
+#: src/js/controllers/topup.js:32
+#: src/js/controllers/tx-details.js:119
+#: src/js/services/incomingData.js:101
+#: src/js/services/incomingData.js:125
+#: src/js/services/incomingData.js:168
+#: www/views/mercadoLibreCards.html:19
+#: www/views/modals/mercadolibre-card-details.html:45
 msgid "Error"
 msgstr "错误！"
 
-#: src/js/controllers/confirm.js:379
+#: src/js/controllers/confirm.js:502
 msgid "Error at confirm"
 msgstr "在确认错误"
 
-#: src/js/services/profileService.js:396
+#: src/js/controllers/buyAmazon.js:179
+msgid "Error creating gift card"
+msgstr "创建礼品卡时出错。"
+
+#: src/js/controllers/buyAmazon.js:94
+#: src/js/controllers/buyMercadoLibre.js:94
+msgid "Error creating the invoice"
+msgstr "创建发票时出错"
+
+#: src/js/services/profileService.js:412
 msgid "Error creating wallet"
 msgstr "创建钱包时出现错误"
 
+#: src/js/controllers/confirm.js:296
+msgid "Error getting SendMax information"
+msgstr "获取SendMax信息时出错。"
+
+#: src/js/controllers/buyAmazon.js:136
+#: src/js/controllers/buyMercadoLibre.js:136
+#: src/js/controllers/topup.js:114
+msgid "Error in Payment Protocol"
+msgstr "付款协议中的错误"
+
 #: src/js/controllers/bitpayCardIntro.js:14
-msgid "Error pairing Bitpay Account"
-msgstr "错误配对Bitpay帐户"
+msgid "Error pairing BitPay Account"
+msgstr "错误配对 BitPay 帐户"
 
 #: src/js/controllers/paperWallet.js:41
 msgid "Error scanning funds:"
 msgstr "错误扫描资金︰"
 
-#: src/js/controllers/paperWallet.js:91
+#: src/js/controllers/paperWallet.js:90
 msgid "Error sweeping wallet:"
 msgstr "错误清扫钱包︰"
 
@@ -930,18 +1140,20 @@ msgstr "更新借记卡时出错"
 msgid "Exceeded daily limit of $500 per user"
 msgstr "超过 500 美元，每个用户的每日限额"
 
-#: src/js/controllers/confirm.js:338
+#: src/js/controllers/confirm.js:461
 #: www/views/confirm.html:27
-#: www/views/modals/txp-details.html:120
+#: www/views/mercadoLibreCards.html:25
+#: www/views/modals/mercadolibre-card-details.html:34
+#: www/views/modals/txp-details.html:119
 msgid "Expired"
 msgstr "已过期"
 
 #: www/views/modals/paypro.html:54
-#: www/views/modals/txp-details.html:126
+#: www/views/modals/txp-details.html:125
 msgid "Expires"
 msgstr "到期"
 
-#: www/views/preferencesAdvanced.html:17
+#: www/views/preferencesAdvanced.html:21
 msgid "Export Wallet"
 msgstr "导出钱包"
 
@@ -954,18 +1166,23 @@ msgstr "导出到文件"
 msgid "Export wallet"
 msgstr "导出钱包"
 
-#: src/js/services/walletService.js:1079
+#: src/js/services/walletService.js:1204
 #: www/views/tab-export-qrCode.html:9
 msgid "Exporting via QR not supported for this wallet"
 msgstr "此钱包不支持通过 QR 的导出"
 
-#: www/views/preferencesInformation.html:83
+#: www/views/preferencesInformation.html:104
+#: www/views/preferencesPrivateKey.html:6
+msgid "Extended Private Key"
+msgstr ""
+
+#: www/views/preferencesInformation.html:89
 msgid "Extended Public Keys"
 msgstr "扩展的公钥"
 
 #: src/js/services/onGoingProcess.js:20
-msgid "Extracting Wallet Information..."
-msgstr "正在获取钱包信息..."
+msgid "Extracting Wallet information..."
+msgstr "正在提取的钱包信息..."
 
 #: src/js/controllers/export.js:115
 #: src/js/controllers/export.js:126
@@ -980,12 +1197,22 @@ msgstr "导出失败"
 msgid "Family vacation funds"
 msgstr "家庭度假资金"
 
-#: www/views/confirm.html:88
-#: www/views/includes/confirm-tx.html:19
-#: www/views/modals/txp-details.html:101
-#: www/views/tx-details.html:81
+#: www/views/tx-details.html:79
 msgid "Fee"
 msgstr "费用"
+
+#: www/views/modals/chooseFeeLevel.html:75
+msgid "Fee level"
+msgstr "费用等级"
+
+#: src/js/controllers/modals/feeLevels.js:100
+msgid "Fee level is not defined"
+msgstr "未定义收费等级。。"
+
+#: www/views/confirm.html:79
+#: www/views/modals/txp-details.html:99
+msgid "Fee:"
+msgstr "手续费:"
 
 #: src/js/controllers/feedback/send.js:23
 msgid "Feedback could not be submitted. Please try again later."
@@ -993,35 +1220,42 @@ msgstr "无法提交反馈。请稍后再试。"
 
 #: src/js/services/onGoingProcess.js:42
 msgid "Fetching BitPay Account..."
-msgstr ""
+msgstr "正在获取 BitPay 帐户..."
 
 #: src/js/services/onGoingProcess.js:21
-msgid "Fetching Payment Information"
-msgstr "获取支付信息"
+msgid "Fetching payment information"
+msgstr "获取付款信息"
 
 #: www/views/export.html:14
 #: www/views/import.html:16
 msgid "File/Text"
 msgstr "文件/文本"
 
-#: src/js/services/fingerprintService.js:43
-#: src/js/services/fingerprintService.js:48
+#: www/views/preferencesLogs.html:17
+msgid "Filter setting"
+msgstr "筛选器设置"
+
+#: src/js/services/fingerprintService.js:42
+#: src/js/services/fingerprintService.js:47
 msgid "Finger Scan Failed"
 msgstr "指纹扫描失败"
 
 #: src/js/controllers/feedback/send.js:34
-#: www/views/customAmount.html:9
 #: www/views/feedback/complete.html:7
 msgid "Finish"
 msgstr "完成"
 
-#: www/views/tab-create-personal.html:99
-#: www/views/tab-create-shared.html:129
+#: www/views/tab-create-personal.html:123
+#: www/views/tab-create-shared.html:152
 msgid "For audit purposes"
 msgstr "供审计目的"
 
+#: src/js/controllers/topup.js:308
+#: www/views/buyAmazon.html:29
+#: www/views/buyMercadoLibre.html:28
 #: www/views/confirm.html:65
 #: www/views/modals/txp-details.html:74
+#: www/views/topup.html:34
 #: www/views/tx-details.html:52
 msgid "From"
 msgstr "来自"
@@ -1029,6 +1263,10 @@ msgstr "来自"
 #: src/js/controllers/bitpayCardIntro.js:71
 msgid "From BitPay account"
 msgstr "从 BitPay 帐户"
+
+#: www/views/tab-import-phrase.html:57
+msgid "From Hardware Wallet"
+msgstr "从硬件钱包"
 
 #: www/views/tab-export-qrCode.html:5
 msgid "From the destination device, go to Add wallet &gt; Import wallet and scan this QR code"
@@ -1042,13 +1280,25 @@ msgstr "资金由未决的花费提议锁定"
 msgid "Funds found:"
 msgstr "找到资金"
 
-#: www/views/paperWallet.html:34
+#: www/views/topup.html:49
+msgid "Funds to be added"
+msgstr "充值金额"
+
+#: www/views/paperWallet.html:51
 msgid "Funds transferred"
 msgstr "资金转移"
 
-#: www/views/paperWallet.html:23
+#: www/views/topup.html:103
+msgid "Funds were added to debit card"
+msgstr "提现到借记卡成功"
+
+#: www/views/paperWallet.html:22
 msgid "Funds will be transferred to"
 msgstr "资金将会转移到"
+
+#: www/views/tab-receive.html:51
+msgid "Generate new address"
+msgstr "生成新的地址"
 
 #: src/js/services/onGoingProcess.js:22
 msgid "Generating .csv file..."
@@ -1066,9 +1316,14 @@ msgstr "得到当地现金任何地方您去，从任何 Visa<sup>®</sup> 兼�
 msgid "Get news and updates from BitPay"
 msgstr "从 BitPay 获取新闻和更新"
 
-#: www/views/onboarding/welcome.html:8
+#: www/views/bitpayCard.html:49
 msgid "Get started"
 msgstr "马上体验"
+
+#: www/views/onboarding/welcome.html:8
+msgctxt "button"
+msgid "Get started"
+msgstr "开始使用"
 
 #: www/views/addressbook.html:20
 msgid "Get started by adding your first one."
@@ -1078,67 +1333,100 @@ msgstr "通过添加您的第一个开始。"
 msgid "Getting fee levels..."
 msgstr "正在获取收费水平..."
 
+#: www/views/buyAmazon.html:43
+#: www/views/buyMercadoLibre.html:42
+msgid "Gift Card"
+msgstr "礼品卡"
+
+#: www/views/modals/mercadolibre-card-details.html:30
+#: www/views/modals/mercadolibre-card-details.html:35
+msgid "Gift Card is not available to use anymore"
+msgstr "礼品卡不可再使用"
+
+#: src/js/controllers/buyAmazon.js:204
+msgid "Gift card expired"
+msgstr "礼品卡过期"
+
+#: www/views/buyAmazon.html:111
+msgid "Gift card generated and ready to use."
+msgstr "礼品卡已生成，可以使用了。"
+
+#: src/js/controllers/bitpayCard.js:114
+#: src/js/controllers/bitpayCard.js:124
+#: src/js/controllers/modals/mercadoLibreCardDetails.js:27
 #: src/js/controllers/onboarding/terms.js:23
+#: src/js/controllers/preferences.js:67
 #: src/js/controllers/preferencesAbout.js:16
+#: src/js/controllers/preferencesCash.js:20
 #: src/js/controllers/preferencesLanguage.js:14
-#: src/js/controllers/tab-home.js:145
-#: src/js/controllers/tab-settings.js:48
-#: src/js/controllers/tx-details.js:163
+#: src/js/controllers/tab-home.js:150
+#: src/js/controllers/tab-settings.js:49
+#: src/js/controllers/tx-details.js:193
+#: src/js/controllers/tx-details.js:56
 msgid "Go Back"
 msgstr "返回	#"
 
+#: src/js/controllers/confirm.js:131
 #: src/js/controllers/onboarding/backupRequest.js:20
 #: src/js/controllers/onboarding/backupRequest.js:26
-#: src/js/services/bitpayAccountService.js:78
+#: src/js/services/bitpayAccountService.js:84
 msgid "Go back"
 msgstr "上一页"
 
 #: www/views/backupWarning.html:15
 #: www/views/includes/confirmBackupPopup.html:8
-#: www/views/onboarding/tour.html:18
+#: www/views/onboarding/tour.html:23
 msgid "Got it"
 msgstr "收到！"
 
-#: www/views/preferencesInformation.html:47
 #: www/views/preferencesInformation.html:53
+#: www/views/preferencesInformation.html:59
 msgid "Hardware Wallet"
 msgstr "硬件钱包"
 
 #: www/views/preferencesExternal.html:18
 msgid "Hardware not connected."
-msgstr ""
+msgstr "硬件未连接"
 
 #: www/views/import.html:20
 msgid "Hardware wallet"
 msgstr "硬件钱包"
 
+#: src/js/controllers/create.js:178
+#: src/js/controllers/join.js:144
+msgid "Hardware wallets are not yet supported with Bitcoin Cash"
+msgstr "比特币现金钱包暂时不支持硬件钱包"
+
+#: www/views/modals/mercadolibre-card-details.html:69
 #: www/views/tab-settings.html:20
 msgid "Help & Support"
 msgstr "帮助与支持"
 
-#: src/js/controllers/tab-settings.js:46
+#: src/js/controllers/bitpayCard.js:112
+#: src/js/controllers/modals/mercadoLibreCardDetails.js:25
+#: src/js/controllers/tab-settings.js:47
 msgid "Help and support information is available at the website."
-msgstr ""
+msgstr "已在网站上提供帮助和支持"
 
-#: www/views/addresses.html:29
+#: www/views/addresses.html:25
 msgid "Hide"
 msgstr "隱藏"
 
-#: www/views/preferences.html:32
+#: www/views/preferences.html:27
 msgid "Hide Balance"
 msgstr "隐藏的平衡"
 
-#: www/views/advancedSettings.html:29
+#: www/views/advancedSettings.html:30
 msgid "Hide Next Steps Card"
 msgstr "隐藏下一个步骤卡"
 
-#: www/views/join.html:46
-#: www/views/tab-create-personal.html:25
-#: www/views/tab-create-shared.html:55
+#: www/views/join.html:49
+#: www/views/tab-create-personal.html:28
+#: www/views/tab-create-shared.html:57
 #: www/views/tab-export-file.html:25
-#: www/views/tab-import-file.html:28
+#: www/views/tab-import-file.html:30
 #: www/views/tab-import-hardware.html:31
-#: www/views/tab-import-phrase.html:31
+#: www/views/tab-import-phrase.html:36
 msgid "Hide advanced options"
 msgstr "隐藏高级选项"
 
@@ -1154,7 +1442,7 @@ msgstr "我们如何可以改善您的体验？"
 
 #: www/views/feedback/rateCard.html:3
 msgid "How do you like {{appName}}?"
-msgstr ""
+msgstr "你喜欢 {{appName}}？"
 
 #: src/js/controllers/feedback/rateCard.js:29
 msgid "I don't like it"
@@ -1168,9 +1456,9 @@ msgstr "我已经阅读、 理解并同意 <a ng-click=\"openTerms()\"translate=
 msgid "I have read, understood, and agree with the Terms of use."
 msgstr "我已经阅读、 理解并同意本使用条款。"
 
-#: www/views/join.html:112
-#: www/views/tab-create-personal.html:83
-#: www/views/tab-create-shared.html:113
+#: www/views/join.html:137
+#: www/views/tab-create-personal.html:107
+#: www/views/tab-create-shared.html:136
 msgid "I have written it down"
 msgstr "我有把它写下来"
 
@@ -1188,26 +1476,26 @@ msgid "I understand"
 msgstr "我知道了"
 
 #: www/views/onboarding/disclaimer.html:21
-msgid "I understand that if this app is moved to another device or deleted, my bitcoin can only be recovered with the backup phrase."
+msgid "I understand that if this app is moved to another device or deleted, my Dash can only be recovered with the backup phrase."
 msgstr "我明白是否这个应用程序是搬到另一个设备或删除，我比特币可以只能进行恢复与备份的短语。"
 
 #: www/views/onboarding/disclaimer.html:18
 msgid "I understand that my funds are held securely on this device, not by a company."
 msgstr "我明白，我的资金安全地在此设备上，不由公司举行。"
 
-#: www/views/backup.html:29
+#: www/views/backup.html:36
 msgid "I've written it down"
 msgstr "我已经把它写下来"
 
-#: www/views/preferences.html:50
+#: www/views/preferences.html:45
 msgid "If enabled, all sensitive information (private key and recovery phrase) and actions (spending and exporting) associated with this wallet will be protected."
-msgstr ""
+msgstr "如果启用，与此钱包相关的所有敏感信息（私钥、回复短语）和操作（消费、导出）都将受到保护。"
 
-#: www/views/advancedSettings.html:22
+#: www/views/advancedSettings.html:23
 msgid "If enabled, the Recent Transactions card - a list of transactions occuring across all wallets - will appear in the Home tab."
 msgstr "如果启用，最近的交易卡-交易发生跨所有钱包名单-将出现在主页选项卡。"
 
-#: www/views/advancedSettings.html:13
+#: www/views/advancedSettings.html:14
 msgid "If enabled, wallets will also try to spend unconfirmed funds. This option may cause transaction delays."
 msgstr "如果启用了，钱包也尝试使用未经证实的资金。此选项可能会导致事务延迟。"
 
@@ -1221,10 +1509,10 @@ msgstr "如果你有额外的反馈，请让我们知道通过点击设置选项
 
 #: www/views/includes/screenshotWarningModal.html:8
 msgid "If you take a screenshot, your backup may be viewed by other apps. You can make a safe backup with physical paper and a pen."
-msgstr "如果你拿一张截图，您的备份可能会被其他应用程序。您可以安全备份与物理纸和一支钢笔。"
+msgstr "如果您截一张屏幕截图，您的备份可能会被其他应用程序浏览。您可以用实体纸和笔来安全地备份。"
 
 #: www/views/tab-import-hardware.html:42
-#: www/views/tab-import-phrase.html:61
+#: www/views/tab-import-phrase.html:80
 msgid "Import"
 msgstr "导入"
 
@@ -1232,7 +1520,7 @@ msgstr "导入"
 msgid "Import Wallet"
 msgstr "导入钱包"
 
-#: www/views/tab-import-file.html:39
+#: www/views/tab-import-file.html:41
 msgid "Import backup"
 msgstr "导入备份"
 
@@ -1244,51 +1532,69 @@ msgstr "导入钱包"
 msgid "Importing Wallet..."
 msgstr "正在导入钱包..."
 
-#: www/views/backup.html:65
+#: www/views/backup.html:72
 msgid "In order to verify your wallet backup, please type your password."
 msgstr "为了验证您的钱包的备份，请键入您的密码。"
 
-#: www/views/includes/walletItem.html:11
-#: www/views/includes/walletSelector.html:18
-#: www/views/tab-home.html:89
-#: www/views/tab-settings.html:117
+#: www/views/mercadoLibreCards.html:24
+#: www/views/modals/mercadolibre-card-details.html:29
+msgid "Inactive"
+msgstr "禁用"
+
+#: www/views/includes/walletItem.html:9
+#: www/views/includes/walletList.html:6
+#: www/views/includes/walletListSettings.html:9
+#: www/views/includes/walletSelector.html:25
+#: www/views/includes/walletSelector.html:56
 msgid "Incomplete"
 msgstr "不完整"
 
-#: www/views/tab-receive.html:30
+#: www/views/tab-receive.html:22
 msgid "Incomplete wallet"
 msgstr "不完整的钱包"
 
-#: www/views/pin.html:11
+#: www/views/modals/pin.html:12
 msgid "Incorrect PIN, try again."
-msgstr ""
-
-#: src/js/services/bwcError.js:113
-msgid "Incorrect address network"
-msgstr "地址网络不正确"
+msgstr "PIN码不正确，请重试"
 
 #. Trying to import a malformed wallet export QR code
-#: src/js/controllers/import.js:54
+#: src/js/controllers/import.js:83
 msgid "Incorrect code format"
 msgstr "代码格式不正确"
 
+#: src/js/services/bwcError.js:113
+msgid "Incorrect network address"
+msgstr "网络地址不正确"
+
+#: src/js/controllers/confirm.js:114
+#: src/js/controllers/confirm.js:306
 #: src/js/services/bwcError.js:44
-#: www/views/confirm.html:96
 msgid "Insufficient funds"
 msgstr "资金不足"
 
+#: src/js/controllers/topup.js:165
+#: src/js/controllers/topup.js:177
 #: src/js/services/bwcError.js:71
 msgid "Insufficient funds for fee"
 msgstr "费用的资金不足"
 
-#: www/views/modals/search.html:70
-#: www/views/walletDetails.html:260
+#: www/views/tab-settings.html:116
+msgid "Integrations"
+msgstr "积分"
+
+#: www/views/includes/walletHistory.html:49
 msgid "Invalid"
 msgstr "无效"
 
-#: src/js/controllers/create.js:165
-#: src/js/controllers/import.js:298
-#: src/js/controllers/join.js:140
+#: src/js/controllers/buyAmazon.js:137
+#: src/js/controllers/buyMercadoLibre.js:137
+#: src/js/controllers/topup.js:115
+msgid "Invalid URL"
+msgstr "错误的URL"
+
+#: src/js/controllers/create.js:184
+#: src/js/controllers/import.js:343
+#: src/js/controllers/join.js:150
 msgid "Invalid account number"
 msgstr "帐户号无效"
 
@@ -1300,21 +1606,26 @@ msgstr "地址无效"
 msgid "Invalid data"
 msgstr "无效的数据"
 
-#: src/js/controllers/create.js:145
-#: src/js/controllers/import.js:232
-#: src/js/controllers/join.js:119
+#: src/js/controllers/create.js:159
+#: src/js/controllers/import.js:264
+#: src/js/controllers/join.js:124
 msgid "Invalid derivation path"
 msgstr "衍生路径无效"
 
-#: src/js/controllers/copayers.js:74
+#: src/js/controllers/copayers.js:90
 msgid "Invitation to share a {{appName}} Wallet"
 msgstr "邀请分享 {{appName}} 钱包"
+
+#: www/views/mercadoLibreCards.html:20
+#: www/views/modals/mercadolibre-card-details.html:48
+msgid "Invoice expired"
+msgstr "发票过期"
 
 #: src/js/controllers/feedback/send.js:79
 msgid "Is there anything we could do better?"
 msgstr "有什么我们可以做得更好吗？"
 
-#: www/views/backup.html:47
+#: www/views/backup.html:54
 msgid "Is this correct?"
 msgstr "这是正确的吗？"
 
@@ -1322,23 +1633,19 @@ msgstr "这是正确的吗？"
 msgid "Is this email address correct?"
 msgstr "此电子邮件地址是正确的？"
 
-#: www/views/addresses.html:29
-msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your bitcoins secure against hypothetical attacks by quantum computers."
+#: www/views/addresses.html:25
+msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your Dash secure against hypothetical attacks by quantum computers."
 msgstr "它是一个好主意，以避免重用地址 — — 这既能保护您的隐私又保持您的比特币安全假设攻击由量子计算机。"
 
 #: src/js/controllers/backup.js:76
 msgid "It's important that you write your backup phrase down correctly. If something happens to your wallet, you'll need this backup to recover your money. Please review your backup and try again."
 msgstr "它是重要的你写你备份的短语正确。如果发生什么事情到你的钱包，你会需要此备份来恢复你的钱。请检查您的备份并再试一次。"
 
-#: www/views/join.html:18
-msgid "John"
-msgstr "John"
-
-#: www/views/join.html:126
+#: www/views/join.html:151
 msgid "Join"
 msgstr "加入"
 
-#: src/js/controllers/copayers.js:69
+#: src/js/controllers/copayers.js:85
 msgid "Join my {{appName}} Wallet. Here is the invitation code: {{secret}} You can download {{appName}} for your phone or desktop at {{appUrl}}"
 msgstr "加入我的 {{appName}} 的钱包。这里是邀请码︰ {{secret}} 你可以下载为您的电话或桌面的 {{appUrl}} {{appName}}"
 
@@ -1351,7 +1658,7 @@ msgstr "加入共享钱包"
 msgid "Joining Wallet..."
 msgstr "正在加入钱包..."
 
-#: www/views/onboarding/tour.html:17
+#: www/views/onboarding/tour.html:22
 msgid "Just scan the code to pay."
 msgstr "只是扫描代码来支付。"
 
@@ -1360,20 +1667,27 @@ msgid "Key already associated with an existing wallet"
 msgstr "钥已经关联现有的钱包"
 
 #: www/views/preferencesLanguage.html:4
-#: www/views/tab-settings.html:53
+#: www/views/tab-settings.html:61
 msgid "Language"
 msgstr "语言"
 
-#: www/views/bitpayCard.html:62
+#: www/views/bitpayCard.html:61
 msgid "Last Month"
 msgstr "上个月"
 
-#: www/views/backup.html:36
+#: src/js/controllers/confirm.js:132
+#: www/views/preferences.html:48
+#: www/views/tab-home.html:24
+#: www/views/tx-details.html:94
+msgid "Learn more"
+msgstr "了解更多"
+
+#: www/views/backup.html:43
 msgid "Let's verify your backup phrase."
 msgstr "让我们验证您备份的短语。"
 
-#: www/views/addresses.html:52
-#: www/views/allAddresses.html:18
+#: www/views/addresses.html:45
+#: www/views/allAddresses.html:14
 msgid "Loading addresses..."
 msgstr "正在加载地址..."
 
@@ -1381,17 +1695,17 @@ msgstr "正在加载地址..."
 msgid "Loading transaction info..."
 msgstr "正在加载交易信息..."
 
-#: www/views/tab-settings.html:95
+#: www/views/tab-settings.html:93
 msgid "Lock App"
-msgstr ""
+msgstr "锁定应用"
 
-#: src/js/controllers/lockSetup.js:21
+#: src/js/controllers/lockSetup.js:23
 msgid "Lock by Fingerprint"
-msgstr ""
+msgstr "通过指纹锁定"
 
-#: src/js/controllers/lockSetup.js:13
+#: src/js/controllers/lockSetup.js:14
 msgid "Lock by PIN"
-msgstr ""
+msgstr "用PIN码锁定"
 
 #: www/views/modals/wallet-balance.html:80
 msgid "Locked"
@@ -1405,24 +1719,32 @@ msgstr "Locktime 在进行中。请稍等以创建新的花费提议"
 msgid "Locktime in effect. Please wait to remove this spend proposal"
 msgstr "Locktime 在进行中。请稍等以删除花费提议"
 
-#: www/views/walletDetails.html:243
+#: www/views/includes/logOptions.html:3
+msgid "Log options"
+msgstr "日志选项"
+
+#: www/views/modals/bitpay-card-confirmation.html:14
+msgid "Log out"
+msgstr "登出"
+
+#: www/views/addresses.html:87
+msgid "Low amount inputs"
+msgstr "低额投入"
+
+#: www/views/includes/walletHistory.html:27
 msgid "Low fees"
-msgstr ""
+msgstr "手续费太低"
 
-#: www/views/paymentUri.html:13
-msgid "Make a payment to"
-msgstr "支付给"
-
-#: www/views/onboarding/tour.html:33
+#: www/views/onboarding/tour.html:38
 msgid "Makes sense"
 msgstr "有道理"
 
-#: src/js/controllers/modals/search.js:64
+#: src/js/controllers/modals/search.js:61
 msgid "Matches:"
 msgstr "匹配："
 
 #: www/views/includes/copayers.html:4
-#: www/views/preferencesInformation.html:79
+#: www/views/preferencesInformation.html:85
 msgid "Me"
 msgstr "我"
 
@@ -1430,20 +1752,30 @@ msgstr "我"
 msgid "Meh - it's alright"
 msgstr "咩-没关系"
 
-#: src/js/controllers/tx-details.js:135
+#: src/js/controllers/tx-details.js:165
 #: www/views/modals/paypro.html:48
-#: www/views/modals/txp-details.html:95
-#: www/views/tx-details.html:74
+#: www/views/modals/txp-details.html:93
+#: www/views/tx-details.html:72
 msgid "Memo"
 msgstr "便签"
 
-#: www/views/modals/txp-details.html:132
+#: www/views/mercadoLibre.html:6
+msgid "Mercado Livre Brazil Gift Cards"
+msgstr "梅尔卡多里弗巴西礼品卡"
+
+#: src/js/controllers/buyMercadoLibre.js:98
+msgid "Mercadolibre Gift Card Service is not available at this moment. Please try back later."
+msgstr "Mercadolibre 礼品卡服务暂时不可用，请稍后再试。"
+
+#: www/views/modals/txp-details.html:131
 msgid "Merchant Message"
 msgstr "商人的消息"
 
-#: www/views/paymentUri.html:17
-msgid "Message"
-msgstr "信息"
+#: www/views/buyAmazon.html:55
+#: www/views/buyMercadoLibre.html:54
+#: www/views/topup.html:63
+msgid "Miner Fee"
+msgstr "矿工费用"
 
 #: src/js/services/bwcError.js:134
 msgid "Missing parameter"
@@ -1453,22 +1785,20 @@ msgstr "缺失参数"
 msgid "Missing private keys to sign"
 msgstr "遗失需要签名的私钥"
 
-#: www/views/preferences.html:65
+#: www/views/preferences.html:61
 #: www/views/preferencesAdvanced.html:3
 msgid "More Options"
 msgstr "更多的选择"
 
-#: www/views/modals/search.html:67
+#: www/views/includes/walletHistory.html:47
 #: www/views/tx-details.html:19
-#: www/views/walletDetails.html:258
 msgid "Moved"
 msgstr "已调动"
 
-#: src/js/controllers/tx-details.js:113
+#: src/js/controllers/tx-details.js:131
 msgid "Moved Funds"
 msgstr "转移资金"
 
-#: www/views/includes/confirm-tx.html:13
 #: www/views/modals/txp-details.html:57
 msgid "Multiple recipients"
 msgstr "多个接收者"
@@ -1477,16 +1807,18 @@ msgstr "多个接收者"
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
 msgstr "注意︰欲从第三方软件导入钱包，请到添加钱包 &gt; 创建钱包，并指定恢复短语。"
 
-#: www/views/addressbook.edit.html:22
+#: www/views/addressbook.add.html:21
 #: www/views/addressbook.view.html:18
 #: www/views/preferences.html:15
 #: www/views/preferencesAlias.html:17
 msgid "Name"
 msgstr "名称"
 
-#: www/views/paymentUri.html:18
-msgid "Network"
-msgstr "网络"
+#: www/views/buyAmazon.html:49
+#: www/views/buyMercadoLibre.html:48
+#: www/views/topup.html:56
+msgid "Network Cost"
+msgstr "网络手续费"
 
 #: src/js/services/bwcError.js:47
 msgid "Network error"
@@ -1496,7 +1828,7 @@ msgstr "网络错误"
 msgid "New Proposal"
 msgstr "新建议"
 
-#: src/js/controllers/addresses.js:99
+#: src/js/controllers/addresses.js:126
 msgid "New address could not be generated. Please try again."
 msgstr "无法生成新的地址。请再试一次。"
 
@@ -1508,31 +1840,36 @@ msgstr "新的个人钱包"
 msgid "Next steps"
 msgstr "接下来的步骤"
 
-#: www/views/onboarding/collectEmail.html:27
-msgid "No"
-msgstr "没有"
-
-#: www/views/tab-receive.html:7
+#: www/views/tab-receive.html:16
 msgid "No Wallet"
 msgstr "没钱包"
 
+#: src/js/controllers/buyAmazon.js:115
+#: src/js/controllers/buyMercadoLibre.js:115
+msgid "No access key defined"
+msgstr "授权密钥未定义"
+
 #: www/views/onboarding/backupRequest.html:5
-msgid "No backup, no bitcoin."
+msgid "No backup, no Dash."
 msgstr "没有备份，没有比特币。"
 
 #: www/views/addressbook.html:19
 msgid "No contacts yet"
 msgstr "然而没有联系人"
 
+#: www/views/preferencesLogs.html:16
+msgid "No entries for this log level"
+msgstr "没有为此日志级别的的条目"
+
 #: www/views/preferencesExternal.html:12
 msgid "No hardware information available."
-msgstr ""
+msgstr "没有可用的硬件信息。"
 
 #: www/views/tab-import-hardware.html:3
 msgid "No hardware wallets supported on this device"
 msgstr "此设备不支持硬件钱包"
 
-#: www/views/proposals.html:25
+#: www/views/proposals.html:24
 msgid "No pending proposals"
 msgstr "没有挂起的建议"
 
@@ -1540,7 +1877,12 @@ msgstr "没有挂起的建议"
 msgid "No recent transactions"
 msgstr "没有最近的交易"
 
-#: www/views/walletDetails.html:191
+#: src/js/controllers/buyAmazon.js:44
+#: src/js/controllers/topup.js:47
+msgid "No signing proposal: No private key"
+msgstr "没有签名的建议： 没有私钥"
+
+#: www/views/walletDetails.html:204
 msgid "No transactions yet"
 msgstr "没有交易记录"
 
@@ -1549,18 +1891,34 @@ msgid "No wallet found"
 msgstr "发现没有钱包"
 
 #: src/js/controllers/preferencesDelete.js:8
+#: src/js/controllers/preferencesPrivateKey.js:7
 msgid "No wallet selected"
 msgstr "没有选定的钱包"
 
-#: www/views/confirm.html:93
+#: src/js/controllers/buyAmazon.js:302
+#: src/js/controllers/buyMercadoLibre.js:294
+#: src/js/controllers/confirm.js:85
+#: src/js/controllers/topup.js:265
 msgid "No wallets available"
 msgstr "没有可用的钱包"
 
-#: www/views/paperWallet.html:28
+#: www/views/paperWallet.html:45
 msgid "No wallets available to receive funds"
 msgstr "没有可用于接收资金的钱包"
 
-#: src/js/services/feeService.js:10
+#: www/views/preferencesCash.html:15
+msgid "No wallets eligible for Bitcoin Cash support"
+msgstr "没有錢包合乎支持小比特幣資格"
+
+#: src/js/controllers/preferencesCash.js:58
+msgid "Non BIP44 wallet"
+msgstr "非BIP44錢包"
+
+#: www/views/preferencesCash.html:46
+msgid "Non eligible BTC wallets"
+msgstr "非合格比特幣錢包"
+
+#: src/js/services/feeService.js:12
 msgid "Normal"
 msgstr "常规"
 
@@ -1568,11 +1926,11 @@ msgstr "常规"
 msgid "Not authorized"
 msgstr "尚未授权"
 
-#: src/js/controllers/confirm.js:196
+#: src/js/controllers/confirm.js:307
 msgid "Not enough funds for fee"
 msgstr "费用的资金不足"
 
-#: www/views/onboarding/tour.html:45
+#: www/views/onboarding/tour.html:50
 msgid "Not even BitPay can access it."
 msgstr "甚至没有 BitPay 可以访问它。"
 
@@ -1589,14 +1947,30 @@ msgstr "不是现在"
 msgid "Note"
 msgstr "备注"
 
+#: www/views/backup.html:19
+msgid "Note: if this BCH wallet was duplicated from a BTC wallet, they share the same recovery phrase."
+msgstr "注意: 如此比特幣錢包由小比特幣复制，他們共享相同恢復短語"
+
 #: www/views/modals/wallets.html:25
 msgid "Notice: only 1-1 (single signature) wallets can be used for sell bitcoin"
 msgstr "注意︰ 只有 1-1 （单签名） 钱包可以用于卖比特币"
 
 #: www/views/preferencesNotifications.html:3
-#: www/views/tab-settings.html:46
+#: www/views/tab-settings.html:54
 msgid "Notifications"
 msgstr "通知"
+
+#: www/views/onboarding/collectEmail.html:9
+msgid "Notifications by email"
+msgstr "用电子邮件通知"
+
+#: www/views/tx-details.html:117
+msgid "Notify me if confirmed"
+msgstr "确认完毕时通知我。"
+
+#: www/views/preferencesNotifications.html:24
+msgid "Notify me when transactions are confirmed"
+msgstr "交易确认完毕时通知我"
 
 #: www/views/includes/backupNeededPopup.html:8
 msgid "Now is a good time to backup your wallet. If this device is lost, it is impossible to access your funds without a backup."
@@ -1606,8 +1980,14 @@ msgstr "现在是很好的时间进行备份你的钱包。如果此设备丢失
 msgid "Now is a perfect time to assess your surroundings. Nearby windows? Hidden cameras? Shoulder-spies?"
 msgstr "现在是一个完美的时间来评估你的周围。附近的窗户吗？隐藏的摄像机？肩-间谍吗？"
 
-#: src/js/services/popupService.js:15
-#: src/js/services/popupService.js:58
+#: src/js/controllers/buyAmazon.js:314
+#: src/js/controllers/topup.js:286
+#: src/js/services/incomingData.js:153
+#: src/js/services/popupService.js:16
+#: src/js/services/popupService.js:52
+#: src/js/services/popupService.js:61
+#: src/js/services/popupService.js:72
+#: www/views/modals/chooseFeeLevel.html:6
 msgid "OK"
 msgstr "好的"
 
@@ -1626,15 +2006,20 @@ msgstr "官方英文免责声明"
 msgid "Oh no!"
 msgstr "出错。"
 
-#: www/views/tab-home.html:38
+#: src/js/controllers/buyMercadoLibre.js:308
+msgid "Ok"
+msgstr "还行"
+
+#: www/views/tab-home.html:53
 msgid "On this screen you can see all your wallets, accounts, and assets."
 msgstr "在此屏幕上您可以看到您的钱包、 帐户和资产。"
 
-#: www/views/lockedView.html:14
-msgid "One-touch Sign In"
-msgstr ""
-
-#: src/js/controllers/tab-settings.js:47
+#: src/js/controllers/bitpayCard.js:113
+#: src/js/controllers/modals/mercadoLibreCardDetails.js:26
+#: src/js/controllers/preferences.js:66
+#: src/js/controllers/preferencesCash.js:19
+#: src/js/controllers/tab-settings.js:48
+#: src/js/controllers/tx-details.js:55
 msgid "Open"
 msgstr "打开"
 
@@ -1650,7 +2035,8 @@ msgstr "打开 GitHub"
 msgid "Open GitHub Project"
 msgstr "打开 GitHub 项目"
 
-#: src/js/controllers/tx-details.js:162
+#: src/js/controllers/bitpayCard.js:123
+#: src/js/controllers/tx-details.js:192
 msgid "Open Insight"
 msgstr "开放的洞察力"
 
@@ -1666,26 +2052,34 @@ msgstr "开放式翻译社区"
 msgid "Open Website"
 msgstr "打开网站"
 
-#: www/views/tab-receive.html:36
+#: src/js/controllers/preferencesCash.js:18
+msgid "Open the recovery tool."
+msgstr "打開恢復工具"
+
+#: www/views/tab-receive.html:27
 msgid "Open wallet"
 msgstr "打开钱包"
+
+#: www/views/includes/incomingDataMenu.html:19
+msgid "Open website"
+msgstr "打开网站"
 
 #: www/views/bitpayCardIntro.html:34
 msgid "Order the BitPay Card"
 msgstr "订单 BitPay 卡"
 
-#: www/views/join.html:100
-#: www/views/join.html:93
-#: www/views/tab-create-personal.html:66
-#: www/views/tab-create-personal.html:72
-#: www/views/tab-create-shared.html:102
-#: www/views/tab-create-shared.html:96
+#: www/views/join.html:105
+#: www/views/join.html:96
+#: www/views/tab-create-personal.html:69
+#: www/views/tab-create-personal.html:77
+#: www/views/tab-create-shared.html:106
+#: www/views/tab-create-shared.html:98
 #: www/views/tab-import-file.html:18
-#: www/views/tab-import-phrase.html:36
+#: www/views/tab-import-phrase.html:41
 msgid "Password"
 msgstr "密码"
 
-#: src/js/controllers/import.js:67
+#: src/js/controllers/import.js:96
 msgid "Password required. Make sure to enter your password in advanced options"
 msgstr "需要密码。请务必在高级选项中输入你的密码"
 
@@ -1705,6 +2099,7 @@ msgstr "0%付费以比特币变成美元。"
 msgid "Pay To"
 msgstr "支付给"
 
+#: src/js/controllers/modals/txpDetails.js:51
 #: www/views/modals/tx-status.html:33
 msgid "Payment Accepted"
 msgstr "已接受支付"
@@ -1721,7 +2116,7 @@ msgstr "支付提议"
 msgid "Payment Proposal Created"
 msgstr "支付提议已创建"
 
-#: www/views/tab-home.html:45
+#: www/views/tab-home.html:60
 msgid "Payment Proposals"
 msgstr "支付提议"
 
@@ -1742,9 +2137,9 @@ msgstr "收到付款"
 msgid "Payment Rejected"
 msgstr "支付被拒绝"
 
-#: www/views/confirm.html:123
+#: src/js/controllers/modals/txpDetails.js:44
+#: www/views/confirm.html:124
 #: www/views/includes/walletActivity.html:11
-#: www/views/modals/txp-details.html:187
 #: www/views/modals/txp-details.html:42
 msgid "Payment Sent"
 msgstr "支付已发送"
@@ -1757,7 +2152,11 @@ msgstr "支付已被接受，但尚未广播"
 msgid "Payment accepted. It will be broadcasted by Glidera. In case there is a problem, it can be deleted 6 hours after it was created."
 msgstr "支付以被接受。它将由 Glidera 广播。如果出现问题，它可以在创建后的 6 个小时内删除。"
 
-#: www/views/modals/txp-details.html:108
+#: src/js/services/incomingData.js:152
+msgid "Payment address was translated to new Bitcoin Cash address format:"
+msgstr "付款地址转化为新的小比特幣地址格式"
+
+#: www/views/modals/txp-details.html:107
 msgid "Payment details"
 msgstr "支付明细"
 
@@ -1765,11 +2164,12 @@ msgstr "支付明细"
 msgid "Payment request"
 msgstr "支付请求"
 
-#: www/views/bitpayCard.html:105
+#: www/views/mercadoLibreCards.html:22
+#: www/views/modals/mercadolibre-card-details.html:39
 msgid "Pending"
 msgstr "处理中"
 
-#: www/views/proposals.html:5
+#: www/views/proposals.html:4
 msgid "Pending Proposals"
 msgstr "支付提议"
 
@@ -1777,11 +2177,11 @@ msgstr "支付提议"
 msgid "Permanently delete this wallet."
 msgstr "永久删除这个钱包。"
 
-#: src/js/services/profileService.js:388
+#: src/js/services/profileService.js:403
 msgid "Personal Wallet"
 msgstr "个人钱包"
 
-#: www/views/backup.html:18
+#: www/views/backup.html:25
 msgid "Please carefully write down this phrase."
 msgstr "请仔细记下这句话。"
 
@@ -1789,29 +2189,20 @@ msgstr "请仔细记下这句话。"
 msgid "Please connect a camera to get started."
 msgstr "请连接相机入门。"
 
-#: src/js/controllers/import.js:243
+#: src/js/controllers/import.js:276
 msgid "Please enter the recovery phrase"
 msgstr "请输入恢复短语"
 
-#: src/js/controllers/create.js:117
-#: src/js/controllers/join.js:97
-msgid "Please enter the required fields"
-msgstr "请输入必须填写的信息"
-
-#: src/js/controllers/create.js:158
-#: src/js/controllers/join.js:133
+#: src/js/controllers/create.js:172
+#: src/js/controllers/join.js:138
 msgid "Please enter the wallet recovery phrase"
 msgstr "请输入钱包恢复短语"
 
-#: www/views/pin.html:8
+#: www/views/modals/pin.html:9
 msgid "Please enter your PIN"
-msgstr ""
+msgstr "请输入你的PIN码"
 
-#: www/views/lockedView.html:15
-msgid "Please place your fingertip on the scanner to verify your identity"
-msgstr ""
-
-#: www/views/backup.html:46
+#: www/views/backup.html:53
 msgid "Please tap each word in the correct order."
 msgstr "请点击每个单词按照正确的顺序。"
 
@@ -1819,9 +2210,18 @@ msgstr "请点击每个单词按照正确的顺序。"
 msgid "Please upgrade Copay to perform this action"
 msgstr "请升级 Copay 以执行此操作"
 
-#: src/js/controllers/import.js:205
+#: www/views/walletDetails.html:142
+#: www/views/walletDetails.html:62
+msgid "Please wait"
+msgstr "請等等"
+
+#: src/js/controllers/import.js:236
 msgid "Please, select your backup file"
 msgstr "请选择你的备份文件"
+
+#: www/views/bitpayCard.html:81
+msgid "Pre-Auth Holds"
+msgstr "预授权持有"
 
 #: www/views/tab-settings.html:40
 msgid "Preferences"
@@ -1835,15 +2235,19 @@ msgstr "正在准备地址..."
 msgid "Preparing backup..."
 msgstr "正在准备备份..."
 
-#: src/js/routes.js:1186
+#: src/js/routes.js:1263
 msgid "Press again to exit"
 msgstr "再按一次退出"
 
-#: src/js/services/feeService.js:9
+#: src/js/services/feeService.js:11
 msgid "Priority"
 msgstr "优先"
 
-#: src/js/controllers/paperWallet.js:142
+#: www/views/includes/incomingDataMenu.html:80
+msgid "Private Key"
+msgstr "私钥"
+
+#: src/js/controllers/paperWallet.js:136
 msgid "Private key encrypted. Enter password"
 msgstr "私钥加密。输入密码"
 
@@ -1855,9 +2259,9 @@ msgstr "私钥已加密，无法签名"
 msgid "Proposal Accepted"
 msgstr "提案被接受"
 
-#: src/js/controllers/modals/txpDetails.js:51
-#: src/js/controllers/tx-details.js:61
-#: www/views/confirm.html:124
+#: src/js/controllers/modals/txpDetails.js:61
+#: src/js/controllers/tx-details.js:78
+#: www/views/confirm.html:125
 msgid "Proposal Created"
 msgstr "建议创建"
 
@@ -1869,9 +2273,17 @@ msgstr "建议删除"
 msgid "Proposal Rejected"
 msgstr "被拒绝的建议"
 
-#: www/views/walletDetails.html:176
+#: www/views/walletDetails.html:189
 msgid "Proposals"
 msgstr "建议"
+
+#: src/js/controllers/buyAmazon.js:284
+msgid "Purchase Amount is limited to {{limitPerDay}} {{currency}} per day"
+msgstr "每天最多购买{{limitPerDay}}{{currency}}"
+
+#: src/js/controllers/buyMercadoLibre.js:283
+msgid "Purchase amount must be a value between 50 and 2000"
+msgstr "采购金额必须 50 到 2000年之间的值"
 
 #: www/views/onboarding/notifications.html:3
 msgid "Push Notifications"
@@ -1889,8 +2301,8 @@ msgstr "QR 码"
 msgid "Quick review!"
 msgstr "快速审查 ！"
 
-#: src/js/controllers/create.js:65
-#: src/js/controllers/join.js:50
+#: src/js/controllers/create.js:82
+#: src/js/controllers/join.js:67
 msgid "Random"
 msgstr "随机"
 
@@ -1898,50 +2310,62 @@ msgstr "随机"
 msgid "Rate on the app store"
 msgstr "率的应用程序商店"
 
-#: www/views/addresses.html:66
+#: www/views/addresses.html:52
 msgid "Read less"
 msgstr "阅读少"
 
-#: www/views/addresses.html:65
+#: www/views/addresses.html:51
 msgid "Read more"
 msgstr "阅读更多"
+
+#: src/js/controllers/preferences.js:65
+#: src/js/controllers/tx-details.js:54
+msgid "Read more in our Wiki"
+msgstr "去我們的維基閱讀更多"
+
+#: src/js/controllers/preferencesCash.js:61
+msgid "Read only wallet"
+msgstr "錢包只供唯讀"
 
 #: www/views/tab-receive.html:3
 #: www/views/tabs.html:7
 msgid "Receive"
 msgstr "接收"
 
-#: www/views/modals/search.html:51
+#: www/views/customAmount.html:44
+msgid "Receive in"
+msgstr "在接收"
+
+#: www/views/includes/walletHistory.html:24
 #: www/views/tx-details.html:18
-#: www/views/walletDetails.html:240
 msgid "Received"
 msgstr "已接收"
 
-#: src/js/controllers/tx-details.js:112
+#: src/js/controllers/tx-details.js:130
 msgid "Received Funds"
 msgstr "收到的资金"
 
+#: www/views/includes/walletHistory.html:57
 #: www/views/tx-details.html:24
-#: www/views/walletDetails.html:266
 msgid "Receiving"
 msgstr "接收"
 
-#: www/views/bitpayCard.html:61
-#: www/views/walletDetails.html:219
+#: www/views/bitpayCard.html:60
+#: www/views/includes/walletHistory.html:3
 msgid "Recent"
 msgstr "最近"
 
-#: www/views/advancedSettings.html:20
+#: www/views/advancedSettings.html:21
 msgid "Recent Transaction Card"
 msgstr "最近交易卡"
 
 #: www/views/activity.html:4
-#: www/views/tab-home.html:57
+#: www/views/tab-home.html:72
 msgid "Recent Transactions"
 msgstr "最近的交易"
 
 #: www/views/amount.html:18
-#: www/views/tab-send.html:8
+#: www/views/tab-send.html:14
 msgid "Recipient"
 msgstr "收件人"
 
@@ -1953,17 +2377,16 @@ msgstr "接收者"
 msgid "Recovery phrase"
 msgstr "恢复短语"
 
-#: www/views/walletDetails.html:117
-#: www/views/walletDetails.html:36
-msgid "Recreate"
-msgstr "重新创建"
-
 #: src/js/services/onGoingProcess.js:26
 msgid "Recreating Wallet..."
 msgstr "正在重新创建的钱包..."
 
-#: src/js/controllers/modals/txpDetails.js:53
-#: src/js/controllers/tx-details.js:63
+#: www/views/modals/mercadolibre-card-details.html:22
+msgid "Redeem now"
+msgstr "立即兑现"
+
+#: src/js/controllers/modals/txpDetails.js:63
+#: src/js/controllers/tx-details.js:80
 msgid "Rejected"
 msgstr "拒绝"
 
@@ -1975,6 +2398,11 @@ msgstr "拒绝付款方案"
 msgid "Release information"
 msgstr "发布信息"
 
+#: www/views/addressbook.view.html:36
+#: www/views/modals/mercadolibre-card-details.html:74
+msgid "Remove"
+msgstr "移除"
+
 #: src/js/controllers/preferencesBitpayServices.js:7
 msgid "Remove BitPay Account?"
 msgstr "删除 BitPay 帐户吗？"
@@ -1985,8 +2413,14 @@ msgstr "删除 BitPay 卡吗？"
 
 #: src/js/controllers/preferencesBitpayServices.js:8
 msgid "Removing your BitPay account will remove all associated BitPay account data from this device. Are you sure you would like to remove your BitPay Account ({{email}}) from this device?"
-msgstr ""
+msgstr "从该设备删除您的 BitPay 帐户将删除所有关联的 BitPay 帐户数据。你确定你想要从这个设备中删除您的 BitPay 帐户:({{email}})？"
 
+#: www/views/join.html:116
+#: www/views/join.html:124
+#: www/views/tab-create-personal.html:86
+#: www/views/tab-create-personal.html:94
+#: www/views/tab-create-shared.html:115
+#: www/views/tab-create-shared.html:123
 #: www/views/tab-export-file.html:17
 msgid "Repeat password"
 msgstr "重复输入密码"
@@ -1995,19 +2429,19 @@ msgstr "重复输入密码"
 msgid "Repeat the password"
 msgstr "重复密码"
 
-#: www/views/preferences.html:60
+#: www/views/preferences.html:56
 msgid "Request Fingerprint"
 msgstr "请求指纹"
 
-#: www/views/addresses.html:38
+#: www/views/tab-receive.html:45
 msgid "Request Specific amount"
 msgstr "请求特定量"
 
-#: www/views/preferences.html:47
+#: www/views/preferences.html:42
 msgid "Request Spending Password"
 msgstr "请求支付密码"
 
-#: www/views/tab-create-shared.html:42
+#: www/views/tab-create-shared.html:44
 msgid "Required number of signatures"
 msgstr "所需的签名数"
 
@@ -2027,11 +2461,11 @@ msgstr "重试"
 msgid "Retry Camera"
 msgstr "重试相机"
 
-#: www/views/addressbook.edit.html:57
+#: www/views/addressbook.add.html:56
 #: www/views/includes/note.html:9
 #: www/views/preferencesAlias.html:21
 #: www/views/preferencesBwsUrl.html:25
-#: www/views/preferencesNotifications.html:40
+#: www/views/preferencesNotifications.html:46
 msgid "Save"
 msgstr "保存"
 
@@ -2044,21 +2478,25 @@ msgstr "扫描"
 msgid "Scan QR Codes"
 msgstr "扫描 QR 码"
 
-#: www/views/addresses.html:35
+#: www/views/addresses.html:31
 msgid "Scan addresses for funds"
 msgstr "扫描资金的地址"
 
-#: www/views/lockedView.html:17
+#: www/views/modals/fingerprintCheck.html:11
 msgid "Scan again"
-msgstr ""
+msgstr "重新扫描"
 
-#: src/js/services/fingerprintService.js:56
+#: src/js/services/fingerprintService.js:55
 msgid "Scan your fingerprint please"
 msgstr "请扫描你的指纹"
 
 #: src/js/services/onGoingProcess.js:30
 msgid "Scanning Wallet funds..."
 msgstr "正在扫描钱包资金..."
+
+#: www/views/includes/walletList.html:11
+msgid "Scanning funds..."
+msgstr "掃描資金中....."
 
 #: www/views/includes/screenshotWarningModal.html:7
 msgid "Screenshots are not secure"
@@ -2068,8 +2506,8 @@ msgstr "截图是不安全的"
 msgid "Search Transactions"
 msgstr "搜索交易"
 
-#: www/views/tab-send.html:11
-msgid "Search or enter bitcoin address"
+#: www/views/tab-send.html:18
+msgid "Search or enter Dash address"
 msgstr "搜索或输入比特币地址"
 
 #: www/views/modals/search.html:16
@@ -2080,15 +2518,19 @@ msgstr "搜索交易"
 msgid "Search your currency"
 msgstr "搜索您的货币"
 
-#: www/views/preferences.html:35
+#: www/views/preferences.html:30
 msgid "Security"
 msgstr "安全"
+
+#: www/views/modals/mercadolibre-card-details.html:64
+msgid "See invoice"
+msgstr "查看发票"
 
 #: www/views/tab-import-file.html:7
 msgid "Select a backup file"
 msgstr "选择备份文件"
 
-#: www/views/paymentUri.html:30
+#: src/js/controllers/tab-receive.js:139
 msgid "Select a wallet"
 msgstr "选择钱包"
 
@@ -2097,7 +2539,7 @@ msgid "Self-signed Certificate"
 msgstr "自签名证书"
 
 #: src/js/services/onGoingProcess.js:41
-msgid "Selling Bitcoin..."
+msgid "Selling Dash..."
 msgstr "出售比特币......"
 
 #: www/views/feedback/send.html:13
@@ -2112,24 +2554,20 @@ msgstr "发送"
 msgid "Send Feedback"
 msgstr "发送反馈"
 
-#: www/views/addressbook.view.html:30
+#: www/views/addressbook.view.html:31
 msgid "Send Money"
 msgstr "寄钱"
 
-#: www/views/allAddresses.html:25
+#: www/views/allAddresses.html:19
 msgid "Send addresses by email"
 msgstr "通过电邮发送地址"
 
-#: www/views/includes/confirm-tx.html:3
-msgid "Send bitcoin"
-msgstr "发送比特币"
-
-#: www/views/preferencesLogs.html:13
+#: www/views/includes/logOptions.html:17
 #: www/views/tab-export-file.html:82
 msgid "Send by email"
 msgstr "通过电邮发送"
 
-#: src/js/controllers/confirm.js:272
+#: src/js/controllers/confirm.js:177
 msgid "Send from"
 msgstr "从发送"
 
@@ -2137,15 +2575,18 @@ msgstr "从发送"
 msgid "Send max amount"
 msgstr "发送最大数量"
 
+#: www/views/includes/incomingDataMenu.html:46
+msgid "Send payment to this address"
+msgstr "付款到此地址"
+
 #: www/views/feedback/rateApp.html:17
 msgid "Send us feedback instead"
 msgstr "而是向我们发送反馈"
 
 #: www/views/confirm.html:15
-#: www/views/includes/txp.html:14
+#: www/views/includes/txp.html:12
 #: www/views/modals/txp-details.html:19
 #: www/views/tx-details.html:23
-#: www/views/walletDetails.html:265
 msgid "Sending"
 msgstr "正在发送"
 
@@ -2165,24 +2606,29 @@ msgstr "发送的最大金额"
 msgid "Sending transaction"
 msgstr "正在发送交易"
 
-#: src/js/controllers/confirm.js:489
+#: src/js/controllers/confirm.js:545
 msgid "Sending {{amountStr}} from your {{name}} wallet"
 msgstr "从你的 {{name}} 钱包发送 {{amountStr}}"
 
-#: www/views/modals/search.html:60
+#: www/views/includes/walletHistory.html:42
 #: www/views/modals/tx-status.html:9
+#: www/views/topup.html:100
 #: www/views/tx-details.html:17
-#: www/views/walletDetails.html:253
 msgid "Sent"
 msgstr "已发送"
 
-#: src/js/controllers/tx-details.js:111
+#: src/js/controllers/tx-details.js:129
 msgid "Sent Funds"
 msgstr "已发送的资金"
 
 #: src/js/services/bwcError.js:38
 msgid "Server response could not be verified"
 msgstr "无法验证服务器响应"
+
+#: src/js/controllers/buyAmazon.js:97
+#: src/js/controllers/buyMercadoLibre.js:97
+msgid "Service not available"
+msgstr "服务不可用"
 
 #: www/views/includes/homeIntegrations.html:3
 msgid "Services"
@@ -2200,26 +2646,21 @@ msgstr "会话日志"
 msgid "Set up a password"
 msgstr "设置密码"
 
+#: src/js/controllers/preferencesFee.js:85
+msgid "Set your own fee in duffs/byte"
+msgstr "设置你的费用(satoshi每字节)"
+
 #: www/views/tab-settings.html:3
 #: www/views/tabs.html:19
 msgid "Settings"
 msgstr "设置"
-
-#: www/views/customAmount.html:20
-#: www/views/tab-receive.html:67
-msgid "Share"
-msgstr "共享"
-
-#: www/views/copayers.html:36
-msgid "Share invitation"
-msgstr "共享邀请"
 
 #: www/views/feedback/complete.html:17
 #: www/views/feedback/complete.html:26
 msgid "Share the love by inviting your friends."
 msgstr "邀请您的朋友分享爱。"
 
-#: www/views/copayers.html:17
+#: www/views/copayers.html:20
 msgid "Share this invitation with your copayers"
 msgstr "将此邀请与你的 copayers 共享"
 
@@ -2236,25 +2677,25 @@ msgstr "共享的钱包"
 msgid "Show Recovery Phrase"
 msgstr "显示恢复短语"
 
-#: www/views/tab-receive.html:58
+#: www/views/tab-receive.html:34
 msgid "Show address"
-msgstr ""
+msgstr "显示地址"
 
-#: www/views/join.html:45
-#: www/views/tab-create-personal.html:24
-#: www/views/tab-create-shared.html:54
+#: www/views/join.html:48
+#: www/views/tab-create-personal.html:27
+#: www/views/tab-create-shared.html:56
 #: www/views/tab-export-file.html:24
-#: www/views/tab-import-file.html:27
+#: www/views/tab-import-file.html:29
 #: www/views/tab-import-hardware.html:30
-#: www/views/tab-import-phrase.html:30
+#: www/views/tab-import-phrase.html:35
 msgid "Show advanced options"
 msgstr "显示高级选项"
 
-#: www/views/tab-send.html:33
-msgid "Show bitcoin address"
+#: www/views/tab-send.html:42
+msgid "Show Dash address"
 msgstr "显示比特币地址"
 
-#: www/views/tab-send.html:55
+#: www/views/tab-send.html:64
 msgid "Show more"
 msgstr "显示更多"
 
@@ -2270,22 +2711,40 @@ msgstr "签名交易"
 msgid "Since only you control your money, you’ll need to save your backup phrase in case this app is deleted."
 msgstr "因为只有你控制你的钱，你会需要删除此应用程序的情况下保存您备份的短语。"
 
-#: www/views/tab-create-personal.html:98
-#: www/views/tab-create-shared.html:128
+#: www/views/tab-create-personal.html:122
+#: www/views/tab-create-shared.html:151
 msgid "Single Address Wallet"
 msgstr "单一地址钱包"
 
 #: www/views/onboarding/collectEmail.html:40
+#: www/views/onboarding/tour.html:11
 msgid "Skip"
 msgstr "跳过"
 
-#: src/js/controllers/confirm.js:52
-#: src/js/controllers/modals/txpDetails.js:25
-msgid "Slide"
-msgstr "滑动"
+#: src/js/controllers/confirm.js:371
+#: src/js/controllers/modals/txpDetails.js:47
+msgid "Slide to accept"
+msgstr "在此點擊掃描以接受"
 
-#: src/js/controllers/create.js:69
-#: src/js/controllers/join.js:53
+#: www/views/buyAmazon.html:96
+msgid "Slide to buy"
+msgstr "滑动购买"
+
+#: src/js/controllers/confirm.js:365
+msgid "Slide to pay"
+msgstr "在此點擊掃描以付款"
+
+#: src/js/controllers/confirm.js:377
+#: src/js/controllers/modals/txpDetails.js:40
+msgid "Slide to send"
+msgstr "在此點擊滑動以發送"
+
+#: www/views/preferencesCash.html:56
+msgid "Some of your wallets are not eligible for Bitcoin Cash support. You can try to access BCH funds from these wallets using the"
+msgstr "你有些錢包不合資格得到小比特幣的支持可嘗試連結這些錢包至BCH基金"
+
+#: src/js/controllers/create.js:86
+#: src/js/controllers/join.js:70
 msgid "Specify Recovery Phrase..."
 msgstr "指定恢复短语......"
 
@@ -2301,19 +2760,28 @@ msgstr "找不到花费提议"
 msgid "Spending Password needed"
 msgstr "需要支付密码"
 
-#: www/views/tab-send.html:24
-msgid "Start sending bitcoin"
-msgstr "开始发送比特币"
+#: www/views/walletDetails.html:173
+msgid "Spending this balance will need significant Dash network fees"
+msgstr "这笔交易将需要非常高的比特币网络手续费"
 
-#: src/js/routes.js:118
-msgid "Starting..."
-msgstr "正在启动..."
+#: www/views/tab-send.html:33
+msgid "Start sending Dash"
+msgstr "开始发送比特币"
 
 #: www/views/lockSetup.html:3
 msgid "Startup Lock"
-msgstr ""
+msgstr "启动锁定"
 
-#: src/js/services/feeService.js:12
+#: www/views/mercadoLibreCards.html:21
+#: www/views/modals/mercadolibre-card-details.html:42
+msgid "Still pending"
+msgstr "仍然等待"
+
+#: www/views/topup.html:101
+msgid "Success"
+msgstr "成功"
+
+#: src/js/services/feeService.js:14
 msgid "Super Economy"
 msgstr "超级经济"
 
@@ -2321,6 +2789,7 @@ msgstr "超级经济"
 msgid "Sweep"
 msgstr "扫描"
 
+#: www/views/includes/incomingDataMenu.html:89
 #: www/views/paperWallet.html:3
 msgid "Sweep paper wallet"
 msgstr "Sweep 纸钱包"
@@ -2337,13 +2806,16 @@ msgstr "此操作无法撤消"
 msgid "Take control of your money,<br>get started with bitcoin."
 msgstr "把你的钱，<br>得到控制开始用比特币。"
 
-#: www/views/walletDetails.html:140
-#: www/views/walletDetails.html:60
+#: www/views/walletDetails.html:132
+#: www/views/walletDetails.html:52
 msgid "Tap and hold to show"
 msgstr "点击并按住以显示"
 
-#: www/views/walletDetails.html:112
-#: www/views/walletDetails.html:31
+#: www/views/includes/walletInfo.html:3
+msgid "Tap to recreate"
+msgstr "點擊此以重新創建"
+
+#: www/views/includes/walletInfo.html:4
 msgid "Tap to retry"
 msgstr "点击以重试"
 
@@ -2358,10 +2830,14 @@ msgstr "使用条件"
 msgid "Terms of Use"
 msgstr "使用条款"
 
-#: www/views/tab-create-personal.html:94
-#: www/views/tab-import-phrase.html:55
+#: www/views/tab-create-personal.html:118
+#: www/views/tab-import-phrase.html:68
 msgid "Testnet"
 msgstr "Testnet"
+
+#: www/views/includes/incomingDataMenu.html:61
+msgid "Text"
+msgstr "文本"
 
 #: src/js/controllers/feedback/send.js:27
 #: src/js/controllers/feedback/send.js:76
@@ -2384,21 +2860,21 @@ msgstr "Ledger Chrome 应用程序未安装"
 
 #: www/views/modals/wallet-balance.html:55
 msgid "The amount of Dash immediately spendable from this wallet."
-msgstr "从这个钱包立即消耗的短跑量。"
+msgstr "比特币立即可从这个钱包的金额。"
 
 #: www/views/modals/wallet-balance.html:93
-msgid "The amount of bitcoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
+msgid "The amount of Dash stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
 msgstr "比特币存储在分配作为你挂起的事务建议的输入这个钱包中的金额。量确定使用未用余额交易记录输出与这个钱包关联，可能会与您挂起的事务建议相关联的实际数额超过。"
 
 #: www/views/modals/wallet-balance.html:74
 msgid "The amount of Dash stored in this wallet with less than 1 blockchain confirmation."
-msgstr "这个钱包中储存的Dash数量少于1个区块链确认。"
+msgstr "比特币存储在与小于 1 blockchain 确认这个钱包中的金额。"
 
 #: www/views/tab-import-phrase.html:5
 msgid "The derivation path"
 msgstr "衍生路径"
 
-#: www/views/onboarding/tour.html:32
+#: www/views/onboarding/tour.html:37
 msgid "The exchange rate changes with the market."
 msgstr "与市场汇率的变化。"
 
@@ -2406,7 +2882,7 @@ msgstr "与市场汇率的变化。"
 msgid "The higher the fee, the greater the incentive a miner has to include that transaction in a block. Current fees are determined based on network load and the selected policy."
 msgstr "越高的费用、 更大的激励矿工有要在一个块中包含该事务。当前的费用是基于网络负载和选定的策略来确定的。"
 
-#: www/views/addresses.html:65
+#: www/views/addresses.html:51
 msgid "The maximum number of consecutive unused addresses (20) has been reached. When one of your unused addresses receives a payment, a new address will be generated and shown in your Receive tab."
 msgstr "已连续未使用的地址 (20) 的最大数目。当您未使用的地址之一收到付款时，将生成一个新的地址，和您接收选项卡所示。"
 
@@ -2418,7 +2894,7 @@ msgstr "官方的英语术语服务是可在 BitPay 网站上。"
 msgid "The password of the recovery phrase (if set)"
 msgstr "恢复短语的密码 (如已设置)"
 
-#: src/js/services/walletService.js:1044
+#: src/js/services/walletService.js:1169
 msgid "The payment was created but could not be completed. Please try again from home screen"
 msgstr "支付已创建，但无法完成。请从首页再试一次"
 
@@ -2426,10 +2902,10 @@ msgstr "支付已创建，但无法完成。请从首页再试一次"
 msgid "The payment was removed by creator"
 msgstr "支付已被创建者移除"
 
-#: www/views/join.html:88
-#: www/views/tab-create-personal.html:60
-#: www/views/tab-create-shared.html:90
-#: www/views/tab-import-phrase.html:38
+#: www/views/join.html:91
+#: www/views/tab-create-personal.html:63
+#: www/views/tab-create-shared.html:92
+#: www/views/tab-import-phrase.html:43
 msgid "The recovery phrase could require a password to be imported"
 msgstr "恢复短语需要密码才能导入"
 
@@ -2437,7 +2913,7 @@ msgstr "恢复短语需要密码才能导入"
 msgid "The request could not be understood by the server"
 msgstr "服务器不理解此请求"
 
-#: www/views/addresses.html:66
+#: www/views/addresses.html:52
 msgid "The restore process will stop when 20 addresses are generated in a row which contain no funds. To safely generate more addresses, make a payment to one of the unused addresses which has already been generated."
 msgstr "还原过程将停止 20 地址生成行包含没有资金中时。要安全地生成更多的地址，到未使用的地址已经产生之一进行付款。"
 
@@ -2447,7 +2923,7 @@ msgstr "花费提议不是未决"
 
 #: www/views/modals/wallet-balance.html:36
 msgid "The total amount of Dash stored in this wallet."
-msgstr "存储在这个钱包中的Dash总量。"
+msgstr "比特币存储在这个钱包的总量。"
 
 #: www/views/preferencesHistory.html:27
 msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
@@ -2457,17 +2933,13 @@ msgstr "在应用程序缓存的交易历史记录和每个新传入事务。此
 msgid "The wallet service URL"
 msgstr "钱包服务 URL"
 
-#: www/views/paymentUri.html:23
-msgid "There are no wallets to make this payment"
-msgstr "没有钱包以进行此支付"
-
-#: src/js/controllers/tab-home.js:37
+#: src/js/controllers/tab-home.js:39
 msgid "There is a new version of {{appName}} available"
 msgstr "有可用的新版本的 {{appName}}"
 
-#: src/js/controllers/import.js:196
-#: src/js/controllers/import.js:220
-#: src/js/controllers/import.js:288
+#: src/js/controllers/import.js:227
+#: src/js/controllers/import.js:252
+#: src/js/controllers/import.js:333
 msgid "There is an error in the form"
 msgstr "表格中有错误"
 
@@ -2480,77 +2952,104 @@ msgstr "显然是我们正在做的事情错了。"
 msgid "This app is fantastic!"
 msgstr "这个应用程序太棒了 ！"
 
-#: www/views/onboarding/tour.html:42
-msgid "This app stores your bitcoin with cutting-edge security."
+#: www/views/onboarding/tour.html:47
+msgid "This app stores your Dash with cutting-edge security."
 msgstr "此应用程序商店你比特币与尖端的安全。"
 
-#: src/js/controllers/confirm.js:471
-msgid "This bitcoin payment request has expired."
+#: src/js/controllers/confirm.js:523
+msgid "This dash payment request has expired."
 msgstr "这比特币付款请求已过期。"
 
-#: www/views/join.html:108
-#: www/views/tab-create-personal.html:79
-#: www/views/tab-create-shared.html:109
+#: www/views/join.html:133
+#: www/views/tab-create-personal.html:103
+#: www/views/tab-create-shared.html:132
 msgid "This password cannot be recovered. If the password is lost, there is no way you could recover your funds."
 msgstr "此密码将无法恢复。如果密码丢失，有是没有办法，你可以恢复您的资金。"
 
-#: www/views/backup.html:24
+#: www/views/backup.html:31
 msgid "This recovery phrase was created with a password. To recover this wallet both the recovery phrase and password are needed."
 msgstr "此恢复短语是用密码创建。为了恢复此钱包，需要恢复短语和密码。"
 
-#: www/views/tx-details.html:89
-msgid "This transaction could take a long time to confirm or could be dropped due to the low fees set by the sender"
-msgstr ""
+#: www/views/tx-details.html:91
+msgid "This transaction amount is too small compared to current Dash network fees. Spending these funds will need a Dash network fee cost comparable to the funds itself."
+msgstr "相对于当前比特币网络费，这笔交易金额太小。手续费相当于这笔交易金额本身。"
 
-#: www/views/walletDetails.html:116
-#: www/views/walletDetails.html:35
+#: www/views/tx-details.html:87
+msgid "This transaction could take a long time to confirm or could be dropped due to the low fees set by the sender"
+msgstr "这笔交易可能需要很长的时间来确认或可能受到由发件人设置的低费用下降"
+
+#: www/views/walletDetails.html:109
+#: www/views/walletDetails.html:29
 msgid "This wallet is not registered at the given Bitcore Wallet Service (BWS). You can recreate it from the local information."
 msgstr "此钱包不在给定的 Bitcore Wallet Service (BWS) 注册。你可以从本地信息重新创建它。"
 
-#: www/views/modals/txp-details.html:137
-#: www/views/tx-details.html:106
+#: www/views/modals/txp-details.html:136
+#: www/views/tx-details.html:121
 msgid "Timeline"
 msgstr "时间轴"
 
 #: www/views/confirm.html:31
 #: www/views/includes/output.html:2
-#: www/views/modals/txp-details.html:110
+#: www/views/modals/txp-details.html:109
 #: www/views/modals/txp-details.html:53
 #: www/views/tx-details.html:41
 #: www/views/tx-details.html:53
 msgid "To"
 msgstr "发送到"
 
-#: www/views/tab-send.html:28
-msgid "To get started, buy bitcoin or share your address. You can receive bitcoin from any wallet or service."
+#: www/views/tab-send.html:37
+msgid "To get started, buy Dash or share your address. You can receive Dash from any wallet or service."
 msgstr "若要开始，请买比特币或共享您的地址。你可以从任何钱包或服务接收比特币。"
 
-#: www/views/tab-send.html:29
-msgid "To get started, you'll need to create a bitcoin wallet and get some bitcoin."
+#: www/views/tab-send.html:38
+msgid "To get started, you'll need to create a Dash wallet and get some Dash."
 msgstr "若要开始，您将需要创建一个比特币的钱包，并获得一些比特币。"
 
+#: src/js/services/bitpayAccountService.js:73
+msgid "To {{reason}} you must first add your BitPay account - {{email}}"
+msgstr "到 {{reason}}，您必须首先添加您的 BitPay 帐户-{{email}}"
+
+#: src/js/services/onGoingProcess.js:48
+msgid "Top up in progress..."
+msgstr "在进展充值..."
+
+#: src/js/controllers/topup.js:206
+msgid "Top up {{amountStr}} to debit card ({{cardLastNumber}})"
+msgstr "充值 {{amountStr}}，记入借方卡 ({{cardLastNumber}})"
+
+#: www/views/buyAmazon.html:61
+#: www/views/buyMercadoLibre.html:60
 #: www/views/modals/wallet-balance.html:23
+#: www/views/topup.html:70
 msgid "Total"
 msgstr "总计"
 
-#: www/views/walletDetails.html:183
+#: www/views/walletDetails.html:196
 msgid "Total Locked Balance"
 msgstr "锁定结余的总额"
 
-#: www/views/tab-create-shared.html:33
+#: www/views/tab-create-shared.html:35
 msgid "Total number of copayers"
 msgstr "Copayers 的总数"
 
-#: src/js/services/fingerprintService.js:63
-#: src/js/services/fingerprintService.js:68
+#: www/views/addresses.html:81
+msgid "Total wallet inputs"
+msgstr "钱包总共进账"
+
+#: src/js/services/fingerprintService.js:62
+#: src/js/services/fingerprintService.js:67
 msgid "Touch ID Failed"
 msgstr "触摸 ID 失败"
 
-#: src/js/controllers/tx-details.js:10
+#: src/js/controllers/tx-details.js:12
 msgid "Transaction"
 msgstr "交易"
 
-#: www/views/preferencesAdvanced.html:25
+#: www/views/confirm.html:126
+msgid "Transaction Created"
+msgstr "交易记录已创建"
+
+#: www/views/preferencesAdvanced.html:29
 #: www/views/preferencesHistory.html:3
 msgid "Transaction History"
 msgstr "交易历史记录"
@@ -2559,26 +3058,40 @@ msgstr "交易历史记录"
 msgid "Transaction already broadcasted"
 msgstr "交易已经广播"
 
-#: www/views/confirm.html:125
-msgid "Transaction created"
-msgstr "创建的交易记录"
+#: src/js/controllers/buyAmazon.js:310
+#: src/js/controllers/buyMercadoLibre.js:303
+#: src/js/controllers/topup.js:281
+msgid "Transaction has not been created"
+msgstr "交易记录尚未创建。"
 
-#: src/js/controllers/tx-details.js:102
+#: www/views/topup.html:104
+msgid "Transaction initiated"
+msgstr "交易发起"
+
+#: src/js/controllers/tx-details.js:119
 msgid "Transaction not available at this time"
-msgstr ""
+msgstr "交易记录暂时不可用"
 
 #: src/js/controllers/activity.js:45
-#: src/js/controllers/tab-home.js:170
+#: src/js/controllers/tab-home.js:180
 msgid "Transaction not found"
 msgstr "找不到交易"
 
-#: www/views/tab-send.html:63
+#: www/views/modals/chooseFeeLevel.html:55
+msgid "Transactions without fee are not supported."
+msgstr "不支持无率交易"
+
+#: src/js/controllers/paperWallet.js:109
+msgid "Transfer to"
+msgstr "转账给"
+
+#: www/views/tab-send.html:72
 msgid "Transfer to Wallet"
 msgstr "转移到钱包"
 
-#: www/views/pin.html:12
+#: www/views/modals/pin.html:13
 msgid "Try again in {{expires}}"
-msgstr ""
+msgstr "在 {{expires}} 中再试一次"
 
 #: www/views/bitpayCardIntro.html:18
 msgid "Turn bitcoin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
@@ -2592,36 +3105,31 @@ msgstr "键入恢复短语 （通常 12 个字）"
 msgid "Uh oh..."
 msgstr "哦哦......"
 
-#: www/views/modals/search.html:36
-#: www/views/tx-details.html:94
+#: www/views/tx-details.html:100
 msgid "Unconfirmed"
 msgstr "未确认"
 
-#: www/views/preferencesUnit.html:4
-msgid "Unit"
-msgstr "单位"
-
-#: www/views/walletDetails.html:177
+#: www/views/walletDetails.html:190
 msgid "Unsent transactions"
 msgstr "未发送的交易"
 
-#: www/views/addresses.html:59
+#: www/views/addresses.html:39
 msgid "Unused Addresses"
 msgstr "未使用的地址"
 
-#: www/views/addresses.html:64
+#: www/views/addresses.html:50
 msgid "Unused Addresses Limit"
 msgstr "未使用的地址"
 
-#: src/js/controllers/tab-home.js:142
+#: src/js/controllers/tab-home.js:147
 msgid "Update Available"
 msgstr "可用的更新"
 
-#: www/views/proposals.html:15
+#: www/views/proposals.html:14
 msgid "Updating pending proposals. Please stand by"
 msgstr "正在更新挂起的建议。请袖手旁观"
 
-#: www/views/walletDetails.html:209
+#: www/views/walletDetails.html:217
 msgid "Updating transaction history. Please stand by."
 msgstr "更新交易历史记录。请等待。"
 
@@ -2629,17 +3137,21 @@ msgstr "更新交易历史记录。请等待。"
 msgid "Updating... Please stand by"
 msgstr "更新中… 请等待"
 
-#: src/js/services/feeService.js:8
+#: src/js/services/feeService.js:10
 msgid "Urgent"
-msgstr ""
+msgstr "非常快"
 
-#: www/views/advancedSettings.html:11
+#: www/views/advancedSettings.html:12
 msgid "Use Unconfirmed Funds"
 msgstr "使用未经确认的资金"
 
 #: src/js/services/onGoingProcess.js:34
 msgid "Validating recovery phrase..."
 msgstr "正在验证恢复短语。。。"
+
+#: www/views/modals/fingerprintCheck.html:4
+msgid "Verify your identity"
+msgstr "验证您的身份"
 
 #: www/views/preferencesAbout.html:14
 #: www/views/preferencesExternal.html:25
@@ -2650,7 +3162,7 @@ msgstr "版本"
 msgid "View"
 msgstr "查看"
 
-#: www/views/addresses.html:42
+#: www/views/addresses.html:34
 msgid "View All Addresses"
 msgstr "查看所有地址"
 
@@ -2658,19 +3170,24 @@ msgstr "查看所有地址"
 msgid "View Terms of Service"
 msgstr "查看服务条款"
 
-#: src/js/controllers/tx-details.js:161
+#: src/js/controllers/bitpayCard.js:122
+#: src/js/controllers/tx-details.js:191
 msgid "View Transaction on Insight"
 msgstr "查看交易记录的洞察"
 
-#: src/js/controllers/tab-home.js:144
+#: src/js/controllers/tab-home.js:149
 msgid "View Update"
 msgstr "查看更新"
 
-#: www/views/tx-details.html:132
+#: www/views/tx-details.html:147
 msgid "View on blockchain"
 msgstr "在 blockchain 上查看"
 
-#: www/views/walletDetails.html:165
+#: www/views/mercadoLibre.html:26
+msgid "Visit mercadolivre.com.br &rarr;"
+msgstr "访问 mercadolivre.com.br &rarr;"
+
+#: www/views/walletDetails.html:182
 msgid "WARNING: Key derivation is not working on this device/wallet. Actions cannot be performed on this wallet."
 msgstr "警告︰此设备/钱包无法运行钥匙衍生。无法在此钱包上执行操作。"
 
@@ -2685,6 +3202,10 @@ msgstr "警告︰此钱包没有可用的私钥。导出可以检查钱包余额
 #: www/views/modals/paypro.html:42
 msgid "WARNING: UNTRUSTED CERTIFICATE"
 msgstr "警告︰不受信任的证书"
+
+#: www/views/preferencesPrivateKey.html:14
+msgid "WARNING: Your extended private keys are all that is needed to access your Dash funds. Be sure to protect your private keys and store them only on secure devices. BitPay does not have access to your private keys, so you alone are responsible for your keys. If you share key access with external services, you take responsibility for the risk of theft or breach. Only advanced users should handle extended private keys directly."
+msgstr ""
 
 #: src/js/services/onGoingProcess.js:15
 msgid "Waiting for Ledger..."
@@ -2703,6 +3224,7 @@ msgid "Waiting..."
 msgstr "等待中..."
 
 #: www/views/addresses.html:3
+#: www/views/preferencesAdvanced.html:17
 msgid "Wallet Addresses"
 msgstr "钱包地址"
 
@@ -2710,7 +3232,7 @@ msgstr "钱包地址"
 msgid "Wallet Color"
 msgstr "钱包颜色"
 
-#: www/views/preferencesInformation.html:23
+#: www/views/preferencesInformation.html:29
 msgid "Wallet Configuration (m-n)"
 msgstr "钱包配置 (m n)"
 
@@ -2718,7 +3240,7 @@ msgstr "钱包配置 (m n)"
 msgid "Wallet Created"
 msgstr "创建的钱包"
 
-#: www/views/preferencesInformation.html:17
+#: www/views/preferencesInformation.html:23
 msgid "Wallet Id"
 msgstr "钱包 Id"
 
@@ -2727,13 +3249,17 @@ msgstr "钱包 Id"
 msgid "Wallet Information"
 msgstr "钱包信息"
 
+#: www/views/addresses.html:76
+msgid "Wallet Inputs"
+msgstr "钱包总共进账"
+
 #: www/views/join.html:26
 msgid "Wallet Invitation"
 msgstr "钱包邀请"
 
-#: www/views/join.html:57
-#: www/views/tab-create-personal.html:35
-#: www/views/tab-create-shared.html:65
+#: www/views/join.html:60
+#: www/views/tab-create-personal.html:38
+#: www/views/tab-create-shared.html:67
 msgid "Wallet Key"
 msgstr "钱包钥匙"
 
@@ -2745,13 +3271,13 @@ msgstr "钱包的名字"
 msgid "Wallet Name (at creation)"
 msgstr "钱包名称（在创建时）"
 
-#: www/views/preferencesInformation.html:29
+#: www/views/preferencesInformation.html:35
 msgid "Wallet Network"
 msgstr "钱包网"
 
-#: www/views/join.html:74
-#: www/views/tab-create-personal.html:47
-#: www/views/tab-create-shared.html:77
+#: www/views/join.html:77
+#: www/views/tab-create-personal.html:50
+#: www/views/tab-create-shared.html:79
 msgid "Wallet Recovery Phrase"
 msgstr "钱包恢复短语"
 
@@ -2759,8 +3285,8 @@ msgstr "钱包恢复短语"
 msgid "Wallet Recovery Phrase is invalid"
 msgstr "无效的钱包恢复短语"
 
-#: www/views/preferencesAdvanced.html:21
-#: www/views/tab-import-phrase.html:51
+#: www/views/preferencesAdvanced.html:25
+#: www/views/tab-import-phrase.html:73
 msgid "Wallet Service URL"
 msgstr "钱包服务 URL"
 
@@ -2769,6 +3295,7 @@ msgid "Wallet Settings"
 msgstr "钱包的设置"
 
 #: www/views/tab-import-hardware.html:11
+#: www/views/tab-import-phrase.html:61
 msgid "Wallet Type"
 msgstr "钱包类型"
 
@@ -2776,9 +3303,9 @@ msgstr "钱包类型"
 msgid "Wallet already exists"
 msgstr "钱包已存在"
 
-#: src/js/services/profileService.js:498
-msgid "Wallet already in Copay"
-msgstr "钱包已经在 Copay"
+#: src/js/services/profileService.js:516
+msgid "Wallet already in {{appName}}"
+msgstr "已经在 {{appName}} 的钱包"
 
 #: www/views/includes/walletActivity.html:6
 msgid "Wallet created"
@@ -2809,8 +3336,8 @@ msgstr "钱包名称"
 msgid "Wallet needs backup"
 msgstr "钱包需要备份"
 
-#: www/views/tab-receive.html:51
-#: www/views/walletDetails.html:157
+#: www/views/tab-receive.html:59
+#: www/views/walletDetails.html:169
 msgid "Wallet not backed up"
 msgstr "未备份的钱包"
 
@@ -2818,7 +3345,8 @@ msgstr "未备份的钱包"
 msgid "Wallet not found"
 msgstr "找不到钱包"
 
-#: src/js/controllers/tab-home.js:216
+#: src/js/controllers/preferencesCash.js:81
+#: src/js/controllers/tab-home.js:238
 msgid "Wallet not registered"
 msgstr "未注册的钱包"
 
@@ -2826,27 +3354,25 @@ msgstr "未注册的钱包"
 msgid "Wallet not registered at the wallet service. Recreate it from \"Create Wallet\" using \"Advanced Options\" to set your recovery phrase"
 msgstr "钱包不在 Wallet Service 注册。使用“创建钱包\"的\"高级选项\"设置你的恢复短语以重新创建它"
 
-#: www/views/backup.html:11
-msgid "Wallet recovery phrase not available."
-msgstr "钱包恢复短语不可用。"
+#: www/views/backup.html:12
+msgid "Wallet recovery phrase not available"
+msgstr "錢包恢復短語不存在"
 
 #: src/js/services/bwcError.js:50
 msgid "Wallet service not found"
 msgstr "找不到 Wallet Service"
 
-#: www/views/tab-home.html:68
+#: www/views/tab-home.html:83
 msgid "Wallets"
 msgstr "钱包"
 
-#: www/views/tab-settings.html:102
-msgid "Wallets & Integrations"
-msgstr "钱包 & 集成"
-
-#: src/js/controllers/modals/txpDetails.js:143
-#: src/js/controllers/modals/txpDetails.js:160
-#: src/js/controllers/preferencesDelete.js:25
+#: src/js/controllers/addressbookView.js:36
+#: src/js/controllers/modals/txpDetails.js:153
+#: src/js/controllers/modals/txpDetails.js:170
+#: src/js/controllers/preferencesDelete.js:24
 #: src/js/controllers/preferencesExternal.js:14
 #: www/views/preferencesDeleteWallet.html:11
+#: www/views/preferencesPrivateKey.html:12
 msgid "Warning!"
 msgstr "警告！​​​​​"
 
@@ -2862,17 +3388,21 @@ msgstr "小心 ！"
 msgid "We'd love to do better."
 msgstr "我们很乐意做得更好。"
 
-#: www/views/backup.html:28
+#: www/views/backup.html:35
 msgid "We'll confirm on the next screen."
 msgstr "我们会在下一个屏幕上确认。"
 
 #: src/js/controllers/feedback/send.js:77
 msgid "We're always looking for ways to improve {{appName}}."
-msgstr ""
+msgstr "我们一直在寻找方法去改进{{appName}}"
 
 #: src/js/controllers/feedback/send.js:83
 msgid "We're always looking for ways to improve {{appName}}. How could we improve your experience?"
-msgstr ""
+msgstr "我们一直在寻找方法去改进{{appName}}。我们该怎么改善您的使用体验？"
+
+#: www/views/includes/incomingDataMenu.html:6
+msgid "Website"
+msgstr "网站"
 
 #: www/views/preferencesLanguage.html:16
 msgid "We’re always looking for translation contributions! You can make corrections or help to make this app available in your native language by joining our community on Crowdin."
@@ -2890,19 +3420,19 @@ msgstr "这个钱包在创建时，它被称为\"{{walletName}}\"。您可以更
 msgid "Where would you like to receive email notifications about payments?"
 msgstr "在那里你想要接收电子邮件通知有关付款？"
 
-#: www/views/addresses.html:23
+#: www/views/addresses.html:19
 msgid "Why?"
 msgstr "为什么？"
 
 #: www/views/feedback/rateApp.html:10
 msgid "Would you be willing to rate {{appName}} in the app store?"
-msgstr ""
+msgstr "你会愿意率 {{appName}} app store 中的吗？"
 
 #: www/views/onboarding/notifications.html:4
 msgid "Would you like to receive push notifications about payments?"
 msgstr "你想收到推式通知有关付款吗？"
 
-#: src/js/controllers/import.js:253
+#: src/js/controllers/import.js:286
 msgid "Wrong number of recovery words:"
 msgstr "恢复词句数不正确："
 
@@ -2911,7 +3441,6 @@ msgid "Wrong spending password"
 msgstr "支付密码错误"
 
 #: www/views/modals/confirmation.html:7
-#: www/views/onboarding/collectEmail.html:32
 msgid "Yes"
 msgstr "是"
 
@@ -2928,40 +3457,61 @@ msgid "You can make contributions by signing up on our Crowdin community transla
 msgstr "您可以通过签约我们 Crowdin 社区翻译网站作出贡献。我们期待你的听力 ！"
 
 #: www/views/tab-scan.html:16
-msgid "You can scan bitcoin addresses, payment requests, paper wallets, and more."
+msgid "You can scan Dash addresses, payment requests, paper wallets, and more."
 msgstr "您可以扫描比特币地址、 付款申请、 纸钱包和更多。"
 
 #: src/js/controllers/preferencesAbout.js:14
 msgid "You can see the latest developments and contribute to this open source app by visiting our project on GitHub."
 msgstr "你可以看到最新的事态发展和贡献这个开放源码应用程序通过在 GitHub 上访问我们的项目。"
 
-#: www/views/onboarding/tour.html:14
-msgid "You can spend bitcoin at millions of websites and stores worldwide."
+#: www/views/onboarding/tour.html:19
+msgid "You can spend Dash at millions of websites and stores worldwide."
 msgstr "你可以花比特币在数以百万计的网站和世界各地的商店。"
 
-#: www/views/backup.html:12
+#: www/views/backup.html:15
 msgid "You can still export it from Advanced &gt; Export."
 msgstr "你仍然可以将其导出从高级 &gt; 出口。"
 
-#: www/views/onboarding/tour.html:27
+#: www/views/onboarding/tour.html:32
 msgid "You can trade it for other currencies like US Dollars, Euros, or Pounds."
 msgstr "你可以换其他货币，如美元、 欧元或英镑。"
 
-#: www/views/onboarding/tour.html:41
-msgid "You control your bitcoin."
+#: www/views/onboarding/tour.html:46
+msgid "You control your Dash."
 msgstr "您可以控制您的比特币。"
 
-#: www/views/preferencesNotifications.html:28
+#: www/views/modals/chooseFeeLevel.html:64
+msgid "You should not set a fee higher than {{maxFeeRecommended}} duffs/byte."
+msgstr "你不应设置高于 {{maxFeeRecommended}} duffs/字节 的交易手续费。"
+
+#: www/views/modals/bitpay-card-confirmation.html:5
+msgid "You will need to log back for fill in your BitPay Card."
+msgstr "您将需要登录回来为你 BitPay 卡填写。"
+
+#: www/views/preferencesNotifications.html:34
 msgid "You'll receive email notifications about payments sent and received from your wallets."
 msgstr "在您的钱包进行付款操作时发送通知。"
 
+#: www/views/bitpayCard.html:50
+msgid "Your BitPay Card is ready. Add funds to your card to start using it at stores and ATMs worldwide."
+msgstr "您的 BitPay 卡是准备好了。添加到您的卡开始使用它在商店和自动取款机全球基金。"
+
+#: www/views/mercadoLibre.html:57
+#: www/views/mercadoLibreCards.html:6
+msgid "Your Gift Cards"
+msgstr "礼品卡"
+
 #: www/views/includes/confirmBackupPopup.html:6
-msgid "Your bitcoin wallet is backed up!"
+msgid "Your Dash wallet is backed up!"
 msgstr "你的比特币钱包被备份 ！"
 
-#: www/views/tab-home.html:35
-msgid "Your bitcoin wallet is ready!"
+#: www/views/tab-home.html:50
+msgid "Your Dash wallet is ready!"
 msgstr "你的比特币钱包是准备好了 ！"
+
+#: www/views/modals/chooseFeeLevel.html:61
+msgid "Your fee is lower than recommended."
+msgstr "你的交易手续费低于建议量。"
 
 #: www/views/feedback/send.html:42
 msgid "Your ideas, feedback, or comments"
@@ -2980,47 +3530,50 @@ msgstr "你的昵称"
 msgid "Your password"
 msgstr "你的密码"
 
+#: www/views/buyAmazon.html:102
+msgid "Your purchase could not be completed"
+msgstr "无法完成您的购买"
+
+#: www/views/buyAmazon.html:105
+msgid "Your purchase was added to the list of pending"
+msgstr "您的购买被添加到列表的挂起"
+
 #: www/views/onboarding/backupRequest.html:10
 msgid "Your wallet is never saved to cloud storage or standard device backups."
 msgstr "你的钱包是永远不会保存到云存储或标准设备备份。"
 
-#: src/js/services/walletService.js:935
+#: src/js/services/walletService.js:1060
 msgid "Your wallet key will be encrypted. The Spending Password cannot be recovered. Be sure to write it down."
 msgstr "你的钱包钥匙将被加密。支付密码不能恢复。必须把它抄写下来"
 
-#: www/views/includes/walletSelector.html:23
-#: www/views/includes/wallets.html:13
-#: www/views/tab-home.html:95
-#: www/views/walletDetails.html:139
-#: www/views/walletDetails.html:59
+#: www/views/includes/walletList.html:13
+#: www/views/includes/walletSelector.html:30
+#: www/views/includes/walletSelector.html:61
+#: www/views/paperWallet.html:33
+#: www/views/tab-receive.html:72
+#: www/views/walletDetails.html:131
+#: www/views/walletDetails.html:51
 msgid "[Balance Hidden]"
 msgstr "[隐藏余额]"
+
+#: www/views/walletDetails.html:141
+#: www/views/walletDetails.html:61
+msgid "[Scanning Funds]"
+msgstr "[正在掃描資金]"
 
 #: src/js/controllers/bitpayCardIntro.js:11
 msgid "add your BitPay Visa card(s)"
 msgstr "添加您的 BitPay 签证卡"
 
-#: www/views/tab-receive.html:75
-msgid "address not available"
-msgstr "地址不可用"
-
-#: www/views/tab-receive.html:43
-msgid "address not yet available"
-msgstr "地址仍不可"
-
-#: src/js/controllers/lockedView.js:5
-msgid "is locked"
-msgstr ""
-
 #: www/views/includes/available-balance.html:8
 msgid "locked by pending payments"
 msgstr "被未决支付锁定"
 
-#: src/js/services/profileService.js:389
+#: src/js/services/profileService.js:404
 msgid "me"
 msgstr "我"
 
-#: www/views/addressbook.edit.html:33
+#: www/views/addressbook.add.html:32
 msgid "name@example.com"
 msgstr "name@example.com"
 
@@ -3028,41 +3581,37 @@ msgstr "name@example.com"
 msgid "preparing..."
 msgstr "准备中..."
 
-#: src/js/controllers/confirm.js:57
-#: src/js/controllers/modals/txpDetails.js:34
-msgid "to accept"
-msgstr "接受"
+#: www/views/preferencesCash.html:57
+msgid "recovery tool."
+msgstr "恢復工具"
 
-#: src/js/controllers/confirm.js:55
-msgid "to pay"
-msgstr "付款"
+#: src/js/controllers/buyAmazon.js:241
+msgid "{{amountStr}} for Amazon.com Gift Card"
+msgstr "{{amountStr}} 为亚马逊礼品卡的"
 
-#: src/js/controllers/confirm.js:59
-#: src/js/controllers/modals/txpDetails.js:32
-msgid "to send"
-msgstr "发送"
+#: src/js/controllers/buyMercadoLibre.js:239
+msgid "{{amountStr}} for Mercado Livre Brazil Gift Card"
+msgstr "梅尔卡多里弗巴西礼品卡 {{amountStr}}"
 
 #: www/views/preferencesBwsUrl.html:21
 msgid "{{appName}} depends on Bitcore Wallet Service (BWS) for blockchain information, networking and Copayer synchronization. The default configuration points to https://bws.bitpay.com (BitPay's public BWS instance)."
 msgstr "{{appName}} 中的区块链信息依赖于 Bitcore Wallet Service (BWS)、网络和 Copayer synchronization。默认配置指向 https://bws.bitpay.com (BitPay 的公共 BWS 实例)。"
 
-#: src/js/controllers/lockSetup.js:98
-msgid "{{appName}} startup is locked by PIN. Are you sure you want to disable it?"
-msgstr ""
-
-#: www/views/includes/confirm-tx.html:23
-msgid "{{feeRateStr}} of the transaction"
-msgstr "交易的{{feeRateStr}}"
-
-#: src/js/controllers/confirm.js:210
-msgid "{{fee}} will be deducted for bitcoin networking fees."
+#: src/js/controllers/confirm.js:408
+msgid "{{fee}} will be deducted for Dash networking fees."
 msgstr "{{fee}} 将比特币网络费用中扣除。"
 
-#: www/views/walletDetails.html:210
+#: www/views/confirm.html:85
+msgid "{{tx.txp[wallet.id].feeRatePerStr}}  of the sending amount"
+msgstr "发送量 {{tx.txp[wallet.id].feeRatePerStr}}"
+
+#: www/views/walletDetails.html:218
 msgid "{{updatingTxHistoryProgress}} transactions downloaded"
 msgstr "下载的 {{updatingTxHistoryProgress}} 交易"
 
 #: www/views/copayers.html:46
-#: www/views/includes/walletInfo.html:12
+#: www/views/includes/walletInfo.html:18
+#: www/views/preferencesCash.html:33
 msgid "{{wallet.m}}-of-{{wallet.n}}"
 msgstr "{{wallet.m}}{{wallet.n}}"
+

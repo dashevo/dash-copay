@@ -24,7 +24,7 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
     $timeout(function() {
       var form = addressbookForm;
       if (data && form) {
-        data = data.replace('dash:', '');
+        data = data.replace(/^dash?:/, '');
         form.address.$setViewValue(data);
         form.address.$isValid = true;
         form.address.$render();

@@ -1,7 +1,18 @@
 'use strict';
 
-angular.module('copayApp.services').factory('addressbookService', function(bitcore, storageService, lodash) {
+angular.module('copayApp.services').factory('addressbookService', function($log, bitcore, bitcoreCash, storageService, lodash) {
   var root = {};
+
+  var getNetwork = function(address) {
+    var network;
+    try {
+      network = (new bitcore.Address(address)).network.name;
+    } catch(e) {
+      $log.warn('No valid bitcoin address. Trying bitcoin cash...');
+      network = (new bitcoreCash.Address(address)).network.name;
+    }
+    return network;
+  };
 
   root.get = function(addr, cb) {
     storageService.getAddressbook('testnet', function(err, ab) {
@@ -34,8 +45,9 @@ angular.module('copayApp.services').factory('addressbookService', function(bitco
     });
   };
 
-  root.save = function(entry, cb) {
-    var network = (new bitcore.Address(entry.address)).network.name;
+  root.add = function(entry, cb) {
+    var network = getNetwork(entry.address);
+    if (lodash.isEmpty(network)) return cb('Not valid bitcoin address');
     storageService.getAddressbook(network, function(err, ab) {
       if (err) return cb(err);
       if (ab) ab = JSON.parse(ab);
@@ -52,7 +64,8 @@ angular.module('copayApp.services').factory('addressbookService', function(bitco
   };
 
   root.remove = function(addr, cb) {
-    var network = (new bitcore.Address(addr)).network.name;
+    var network = getNetwork(addr);
+    if (lodash.isEmpty(network)) return cb('Not valid bitcoin address');
     storageService.getAddressbook(network, function(err, ab) {
       if (err) return cb(err);
       if (ab) ab = JSON.parse(ab);

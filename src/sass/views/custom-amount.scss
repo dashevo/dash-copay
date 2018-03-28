@@ -1,12 +1,21 @@
 #custom-amount {
-  @extend .deflash-blue;
   $item-lateral-padding: 20px;
   $item-vertical-padding: 10px;
   $item-label-color: #6C6C6E;
+  .button-share {
+    color: #fff;
+    box-shadow: none;
+    border-color: transparent;
+    background: transparent;
+    padding: 0 10px;
+    .icon:before {
+      font-size: 26px;
+    }
+  }
   .address {
     background: #fff;
     overflow: auto;
-    height: 100%; 
+    height: 100%;
     .qr-code {
       text-align: center;
       margin-top: 24vh;
@@ -21,7 +30,7 @@
         margin-top: 8vh;
       }
     }
-    .info { 
+    .info {
       position: absolute;
       width: 100%;
       bottom: 0;
@@ -37,6 +46,11 @@
 
         &:not(.item-icon-right) {
           padding-right: $item-lateral-padding;
+        }
+
+        .item-note {
+          width: 75%;
+          text-align: right;
         }
 
         .label {

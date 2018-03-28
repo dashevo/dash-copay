@@ -3,7 +3,12 @@
   $item-vertical-padding: 10px;
   $item-border-color: #EFEFEF;
   $item-label-color: #6C6C6E;
-  @extend .deflash-blue;
+  .details {
+    float: right;
+    font-size: 25px;
+    color: $v-accent-color;
+    cursor: pointer;
+  }
   .icon-amazon {
     background-image: url("../img/icon-amazon.svg");
   }
@@ -11,7 +16,7 @@
     stroke: black;
     fill: black;
   }
-  
+
   .add-bottom-for-cta {
     bottom: 92px;
   }
@@ -29,10 +34,6 @@
         margin-right: 1rem;
         height: 35px;
         width: 35px;
-      }
-
-      span {
-        text-transform: capitalize;
       }
 
       .big-icon-svg {
@@ -80,7 +81,7 @@
         color: $item-label-color;
         margin-bottom: 8px;
       }
-      
+
       .capitalized {
         text-transform: capitalize;
       }

@@ -4,8 +4,33 @@
   $item-vertical-padding: 10px;
   $item-border-color: #EFEFEF;
   $item-label-color: #6C6C6E;
-  @extend .deflash-blue;
   background: white;
+  .details {
+    float: right;
+    font-size: 25px;
+    color: $v-accent-color;
+    cursor: pointer;
+  }
+  .status-label {
+    font-size: 14px;
+    font-weight: 300;
+    color: #727272;
+    padding: 1rem;
+    background: #f8f8f9;
+    i {
+      position: absolute;
+      padding-left: 5px;
+    }
+  }
+
+  .comment {
+    padding: 15px;
+    background: #f8f8f9;
+    font-weight: bold;
+    font-size:0.9em;
+    color: $v-mid-gray;
+    display: inline-block;
+  }
 
   .spinner svg {
     stroke: #0067c8;
@@ -31,8 +56,8 @@
         width: 35px;
       }
 
-      span {
-        text-transform: capitalize;
+      .big-icon-svg {
+        padding: 0 12px 0 0;
       }
     }
     .amount-label{
@@ -54,6 +79,114 @@
   }
   .item {
     border-color: $item-border-color;
+    &.activity-header {
+      z-index: 3;
+      border: 0;
+      border-bottom: 1px solid #EFEFEF;
+    }
+    &.activity {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 0 0 0 1rem;
+      margin: 0;
+      border: 0;
+
+      &.send svg .nc-icon-wrapper g,
+      &.send svg .nc-icon-wrapper path,
+      &.send .tx-icon .houston {
+      }
+      &.receive svg .nc-icon-wrapper g,
+      &.receive svg .nc-icon-wrapper path,
+      &.receive .tx-icon .houston {
+        stroke: #09C286;
+        color: #09C286;
+      }
+      &.pending svg .nc-icon-wrapper g,
+      &.pending svg .nc-icon-wrapper path,
+      &.pending .tx-icon .houston {
+        stroke: $v-bitcoin-orange;
+        color: $v-bitcoin-orange;
+      }
+    }
+    .total {
+      font-weight: bold;
+    }
+  }
+  .tx-icon {
+    margin-right: 25px;
+    .houston {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      border: 1px solid;
+      color: #9b9bab;
+      &.no-border {
+        border: none;
+        .svg {
+          width: 40px;
+          height: 40px;
+          display: block;
+          margin: 0 auto;
+          position: relative;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+      }
+      .svg {
+        width: 23px;
+        height: 23px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .tx-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 1rem 0;
+    padding-right: 1rem;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    overflow: hidden;
+  }
+  .tx-title {
+    flex-grow: 1;
+    color: $v-dark-gray;
+    overflow: hidden;
+  }
+  .tx-message {
+    margin-right: 1rem;
+    text-transform: capitalize;
+  }
+  .tx-location {
+    margin-right: 1rem;
+    font-size: 12.5px;
+    color: $v-light-gray;
+    text-transform: capitalize;
+  }
+  .tx-amount {
+    font-size: 16px;
+    white-space: nowrap;
+    &--received {
+      color: #09C286;
+    }
+    &--sent {
+      color: $v-dark-gray;
+    }
+    &--pending {
+      color: $v-bitcoin-orange;
+    }
+  }
+  .tx-time {
+    white-space: nowrap;
+    color: $v-light-gray;
+    font-size: 12.5px;
   }
   .info {
     .badge {

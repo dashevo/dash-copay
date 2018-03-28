@@ -19,8 +19,11 @@
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="HideKeyboardFormAccessoryBar" value="true"/>
     <!-- #355 -->
+    <preference name="WindowsStoreIdentityName" value="*WINDOWSSTOREIDENTITYNAME*"/>
+    <preference name="WindowsStoreDisplayName" value="*WINDOWSSTOREDISPLAYNAME*"/>
+
     <!-- <preference name="KeyboardDisplayRequiresUserAction" value="false" /> -->
-    <preference name="StatusBarBackgroundColor" value="#1e3186" />
+    <preference name="StatusBarBackgroundColor" value="*STATUSBARCOLOR*" />
     <preference name="BackupWebStorage" value="none"/>
     <preference name="windows-target-version" value="10.0"/>
     <preference name="Orientation" value="default" />
@@ -32,49 +35,50 @@
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value="100" />
+    <preference name="FadeSplashScreenDuration" value="200" />
     <preference name="SplashMaintainAspectRatio" value="true" />
 
+    <!-- Android Version: KitKat 4.4 (API Level 19) or higher -->
+    <preference name="android-minSdkVersion" value="19" />
+
     <!-- Plugins -->
-    <plugin name="cordova-plugin-device" spec="~1.1.3"/>
-    <plugin name="cordova-plugin-globalization" spec="~1.0.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
-    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
-    <plugin name="cordova-plugin-x-toast" spec="~2.5.2" />
-    <plugin name="com.verso.cordova.clipboard" spec="https://github.com/VersoSolutions/CordovaClipboard" />
-    <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
-    <plugin name="cordova-plugin-spinner-dialog" spec="~1.3.1" />
-    <plugin name="cordova-plugin-dialogs" spec="~1.3.0" />
-    <plugin name="cordova-plugin-network-information" spec="~1.3.0" />
-    <plugin name="cordova-plugin-console" spec="~1.0.4" />
-    <plugin name="cordova-plugin-uniquedeviceid" spec="~1.3.2" />
-    <plugin name="cordova-plugin-file" spec="~4.3.0" />
-    <plugin name="cordova-plugin-touch-id" spec="~3.2.0" />
-    <plugin name="cordova-plugin-transport-security" spec="~0.1.2" />
-    <plugin name="cordova-ios-requires-fullscreen" spec="~0.0.2" />
+    <plugin name="cordova-plugin-device" spec="1.1.7" />
+    <plugin name="cordova-plugin-globalization" spec="1.0.8" />
+    <plugin name="cordova-plugin-splashscreen" spec="4.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="2.3.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.7.2" />
+    <plugin name="cordova-plugin-x-toast" spec="2.6.0" />
+    <plugin name="cordova-clipboard" spec="1.1.0" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.2.1" />
+    <plugin name="cordova-plugin-spinner-dialog" spec="1.3.1" />
+    <plugin name="cordova-plugin-dialogs" spec="1.3.4" />
+    <plugin name="cordova-plugin-network-information" spec="1.3.4" />
+    <plugin name="cordova-plugin-uniquedeviceid" spec="1.3.2" />
+    <plugin name="cordova-plugin-file" spec="5.0.0" />
+    <plugin name="cordova-plugin-touch-id" spec="3.3.1" />
+    <plugin name="cordova-plugin-transport-security" spec="0.1.2" />
+    <plugin name="cordova-ios-requires-fullscreen" spec="0.0.2" />
     <plugin name="cordova-plugin-android-fingerprint-auth" spec="1.4.0" />
-    <plugin name="cordova-plugin-screen-orientation" spec="~1.4.2" />
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="~1.3.0" />
-    <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/driftyco/cordova-plugin-wkwebview-engine.git#4221015eb3f309fe593a7d81205b691e27088743" />
-    <plugin name="cordova-plugin-qrscanner" spec="~2.5.0" />
-    <plugin name="cordova-plugin-customurlscheme" spec="https://github.com/cmgustavo/Custom-URL-scheme.git">
+    <plugin name="cordova-plugin-screen-orientation" spec="1.4.3" />
+    <plugin name="ionic-plugin-keyboard" spec="2.2.1" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
+    <plugin name="cordova-plugin-qrscanner" spec="2.5.0" />
+    <plugin name="cordova-plugin-customurlscheme" spec="https://github.com/cmgustavo/Custom-URL-scheme.git#v4.0">
       <variable name="URL_SCHEME" value="bitcoin" />
       <variable name="SECOND_URL_SCHEME" value="*APPURI*" />
+      <variable name="THIRD_URL_SCHEME" value="bitcoincash" />
     </plugin>
-    <plugin name="cordova-fabric-plugin" spec="https://github.com/sarriaroman/FabricPlugin.git">
-      <variable name="FABRIC_API_KEY" value="1f5cb62b417a7ad5ccb7d6a5d319bef3d9056eed" />
-      <variable name="FABRIC_API_SECRET" value="9ba6e8856e936ea1275acdf6df7edfcc84c8d52993d7db6df3e83afbde8d9376" />
-    </plugin>
-    <plugin name="cordova-custom-config" spec="~3.0.5" />
-    <plugin name="cordova-plugin-queries-schemes" spec="~0.1.5" />
-    <plugin name="cordova-plugin-fcm" spec="2.1.1" />
+    <plugin name="cordova-plugin-ionic-webview" spec="1.1.16" />
+    <plugin name="cordova-custom-config" spec="4.0.2" />
+    <plugin name="cordova-plugin-fcm" spec="https://github.com/cmgustavo/cordova-plugin-fcm.git" />
+
+    <!--  Delete cordova-plugin-qrscanner plugin and enable phonegap-plugin-barcodescanner to build cordova windows-->
+    <!-- <plugin name="phonegap-plugin-barcodescanner" spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git" /> -->
 
     <!-- Supported Platforms -->
-    <engine name="ios" spec="~4.2.1" />
-    <engine name="android" spec="~5.2.2" />
-    <engine name="windows" spec="~4.4.3" />
+    <engine name="ios" spec="4.5.3" />
+    <engine name="android" spec="6.4.0" />
+    <engine name="windows" spec="5.0.0" />
 
     <!-- Platform Specific Settings -->
     <platform name="ios">
@@ -98,17 +102,15 @@
       <icon src="resources/*PACKAGENAME*/ios/icon/icon-small@3x.png" width="87" height="87" />
       <icon src="resources/*PACKAGENAME*/ios/icon/icon-50.png" width="50" height="50" />
       <icon src="resources/*PACKAGENAME*/ios/icon/icon-50@2x.png" width="100" height="100" />
+      <icon src="resources/*PACKAGENAME*/ios/icon/icon-1024.png" width="1024" height="1024" />
 
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default~iphone.png" width="320" height="480"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-667h.png" width="750" height="1334"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-736h.png" width="1242" height="2208"/>
-      <splash src="resources/*PACKAGENAME*/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@2x~universal~anyany.png" />
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@2x~universal~comany.png" />
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@2x~universal~comcom.png" />
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@3x~universal~anyany.png" />
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@3x~universal~anycom.png" />
+      <splash src="resources/*PACKAGENAME*/ios/splash/Default@3x~universal~comany.png" />
+
       <allow-navigation href="*" />
     </platform>
 
