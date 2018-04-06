@@ -804,6 +804,7 @@ angular.module('copayApp.services')
       opts = opts || {};
 
       var TIME_STAMP = 60 * 60 * 24 * 7
+      var MAX = 30
 
       var typeFilter = {
         'NewOutgoingTx': 1,
