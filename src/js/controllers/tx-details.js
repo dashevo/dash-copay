@@ -23,7 +23,7 @@ angular.module('copayApp.controllers').controller('txDetailsController', functio
         blockexplorerUrl = 'blockdozer.com/insight';
       }
     } else {
-      blockexplorerUrl = 'insight.dashevo.org/insight-api-dash';
+      blockexplorerUrl = 'insight.dashevo.org/insight';
     }
 
     txConfirmNotification.checkIfEnabled(txId, function(res) {
