@@ -45,9 +45,8 @@
           <span ng-show="hasWallets" translate>To get started, buy Dash or share your address. You can receive Dash from any wallet or service.</span>
           <span ng-show="!hasWallets" translate>To get started, you'll need to create a Dash wallet and get some Dash.</span>
           <div class="padding">
-            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate>Buy Dash</button>
+            <button class="button button-standard button-primary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash address</button>
             <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Dash wallet</button>
-            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash address</button>
           </div>
         </div>
       </div>
