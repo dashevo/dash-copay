@@ -12,8 +12,10 @@ angular.module('copayApp.controllers').controller('copayersController',
       updateWallet();
     });
 
-    $rootScope.$on('bwsEvent', function() {
-      updateWallet();
+    $rootScope.$on('bwsEvent', function(walletId, type) {
+      if (type !== "NewBlock") {
+        updateWallet();
+      }
     });
 
     var updateWallet = function() {
