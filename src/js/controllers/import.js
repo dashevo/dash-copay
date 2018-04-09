@@ -14,7 +14,7 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.isCordova = platformInfo.isCordova;
       $scope.formData = {};
       $scope.formData.bwsurl = defaults.bws.url;
-      $scope.formData.derivationPath = derivationPathHelper.defaultT;
+      $scope.setDerivationPath()
       $scope.formData.account = 1;
       $scope.formData.coin = $stateParams.coin;
       $scope.importErr = false;
