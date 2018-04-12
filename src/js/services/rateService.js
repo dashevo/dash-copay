@@ -43,82 +43,59 @@ RateService.singleton = function(opts) {
 RateService.prototype.updateRates = function() {
   var self = this;
 
-  var backoffSeconds = 5;
-  var updateFrequencySeconds = 5 * 60;
   var rateServiceUrl = 'https://rates.blackcarrot.be/rate/DASH_USD.json';
   var bchRateServiceUrl = 'https://bitpay.com/api/rates/bch';
 
+  var retrieve = function() {
+    var getUsdRates = function(dashUsdPrice) {
+      self
+        .httprequest
+        .get('https://api.fixer.io/latest?base=usd')
+        .success(function (res) {
+          var addRate = function(rate, currency) {
+            self._rates[currency] = rate
+            self._alternatives.push({
+              name: currency,
+              isoCode: currency,
+              rate: rate
+            })
+          }
+          addRate(dashUsdPrice, 'USD')
+          for(var currency in res.rates) {
+            var rate = dashUsdPrice * res.rates[currency]
+            addRate(rate, currency)
+          }
+          self._isAvailable = true;
+        })
+        .error(function(err) {
+          setTimeout(function() {
+            getUsdRates()
+          }, 1000)
+        })
+    }
 
-  function getBTC(cb, tries) {
-    tries = tries || 0;
-    if (!self.httprequest) return;
-    if (tries > 5) return cb('could not get BTC rates');
+    var getDashRate = function() {
+      self
+        .httprequest
+        .get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=USD')
+        .success(function (res) {
+          getUsdRates(res[0].price_usd)
+        })
+        .error(function(err) {
+          setTimeout(function() {
+            getDashToUsdRate()
+          }, 1000)
+        })
+    }
 
-    //log.info('Fetching exchange rates');
-    self.httprequest.get(rateServiceUrl).success(function(res) {
-      self._rates.USD = res.rate; // from 3.7.3
-      self._isAvailable = true; // from 3.7.3
-      self.lodash.each(res, function(currency) {
-        self._rates[currency.code] = currency.rate;
-        self._alternatives.push({
-          name: currency.name,
-          isoCode: currency.code,
-          rate: currency.rate
-        });
-      });
+    getDashRate()
+  };
 
-      return cb();
-    }).error(function() {
-      //log.debug('Error fetching exchange rates', err);
-      setTimeout(function() {
-        backoffSeconds *= 1.5;
-        getBTC(cb, tries++);
-      }, backoffSeconds * 1000);
-      return;
-    })
-  }
-
-  function getBCH(cb, tries) {
-    tries = tries || 0;
-    if (!self.httprequest) return;
-    if (tries > 5) return cb('could not get BCH rates');
-
-    self.httprequest.get(bchRateServiceUrl).success(function(res) {
-      self.lodash.each(res, function(currency) {
-        self._ratesBCH[currency.code] = currency.rate;
-      });
-
-      return cb();
-    }).error(function() {
-      //log.debug('Error fetching exchange rates', err);
-      setTimeout(function() {
-        backoffSeconds *= 1.5;
-        getBCH(cb, tries++);
-      }, backoffSeconds * 1000);
-      return;
-    })
-  }
-
-  getBTC(function(err) {
-    if (err) return;
-    getBCH(function(err) {
-      if (err) return;
-
-      self._isAvailable = true;
-      self.lodash.each(self._queued, function(callback) {
-        setTimeout(callback, 1);
-      });
-      setTimeout( self.updateRates  , updateFrequencySeconds * 1000);
-    })
-  })
-
+  retrieve();
 };
 
 RateService.prototype.getRate = function(code, chain) {
-  if (chain == 'bch')
-    return this._ratesBCH[code];
-  else
-    return this._rates[code];
+  return this._rates[code];
 };
 
 RateService.prototype.getAlternatives = function() {
