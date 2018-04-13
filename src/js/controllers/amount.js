@@ -168,7 +168,7 @@ angular.module('copayApp.controllers').controller('amountController', function (
 
     // in SAT ALWAYS
     if ($stateParams.toAmount) {
-      $scope.amount = (($stateParams.toAmount) * satToUnit).toFixed(unitDecimals);
+      $scope.amount = $stateParams.toAmount
     }
 
     processAmount();

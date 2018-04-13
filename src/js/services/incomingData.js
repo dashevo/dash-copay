@@ -352,6 +352,16 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     return false;
   };
 
+  function parseToAddress(toAddress) {
+    var match = toAddress.match(/dash:(\w+)(\?amount=([\d.]+))?/)
+    if (match) {
+      return {
+        toAddress: match[1],
+        toAmount: match[3]
+      }
+    }
+  }
+
   function goToAmountPage(toAddress, coin, isInstantSend) {
     $state.go('tabs.send', {}, {
       'reload': true,
@@ -360,8 +370,8 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     $timeout(function() {
       var parsedAddress = parseToAddress(toAddress)
       $state.transitionTo('tabs.send.amount', {
-        toAddress: toAddress,
-        coin: coin,
+        toAddress: parsedAddress.toAddress,
+        toAmount: parsedAddress.toAmount,
         isInstantSend: isInstantSend
       });
     }, 100);
