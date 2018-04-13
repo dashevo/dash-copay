@@ -520,7 +520,7 @@ angular.module('copayApp.services')
 
     var showWarningNoEncrypt = function(cb) {
       var title = gettextCatalog.getString('Are you sure?');
-      var msg = gettextCatalog.getString('Your wallet keys will be stored in plan text in this device, if an other app access the store it will be able to access your Bitcoin');
+      var msg = gettextCatalog.getString('Your wallet keys will be stored in plan text in this device, if an other app access the store it will be able to access your Dash');
       var yes = gettextCatalog.getString('Yes');
       var no = gettextCatalog.getString('No');
       popupService.showConfirm(title, msg, yes, no, function(res) {
