@@ -1030,8 +1030,8 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
       return protoAddr;
     } else {
       return protoAddr.toUpperCase() ;
-    };
-  };
+    }
+  }
 
   root.getAddress = function(wallet, forceNew, cb) {
     storageService.getLastAddress(wallet.id, function(err, addr) {
@@ -1303,14 +1303,8 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
   };
 
   root.getProtocolHandler = function(wallet) {
-
-    if (wallet.coin== 'bch') {
-      return 'bitcoincash';
-    } else {
-      return 'bitcoin';
-    }
+    return 'dash'
   }
-
 
   root.copyCopayers = function(wallet, newWallet, cb) {
     var c = wallet.credentials;
