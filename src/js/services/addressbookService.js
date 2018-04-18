@@ -45,7 +45,7 @@ angular.module('copayApp.services').factory('addressbookService', function($log,
     });
   };
 
-  root.add = function(entry, cb) {
+  root.save = function(entry, cb) {
     var network = getNetwork(entry.address);
     if (lodash.isEmpty(network)) return cb('Not valid bitcoin address');
     storageService.getAddressbook(network, function(err, ab) {
