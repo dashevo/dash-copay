@@ -6,10 +6,11 @@ angular.module('copayApp.controllers').controller('addressbookViewController', f
   var coin;
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
-    $scope.addressbookEntry = {};
-    $scope.addressbookEntry.name = data.stateParams.name;
-    $scope.addressbookEntry.email = data.stateParams.email;
-    $scope.addressbookEntry.address = data.stateParams.address;
+    addressbookService.get(data.stateParams.address, function(err, ab) {
+      if (ab) {
+        $scope.addressbookEntry = ab;
+      }
+    });
 
     var cashAddress = bitcoreCash.Address.isValid($scope.addressbookEntry.address, 'livenet');
     if (cashAddress) {
