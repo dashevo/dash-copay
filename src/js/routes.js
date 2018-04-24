@@ -287,7 +287,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
        */
 
       .state('tabs.send.amount', {
-        url: '/amount/:recipientType/:toAddress/:toName/:toEmail/:toColor/:isInstantSend/:coin/:fixedUnit',
+        url: '/amount/:recipientType/:toAddress/:toName/:toAmount/:toEmail/:toColor/:isInstantSend/:coin/:fixedUnit',
         views: {
           'tab-send@tabs': {
             controller: 'amountController',

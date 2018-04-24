@@ -26,7 +26,7 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
       }
 
       $scope.addr = walletService.getAddressView($scope.wallet, addr);
-      $scope.protoAddr = walletService.getProtoAddress($scope.wallet, $scope.addr); 
+      $scope.protoAddr = walletService.getProtoAddress($scope.wallet, $scope.addr);
       $timeout(function() {
         $scope.$apply();
       }, 10);
