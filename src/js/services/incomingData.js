@@ -370,8 +370,8 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     $timeout(function() {
       var parsedAddress = parseToAddress(toAddress)
       $state.transitionTo('tabs.send.amount', {
-        toAddress: parsedAddress.toAddress,
-        toAmount: parsedAddress.toAmount,
+        toAddress: toAddress,
+        coin: coin,
         isInstantSend: isInstantSend
       });
     }, 100);
