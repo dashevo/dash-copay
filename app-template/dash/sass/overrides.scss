@@ -73,3 +73,7 @@ $v-tab-receive-selected-icon:                        url('../img/app/tab-icons/i
 $v-tab-settings-selected-icon:                       url('../img/app/tab-icons/ico-settings-selected.svg');
 $v-tab-scan-selected-icon:                           url('../img/app/tab-icons/ico-scan-selected.svg');
 $v-tab-send-selected-icon:                           url('../img/app/tab-icons/ico-send-selected.svg');
+
+.bp-action-sheet__sheet.slide-up {
+  padding-bottom: 4.5em;
+}
