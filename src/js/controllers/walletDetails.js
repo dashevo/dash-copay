@@ -79,7 +79,6 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
         setPendingTxps(status.pendingTxps);
         $scope.status = status;
       }
-      refreshAmountSection();
       $timeout(function() {
         $scope.$apply();
       });
@@ -261,92 +260,8 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
 
   var prevPos;
 
-  function getScrollPosition() {
-    var scrollPosition = $ionicScrollDelegate.getScrollPosition();
-    if (!scrollPosition) {
-      $window.requestAnimationFrame(function() {
-        getScrollPosition();
-      });
-      return;
-    }
-    var pos = scrollPosition.top;
-    if (pos === prevPos) {
-      $window.requestAnimationFrame(function() {
-        getScrollPosition();
-      });
-      return;
-    }
-    prevPos = pos;
-    refreshAmountSection(pos);
-  };
-
-  function refreshAmountSection(scrollPos) {
-    $scope.showBalanceButton = false;
-    if ($scope.status) {
-      $scope.showBalanceButton = ($scope.status.totalBalanceSat != $scope.status.spendableAmount);
-    }
-    if (!$scope.amountIsCollapsible) {
-      var t = ($scope.showBalanceButton ? 15 : 45);
-      $scope.amountScale = 'translateY(' + t + 'px)';
-      return;
-    }
-
-    scrollPos = scrollPos || 0;
-    var amountHeight = 210 - scrollPos;
-    if (amountHeight < 80) {
-      amountHeight = 80;
-    }
-    var contentMargin = amountHeight;
-    if (contentMargin > 210) {
-      contentMargin = 210;
-    }
-
-    var amountScale = (amountHeight / 210);
-    if (amountScale < 0.5) {
-      amountScale = 0.5;
-    }
-    if (amountScale > 1.1) {
-      amountScale = 1.1;
-    }
-
-    var s = amountScale;
-
-    // Make space for the balance button when it needs to display.
-    var TOP_NO_BALANCE_BUTTON = 115;
-    var TOP_BALANCE_BUTTON = 30;
-    var top = TOP_NO_BALANCE_BUTTON;
-    if ($scope.showBalanceButton) {
-      top = TOP_BALANCE_BUTTON;
-    }
-
-    var amountTop = ((amountScale - 0.7) / 0.7) * top;
-    if (amountTop < -10) {
-      amountTop = -10;
-    }
-    if (amountTop > top) {
-      amountTop = top;
-    }
-
-    var t = amountTop;
-
-    $scope.altAmountOpacity = (amountHeight - 100) / 80;
-    $window.requestAnimationFrame(function() {
-      $scope.amountHeight = amountHeight + 'px';
-      $scope.contentMargin = contentMargin + 'px';
-      $scope.amountScale = 'scale3d(' + s + ',' + s + ',' + s + ') translateY(' + t + 'px)';
-      $scope.$digest();
-      getScrollPosition();
-    });
-  }
-
-  var scrollWatcherInitialized;
-
   $scope.$on("$ionicView.enter", function(event, data) {
     if ($scope.isCordova && $scope.isAndroid) setAndroidStatusBarColor();
-    if (scrollWatcherInitialized || !$scope.amountIsCollapsible) {
-      return;
-    }
-    scrollWatcherInitialized = true;
   });
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
@@ -387,7 +302,6 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
 
   $scope.$on("$ionicView.afterEnter", function(event, data) {
     $scope.updateAll();
-    refreshAmountSection();
   });
 
   $scope.$on("$ionicView.afterLeave", function(event, data) {
