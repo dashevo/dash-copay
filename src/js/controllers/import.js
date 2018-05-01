@@ -96,9 +96,7 @@ angular.module('copayApp.controllers').controller('importController',
         popupService.showAlert(gettextCatalog.getString('Error'), gettextCatalog.getString('Password required. Make sure to enter your password in advanced options'));
 
       $scope.formData.derivationPath = info.derivationPath;
-      // Removed for testnet
-      //$scope.formData.testnetEnabled = info.network == 'testnet' ? true : false;
-      $scope.formData.testnetEnabled = true;
+      $scope.formData.testnetEnabled = info.network == 'testnet' ? true : false;
 
       $timeout(function() {
         $scope.formData.words = info.data;
