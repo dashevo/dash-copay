@@ -12,7 +12,7 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
   $scope.isAndroid = platformInfo.isAndroid;
   $scope.isIOS = platformInfo.isIOS;
 
-  $scope.amountIsCollapsible = !$scope.isAndroid;
+  $scope.amountIsCollapsible = true;
 
   $scope.openExternalLink = function(url, target) {
     externalLinkService.open(url, target);
