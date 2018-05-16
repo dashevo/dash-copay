@@ -2648,7 +2648,7 @@ msgstr "设置密码"
 
 #: src/js/controllers/preferencesFee.js:85
 msgid "Set your own fee in duffs/byte"
-msgstr "设置你的费用(satoshi每字节)"
+msgstr "设置你的费用(duff每字节)"
 
 #: www/views/tab-settings.html:3
 #: www/views/tabs.html:19
