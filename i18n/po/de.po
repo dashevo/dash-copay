@@ -465,10 +465,6 @@ msgstr "Mining-Fee Berechnung"
 msgid "Cancel"
 msgstr "Abbruch"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr ""
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Wallet kann nicht erstellt werden"

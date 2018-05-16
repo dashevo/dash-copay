@@ -467,10 +467,6 @@ msgstr "手数料計算中..."
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "招待状のキャンセル"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "ウォレットを作成できません。"

@@ -465,10 +465,6 @@ msgstr "A calcular taxa"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Cancelar convite"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Não é possível criar a carteira"

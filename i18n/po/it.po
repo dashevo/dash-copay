@@ -465,10 +465,6 @@ msgstr "Calcolo commissione"
 msgid "Cancel"
 msgstr "Annulla"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Annulla invito"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Impossibile creare portafoglio"

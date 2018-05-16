@@ -465,10 +465,6 @@ msgstr "Obliczanie prowizji"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Anuluj zaproszenie"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Nie można utworzyć portfela"

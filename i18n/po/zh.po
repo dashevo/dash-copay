@@ -469,10 +469,6 @@ msgstr "取消"
 msgid "Cancel invitation"
 msgstr "取消邀请"
 
-#: src/js/controllers/onboarding/tour.js:52
-msgid "Cannot Create Wallet"
-msgstr "不能创建钱包"
-
 #: src/js/services/profileService.js:442
 msgid "Cannot join the same wallet more that once"
 msgstr "无法重复加入同一个钱包"

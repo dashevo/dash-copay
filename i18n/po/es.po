@@ -465,10 +465,6 @@ msgstr "Calculando comisión"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Cancelar invitación"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "No se pudo crear la billetera"
