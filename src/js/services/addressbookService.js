@@ -45,14 +45,15 @@ angular.module('copayApp.services').factory('addressbookService', function($log,
     });
   };
 
-  root.save = function(entry, cb) {
-    var network = getNetwork(entry.address);
+  root.save = function(address, entry, cb) {
+    var network = getNetwork(address);
     if (lodash.isEmpty(network)) return cb('Not valid bitcoin address');
     storageService.getAddressbook(network, function(err, ab) {
       if (err) return cb(err);
       if (ab) ab = JSON.parse(ab);
       ab = ab || {};
       if (lodash.isArray(ab)) ab = {}; // No array
+      delete ab[address];
       ab[entry.address] = entry;
       storageService.setAddressbook(network, JSON.stringify(ab), function(err, ab) {
         if (err) return cb('Error adding new entry');
