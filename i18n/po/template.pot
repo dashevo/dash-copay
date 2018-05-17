@@ -456,10 +456,6 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr ""
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr ""

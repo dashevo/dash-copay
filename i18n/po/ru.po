@@ -465,10 +465,6 @@ msgstr "Вычисление комиссии"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Отменить приглашение?"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Не удаётся создать кошелёк"

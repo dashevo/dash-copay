@@ -465,10 +465,6 @@ msgstr "Calcul des frais"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Annuler l'invitation"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Impossible de créer le portefeuille"

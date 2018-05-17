@@ -465,10 +465,6 @@ msgstr "Transactiekosten berekenen"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: www/views/copayers.html:36
-msgid "Cancel invitation"
-msgstr "Uitnodiging annuleren"
-
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
 msgstr "Kan Portemonnee Niet Aanmaken"
