@@ -2926,7 +2926,7 @@ msgid "The total amount of Dash stored in this wallet."
 msgstr "比特币存储在这个钱包的总量。"
 
 #: www/views/preferencesHistory.html:27
-msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
+msgid "The transaction history and every new incoming transaction are cached in the app. Clearing the cache may be useful if you think some transactions might be missing from your device."
 msgstr "在应用程序缓存的交易历史记录和每个新传入事务。此功能清洁，这点和再次从服务器进行同步"
 
 #: www/views/tab-import-phrase.html:6

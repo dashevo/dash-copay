@@ -2932,7 +2932,7 @@ msgid "The total amount of Dash stored in this wallet."
 msgstr "このウォレットのビットコインの総残高"
 
 #: www/views/preferencesHistory.html:27
-msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
+msgid "The transaction history and every new incoming transaction are cached in the app. Clearing the cache may be useful if you think some transactions might be missing from your device."
 msgstr "取引履歴は新規の取引が現れる度に端末にキャッシュとして保存されます。この機能はそのキャッシュを削除し、全ての取引履歴を初期の状態からサーバーに問い合わせ直します。"
 
 #: www/views/tab-import-phrase.html:6

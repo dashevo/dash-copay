@@ -2926,7 +2926,7 @@ msgid "The total amount of Dash stored in this wallet."
 msgstr "Łączna ilość dash przechowywana w tym portfelu."
 
 #: www/views/preferencesHistory.html:27
-msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
+msgid "The transaction history and every new incoming transaction are cached in the app. Clearing the cache may be useful if you think some transactions might be missing from your device."
 msgstr "Historia transakcji i każda nowoprzychodząca transakcja są zapisywane w aplikacji. Ta funkcja czyści te dane i ponownie synchronizuje z serwerem"
 
 #: www/views/tab-import-phrase.html:6
