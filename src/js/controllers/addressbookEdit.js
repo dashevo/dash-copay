@@ -42,7 +42,7 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
           return;
         }
         if ($scope.fromSendTab) $scope.goHome();
-        else $ionicHistory.goBack(-2);
+        else $ionicHistory.goBack($scope.isNew ? -1 : -2);
       });
     }, 100);
   };
