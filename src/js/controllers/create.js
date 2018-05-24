@@ -29,6 +29,7 @@ angular.module('copayApp.controllers').controller('createController',
       $scope.TCValues = lodash.range(2, defaults.limits.totalCopayers + 1);
       $scope.formData.derivationPath = derivationPathHelper.default;
       $scope.formData.coin = data.stateParams.coin;
+      $scope.formData.testnetEnabled = true
 
       $scope.setTotalCopayers(tc);
       updateRCSelect(tc);
