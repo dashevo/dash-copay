@@ -510,7 +510,7 @@ angular.module('copayApp.services')
       var opts = {
         inputType: 'password',
         forceHTMLPrompt: true,
-        class: 'text-warn'
+        class: 'text-warn password-prompt'
       };
       popupService.showPrompt(title, name, opts, function(res) {
         if (!res) return cb();
