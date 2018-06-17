@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.dash.dashcopay"
+<widget id="org.dashcore.dashcopay"
   version="*VERSION*"
-  android-packageName="org.dash.dashcopay"
-  ios-CFBundleIdentifier="org.dash.dashcopay"
+  android-packageName="org.dashcore.dashcopay"
+  ios-CFBundleIdentifier="org.dashcore.dashcopay"
   android-versionCode="*ANDROIDVERSION*"
   ios-CFBundleVersion="*VERSION*">
     <name>*USERVISIBLENAME*</name>
