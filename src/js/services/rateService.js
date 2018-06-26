@@ -47,29 +47,30 @@ RateService.prototype.updateRates = function() {
   var bchRateServiceUrl = 'https://bitpay.com/api/rates/bch';
 
   var retrieve = function() {
-    var getUsdRates = function(dashUsdPrice) {
+    var getRates = function(dashBtcPrice) {
       self
         .httprequest
-        .get('https://api.fixer.io/latest?base=usd')
+        .get('https://bitpay.com/api/rates')
         .success(function (res) {
-          var addRate = function(rate, currency) {
-            self._rates[currency] = rate
+          var addRate = function(code, name, rate) {
+            self._rates[code] = rate
             self._alternatives.push({
-              name: currency,
-              isoCode: currency,
+              name: name,
+              isoCode: code,
               rate: rate
             })
           }
-          addRate(dashUsdPrice, 'USD')
-          for(var currency in res.rates) {
-            var rate = dashUsdPrice * res.rates[currency]
-            addRate(rate, currency)
+          for (var i = 0; i < res.length; i++) {
+            var currency = res[i]
+            if (['BTC', 'BCH'].indexOf(currency.code) == -1) {
+              addRate(currency.code, currency.name, dashBtcPrice * currency.rate)
+            }
           }
           self._isAvailable = true;
         })
         .error(function(err) {
           setTimeout(function() {
-            getUsdRates()
+            getRates(dashBtcPrice)
           }, 1000)
         })
     }
@@ -79,11 +80,11 @@ RateService.prototype.updateRates = function() {
         .httprequest
         .get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=USD')
         .success(function (res) {
-          getUsdRates(res[0].price_usd)
+          getRates(res[0].price_btc)
         })
         .error(function(err) {
           setTimeout(function() {
-            getDashToUsdRate()
+            getDashRate()
           }, 1000)
         })
     }
