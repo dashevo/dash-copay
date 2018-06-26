@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabReceiveController', function($rootScope, $scope, $timeout, $log, $ionicModal, $state, $ionicHistory, $ionicPopover, storageService, platformInfo, walletService, profileService, configService, lodash, gettextCatalog, popupService, bwcError) {
+angular.module('copayApp.controllers').controller('tabReceiveController', function($rootScope, $scope, $timeout, $log, $ionicModal, $state, $ionicHistory, $ionicPopover, storageService, platformInfo, walletService, profileService, configService, lodash, gettextCatalog, popupService, bwcError, bitcoreCash) {
 
   var listeners = [];
   $scope.isCordova = platformInfo.isCordova;
@@ -8,7 +8,8 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
 
   $scope.requestSpecificAmount = function() {
     $state.go('tabs.paymentRequest.amount', {
-      id: $scope.wallet.credentials.walletId
+      id: $scope.wallet.credentials.walletId,
+      coin: $scope.wallet.coin
     });
   };
 
@@ -24,7 +25,8 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
         popupService.showAlert(err);
       }
 
-      $scope.addr = addr;
+      $scope.addr = walletService.getAddressView($scope.wallet, addr);
+      $scope.protoAddr = walletService.getProtoAddress($scope.wallet, $scope.addr);
       $timeout(function() {
         $scope.$apply();
       }, 10);
@@ -98,6 +100,8 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
     var selectedWallet = checkSelectedWallet($scope.wallet, $scope.wallets);
     $scope.onWalletSelect(selectedWallet);
 
+    $scope.showShareButton = platformInfo.isCordova ? (platformInfo.isIOS ? 'iOS' : 'Android') : null;
+
     listeners = [
       $rootScope.$on('bwsEvent', function(e, walletId, type, n) {
         // Update current address
@@ -128,11 +132,12 @@ angular.module('copayApp.controllers').controller('tabReceiveController', functi
 
   $scope.showWalletSelector = function() {
     if ($scope.singleWallet) return;
-    $scope.walletSelectorTitle = gettextCatalog.getString('Address from');
+    $scope.walletSelectorTitle = gettextCatalog.getString('Select a wallet');
     $scope.showWallets = true;
   };
 
-  $scope.copyToClipboard = function() {
-    return $scope.addr;
+  $scope.shareAddress = function() {
+    if (!$scope.isCordova) return;
+    window.plugins.socialsharing.share($scope.protoAddr, null, null, null);
   }
 });

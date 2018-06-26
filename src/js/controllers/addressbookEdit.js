@@ -10,8 +10,9 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
     'email': ''
   };
 
-  if ($stateParams.address) {
-    addressbookService.get($stateParams.address, function(err, ab) {
+  var originalAddress = $stateParams.address
+  if (originalAddress) {
+    addressbookService.get(originalAddress, function(err, ab) {
       if (ab) {
         $scope.addressbookEntry = ab;
       }
@@ -24,7 +25,7 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
     $timeout(function() {
       var form = addressbookForm;
       if (data && form) {
-        data = data.replace('dash:', '');
+        data = data.replace(/^dash?:/, '');
         form.address.$setViewValue(data);
         form.address.$isValid = true;
         form.address.$render();
@@ -35,13 +36,13 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
 
   $scope.save = function(addressbook) {
     $timeout(function() {
-      addressbookService.save(addressbook, function(err, ab) {
+      addressbookService.save(originalAddress || addressbook.address, addressbook, function(err, ab) {
         if (err) {
           popupService.showAlert(gettextCatalog.getString('Error'), err);
           return;
         }
         if ($scope.fromSendTab) $scope.goHome();
-        else $ionicHistory.goBack();
+        else $ionicHistory.goBack($scope.isNew ? -1 : -2);
       });
     }, 100);
   };

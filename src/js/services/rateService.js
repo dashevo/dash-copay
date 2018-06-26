@@ -25,9 +25,10 @@ var RateService = function(opts) {
   self._isAvailable = false;
   self._rates = {};
   self._alternatives = [];
+  self._ratesBCH = {};
   self._queued = [];
 
-  self._fetchCurrencies();
+  self.updateRates();
 };
 
 
@@ -39,33 +40,37 @@ RateService.singleton = function(opts) {
   return _instance;
 };
 
-RateService.prototype._fetchCurrencies = function() {
+RateService.prototype.updateRates = function() {
   var self = this;
 
+  var rateServiceUrl = 'https://rates.blackcarrot.be/rate/DASH_USD.json';
+  var bchRateServiceUrl = 'https://bitpay.com/api/rates/bch';
+
   var retrieve = function() {
-    var getUsdRates = function(dashUsdPrice) {
+    var getRates = function(dashBtcPrice) {
       self
         .httprequest
-        .get('https://api.fixer.io/latest?base=usd')
+        .get('https://bitpay.com/api/rates')
         .success(function (res) {
-          var addRate = function(rate, currency) {
-            self._rates[currency] = rate
+          var addRate = function(code, name, rate) {
+            self._rates[code] = rate
             self._alternatives.push({
-              name: currency,
-              isoCode: currency,
+              name: name,
+              isoCode: code,
               rate: rate
             })
           }
-          addRate(dashUsdPrice, 'USD')
-          for(var currency in res.rates) {
-            var rate = dashUsdPrice * res.rates[currency]
-            addRate(rate, currency)
+          for (var i = 0; i < res.length; i++) {
+            var currency = res[i]
+            if (['BTC', 'BCH'].indexOf(currency.code) == -1) {
+              addRate(currency.code, currency.name, dashBtcPrice * currency.rate)
+            }
           }
           self._isAvailable = true;
         })
         .error(function(err) {
           setTimeout(function() {
-            getUsdRates()
+            getRates(dashBtcPrice)
           }, 1000)
         })
     }
@@ -75,11 +80,11 @@ RateService.prototype._fetchCurrencies = function() {
         .httprequest
         .get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=USD')
         .success(function (res) {
-          getUsdRates(res[0].price_usd)
+          getRates(res[0].price_btc)
         })
         .error(function(err) {
           setTimeout(function() {
-            getDashToUsdRate()
+            getDashRate()
           }, 1000)
         })
     }
@@ -90,7 +95,7 @@ RateService.prototype._fetchCurrencies = function() {
   retrieve();
 };
 
-RateService.prototype.getRate = function(code) {
+RateService.prototype.getRate = function(code, chain) {
   return this._rates[code];
 };
 
@@ -104,25 +109,25 @@ RateService.prototype.isAvailable = function() {
 
 RateService.prototype.whenAvailable = function(callback) {
   if (this.isAvailable()) {
-    setTimeout(callback, 1);
+    setTimeout(callback, 10);
   } else {
     this._queued.push(callback);
   }
 };
 
-RateService.prototype.toFiat = function(satoshis, code) {
+RateService.prototype.toFiat = function(satoshis, code, chain) {
   if (!this.isAvailable()) {
     return null;
   }
 
-  return satoshis * this.SAT_TO_BTC * this.getRate(code);
+  return satoshis * this.SAT_TO_BTC * this.getRate(code, chain);
 };
 
-RateService.prototype.fromFiat = function(amount, code) {
+RateService.prototype.fromFiat = function(amount, code, chain) {
   if (!this.isAvailable()) {
     return null;
   }
-  return amount / this.getRate(code) * this.BTC_TO_SAT;
+  return amount / this.getRate(code, chain) * this.BTC_TO_SAT;
 };
 
 RateService.prototype.listAlternatives = function(sort) {

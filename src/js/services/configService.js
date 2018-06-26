@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('copayApp.services').factory('configService', function(storageService, lodash, $log, $timeout, $rootScope) {
+angular.module('copayApp.services').factory('configService', function(storageService, lodash, $log, $timeout, $rootScope, platformInfo) {
   var root = {};
+
+  var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
 
   var defaultConfig = {
     // wallet limits
@@ -60,13 +62,12 @@ angular.module('copayApp.services').factory('configService', function(storageSer
       bannedUntil: null,
     },
 
-    // External services
     recentTransactions: {
       enabled: true,
     },
 
     hideNextSteps: {
-      enabled: true,
+      enabled: isWindowsPhoneApp ? true : false,
     },
 
     rates: {
@@ -79,8 +80,16 @@ angular.module('copayApp.services').factory('configService', function(storageSer
 
     pushNotificationsEnabled: true,
 
+    confirmedTxsNotifications: {
+      enabled: true,
+    },
+
     emailNotifications: {
       enabled: false,
+    },
+
+    log: {
+      filter: 'debug',
     },
   };
 
@@ -133,8 +142,12 @@ angular.module('copayApp.services').factory('configService', function(storageSer
         if (!configCache.bitpayAccount) {
           configCache.bitpayAccount = defaultConfig.bitpayAccount;
         }
-        if (!configCache.wallet.settings.feeLevel) {
-          configCache.wallet.settings.feeLevel = defaultConfig.wallet.settings.feeLevel;
+        if (configCache.wallet.settings.unitCode == 'bit') {
+          // Convert to BTC. Bits will be disabled
+          configCache.wallet.settings.unitName = defaultConfig.wallet.settings.unitName;
+          configCache.wallet.settings.unitToSatoshi = defaultConfig.wallet.settings.unitToSatoshi;
+          configCache.wallet.settings.unitDecimals = defaultConfig.wallet.settings.unitDecimals;
+          configCache.wallet.settings.unitCode = defaultConfig.wallet.settings.unitCode;
         }
       } else {
         configCache = lodash.clone(defaultConfig);

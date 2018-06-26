@@ -1,21 +1,32 @@
-<ion-view id="tab-send">
+<ion-view id="tab-send" show-tabs>
   <ion-nav-bar class="bar-royal">
     <ion-nav-title>{{'Send' | translate}}</ion-nav-title>
   </ion-nav-bar>
   <ion-content>
 
+    <div class="important-message" ng-if="serverMessage" ng-click="openServerMessageLink()">
+      <span>{{serverMessage.title}}</span>
+      <i class="icon ion-ios-arrow-thin-right"></i>
+    </div>
+
     <div ng-if="hasFunds">
-      <div class="item item-heading send-heading" translate>Transaction type</div>
-      <ion-checkbox class="item item-heading" ng-checked="true" ng-model="formData.isInstantSend" ng-click="toggleInstantSend()">
-        <span translate>Use InstantSend</span>
-      </ion-checkbox>
+      <div class="send-header-wrapper">
+        <div class="item item-heading send-heading" translate>Transaction type</div>
+        <ion-checkbox class="item item-heading" ng-checked="true" ng-model="formData.isInstantSend" ng-click="toggleInstantSend()">
+          <span translate>Use InstantSend</span>
+        </ion-checkbox>
+      </div>
     </div>
     <div ng-if="hasFunds">
-      <div class="item item-heading send-heading" translate>Recipient</div>
-      <div class="item item-icon-left item-icon-right input">
-        <i class="icon icon-svg left"><img src="img/24x24.png"></i>
-        <input type="text" placeholder="{{'Search or enter Dash address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur>
-        <i class="icon icon-svg qr" on-tap="openScanner()"><img src="img/scan-ico.svg"/></i>
+      <div class="send-header-wrapper">
+        <div class="item item-heading send-heading"><span translate>Recipient</span></div>
+        <div class="item input search-wrapper" ng-class="{'focus': searchFocus}">
+          <i class="icon icon-svg abs-v-center"><img class="svg" src="img/icon-bitcoin-symbol.svg"></i>
+          <div class="item-icon-right">
+            <input type="text" class="search-input" placeholder="{{'Search or enter Dash address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur ng-focus="searchInFocus()" ng-blur="searchBlurred()">
+            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()"><img src="img/scan-ico.svg"></i>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -32,11 +43,10 @@
         </div>
         <div class="subtitle">
           <span ng-show="hasWallets" translate>To get started, buy Dash or share your address. You can receive Dash from any wallet or service.</span>
-          <span ng-show="!hasWallets" translate>To get started, you'll need to create a Dash Copay wallet and get some Dash.</span>
+          <span ng-show="!hasWallets" translate>To get started, you'll need to create a Dash wallet and get some Dash.</span>
           <div class="padding">
-            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate>Buy Dash</button>
-            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Dash Copay wallet</button>
-            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash Copay address</button>
+            <button class="button button-standard button-primary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash address</button>
+            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Dash wallet</button>
           </div>
         </div>
       </div>
@@ -70,9 +80,7 @@
       </div>
       <div class="list">
         <a class="item item-icon-left item-icon-right" ng-repeat="item in list" ng-if="hasWallets && item.recipientType == 'wallet'" ng-click="goToAmount(item)">
-          <i class="icon big-icon-svg" ng-if="item.recipientType == 'wallet'">
-            <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !item.color}" ng-style="{'background-color': item.color}" class="bg"/>
-          </i>
+          <i class="icon big-icon-svg" ng-if="item.recipientType == 'wallet'" ng-init="wallet = item" ng-include="'views/includes/walletIcon.html'"></i>
           {{item.name}}
           <i class="icon bp-arrow-right"></i>
         </a>

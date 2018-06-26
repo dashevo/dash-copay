@@ -26,6 +26,7 @@ $v-text-accent-color:                                #647ce8 !default;
 
 $v-success-color:                                    $v-accent-color !default;
 $v-warning-color:                                    #ffa500 !default;
+$v-error-color:                                      #ef473a !default;
 
 $v-wallet-color-map: (
    0: (color: #0069B6, name: 'Dash Blue'),
@@ -47,7 +48,7 @@ $v-wallet-color-map: (
 ) !default;
 
 /* Theme */
-$v-default-wallet-color-index:                       0 !default; // See $v-wallet-color-map
+$v-default-wallet-color-index:                       8 !default; // See $v-wallet-color-map
 $v-subtle-box-shadow:                                0 1px 2px rgba(0, 0, 0, 0.25) !default;
 $v-hovering-box-shadow:                              0px 6px 12px 0px rgba(0, 0, 0, 0.3) !default;
 $v-subtle-radius:                                    3px !default;

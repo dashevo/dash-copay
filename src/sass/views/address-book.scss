@@ -54,7 +54,6 @@
   }
 }
 #view-address-book {
-  @extend .deflash-blue;
   .scroll {
     height:100%;
   }
@@ -114,6 +113,9 @@
 }
 
 #address-book-view {
+  .has-click {
+    cursor: pointer;
+  }
   .bar.bar-royal {
     border: 0 transparent;
   }

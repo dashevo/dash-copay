@@ -1,5 +1,4 @@
 #bitpayCard-intro {
-  @extend .deflash-blue;
   background: url(../img/onboarding-welcome-bg.png), linear-gradient(to bottom, rgba(30, 49, 134, 1) 0%, rgba(17, 27, 73, 1) 100%);
   background-position: top center;
   background-size: contain;
@@ -10,6 +9,10 @@
     position: absolute;
     bottom: 55px;
     padding: 0 1.5rem;
+    // nasty iPhone X hacks
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 50px);
+    // changed for iOS>=11.2
+    padding-bottom: calc(env(safe-area-inset-bottom) + 50px);
     width: 100%;
   }
   color: #fff;
