@@ -308,7 +308,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         }
       })
       .state('tabs.send.addressbook', {
-        url: '/addressbook/add/:fromSendTab/:addressbookEntry',
+        url: '/addressbook/add/:fromSendTab/:address',
         views: {
           'tab-send@tabs': {
             templateUrl: 'views/addressbook.edit.html',

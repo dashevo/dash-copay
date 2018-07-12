@@ -5,7 +5,7 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
   $scope.fromSendTab = $stateParams.fromSendTab;
 
   $scope.addressbookEntry = {
-    'address': '',
+    'address': $stateParams.address,
     'name': '',
     'email': ''
   };
