@@ -23,14 +23,10 @@ angular.module('copayApp.controllers').controller('addressbookEditController', f
 
   $scope.onQrCodeScannedAddressBook = function(data, addressbookForm) {
     $timeout(function() {
-      var form = addressbookForm;
-      if (data && form) {
-        data = data.replace(/^dash?:/, '');
-        form.address.$setViewValue(data);
-        form.address.$isValid = true;
-        form.address.$render();
+      if (data) {
+        data = data.match(/^(dash:)?(\w+)/)[2];
+        $scope.addressbookEntry.address = data;
       }
-      $scope.$digest();
     }, 100);
   };
 
