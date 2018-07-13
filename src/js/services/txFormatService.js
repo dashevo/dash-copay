@@ -231,7 +231,7 @@ angular.module('copayApp.services').factory('txFormatService', function($filter,
       currency: currency,
       alternativeIsoCode: alternativeIsoCode,
       amountSat: amountSat,
-      amountUnitStr: amountUnitStr
+      amountUnitStr: amountUnitStr.replace('btc', 'DASH')
     };
   };
 
