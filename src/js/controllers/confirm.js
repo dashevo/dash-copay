@@ -32,7 +32,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   }
 
   $scope.openSupport = function() {
-    var url = 'https://support.bitpay.com/hc/en-us/articles/115005936786';
+    var url = 'https://www.dash.org/get-dash/';
     externalLinkService.open(url);
   };
 
