@@ -55,7 +55,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       return true;
     }
 
-    function goSend(addr, amount, message, coin) {
+    function goSend(addr, amount, message, coin, isInstantSend) {
       $state.go('tabs.send', {}, {
         'reload': true,
         'notify': $state.current.name == 'tabs.send' ? false : true
@@ -67,12 +67,14 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
             toAmount: amount,
             toAddress: addr,
             description: message,
-            coin: coin
+            coin: coin,
+            isInstantSend: isInstantSend
           });
         } else {
           $state.transitionTo('tabs.send.amount', {
             toAddress: addr,
-            coin: coin
+            coin: coin,
+            isInstantSend: isInstantSend
           });
         }
       }, 100);
@@ -106,6 +108,13 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
 
         var amount = parsed.amount ? parsed.amount : '';
 
+        if (data.match(/is=1/gi)) {
+          // TODO -- integrate directly into bitcore.URI
+
+          // InstantSend Detected
+          isInstantSend = true;
+        }
+
         if (parsed.r) {
           payproService.getPayProDetails(parsed.r, function(err, details) {
             if (err) {
@@ -114,7 +123,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
             } else handlePayPro(details);
           });
         } else {
-          goSend(addr, amount, message, coin);
+          goSend(addr, amount, message, coin, isInstantSend);
         }
         return true;
     // Cash URI
@@ -139,14 +148,14 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
           payproService.getPayProDetails(parsed.r, function(err, details) {
             if (err) {
               if (addr && amount)
-                goSend(addr, amount, message, coin);
+                goSend(addr, amount, message, coin, isInstantSend);
               else
                 popupService.showAlert(gettextCatalog.getString('Error'), err);
             }
             handlePayPro(details, coin);
           });
         } else {
-          goSend(addr, amount, message, coin);
+          goSend(addr, amount, message, coin, isInstantSend);
         }
         return true;
 
