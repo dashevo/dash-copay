@@ -46,7 +46,6 @@
       <label class="item item-input item-stacked-label">
         <span class="input-label" translate>Derivation Path</span>
         <input type="text"
-        disabled="disabled"
         placeholder="{{'BIP32 path for address derivation'|translate}}"
         ng-model="formData.derivationPath">
       </label>
@@ -63,7 +62,7 @@
         <select class="m10t" ng-model="formData.seedSourceAll" ng-options="seed as seed.label for seed in seedOptionsAll"></select>
       </label>
 
-      <ion-toggle ng-disabled="{{true}}" ng-model="formData.testnetEnabled" ng-change="setDerivationPath()" toggle-class="toggle-positive" ng-if="formData.coin == 'btc'">
+      <ion-toggle ng-model="formData.testnetEnabled" ng-change="setDerivationPath()" toggle-class="toggle-positive" ng-if="formData.coin == 'btc'">
         <span translate>Testnet</span>
       </ion-toggle>
 
