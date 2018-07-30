@@ -8,12 +8,22 @@
 
 .button,
 .onboarding .button {
+  border-radius: 30px;
+
   &.button-primary {
+    background: #FFFFFF;
     color: $v-dash-blue;
-    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
-    @include button-clear($v-button-primary-bg);
-    @include button-outline($v-button-primary-bg);
+
+    &:hover, &:active {
+      background: #FFFFFF;
+      color: $v-dash-blue;
+    }
   }
+
+  &.button-secondary {
+    color: #FFFFFF !important;
+  }
+
   &.button-primary,
   &.button-secondary,
   &.button-light,

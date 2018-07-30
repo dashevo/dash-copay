@@ -64,6 +64,9 @@
   .wallet-coin-logo {
     vertical-align: middle;
     margin-right: 5px;
+    background: map-get( map-get($v-wallet-color-map, $v-default-wallet-color-index) , color);
+    padding: 3px;
+    border-radius: 3px;
   }
   .wallet-details__item.item {
     padding-top: 0;

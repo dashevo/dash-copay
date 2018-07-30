@@ -3,15 +3,15 @@
  */
 
 /* Colors */
-$v-primary-color:                                    #0069b6;
-$v-secondary-color:                                  #00497f;
-$v-accent-color:                                     lighten(#1d71b8,5%);
+$v-primary-color:                                    #008DE4;
+$v-secondary-color:                                  #008DE4;
+$v-accent-color:                                     #008DE4;
 
-$v-text-primary-color:                               #0069b6;
-$v-text-secondary-color:                             #c2c9d1;
-$v-text-accent-color:                                lighten(#1d71b8,5%);
+$v-text-primary-color:                               #008DE4;
+$v-text-secondary-color:                             #787878;
+$v-text-accent-color:                                #008DE4;
 
-$v-success-color:                                    lighten(#1d71b8,5%);
+$v-success-color:                                    #008DE4;
 $v-warning-color:                                    #bb331a;
 
 /* Theme */
@@ -46,7 +46,7 @@ $v-slide-text-color:                                 #FFFFFF;
 
 /* Onboarding */
 $v-onboarding-welcome-bg:                            none;
-$v-onboarding-color:                                 $v-text-secondary-color;
+$v-onboarding-color:                                 #FFFFFF;
 $v-onboarding-bar-header-color:                      $v-text-primary-color;
 $v-onboarding-bar-header-button-color:               $v-accent-color;
 
