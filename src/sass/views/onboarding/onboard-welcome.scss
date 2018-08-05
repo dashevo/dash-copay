@@ -23,7 +23,7 @@
   #logo {
     width: 40%;
     max-width: 200px;
-    margin: 5rem auto 0;
+    margin: 9rem auto 0;
   }
   #lead {
     line-height: 1.6;
@@ -31,6 +31,6 @@
   }
   #cta-buttons {
     @extend %cta-buttons;
-    padding-bottom: 4vw;
+    padding: 0 30px 70px 30px;
   }
 }

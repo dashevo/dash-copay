@@ -129,13 +129,6 @@
       align-items: center;
       border-radius: 4px;
 
-      img {
-        padding: .2rem;
-        padding-left: 0;
-        border-right: 1px solid #e4e4e4;
-        padding-right: 12px;
-      }
-
       i {
         color: grey;
         position: inherit;
@@ -161,9 +154,8 @@
         > img {
           height: 24px;
           width: 24px;
-          padding: 2px;
+          padding: 3px;
           margin-right: .7rem;
-          box-shadow: none;
         }
       }
     }

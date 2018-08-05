@@ -81,3 +81,14 @@ $v-tab-send-selected-icon:                           url('../img/app/tab-icons/i
 .password-prompt > .popup {
   margin-bottom: 200px;
 }
+
+.button {
+  min-height: 50px !important;
+  max-height: 50px !important;
+  height: 50px !important;
+  font-size: 14px !important;
+
+  .button-primary {
+    color: $v-primary-color !important;
+  }
+}

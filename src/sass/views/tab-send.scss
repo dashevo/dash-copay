@@ -188,3 +188,12 @@
     }
   }
 }
+
+#view-confirm {
+  .wallet-coin-logo {
+    vertical-align: middle;
+    background: $v-primary-color;
+    padding: 3px;
+    border-radius: 3px;
+  }
+}
