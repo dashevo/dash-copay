@@ -1304,12 +1304,12 @@ msgid "Get news and updates from BitPay"
 msgstr ""
 
 #: www/views/bitpayCard.html:49
-msgid "Get started"
+msgid "Get Started"
 msgstr ""
 
 #: www/views/onboarding/welcome.html:8
 msgctxt "button"
-msgid "Get started"
+msgid "Get Started"
 msgstr ""
 
 #: www/views/addressbook.html:20

@@ -1,12 +1,10 @@
 <ion-view id="onboard-welcome" class="onboarding">
   <ion-content ng-controller="welcomeController" ng-init="createProfile()" scroll="false">
     <div id="logo-tagline">
-        <img src='img/app/dash-logo-white.svg' id="logo" />
-        <p id="lead" translate>Dash is a revolutionary digital money system.</p>
-        <p id="lead" translate>Meet Digital Cash.</p>
+        <img src='img/app/dash-logo-copay.svg' id="logo" />
     </div>
     <div id="cta-buttons">
-        <button class="button button-standard button-primary" id="get-started" href ui-sref="onboarding.tour" translate-context="button" translate>Get started</button>
+        <button class="button button-standard button-primary" id="get-started" href ui-sref="onboarding.tour" translate-context="button" translate>Get Started</button>
         <button class="button button-standard button-secondary button-clear" id="restore" translate href ui-sref="onboarding.import({'fromOnboarding':true})">Restore from backup</button>
     </div>
   </ion-content>
