@@ -1,19 +1,22 @@
 #onboarding-tour {
-  &-currency {
-    .next-slide {
-      margin-top: 3rem;
-    }
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 180px;
   }
+
   .cta-buttons {
+    height: 120px;
     @extend %cta-buttons;
-    padding-bottom: 12vh;
   }
   #onboarding-illustration-currency-exchange-rate {
     font-size: 14px;
     font-weight: normal;
     height: 40px;
     line-height: 10px;
-    margin: 10px auto 0;
+    margin: 0px auto 0;
     position: relative;
     width: 140px;
     z-index: 1;
