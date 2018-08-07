@@ -1,4 +1,21 @@
 #tab-send {
+  .container {
+    background: white;
+    padding-top: 1px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .send-icon {
+      height: 130px;
+    }
+
+    .button-block {
+      height: 120px;
+    }
+  }
+
   .input {
     input {
       width: 100%;
@@ -103,7 +120,6 @@
   .sendTip {
     text-align: center;
     & > .item-heading {
-      margin-top: 10px;
       background: 0 none;
     }
     img {
