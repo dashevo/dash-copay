@@ -78,17 +78,32 @@ $v-tab-send-selected-icon:                           url('../img/app/tab-icons/i
   padding-bottom: 4.5em;
 }
 
-.password-prompt > .popup {
-  margin-bottom: 200px;
-}
-
 .button {
   min-height: 50px !important;
   max-height: 50px !important;
   height: 50px !important;
   font-size: 14px !important;
+  border-radius: 25px !important;
 
   .button-primary {
     color: $v-primary-color !important;
+  }
+}
+
+.popup-container {
+  .popup {
+    width: calc(100% - 60px) !important;
+    background-color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 20px;
+    .popup-head {
+      border-bottom: none !important;
+    }
+    .popup-body {
+      input {
+        border: 1px solid #D4D4D4;
+        padding: 5px;
+      }
+    }
   }
 }
