@@ -22,6 +22,7 @@
     z-index: 1;
   }
   .swiper-pagination {
+    bottom: 30px;
     &-bullet {
       background: $v-onboarding-tour-swiper-pagination-bg;
       &-active {
