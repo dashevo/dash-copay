@@ -185,6 +185,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           }
         }
       })
+      .state('tabs.wallet.screenshotWarning', {
+        url: '/screenshotWarning/:from/:walletId',
+        views: {
+          'tab-home@tabs': {
+            controller: 'backupWarningController',
+            templateUrl: 'views/screenshotWarning.html'
+          }
+        }
+      })
       .state('tabs.wallet.backup', {
         url: '/backup/:walletId',
         views: {
@@ -521,6 +530,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           }
         }
       })
+      .state('tabs.preferences.screenshotWarning', {
+        url: '/screenshotWarning/:from',
+        views: {
+          'tab-settings@tabs': {
+            controller: 'backupWarningController',
+            templateUrl: 'views/screenshotWarning.html'
+          }
+        }
+      })
       .state('tabs.preferences.backup', {
         url: '/backup',
         views: {
@@ -728,6 +746,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           }
         }
       })
+      .state('tabs.receive.screenshotWarning', {
+        url: '/screenshotWarning/:from/:walletId',
+        views: {
+          'tab-receive@tabs': {
+            controller: 'backupWarningController',
+            templateUrl: 'views/screenshotWarning.html'
+          }
+        }
+      })
       .state('tabs.receive.backup', {
         url: '/backup/:walletId',
         views: {
@@ -805,6 +832,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         views: {
           'onboarding': {
             templateUrl: 'views/backupWarning.html',
+            controller: 'backupWarningController'
+          }
+        }
+      })
+      .state('onboarding.screenshotWarning', {
+        url: '/screenshotWarning/:from/:walletId',
+        views: {
+          'onboarding': {
+            templateUrl: 'views/screenshotWarning.html',
             controller: 'backupWarningController'
           }
         }

@@ -1,0 +1,19 @@
+<ion-view id="backup-warning" class="onboarding" hide-tabs>
+  <ion-nav-bar>
+    <ion-nav-buttons side="primary">
+      <button class="button button-back button-clear" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-thin-left"></i>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <div id="warning">
+      <img class="svg" src="img/no-screenshot.svg" id="alert-icon">
+      <div class="onboarding-topic" translate>Screenshots are not secure</div>
+      <div class="onboarding-description" translate>If you take a screenshot, your backup may be viewed by other apps. You can make a safe backup with physical paper and a pen.</div>
+    </div>
+    <div id="cta-buttons">
+      <button class="button button-standard button-primary" ng-click="nextStep()" translate>I understand</button>
+    </div>
+  </ion-content>
+</ion-view>
