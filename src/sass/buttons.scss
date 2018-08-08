@@ -41,9 +41,8 @@
 }
 .onboarding .button {
   &.button-secondary {
-    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
-    @include button-clear($v-button-secondary-color);
-    @include button-outline($v-dash-blue);
+    color: #FFFFFF;
+    border: 1px solid #ffffff;
   }
 }
 
@@ -53,4 +52,14 @@
     @include button-clear($v-button-secondary-color);
     @include button-outline($v-button-secondary-color);
   }
+}
+
+.button-default {
+  background-color: #ffffff !important;
+  border: 1px solid $v-dash-blue;
+  color: $v-dash-blue;
+}
+
+.button-primary {
+  background-color: $v-dash-blue;
 }

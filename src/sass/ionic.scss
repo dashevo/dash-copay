@@ -38,5 +38,7 @@ $placeholder-icon-padding: 10px;
 // we'd like to diverge from the standard ionic formula for left-right card margins
 .card {
   margin: ($content-padding * 2) 14px;
+  box-shadow: none;
+  border-radius: 8px;
 }
 

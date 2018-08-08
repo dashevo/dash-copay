@@ -1,6 +1,9 @@
 #backup-warning{
+  #warning {
+    padding-top: 10%;
+  }
   #cta-buttons {
     @extend %cta-buttons;
-    padding-bottom: 10vh;
+    bottom: 70px;
   }
 }

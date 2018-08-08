@@ -9,7 +9,7 @@
   }
   #alert-icon {
     margin: 20px auto 5px;
-    height: 10vh;
+    height: 96px;
   }
   #arrow-down {
     font-size: 4.2rem;
@@ -19,9 +19,8 @@
     font-size: 16px;
   }
   #backup-description {
-    max-width: 500px;
     margin: auto;
-    padding: 1rem 0.5rem 0 1rem;
+    width: calc(100% - 60px);
     @media (max-height: 480px) {
       padding-top: 40px;
     }

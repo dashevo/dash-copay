@@ -33,7 +33,7 @@
       </div>
       <div class="cta-buttons">
         <div class="tldr-prompt" translate>We'll confirm on the next screen.</div>
-        <button ng-show="!deleted" ng-disabled="credentialsEncrypted || error" class="button button-standard button-primary" ng-click="goToStep(2);" translate>I've written it down</button>
+        <button ng-show="!deleted" ng-disabled="credentialsEncrypted || error" class="button button-standard button-secondary" ng-click="goToStep(2);" translate>I've written it down</button>
       </div>
     </div>
     <!--
@@ -57,8 +57,8 @@
             ng-disabled="shuffledWord.selected">{{shuffledWord.word}}
             </button>
           </span>
-          <button ng-show="selectComplete" class="button button-standard button-primary" ng-click="goToStep(3);" translate>Confirm</button>
-          <button ng-show="selectComplete" class="button button-standard button-secondary button-clear" ng-click="setFlow(2);" translate>Clear</button>
+          <button ng-show="selectComplete" class="button button-standard button-secondary" ng-click="goToStep(3);" translate>Confirm</button>
+          <button ng-show="selectComplete" class="button button-standard button-outline" ng-click="setFlow(2);" translate>Clear</button>
         </div>
       </div>
     </div>
