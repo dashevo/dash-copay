@@ -27,7 +27,6 @@
   }
   .cta-buttons {
     @extend %cta-buttons;
-    padding-bottom: 4vw;
   }
   @media (max-height: 568px) {
     #warning {
