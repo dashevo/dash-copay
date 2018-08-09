@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="20px" height="20px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 viewBox="0 0 24.4 23.9" style="enable-background:new 0 0 24.4 23.9;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000000;}
-</style>
-<path class="st0" d="M2.2,15.9v3c0,1.7,1.3,3,3,3h14c1.7,0,3-1.3,3-3v-3"/>
-<path class="st0" d="M12.2,1.9v15"/>
-<polyline class="st0" points="6.2,10.9 12.2,16.9 18.2,10.9 "/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="49px" viewBox="0 0 50 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-import</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Introduction-warning2" transform="translate(-176.000000, -325.000000)" stroke="#FFFFFF">
+            <g id="icon-import" transform="translate(177.000000, 325.000000)">
+                <path d="M0.476190476,33.4761905 L0.476190476,40.6190476 C0.476190476,44.6666667 3.57142857,47.7619048 7.61904762,47.7619048 L40.952381,47.7619048 C45,47.7619048 48.0952381,44.6666667 48.0952381,40.6190476 L48.0952381,33.4761905" id="Shape"></path>
+                <path d="M24.2857143,0.142857143 L24.2857143,35.8571429" id="Shape"></path>
+                <polyline id="Shape" points="10 21.5714286 24.2857143 35.8571429 38.5714286 21.5714286"></polyline>
+            </g>
+        </g>
+    </g>
 </svg>

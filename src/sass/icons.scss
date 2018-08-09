@@ -35,14 +35,13 @@
 }
 
 .big-icon-svg {
-  padding: 0 7px;
   > .bg {
     border-radius: $v-icon-border-radius;
     width: 38px;
     height: 38px;
     background-repeat:no-repeat;
     background-clip: padding-box;
-    background-size: 103%;
+    background-size: 30px;
     &.green{
       background: #0069B6;
     }
