@@ -456,3 +456,19 @@ input[type=file] {
 .white-space-initial {
   white-space: initial;
 }
+
+ion-header-bar {
+  .button {
+    height: 100% !important;
+    max-height: none !important;
+  }
+
+  .bar-royal.button {
+    background: none;
+  }
+
+  .buttons.buttons-right.header-item {
+    bottom: 0;
+    top: 0;
+  }
+}
