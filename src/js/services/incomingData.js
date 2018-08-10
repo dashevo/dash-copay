@@ -224,6 +224,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
           data: data,
           type: 'bitcoinAddress',
           coin: 'btc',
+          isInstantSend: isInstantSend
         });
       } else {
         goToAmountPage(data, 'btc', isInstantSend);
@@ -234,6 +235,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
           data: data,
           type: 'bitcoinAddress',
           coin: 'bch',
+          isInstantSend: isInstantSend
         });
       } else {
         goToAmountPage(data, 'bch', isInstantSend);
