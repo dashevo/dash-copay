@@ -120,7 +120,7 @@ angular.module('copayApp.controllers').controller('amountController', function (
     $scope.toEmail = data.stateParams.toEmail;
     $scope.toColor = data.stateParams.toColor;
     $scope.showSendMax = false;
-    $scope.isInstantSend = data.stateParams.isInstantSend;
+    $scope.isInstantSend = data.stateParams.isInstantSend == 'true';
 
 
     // Use only with ShapeShift
