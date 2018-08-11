@@ -32,7 +32,7 @@ angular.module('copayApp.controllers').controller('confirmController', function(
   }
 
   $scope.openSupport = function() {
-    var url = 'https://support.bitpay.com/hc/en-us/articles/115005936786';
+    var url = 'https://www.dash.org/get-dash/';
     externalLinkService.open(url);
   };
 
@@ -238,57 +238,36 @@ angular.module('copayApp.controllers').controller('confirmController', function(
       txp.isInstantSend = tx.isInstantSend;
     }
 
-    // TODO - add "Instant" option fee level
+    txp.outputs = [{
+      'toAddress': tx.toAddress,
+      'amount': tx.toAmount,
+      'message': tx.description
+    }];
 
-    walletService.getSendMaxInfo(wallet, {
-      feePerKb: tx.feeRate,
-      excludeUnconfirmedUtxos: !config.spendUnconfirmed,
-      returnInputs: true,
-      isInstantSend:isInstantSend
-    }, function(err, resp) {
+    if (tx.sendMaxInfo) {
+      txp.inputs = tx.sendMaxInfo.inputs;
+      txp.fee = tx.sendMaxInfo.fee;
+    } else {
+      if (usingCustomFee) {
+        txp.feePerKb = tx.feeRate;
+      } else txp.feeLevel = tx.feeLevel;
+    }
 
+    txp.message = tx.description;
+
+    if (tx.paypro) {
+      txp.payProUrl = tx.paypro.url;
+    }
+    txp.excludeUnconfirmedUtxos = !tx.spendUnconfirmed;
+    txp.dryRun = dryRun;
+
+    walletService.createTx(wallet, txp, function(err, ctxp) {
       if (err) {
-        popupService.showAlert(gettextCatalog.getString('Error'), err);
+        setSendError(err);
         return cb(err);
       }
-
-      if (resp !== null && (isInstantSend || tx.sendMax)) {
-        tx.sendMaxInfo = resp;
-      }
-
-      txp.outputs = [{
-        'toAddress': tx.toAddress,
-        'amount': tx.toAmount,
-        'message': tx.description
-      }];
-
-      if (tx.sendMaxInfo) {
-        txp.inputs = tx.sendMaxInfo.inputs;
-        txp.fee = tx.sendMaxInfo.fee;
-      } else {
-        if (usingCustomFee) {
-          txp.feePerKb = tx.feeRate;
-        } else txp.feeLevel = tx.feeLevel;
-      }
-
-      txp.message = tx.description;
-
-      if (tx.paypro) {
-        txp.payProUrl = tx.paypro.url;
-      }
-      txp.excludeUnconfirmedUtxos = !tx.spendUnconfirmed;
-      txp.dryRun = dryRun;
-
-      walletService.createTx(wallet, txp, function (err, ctxp) {
-        if (err) {
-          setSendError(err);
-          return cb(err);
-        }
-        return cb(null, ctxp);
-      });
-
+      return cb(null, ctxp);
     });
-
   }
 
   function updateTx(tx, wallet, opts, cb) {

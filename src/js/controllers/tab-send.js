@@ -6,7 +6,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   var CONTACTS_SHOW_LIMIT;
   var currentContactsPage;
   $scope.isChromeApp = platformInfo.isChromeApp;
-  $scope.isInstantSend = true;
   $scope.serverMessage = null;
 
   var hasWallets = function() {
@@ -159,10 +158,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     updateWalletsList();
   };
 
-  $scope.toggleInstantSend = function(){
-    $scope.isInstantSend = !$scope.isInstantSend;
-  };
-
   $scope.searchInFocus = function() {
     $scope.searchFocus = true;
   };
@@ -175,7 +170,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
 
   $scope.findContact = function(search) {
 
-    if (incomingData.redir(search,$scope.isInstantSend)) {
+    if (incomingData.redir(search,$scope.formData.isInstantSend)) {
       return;
     }
 
@@ -209,7 +204,8 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           toName: item.name,
           toEmail: item.email,
           toColor: item.color,
-          coin: item.coin
+          coin: item.coin,
+          isInstantSend: $scope.isInstantSend
         })
       });
     });
@@ -236,7 +232,8 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
     $scope.checkingBalance = true;
     $scope.formData = {
-      search: null
+      search: null,
+      isInstantSend: false
     };
     originalList = [];
     CONTACTS_SHOW_LIMIT = 10;
