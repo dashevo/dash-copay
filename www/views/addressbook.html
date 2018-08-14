@@ -34,7 +34,7 @@
       </label>
     </div>
     <ion-list>
-      <ion-item ng-repeat="addrEntry in addressbook"
+      <ion-item ng-repeat="addrEntry in addressbook | orderBy:'name'"
                 class="item-icon-right item-avatar"
                 ui-sref="tabs.addressbook.view({address: addrEntry.address})">
         <img src="img/contact-placeholder.svg" class="bg"/ ng-if="isChromeApp">
