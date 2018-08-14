@@ -11,6 +11,9 @@ $default-wallet-color: map-get( map-get($v-wallet-color-map, $v-default-wallet-c
 
 .wallet-background-color-default {
   background-color: $default-wallet-color;
+}
+
+.wallet-padding-default {
   padding: 0.3em;
 }
 

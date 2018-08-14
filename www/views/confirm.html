@@ -73,7 +73,7 @@
           </span>
           <div class="wallet" ng-if="recipientType == 'wallet'">
             <i class="icon big-icon-svg">
-              <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !toColor}" ng-style="{'background-color': toColor}" class="bg"/>
+              <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !toColor}" ng-style="{'background-color': toColor}" class="bg wallet-padding-default"/>
             </i>
             <div copy-to-clipboard="tx.origToAddress" class="ellipsis">
               <contact ng-if="tx.origToAddress && !tx.toName" address="{{tx.origToAddress}}"></contact>
