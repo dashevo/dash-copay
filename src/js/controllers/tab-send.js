@@ -205,7 +205,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
           toEmail: item.email,
           toColor: item.color,
           coin: item.coin,
-          isInstantSend: $scope.isInstantSend
+          isInstantSend: $scope.formData.isInstantSend
         })
       });
     });
