@@ -254,7 +254,10 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         }
       })
       .state('tabs.scan', {
-        url: '/scan',
+        url: '/scan/:isInstantSend',
+        params: {
+          isInstantSend: false
+        },
         views: {
           'tab-scan': {
             controller: 'tabScanController',
