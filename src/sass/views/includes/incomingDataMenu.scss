@@ -65,6 +65,10 @@ incoming-data-menu {
         padding: 0 9px 0 10px;
         display: flex;
         align-items: center;
+
+        > img {
+          width: 20px;
+        }
       }
 
       &__text {

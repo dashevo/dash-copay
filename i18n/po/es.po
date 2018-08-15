@@ -1313,12 +1313,12 @@ msgid "Get news and updates from BitPay"
 msgstr "Recibir noticias y actualizaciones de BitPay"
 
 #: www/views/bitpayCard.html:49
-msgid "Get started"
+msgid "Get Started"
 msgstr "Empezar"
 
 #: www/views/onboarding/welcome.html:8
 msgctxt "button"
-msgid "Get started"
+msgid "Get Started"
 msgstr "Comenzar"
 
 #: www/views/addressbook.html:20

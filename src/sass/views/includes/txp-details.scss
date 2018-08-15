@@ -39,12 +39,12 @@
         margin-bottom: .5rem;
 
         > .unit {
-          font-family: "Roboto-Light";
+          font-family: "Montserrat-Light";
         }
       }
       .alternative {
         font-size: 16px;
-        font-family: "Roboto-Light";
+        font-family: "Montserrat-Light";
         color: #9B9B9B;
       }
     }
@@ -129,13 +129,6 @@
       align-items: center;
       border-radius: 4px;
 
-      img {
-        padding: .2rem;
-        padding-left: 0;
-        border-right: 1px solid #e4e4e4;
-        padding-right: 12px;
-      }
-
       i {
         color: grey;
         position: inherit;
@@ -146,6 +139,10 @@
         margin-left: 15px;
         font-size: 14px;
         display: inline-block;
+      }
+
+      > img {
+        height: 24px;
       }
     }
     .wallet {
@@ -161,9 +158,8 @@
         > img {
           height: 24px;
           width: 24px;
-          padding: 2px;
+          padding: 3px;
           margin-right: .7rem;
-          box-shadow: none;
         }
       }
     }
@@ -237,7 +233,7 @@
             background: #E15061;
             border-color: #E15061;
             color: #FFFFFF;
-            font-family: "Roboto-Bold";
+            font-family: "Montserrat-Bold";
             font-size: 19px;
           }
         }

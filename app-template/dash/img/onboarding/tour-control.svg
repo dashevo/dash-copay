@@ -1,43 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 247 247" style="enable-background:new 0 0 247 247;" xml:space="preserve">
-<style type="text/css">
-	.st0{opacity:0.3;fill:url(#Oval-2_1_);enable-background:new    ;}
-	.st1{fill:#192C3A;fill-opacity:0.65;stroke:#707D89;stroke-width:2;}
-	.st2{fill:none;stroke:#707D89;stroke-width:2;stroke-linecap:square;}
-	.st3{fill:#192C3A;stroke:#0069B6;stroke-width:2;}
-	.st4{fill:none;stroke:#0069B6;stroke-width:2;}
-	.st5{fill:#F9F9F9;stroke:#0069B6;stroke-width:2;}
-	.st6{fill:#FFFFFF;}
-</style>
-<title>tour-control</title>
-<desc>Created with Sketch.</desc>
-<g id="_x30_.2.3---Tour-3">
-	<g id="bg-3">
-		
-			<linearGradient id="Oval-2_1_" gradientUnits="userSpaceOnUse" x1="-622.9656" y1="871.4656" x2="-622.9656" y2="870.5709" gradientTransform="matrix(247 0 0 -247 153996 215252)">
-			<stop  offset="0" style="stop-color:#192C3A"/>
-			<stop  offset="1" style="stop-color:#192C3A"/>
-		</linearGradient>
-		<path id="Oval-2" class="st0" d="M123.5,247c68.2,0,123.5-55.3,123.5-123.5S191.7,0,123.5,0S0,55.3,0,123.5S55.3,247,123.5,247z"
-			/>
-		<path id="Combined-Shape" class="st1" d="M71,24h83.8c4.4,0,8,3.6,8,8v167.9c0,4.4-3.6,8-8,8H71c-4.4,0-8-3.6-8-8V32
-			C63,27.6,66.6,24,71,24z"/>
-		<path id="Line" class="st2" d="M63.5,180.6h98.8"/>
-		<path id="Line_1_" class="st2" d="M104.1,194.3h18.7"/>
-		<g id="Group-3" transform="translate(125.000000, 122.000000)">
-			<path id="Rectangle-path" class="st3" d="M4,37.6h66.8c2.2,0,4,1.8,4,4v57.7c0,2.2-1.8,4-4,4H4c-2.2,0-4-1.8-4-4V41.6
-				C0,39.4,1.8,37.6,4,37.6z"/>
-			<path id="Shape_6_" class="st4" d="M18.7,37.6V18.9c0-10.3,8.4-18.8,18.7-18.8l0,0c10.3,0,18.7,8.4,18.7,18.8v18.8"/>
-			<path id="Shape_7_" class="st5" d="M36.6,65.8v9.4"/>
-		</g>
-	</g>
-</g>
-<g id="Dash_Icon_Light">
-	<path id="D_2_" class="st6" d="M136.3,96.6c0-0.9-0.4-1.7-0.7-2.4c-0.4-0.7-1-1.3-1.8-1.6c-0.7-0.4-1.5-0.6-2.5-0.6H98.2l-2.4,7.1
-		h29.9l-4.7,14.5h-2.2h-17.4H91.1l-2.4,7.1h33.2c0.9,0,1.8-0.2,2.9-0.6c1-0.5,2-1.1,2.9-1.8c0.8-0.6,1.6-1.5,2.3-2.4
-		c0.6-0.9,1.1-1.8,1.5-2.8l4.4-13.8C136.3,98.5,136.5,97.5,136.3,96.6z"/>
-	<polygon id="_x2D__2_" class="st6" points="107.6,103.1 90,103.1 87.6,109.7 105.4,109.7 	"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="134px" viewBox="0 0 104 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>dashsecure</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Introduction-highlight3" transform="translate(-150.000000, -307.000000)">
+            <g id="dashsecure" transform="translate(150.000000, 307.000000)">
+                <rect id="Rectangle-3" stroke="#FFFFFF" x="0.5" y="0.5" width="74" height="128.452055" rx="9"></rect>
+                <path d="M1.125,111.375 L74.625,111.375" id="Line" stroke="#FFFFFF" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#FFFFFF" cx="37.5" cy="120" r="3.75"></circle>
+                <g id="locked" transform="translate(64.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M31,21.314 L31,10.22 C31,4.585 26.065,0 20,0 C13.935,0 9,4.585 9,10.22 L9,21.314 C3.584,24.896 0,31.034 0,38 C0,49.028 8.972,58 20,58 C31.028,58 40,49.028 40,38 C40,31.034 36.416,24.896 31,21.314 Z M11,20.157 L11,10.22 C11,5.688 15.037,2 20,2 C24.963,2 29,5.688 29,10.22 L29,20.158 C28.812,20.063 28.62,19.979 28.43,19.89 C28.037,19.706 27.638,19.534 27.232,19.375 C26.971,19.273 26.709,19.177 26.445,19.086 C26.185,18.997 25.927,18.908 25.663,18.83 C25.226,18.7 24.784,18.589 24.339,18.489 C24.146,18.446 23.952,18.405 23.757,18.367 C23.234,18.266 22.708,18.184 22.178,18.125 C22.058,18.112 21.938,18.104 21.818,18.093 C21.213,18.036 20.608,18 20,18 C19.392,18 18.787,18.036 18.184,18.092 C18.064,18.103 17.943,18.111 17.824,18.124 C17.294,18.183 16.768,18.265 16.245,18.366 C16.05,18.403 15.856,18.445 15.663,18.488 C15.218,18.588 14.776,18.699 14.339,18.829 C14.075,18.907 13.816,18.997 13.557,19.085 C13.293,19.176 13.03,19.272 12.77,19.374 C12.363,19.532 11.965,19.705 11.572,19.889 C11.38,19.978 11.188,20.062 11,20.157 Z M24,40 C24,42.206 22.206,44 20,44 C17.794,44 16,42.206 16,40 L16,34 C16,31.794 17.794,30 20,30 C22.206,30 24,31.794 24,34 L24,40 Z" id="Shape"></path>
+                </g>
+                <g id="Group-2" transform="translate(18.000000, 42.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <path d="M26.1169971,0 L11.4637864,0 L10.2494026,6.82767811 L23.4721028,6.84371598 C29.9842472,6.84371598 31.9099003,9.22177586 31.8549829,13.1697651 C31.8266384,15.1923189 30.9550456,18.6110584 30.5785955,19.7194535 C29.5750237,22.6739857 27.5138485,26.0455026 19.784663,26.0321377 L6.93132685,26.0267918 L5.71428571,32.8571429 L20.3347231,32.8571429 C25.491647,32.8571429 27.6865727,32.2539407 30.0072771,31.1740574 C35.1562291,28.7826326 38.2200903,23.6710067 39.4468749,17.0001433 C41.2750939,7.06646419 38.9986778,0 26.1169971,0 Z" id="Shape"></path>
+                    <path d="M5.28090376,12.8571429 C1.51553335,12.8571429 0.975885292,15.4870553 0.619595916,17.0758056 C0.152943732,19.1571987 0,20 0,20 L14.7190962,20 C18.4844667,20 19.0241147,17.3700875 19.3804041,15.7813373 C19.8470563,13.6999441 20,12.8571429 20,12.8571429 L5.28090376,12.8571429 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

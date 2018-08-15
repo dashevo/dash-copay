@@ -1,6 +1,5 @@
 %button-standard {
-  width: 85%;
-  max-width: 300px;
+  width: calc(100% - 60px);
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -8,12 +7,22 @@
 
 .button,
 .onboarding .button {
+  border-radius: 25px;
+
   &.button-primary {
+    background: #FFFFFF;
     color: $v-dash-blue;
-    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
-    @include button-clear($v-button-primary-bg);
-    @include button-outline($v-button-primary-bg);
+
+    &:hover, &:active {
+      background: #FFFFFF;
+      color: $v-dash-blue;
+    }
   }
+
+  &.button-secondary {
+    color: #FFFFFF !important;
+  }
+
   &.button-primary,
   &.button-secondary,
   &.button-light,
@@ -26,12 +35,14 @@
       }
     }
   }
+  &.button-clear {
+    margin-top: 0 !important;
+  }
 }
 .onboarding .button {
   &.button-secondary {
-    @include button-style($v-dash-blue, $v-button-primary-border, lighten($v-dash-blue, 7%), $v-button-primary-active-border, #ffffff);
-    @include button-clear($v-button-secondary-color);
-    @include button-outline($v-dash-blue);
+    color: #FFFFFF;
+    border: 1px solid #ffffff;
   }
 }
 
@@ -41,4 +52,14 @@
     @include button-clear($v-button-secondary-color);
     @include button-outline($v-button-secondary-color);
   }
+}
+
+.button-default {
+  background-color: #ffffff !important;
+  border: 1px solid $v-dash-blue;
+  color: $v-dash-blue;
+}
+
+.button-primary {
+  background-color: $v-dash-blue;
 }

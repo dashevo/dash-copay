@@ -30,25 +30,25 @@
       </div>
     </div>
 
-    <div ng-if="!checkingBalance && (!hasFunds || !hasWallets)">
-      <div class="list card sendTip">
-        <div class="item item-icon-right item-heading"></div>
-        <div>
-          <i class="icon zero-state-icon">
-            <img src="img/tab-icons/ico-send-selected.svg"/>
-          </i>
-        </div>
-        <div class="title" translate>
-          Start sending Dash
-        </div>
-        <div class="subtitle">
-          <span ng-show="hasWallets" translate>To get started, buy Dash or share your address. You can receive Dash from any wallet or service.</span>
-          <span ng-show="!hasWallets" translate>To get started, you'll need to create a Dash wallet and get some Dash.</span>
-          <div class="padding">
-            <button class="button button-standard button-primary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash address</button>
-            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Dash wallet</button>
-          </div>
-        </div>
+    <div class="sendTip container" ng-if="!checkingBalance && (!hasFunds || !hasWallets)">
+      <div class="item item-icon-right item-heading"></div>
+      <div>
+        <img class="send-icon" src="img/tab-icons/ico-send-selected.svg"/>
+      </div>
+      <div class="title" translate>
+        Start sending Dash
+      </div>
+      <div class="send-content">
+        <span ng-show="hasWallets" translate>
+          To get started, buy Dash or share your address. You can receive Dash from any wallet or service.
+        </span>
+        <span ng-show="!hasWallets" translate>
+          To get started, you'll need to create a Dash wallet and get some Dash.
+        </span>
+      </div>
+      <div class="button-block">
+        <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Dash address</button>
+        <button class="button button-standard button-secondary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Dash wallet</button>
       </div>
     </div>
 

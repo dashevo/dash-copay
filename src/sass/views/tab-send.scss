@@ -1,4 +1,28 @@
 #tab-send {
+  .container {
+    background: white;
+    padding-top: 1px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .send-icon {
+      height: 96px;
+      margin-top:100px;
+    }
+
+    .button-block {
+      height: 120px;
+    }
+
+    .send-content {
+      width: calc(100% - 60px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .input {
     input {
       width: 100%;
@@ -28,7 +52,6 @@
     line-height: 20px;
   }
   .zero-state-cta {
-    padding-bottom: 3vh;
     left: 0;
   }
   .send-heading {
@@ -103,7 +126,6 @@
   .sendTip {
     text-align: center;
     & > .item-heading {
-      margin-top: 10px;
       background: 0 none;
     }
     img {
@@ -186,5 +208,16 @@
     i {
       margin: 0 10px;
     }
+  }
+}
+
+#view-confirm {
+  .wallet-coin-logo {
+    vertical-align: middle;
+    background: $v-primary-color;
+    padding: 3px;
+    border-radius: 3px;
+    height: 24px;
+    width: 24px;
   }
 }

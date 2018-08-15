@@ -1,35 +1,19 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('backupWarningController', function($scope, $state, $timeout, $stateParams, $ionicModal) {
+angular.module('copayApp.controllers').controller('backupWarningController', function($scope, $state, $stateParams) {
 
   $scope.walletId = $stateParams.walletId;
-  $scope.fromState = $stateParams.from == 'onboarding' ? $stateParams.from + '.backupRequest' : $stateParams.from;
-  $scope.toState = $stateParams.from + '.backup';
 
-  $scope.openPopup = function() {
-    $ionicModal.fromTemplateUrl('views/includes/screenshotWarningModal.html', {
-      scope: $scope,
-      backdropClickToClose: true,
-      hardwareBackButtonClose: true
-    }).then(function(modal) {
-      $scope.warningModal = modal;
-      $scope.warningModal.show();
-    });
-
-    $scope.close = function() {
-      $scope.warningModal.remove();
-      $timeout(function() {
-        $state.go($scope.toState, {
-          walletId: $scope.walletId
-        });
-      }, 200);
-    };
+  if ($state.current.name.indexOf('screenshotWarning') > 0) {
+    $scope.toState = $stateParams.from + '.backup'
+  } else {
+    $scope.toState = $stateParams.from + '.screenshotWarning'
   }
 
-  $scope.goBack = function() {
-    $state.go($scope.fromState, {
-      walletId: $scope.walletId
+  $scope.nextStep = function() {
+    $state.go($scope.toState, {
+      walletId: $scope.walletId,
+      from: $stateParams.from
     });
-  };
-
+  }
 });

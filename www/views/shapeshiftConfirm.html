@@ -28,7 +28,7 @@
           <div class="wallet">
             <i class="icon big-icon-svg">
               <img ng-src="img/{{fromWallet.network == 'testnet' ? 'icon-wallet-testnet' : 'icon-wallet'}}.svg"
-              ng-class="{'wallet-background-color-default': !fromWallet.color}" ng-style="{'background-color': fromWallet.color}" class="bg">
+              ng-class="{'wallet-background-color-default': !fromWallet.color}" ng-style="{'background-color': fromWallet.color}" class="bg wallet-padding-default">
             </i>
             {{fromWallet ? fromWallet.name : '...'}}
           </div>
@@ -44,7 +44,7 @@
           <div class="wallet">
             <i class="icon big-icon-svg">
               <img ng-src="img/{{toWallet.network == 'testnet' ? 'icon-wallet-testnet' : 'icon-wallet'}}.svg"
-              ng-class="{'wallet-background-color-default': !toWallet.color}" ng-style="{'background-color': toWallet.color}" class="bg">
+              ng-class="{'wallet-background-color-default': !toWallet.color}" ng-style="{'background-color': toWallet.color}" class="bg wallet-padding-default">
             </i>
             {{toWallet ? toWallet.name : '...'}}
           </div>

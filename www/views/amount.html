@@ -20,7 +20,7 @@
       <div class="item item-text-wrap item-icon-left bitcoin-address">
         <i class="icon big-icon-svg" ng-if="recipientType == 'wallet'">
           <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !toColor}" ng-style="{'background-color': toColor}"
-            class="bg" />
+            class="bg wallet-padding-default" />
         </i>
         <span ng-if="recipientType == 'contact'">
           <i class="icon big-icon-svg" ng-if="isChromeApp">
@@ -59,7 +59,7 @@
           ng-click="changeAlternativeUnit()">
           <div class="amount__result" ng-show="globalResult">{{globalResult}} {{unit}}</div>
           <div class="amount__result-equiv" ng-show="alternativeAmount">&asymp; {{alternativeAmount || '0.00'}} {{alternativeUnit}}</div>
-          <div class="amount__result-equiv" ng-show="!alternativeAmount">&nbsp;</div>
+          <div class="ammunt__result-equiv" ng-show="!alternativeAmount">&nbsp;</div>
         </div>
       </div>
     </div>

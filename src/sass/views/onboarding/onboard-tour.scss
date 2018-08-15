@@ -1,24 +1,27 @@
 #onboarding-tour {
-  &-currency {
-    .next-slide {
-      margin-top: 3rem;
-    }
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 180px;
   }
+
   .cta-buttons {
     @extend %cta-buttons;
-    padding-bottom: 12vh;
   }
   #onboarding-illustration-currency-exchange-rate {
     font-size: 14px;
     font-weight: normal;
     height: 40px;
-    line-height: 38px;
-    margin: 10px auto 0;
+    line-height: 10px;
+    margin: 0px auto 0;
     position: relative;
     width: 140px;
     z-index: 1;
   }
   .swiper-pagination {
+    bottom: 30px;
     &-bullet {
       background: $v-onboarding-tour-swiper-pagination-bg;
       &-active {

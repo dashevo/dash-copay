@@ -35,15 +35,13 @@
 }
 
 .big-icon-svg {
-  padding: 0 7px;
   > .bg {
     border-radius: $v-icon-border-radius;
-    width: 40px;
-    height: 40px;
-    box-shadow: $v-hovering-box-shadow;
+    width: 38px;
+    height: 38px;
     background-repeat:no-repeat;
     background-clip: padding-box;
-    background-size: 103%;
+    background-size: 30px;
     &.green{
       background: #0069B6;
     }
@@ -64,9 +62,7 @@
         border-radius: $v-icon-border-radius;
         width: 70px;
         height: 70px;
-        padding:.1rem;
         margin: 0.2rem;
-        box-shadow: 0px 1px 5px rgba($v-mid-gray, .1);
         display:flex;
         margin:auto;
       }
