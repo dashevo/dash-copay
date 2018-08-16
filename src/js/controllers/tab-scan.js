@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabScanController', function($scope, $log, $timeout, scannerService, incomingData, $state, $ionicHistory, $rootScope) {
+angular.module('copayApp.controllers').controller('tabScanController', function($scope, $log, $timeout, scannerService, incomingData, $state, $ionicHistory, $rootScope, $stateParams, gettextCatalog, popupService) {
 
   var scannerStates = {
     unauthorized: 'unauthorized',
@@ -132,6 +132,12 @@ angular.module('copayApp.controllers').controller('tabScanController', function(
         $log.debug('Camera toggle control deactivated.');
       }, 200);
     });
+  };
+
+  $scope.onScan = function(data) {
+    if (!incomingData.redir(data, $stateParams.isInstantSend)) {
+      popupService.showAlert(gettextCatalog.getString('Error'), gettextCatalog.getString('Invalid data'));
+    }
   };
 
   $scope.canGoBack = function(){

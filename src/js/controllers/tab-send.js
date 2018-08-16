@@ -137,20 +137,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   };
 
   $scope.openScanner = function() {
-    var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
-
-    if (!isWindowsPhoneApp) {
-      $state.go('tabs.scan');
-      return;
-    }
-
-    scannerService.useOldScanner(function(err, contents) {
-      if (err) {
-        popupService.showAlert(gettextCatalog.getString('Error'), err);
-        return;
-      }
-      incomingData.redir(contents);
-    });
+    $state.go('tabs.scan', {isInstantSend: $scope.formData.isInstantSend});
   };
 
   $scope.showMore = function() {
