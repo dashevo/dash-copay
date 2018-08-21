@@ -459,21 +459,6 @@ input[type=file] {
 
 ion-header-bar {
   .button {
-    height: 100% !important;
-    max-height: none !important;
-    display: flex !important;
-    justify-content: flex-end;
-    flex-direction: column;
-    bottom: 12px;
-    position: relative;
-  }
-
-  .bar-royal.button {
-    background: none;
-  }
-
-  .buttons.buttons-right.header-item {
-    bottom: 0;
-    top: 0;
+    bottom: 5px;
   }
 }
