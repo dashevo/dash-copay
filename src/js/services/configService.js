@@ -78,7 +78,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
       url: 'https://api.github.com/repos/bitpay/copay/releases/latest'
     },
 
-    pushNotificationsEnabled: true,
+    pushNotificationsEnabled: false,
 
     confirmedTxsNotifications: {
       enabled: true,
