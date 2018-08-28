@@ -252,22 +252,21 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
     updateTxHistory(cb);
   };
 
-  $scope.hideToggle = function() {
-    profileService.toggleHideBalanceFlag($scope.wallet.credentials.walletId, function(err) {
-      if (err) $log.error(err);
-    });
-  };
-
   var prevPos;
 
   $scope.$on("$ionicView.enter", function(event, data) {
     if ($scope.isCordova && $scope.isAndroid) setAndroidStatusBarColor();
   });
 
+  $scope.balanceIsShown = function() {
+    return !$scope.updateStatusError && !$scope.balanceIsHidden && !$scope.wallet.scanning;
+  };
+
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
     var clearCache = data.stateParams.clearCache;
     $scope.walletId = data.stateParams.walletId;
     $scope.wallet = profileService.getWallet($scope.walletId);
+    $scope.balanceIsHidden = $scope.wallet.balanceHidden
     if (!$scope.wallet) return;
     // Getting info from cache
     if (clearCache) {
