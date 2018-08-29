@@ -477,3 +477,10 @@ ion-header-bar {
     top: 0;
   }
 }
+
+.keyboard-open {
+  .popup {
+    position: fixed;
+    top: 50px;
+  }
+}
