@@ -31,8 +31,8 @@
 
       <div
         ng-click="updateAll(true)"
-        ng-show="!updateStatusError && !wallet.balanceHidden && !wallet.scanning"
-        on-hold="hideToggle()"
+        ng-show="balanceIsShown()"
+        on-hold="balanceIsHidden = false"
         ng-style="{'transform': amountScale}"
         ng-class="{amount__balance: amountIsCollapsible}">
         <strong class="size-36">{{status.totalBalanceStr}}</strong>
@@ -46,8 +46,8 @@
 
       <div ng-style="{'transform': amountScale}"
       class="amount__balance"
-      ng-show="!updateStatusError && wallet.balanceHidden  && !wallet.scanning"
-      on-hold="hideToggle()">
+      ng-hide="balanceIsShown()"
+      on-hold="balanceIsHidden = false">
         <strong class="size-24" translate>[Balance Hidden]</strong>
         <div ng-style="{opacity: altAmountOpacity}" class="size-14 amount-alternative" translate>
           Tap and hold to show
@@ -65,7 +65,7 @@
       </div>
 
 
-      <div ng-if="!wallet.balanceHidden && !wallet.scanning && showBalanceButton" ng-style="{'opacity': altAmountOpacity, 'transform': amountScale}">
+      <div ng-show="!balanceIsHidden && !wallet.scanning && showBalanceButton" ng-style="{'opacity': altAmountOpacity, 'transform': amountScale}">
         <button class="button button-standard button-primary amount__button-balance size-14" ng-click="openBalanceModal()">
           <i class="icon ion-ios-checkmark-outline"></i>
           <strong>
@@ -111,8 +111,8 @@
 
       <div
         ng-click='updateAll(true)'
-        ng-show="!updateStatusError && !wallet.balanceHidden && !wallet.scanning"
-        on-hold="hideToggle()"
+        ng-show="balanceIsShown()"
+        on-hold="balanceIsHidden = false"
         ng-style="{'transform': amountScale}"
         ng-class="{amount__balance: amountIsCollapsible}">
         <strong class="size-36">{{status.totalBalanceStr}}</strong>
@@ -126,8 +126,8 @@
 
       <div ng-style="{'transform': amountScale}"
       class="amount__balance"
-      ng-show="!updateStatusError && wallet.balanceHidden  && !wallet.scanning"
-      on-hold="hideToggle()">
+      ng-hide="balanceIsShown()"
+      on-hold="balanceIsHidden = false">
         <strong class="size-24" translate>[Balance Hidden]</strong>
         <div ng-style="{opacity: altAmountOpacity}" class="size-14 amount-alternative" translate>
           Tap and hold to show
@@ -145,7 +145,7 @@
       </div>
 
 
-      <div ng-if="!wallet.balanceHidden && !wallet.scanning && showBalanceButton" ng-style="{'opacity': altAmountOpacity, 'transform': amountScale}">
+      <div ng-show="!balanceIsHidden && !wallet.scanning && showBalanceButton" ng-style="{'opacity': altAmountOpacity, 'transform': amountScale}">
         <button class="button button-standard button-primary amount__button-balance size-14" ng-click="openBalanceModal()">
           <i class="icon ion-ios-checkmark-outline"></i>
           <strong>
